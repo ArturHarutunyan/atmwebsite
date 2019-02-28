@@ -1,0 +1,13 @@
+.nav-tabs{
+    border: 1px solid #80808036; padding: 0px 5px 0px;
+}
+.tab-content{
+    border: 1px solid #80808036; padding: 5px;
+}
+.nav-tabs li{
+    cursor:pointer;
+}
+.old-image{
+    height: 200px;
+    margin-bottom: 15px;
+}

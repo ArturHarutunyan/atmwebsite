@@ -1,0 +1,87 @@
+/* #first_path_background, */
+#secend_path_background ,.dashed{
+  stroke-dasharray: 14;
+}
+#first_path_background{
+  /* stroke-dasharray:none; */
+  stroke-linejoin: round ;
+}
+.preloader_container{
+  display: flex;
+}
+#dot{
+  r: 80;
+  transition: r 1.5s ease-in-out;
+} 
+/* .dashed{
+  stroke-dasharray: 10;
+
+}
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000; 
+  animation: dash 5s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+} */
+#first_path_background{ 
+  /* stroke-dasharray: 1000 !important;
+  stroke-dashoffset: 1000 !important; */
+  /* animation: dash 5s linear forwards; */ 
+}
+/* [data-id="secend_path_background2"]{
+  stroke-dasharray: 1000 !important;
+  stroke-dashoffset: 1000 !important;
+} */
+
+/* @keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  } 
+} */
+.svgContainer {
+  /* visibility: hidden; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 1;
+
+  z-index: 1;
+}
+#SVGpath {
+  overflow: visible !important;
+  display: block;
+  margin: auto;
+  width: 98.5%;
+  max-width: 1500px;
+  height: 107px;
+  /* margin-right: 10%; */
+}
+.higherThanSvg {
+  position: relative;
+  z-index: 2;
+}
+/* paddingsForResponsive{
+
+} */
+
+/* development */
+/* body{
+    background:black !important;
+} */
+
+/* svg shadow  */
+/* .shadow { */
+  /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
+  /* -webkit-filter: drop-shadow(-5px -5px 5px #000);
+  filter: drop-shadow(-5px -5px 5px #000); */
+/* } */
