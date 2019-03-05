@@ -6,7 +6,6 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-//asddf
 define('LARAVEL_START', microtime(true));
 
 /*
