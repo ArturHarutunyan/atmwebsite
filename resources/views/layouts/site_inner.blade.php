@@ -29,6 +29,7 @@ $types=TourType::all();
     <script src="{{asset('js/owl_carousel_custom.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     @yield('before_scripts')
+    @yield('after_scripts')
     <script src="{{asset('js/site.js')}}"></script>
 
     
@@ -251,7 +252,6 @@ $types=TourType::all();
         </div>
     </div>
 </footer>
-@yield('after_scripts')
 </div>
 </body>
 </html>
