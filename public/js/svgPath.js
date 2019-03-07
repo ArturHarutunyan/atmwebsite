@@ -843,6 +843,8 @@ function SvgLogic() {
 				$(".tour").css({ 'opacity': '1' })
 
 				$(".gallery ").addClass('galleryShow')
+
+				console.log(1)
 				$(".gallery ").css({  'opacity': '1'  })
 
 				setTimeout(function () {
@@ -1196,7 +1198,7 @@ function mobileAnimations() {
 	oTop3 = $(".gallery").offset().top + $(document).scrollTop()
 	oTop3 /= 2.5
 
-	if ($(document).scrollTop() >= oTop3) {
+	if ($(document).scrollTop() >= oTop3 && window.width<1008) {
 		// $('.gallery').css({
 		// 	'transform': 'scale(1)'
 		// })
