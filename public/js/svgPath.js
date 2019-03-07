@@ -38,7 +38,7 @@ function countEfect(needToAnimate, plasValue) {
 		}
 	}
 }
-window.onload = function () {
+window.onpageshow = function () {
 
 
 	// title animation traing
@@ -390,8 +390,9 @@ function SvgLogic() {
 
 		}
 
+		console.log(14654)
 
-		if ($(window).width() < 1536 &&  $(window).width() > 1528) {
+		if ($(window).width() < 1536 &&  $(window).width() >= 1528) {
 			console.log(1)
 			if ($(".header__languagePicker__button").html() == "ru") {
 
@@ -603,6 +604,19 @@ function SvgLogic() {
 
 			if ($(window).width() < 1410) {
 				secendBreackpointPositionOnTop -= 5;
+				forthBreackpointPositionOnTop -= 5;
+			}
+
+			if ($(window).width() < 1410 && $(window).width() >= 1305) {
+				forthBreackpointPositionOnTop -= 5;
+			}
+
+			if ($(window).width() < 1179 && $(window).width() >= 1072) {
+				forthBreackpointPositionOnTop += 5;
+			}
+
+			
+			if ($(window).width() < 1171 && $(window).width() >= 1062) {
 				forthBreackpointPositionOnTop -= 5;
 			}
 			if ($(window).width() < 1282) {
@@ -829,6 +843,8 @@ function SvgLogic() {
 				$(".tour").css({ 'opacity': '1' })
 
 				$(".gallery ").addClass('galleryShow')
+
+				console.log(1)
 				$(".gallery ").css({  'opacity': '1'  })
 
 				setTimeout(function () {
@@ -1182,7 +1198,7 @@ function mobileAnimations() {
 	oTop3 = $(".gallery").offset().top + $(document).scrollTop()
 	oTop3 /= 2.5
 
-	if ($(document).scrollTop() >= oTop3) {
+	if ($(document).scrollTop() >= oTop3 && window.width<1008) {
 		// $('.gallery').css({
 		// 	'transform': 'scale(1)'
 		// })
