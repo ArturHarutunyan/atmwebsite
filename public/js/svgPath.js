@@ -390,8 +390,9 @@ function SvgLogic() {
 
 		}
 
+		console.log(14654)
 
-		if ($(window).width() < 1536 &&  $(window).width() > 1528) {
+		if ($(window).width() < 1536 &&  $(window).width() >= 1528) {
 			console.log(1)
 			if ($(".header__languagePicker__button").html() == "ru") {
 
