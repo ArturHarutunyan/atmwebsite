@@ -38,7 +38,7 @@ function countEfect(needToAnimate, plasValue) {
 		}
 	}
 }
-window.onload = function () {
+window.onpageshow = function () {
 
 
 	// title animation traing
@@ -391,7 +391,7 @@ function SvgLogic() {
 		}
 
 
-		if ($(window).width() < 1536 &&  $(window).width() > 1528) {
+		if ($(window).width() < 1536 &&  $(window).width() >= 1528) {
 			console.log(1)
 			if ($(".header__languagePicker__button").html() == "ru") {
 
@@ -603,6 +603,19 @@ function SvgLogic() {
 
 			if ($(window).width() < 1410) {
 				secendBreackpointPositionOnTop -= 5;
+				forthBreackpointPositionOnTop -= 5;
+			}
+
+			if ($(window).width() < 1410 && $(window).width() >= 1305) {
+				forthBreackpointPositionOnTop -= 5;
+			}
+
+			if ($(window).width() < 1179 && $(window).width() >= 1072) {
+				forthBreackpointPositionOnTop += 5;
+			}
+
+			
+			if ($(window).width() < 1171 && $(window).width() >= 1062) {
 				forthBreackpointPositionOnTop -= 5;
 			}
 			if ($(window).width() < 1282) {
