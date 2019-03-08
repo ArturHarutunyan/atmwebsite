@@ -250,8 +250,9 @@ $types=TourType::all();
             <p class="footer__design">{{trans('site.design_created')}} <img src="{{asset('uploads/images/main/heart.png')}}" alt="heart"/> <a class="footer__design" href="http://braind.am">{{trans('site.by_braind')}}</a></p>
         </div>
     </div>
-    @yield('after_scripts')
+   
 </footer>
 </div>
+@yield('after_scripts')
 </body>
 </html>
