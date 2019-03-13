@@ -4248,7 +4248,7 @@ some testing
         width: 25%; }
     /*  ----- Tours page footer ----- */
     .footer-top {
-        padding: 70px 0; }
+        padding: 80px 0; }
 }
 @media screen and (max-width: 1440px) {
     .background_container{
@@ -4813,8 +4813,8 @@ some testing
         font-size: 50px;
         margin-bottom: 35px; }
     /*  ----- footer ----- */
-    .footer-top {
-        padding: 70px 0; }
+    /* .footer-top {
+        padding: 70px 0; } */
     .footer-top__col {
         width: 33.333%;
         margin-bottom: 20px; 
