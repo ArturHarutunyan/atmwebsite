@@ -1224,8 +1224,8 @@ function mobileAnimations() {
 		$('.animated').removeClass('mobileTopAnimation')
 	}
 	// counting efect on mobile
-	oTop6 = $('.achievement').offset().top + $(document).scrollTop()
-	oTop6 /= 2.2
+	oTop6 = $('.achievement').offset().top
+	oTop6 +=200
 	if ($(document).scrollTop() >= oTop6 && $(document).width() <= 1008 && needToAnimateMobile) {
 		needToAnimateMobile = false
 		countEfect(true)
