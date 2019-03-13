@@ -19,7 +19,7 @@ return [
 
     'levels' => [
         'info',
-        'warning',
+        /*'warning',*/
         'error',
         'success',
     ],

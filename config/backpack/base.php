@@ -15,8 +15,8 @@ return [
     'project_name' => 'Armenia Travel',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<b>Armenia</b>Travel',
+    'logo_mini' => '<b>A</b>T',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',
@@ -62,7 +62,7 @@ return [
 
     // Set this to false if you would like to use your own AuthController and PasswordController
     // (you then need to setup your auth routes manually in your routes.php file)
-    'setup_auth_routes' => true,
+    'setup_auth_routes' => false,
 
     // Set this to false if you would like to skip adding the dashboard routes
     // (you then need to overwrite the login route on your AuthController)
