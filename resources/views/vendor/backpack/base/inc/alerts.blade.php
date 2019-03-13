@@ -9,6 +9,7 @@
 
     @foreach (Alert::getMessages() as $type => $messages)
         @if($type!='warning')
+        //Hide the warning alerts
             @foreach ($messages as $message)
                 $(function(){
                     new PNotify({
