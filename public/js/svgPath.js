@@ -1225,7 +1225,7 @@ function mobileAnimations() {
 	}
 	// counting efect on mobile
 	oTop6 = $('.achievement').offset().top
-	oTop6 +=200
+	oTop6 -=200
 	if ($(document).scrollTop() >= oTop6 && $(document).width() <= 1008 && needToAnimateMobile) {
 		needToAnimateMobile = false
 		countEfect(true)
