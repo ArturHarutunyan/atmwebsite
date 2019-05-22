@@ -15,8 +15,8 @@ return [
     'project_name' => 'Armenia Travel',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<b>Armenia</b>Travel',
+    'logo_mini' => '<b>A</b>T',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',

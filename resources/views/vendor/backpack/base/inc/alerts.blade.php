@@ -8,18 +8,19 @@
     PNotify.prototype.options.styling = "fontawesome";
 
     @foreach (Alert::getMessages() as $type => $messages)
-        @foreach ($messages as $message)
-
-            $(function(){
-              new PNotify({
-                // title: 'Regular Notice',
-                text: "{!! str_replace('"', "'", $message) !!}",
-                type: "{{ $type }}",
-                icon: false
-              });
-            });
-
-        @endforeach
+        @if($type!='warning')
+        //Hide the warning alerts
+            @foreach ($messages as $message)
+                $(function(){
+                    new PNotify({
+                        // title: 'Regular Notice',
+                        text: "{!! str_replace('"', "'", $message) !!}",
+                        type: "{{ $type }}",
+                        icon: false
+                    });
+                });
+            @endforeach
+        @endif
     @endforeach
   });
 </script>
