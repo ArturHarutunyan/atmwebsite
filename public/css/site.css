@@ -4250,6 +4250,7 @@ some testing
     .footer-top {
         padding: 73px 0; }
 } 
+
 @media screen and (max-width: 1440px) {
     .background_container{
         background-size:  100% 30%,52.2% 16.4vh,40% 7.5%,100% 100%  !important ;
