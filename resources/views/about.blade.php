@@ -269,7 +269,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <img src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
                     </button>
-                    <img class="modal-image" src="http://10.10.10.254/uploads/about_armenia_contents/1540393149img_1.png" alt="image"/>
+                    <img class="modal-image" src="https://armeniatravel.am/uploads/about_armenia_contents/1540393149img_1.png" alt="image"/>
                 </div>
                 <div class="armenia-modal__body">
                     <div class="armenia-modal__text">
