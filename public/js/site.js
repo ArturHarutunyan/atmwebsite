@@ -1,9 +1,8 @@
 $ = jQuery.noConflict();
 hash = window.location.hash;
 $(".about-menu__link").click(function () {
-
     $("html , body").stop().animate(10000)
-})
+});
 
 window.onload = function () {
     if (window.location.hash && (window.location.href.search('armenia#') > 0 || window.location.href.search('news#') > 0)) {
@@ -13,8 +12,56 @@ window.onload = function () {
     }
     $('.preloader_container').remove();
     document.getElementById("MainBlock").style.visibility = "visible";
-
 }
+
+//----------------------Intersection Observer Start------------------------
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyloadImages;
+    if ("IntersectionObserver" in window) {
+        lazyloadImages = document.querySelectorAll(".lazy-bg");
+        var imageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var image = entry.target;
+                    image.classList.remove("lazy-bg");
+                    imageObserver.unobserve(image);
+                }
+            });
+        });
+        lazyloadImages.forEach(function(image) {
+            imageObserver.observe(image);
+        });
+    }
+    else {
+        var lazyloadThrottleTimeout;
+        lazyloadImages = document.querySelectorAll(".lazy-bg");
+        function lazyload () {
+            if(lazyloadThrottleTimeout) {
+                clearTimeout(lazyloadThrottleTimeout);
+            }
+            lazyloadThrottleTimeout = setTimeout(function() {
+                var scrollTop = window.pageYOffset;
+                lazyloadImages.forEach(function(img) {
+                    if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-bg');
+                    }
+                });
+                if(lazyloadImages.length == 0) {
+                    document.removeEventListener("scroll", lazyload);
+                    window.removeEventListener("resize", lazyload);
+                    window.removeEventListener("orientationChange", lazyload);
+                }
+            }, 20);
+        }
+        let scrollPosition = $(document).scrollTop();
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
+    }
+});
+//----------------------Intersection Observer End--------------------------
+
 $(document).ready(function () {
     // Owl carousel 1
     var scrollPosition = $(document).scrollTop();
@@ -27,10 +74,10 @@ $(document).ready(function () {
         $(this).addClass('activeButton')
         $('.videos').toggleClass('passive')
         $('.photos').toggleClass('passive')
-    })
+    });
     $('.video-container__content').click(function () {
         $('.modal-dialog').addClass('videoModal')
-    })
+    });
     $('.close , .modal ').click(function (e) {
 
         if (e.target === this) {
@@ -38,13 +85,12 @@ $(document).ready(function () {
                 $('.modal-dialog').removeClass('videoModal')
             }, 700)
         }
-    })
-
+    });
     $(".about-menu__link , .service-menu__link").click(function (e) {
 
         if (scrollPosition < 400)
             window.scrollTo(0, scrollPosition);
-    })
+    });
     $('.carousel1').owlCarousel({
         loop: true,
         autoplay: true,
@@ -120,12 +166,8 @@ $(document).ready(function () {
         $(this).closest('.tours_slider_container').find('.owl-carousel').trigger("prev.owl.carousel")
     });
 
-
-
-
     var circlesBreacking = $('.breackpointCircle');
     var paths = $('.tursSVGLine path')
-    console.log()
     for (var i = 0; i < paths.length; i++) {
         var breackpointPosition = paths[i]
             .getPointAtLength(4000)
@@ -134,7 +176,6 @@ $(document).ready(function () {
             breackpointPosition.y + ")");
     }
 
-    console.log(paths, circlesBreacking)
     // var firstBreackpoint = document.getElementById("firstBreackpoint")
     // var firstPath = document.getElementById("first_path_background");
     // var firstBreackpointPosition = firstPath.getPointAtLength(3690);
@@ -142,28 +183,24 @@ $(document).ready(function () {
     // 	firstBreackpointPosition.x + "," +
     // 	firstBreackpointPosition.y + ")");
 
-    var needToOpenAll = false
-    var trigger = false
-    var needToCloseAll = false
+    var needToOpenAll = false;
+    var trigger = false;
+    var needToCloseAll = false;
     $('.tourInner-content__location img').click(function () {
-        needToOpenAll = !needToOpenAll
-        needToCloseAll = !needToOpenAll
-        trigger = true
+        needToOpenAll = !needToOpenAll;
+        needToCloseAll = !needToOpenAll;
+        trigger = true;
         $('.tourInner-content__title span').trigger("click");
-        trigger  = false
-        needToCloseAll = true
-
-    })
+        trigger  = false;
+        needToCloseAll = true;
+    });
 
 
 
 
     $('.tourInner-content__title span ,svg.tursSVGLine circle  ,.h3Text ')
         .click(function () {
-
             var ThisParrent = $(this).closest('.turs_items_container');
-            console.log(ThisParrent)
-            // console.log(ThisParrent)
             var NextContainer = $(ThisParrent).next();
             var NextSvgContainer = $(NextContainer).find('.tursSVGLine');
             var NextPathElement = $(NextSvgContainer).find('path');
@@ -193,7 +230,7 @@ $(document).ready(function () {
                     'max-height': 460 + 'px',
                     'margin-bottom': 0,
 
-                })
+                });
                 $(this).closest('.turs_items_container')
                     .find('.tours_slider_container')
                     .css('max-height', sliderHeight + 'px');
@@ -212,11 +249,6 @@ $(document).ready(function () {
                 $(this).closest('.turs_items_container').find('.h3Text').next().html('-')
 
                 Line == 2 ? lineTop = '-385' : lineTop = '-409'
-                // console.log( $(this).parent().parent().parent())
-
-
-
-
             }
 
 
@@ -225,16 +257,16 @@ $(document).ready(function () {
                 $(this).closest('.turs_items_container').css({
                     'max-height': 100 + 'px' , 
                     "margin-bottom": '35px'
-                })
+                });
                 $(this).closest('.turs_items_container').find('.tours_slider_container').css('max-height', '0');
 
-                $(parentContainer).find('p , h2 , h3').css({ 'max-height': '0',  })
+                $(parentContainer).find('p , h2 , h3').css({ 'max-height': '0',  });
                 // if(!$(this).hasClass('h3Text'))
                 // $(this).html('+')
                 // else
                 //     $(this).next().html( '+')
 
-                $(this).closest('.turs_items_container').find('.h3Text').next().html('+')
+                $(this).closest('.turs_items_container').find('.h3Text').next().html('+');
 
             }
 
@@ -270,21 +302,42 @@ $(document).ready(function () {
 
                 }
             }
-
             NextPathElement.attr('d', pathDefaultPosition)
-            // console.log(pathDefaultPosition ,Line)
-
-        })
+        });
 
     $(document).ready(function () {
+        //------------------Intersection Observer Start
+        const images = document.querySelectorAll('img:not(.not-intersection)');
+        const config = {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        };
+        if (!('IntersectionObserver' in window)) {
+            Array.from(images).forEach(image => preloadImage(image));
+        }
+        else {
+            observer = new IntersectionObserver(onIntersection, config);
+            images.forEach(image => {
+                observer.observe(image);
+            });
+        }
+        function onIntersection(entries) {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio > 0) {
+                    observer.unobserve(entry.target);
+                    preloadImage(entry.target);
+                }
+            });
+        }
+        function preloadImage(img) {
+            img.setAttribute('src',img.getAttribute('data-src'));
+        }
+        //-------------------Intersection Observer End
+
         $('.slide_left').click(function () {
-
-
             var sliderContainer = $(this).parent().parent().find('.tours_slider')
             var sliderLeft = $(sliderContainer).attr('date_margin_left')
-
-
-            sliderLeft -= 0
+            sliderLeft -= 0;
             if (sliderLeft != 0) {
                 sliderLeft += 100
 
@@ -296,32 +349,27 @@ $(document).ready(function () {
         })
         $('.slide_right').click(function () {
             var itemsLength = $(this).parent().parent().find('.tours_slider_item').length - 2
-            var sliderContainer = $(this).parent().parent().find('.tours_slider')
-            var sliderLeft = $(sliderContainer).attr('date_margin_left')
+            var sliderContainer = $(this).parent().parent().find('.tours_slider');
+            var sliderLeft = $(sliderContainer).attr('date_margin_left');
 
 
-            sliderLeft -= 0
-            console.log(-(itemsLength * 100), sliderLeft)
+            sliderLeft -= 0;
             if (-(itemsLength * 100) <= sliderLeft) {
-                sliderLeft -= 100
+                sliderLeft -= 100;
                 $(this).parent().parent().find('.tours_slider')
-                    .css('margin-left', sliderLeft + '%')
-                $(sliderContainer).attr('date_margin_left', sliderLeft)
+                    .css('margin-left', sliderLeft + '%');
+                $(sliderContainer).attr('date_margin_left', sliderLeft);
             }
 
-        })
+        });
 
         //  set slider length 
         var length = $('.tours_slider').length
 
         for (var i = 0; i < length; i++) {
             var itemsCount = $('.tours_slider').eq(i).find('.tours_slider_item').length * 100
-            console.log(itemsCount)
         }
-        console.log($('.tours_slider'))
-
-
-    })
+    });
     // ------ header menu part -------
     var funct = function () {
         $('.header-mobile').toggleClass("open");
@@ -519,12 +567,12 @@ $(document).ready(function () {
     })
     $('a[href^="#"]').on('click', function (e) {
 
-        $(window).scrollTop(pageScrollTop)
+        $(window).scrollTop(pageScrollTop);
 
 
 
-        var scrollTop = $(window).scrollTop()
-        $(document).scrollTo(scrollTop)
+        var scrollTop = $(window).scrollTop();
+        $(document).scrollTo(scrollTop);
         e.stopPropagation();
         e.preventDefault();
 
@@ -587,7 +635,6 @@ $(document).ready(function () {
         $('.armenia-tabs__list li').removeClass('current');
         $('.armenia-tabs__content').removeClass('current');
         $(this).addClass('current');
-        console.log($(this).attr('data-tab'))
         $("#" + tab_id).addClass('current');
         if ($(document).width() <= 1070) {
             aboutMenuList.slideUp('fast');
@@ -769,7 +816,6 @@ $(document).ready(function () {
         if (sidebar_1.length) {
             var target = this.hash;
             var $target = $(target);
-            console.log(!!$target.offset())
             if ($target.offset()) {
                 var deviationTop = document.getElementById("service-menuScroll").getBoundingClientRect().bottom;
                 var additional_offset = 0;

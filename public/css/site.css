@@ -3246,6 +3246,9 @@ svg.tursSVGLine path {
 /* body, html {
     overflow-x: hidden;
 } */
+.lazy-bg{
+    background-image: none !important;
+}
 
 @media (pointer: fine) {
     

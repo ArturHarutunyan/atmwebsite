@@ -122,7 +122,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>

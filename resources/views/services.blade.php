@@ -15,7 +15,7 @@
             <div class="wrapper-min">
                 <div class="service-menu__mobile">
                     <div class="service-menu__mobile__link">{{trans('site.show_sections')}}
-                        <img src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="service-menu__mobile__icon" alt="arrow"/>
+                        <img data-src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="service-menu__mobile__icon" alt="arrow"/>
                     </div>
                 </div>
                 <ul class="service-menu__list">
@@ -57,9 +57,9 @@
                         <a href="{{route('tour.show', ['slug'=>$tour_one->getTranslation(App::getLocale())->slug])}}">
                             <figure class="service-packages__figure">
                                 @if($tour_one->tour_image)
-                                    <div class="service-packages__figure__imgBox" style="background-image: url('{{asset($tour_one->tour_image)}}')"></div>
+                                    <div class="service-packages__figure__imgBox lazy-bg" style="background-image: url('{{asset($tour_one->tour_image)}}')"></div>
                                 @else
-                                    <div class="service-packages__figure__imgBox" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
+                                    <div class="service-packages__figure__imgBox lazy-bg" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
                                 @endif
                                 <figcaption class="service-packages__figcaption">
                                     <h5 class="service-packages__figcaption__title">{{$tour_one->name}}</h5>
@@ -68,7 +68,7 @@
                                         <span class="service-packages__figcaption__money--span">{{$tour_one->currency->sign}}{{$tour_one->start_price}}</span>
                                     </p> -->
                                     <div class="service-packages__figcaption__arrow">
-                                        <img src="{{asset('uploads/images/main/tour/tours-arrowRight.png')}}" alt="arrow">
+                                        <img data-src="{{asset('uploads/images/main/tour/tours-arrowRight.png')}}" alt="arrow">
                                     </div>
                                 </figcaption>
                             </figure>
@@ -76,9 +76,9 @@
                         <a href="{{route('tour.show', ['slug'=>$tour_two->getTranslation(App::getLocale())->slug])}}">
                             <figure class="service-packages__figure">
                                 @if($tour_two->tour_image)
-                                    <div class="service-packages__figure__imgBox" style="background-image: url('{{asset($tour_two->tour_image)}}')"></div>
+                                    <div class="service-packages__figure__imgBox lazy-bg" style="background-image: url('{{asset($tour_two->tour_image)}}')"></div>
                                 @else
-                                    <div class="service-packages__figure__imgBox" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
+                                    <div class="service-packages__figure__imgBox lazy-bg" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
                                 @endif
                                 <figcaption class="service-packages__figcaption">
                                     <h5 class="service-packages__figcaption__title">{{$tour_two->name}}</h5>
@@ -87,7 +87,7 @@
                                         <span class="service-packages__figcaption__money--span">{{$tour_two->currency->sign}}{{$tour_two->start_price}}</span>
                                     </p> -->
                                     <div class="service-packages__figcaption__arrow">
-                                        <img src="{{asset('uploads/images/main/tour/tours-arrowRight.png')}}" alt="arrow">
+                                        <img data-src="{{asset('uploads/images/main/tour/tours-arrowRight.png')}}" alt="arrow">
                                     </div>
                                 </figcaption>
                             </figure>
@@ -138,12 +138,12 @@
                     <aside class="service-transport__col">
                         <div class="service-transport__row">
                             <div class="service-transport__box">
-                                <img src="{{asset('uploads/images/main/services/service_bus.png')}}" alt="bus"/>
+                                <img data-src="{{asset('uploads/images/main/services/service_bus.png')}}" alt="bus"/>
                                 <h6 class="service-transport__title">{{trans('site.buses')}}</h6>
                                 <p class="service-transport__text">({{trans('site.with_drivers_or_without')}})</p>
                             </div>
                             <div class="service-transport__box">
-                                <img src="{{asset('uploads/images/main/services/service_car.png')}}" alt="car"/>
+                                <img data-src="{{asset('uploads/images/main/services/service_car.png')}}" alt="car"/>
                                 <h6 class="service-transport__title">{{trans('site.cars')}}</h6>
                                 <p class="service-transport__text">({{trans('site.with_drivers_or_without')}})</p>
                             </div>
@@ -199,16 +199,16 @@
                             <div class="service-guides__teamBlock">
                                 <div class="service-guides__imgBox">
                                     @if($guide->image)
-                                        <img src="{{asset($guide->image)}}" alt="{{$guide->name}} {{$guide->surname}}"/>
+                                        <img data-src="{{asset($guide->image)}}" alt="{{$guide->name}} {{$guide->surname}}"/>
                                     @else
-                                        <img src="{{asset('uploads/sample_image.jpg')}}" alt="{{$guide->name}} {{$guide->surname}}"/>
+                                        <img data-src="{{asset('uploads/sample_image.jpg')}}" alt="{{$guide->name}} {{$guide->surname}}"/>
                                     @endif
                                     <div class="service-guides__textBox">
                                         <a href="#" target="_blank" class="service-guides__social">
-                                            <img src="{{asset('uploads/images/main/about/about-fb.png')}}" alt="facebook">
+                                            <img data-src="{{asset('uploads/images/main/about/about-fb.png')}}" alt="facebook">
                                         </a>
                                         <a href="#" target="_blank" class="service-guides__social">
-                                            <img src="{{asset('uploads/images/main/about/about-in.png')}}" alt="linkedin">
+                                            <img data-src="{{asset('uploads/images/main/about/about-in.png')}}" alt="linkedin">
                                         </a>
                                     </div>
                                 </div>
@@ -358,9 +358,9 @@
                 <div class="modal-content">
                     <div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <img src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
+                            <img data-src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
                         </button>
-                        <img class="modal-image" src="http://10.10.10.254/uploads/about_armenia_contents/1540393149img_1.png" alt="image"/>
+                        <img class="modal-image" data-src="https://armeniatravel.am/uploads/about_armenia_contents/1540393149img_1.png" alt="image"/>
                     </div>
                     <div class="armenia-modal__body">
                         <div class="armenia-modal__text">
@@ -387,7 +387,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>
