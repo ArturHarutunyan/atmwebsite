@@ -765,7 +765,13 @@ function SvgLogic() {
 			'transition': 'all 0s'
 		})
 		$('.svgContainer').css('padding-right', '' + $.position.scrollbarWidth() + 'px')
+
+		// $('html').stop().animate({
+		// 	scrollTop: lastScrollPosition
+		// }, 4000);
 	}
+
+
 
 	function continueScrolling() {
 		$('.hiddenScrollbar').css({ 'visibility': 'hidden' })
@@ -783,62 +789,150 @@ function SvgLogic() {
 			'transition': 'all 0s'
 		})
 	}
-	$(document).on('scroll mousewheel ', function (e) {
+
+	var lastScrollPosition
+
+
+
+
+
+	// document.addEventListener('scroll', scrollHandling, { passive: false });
+
+	document.addEventListener('scroll', scrollHandling,{ passive: false })
+	document.addEventListener('mousewheel', scrollHandling,{ passive: false })
+
+
+
+
+
+	var scrollNotAvailable = false;
+
+
+
+	var isAnimated = false
+
+	// if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+	// window.onmousewheel = document.onmousewheel = wheel;
+
+	// function wheel(event) {
+
+
+	// 		var delta = 0;
+	// 		if (event.wheelDelta) delta = event.wheelDelta / 120;
+	// 		else if (event.detail) delta = -event.detail / 3;
+
+	// 		handle(delta);
+
+	// 		if (event.preventDefault) event.preventDefault();
+	// 		event.returnValue = false;
+
+	// }
+
+	// function handle(delta) {
+	// 	var time = 0;
+	// 	var distance = 300;
+
+	// 	$('html, body').stop().animate({
+	// 		scrollTop: lastScrollPosition
+	// 	}, time);
+	// }
+
+
+	var isFirstStep = true
+
+	function scrollHandling(e) {
+
+
+
+		if ($('html').css('overflow-y') == 'hidden') {
+
+			e.stopImmediatePropagation();
+
+			$('.hiddenScrollbar').scrollTop(lastScrollPosition);
+			$('html').scrollTop(lastScrollPosition);
+
+			e.returnValue = false;
+
+
+
+
+
+			if (!e) { e = window.event; } /* IE7, IE8, Chrome, Safari */
+			if (e.preventDefault) { e.preventDefault(); } /* Chrome, Safari, Firefox */
+			/* IE7, IE8 */
+
+			return
+			
+
+		}
+
 
 		$('.hiddenScrollbar').scrollTop($(document).scrollTop())
 
-		if ($("html , body").css("overflow-y") == 'hidden') {
 
-			e.preventDefault()
-			e.stopPropagation()
-			return false
-		}
+		// 
+
+
+
 
 		// stop on breackpoints posiutions
+
 		var scrollingFromTop = isScrollingToTop()
 		// gallery  tour  
 		if (scrollingFromTop) {
+
 			if ($(document).scrollTop() >= firstBreackpointPositionOnTop && needToStop1) {
-				$(document).scrollTop(firstBreackpointPositionOnTop)
+
+
+				scrollNotAvailable = true
+
+				lastScrollPosition = firstBreackpointPositionOnTop
+
+				stopScrolling()
 
 				$('.hiddenScrollbar').scrollTop(firstBreackpointPositionOnTop)
 
-				stopScrolling()
-				
+				$(document).scrollTop(firstBreackpointPositionOnTop)
+
 				$(".about").css({
 
 					'opacity': 1
 				})
-				setTimeout(function(){
+				setTimeout(function () {
 					$("#firstBreackpoint").attr('r', 65)
 					$("#firstBreackpoint").attr('transform', ($("#dot").attr('transform')))
-				},100)
+				}, 100)
 
-
+		
 
 				setTimeout(function () {
-					
+
 					needToStop1 = false;
 					needToStop2 = true;
 					needToStop3 = false;
 					needToStop4 = false;
 
 					continueScrolling()
+					scrollNotAvailable = false;
 
 				}, 500)
+				// e.stopImmediatePropagation()
+				// e.preventDefault()
+				
 
-				e.preventDefault()
-				e.stopPropagation()
 			} else if ($(document).scrollTop() >= secendBreackpointPositionOnTop && needToStop2) {
+				scrollNotAvailable = true
 				$(document).scrollTop(secendBreackpointPositionOnTop)
+				
+				lastScrollPosition = secendBreackpointPositionOnTop
 				stopScrolling()
-				$('.hiddenScrollbar').scrollTop(secendBreackpointPositionOnTop)
+				// $('.hiddenScrollbar').scrollTop(secendBreackpointPositionOnTop)
 
 
-				setTimeout(function(){
+				setTimeout(function () {
 					$("#secendBreackpoint").attr('r', 65)
 					$("#secendBreackpoint").attr('transform', ($("#dot").attr('transform')))
-				},100)
+				}, 100)
 
 				setTimeout(function () {
 					needToStop1 = false;
@@ -846,23 +940,26 @@ function SvgLogic() {
 					needToStop3 = true;
 					needToStop4 = false;
 					continueScrolling()
+					scrollNotAvailable = false
 				}, 500)
-
-				e.preventDefault()
-				e.stopPropagation()
-
+				// e.stopImmediatePropagation()
+				// e.preventDefault()
+			
 			}
 			else if ($(document).scrollTop() >= thirdBreackpointPositionOnTop && needToStop3) {
+				scrollNotAvailable = true
 				$('.hiddenScrollbar').scrollTop(thirdBreackpointPositionOnTop)
 				$(document).scrollTop(thirdBreackpointPositionOnTop)
+
+				lastScrollPosition = thirdBreackpointPositionOnTop
+				
 				stopScrolling()
 
 
-
-				setTimeout(function(){
+				setTimeout(function () {
 					$("#thirdBreackpoint").attr('r', 65)
 					$("#thirdBreackpoint").attr('transform', ($("#dot").attr('transform')))
-				},100)
+				}, 10)
 
 				$(".tour").css({ 'opacity': '1' })
 
@@ -877,20 +974,24 @@ function SvgLogic() {
 					needToStop3 = false;
 					needToStop4 = true;
 					continueScrolling()
+					scrollNotAvailable = false
 				}, 500)
+				// e.stopImmediatePropagation()
+				// e.preventDefault()
+				
 
-				e.preventDefault()
-				e.stopPropagation()
 			} else if ($(document).scrollTop() >= forthBreackpointPositionOnTop && needToStop4) {
+				scrollNotAvailable = true
 				$('.hiddenScrollbar').scrollTop(forthBreackpointPositionOnTop)
+				lastScrollPosition = forthBreackpointPositionOnTop;
 				$(document).scrollTop(forthBreackpointPositionOnTop)
 				stopScrolling()
 				$('.unicue_services_content').css({ 'opacity': '1', 'margin-right': '0' })
 
-				setTimeout(function(){
+				setTimeout(function () {
 					$("#fordBreackpoint").attr('r', 65)
 					$("#fordBreackpoint").attr('transform', ($("#dot").attr('transform')))
-				},100)
+				}, 100)
 
 				setTimeout(function () {
 					needToStop1 = false;
@@ -898,10 +999,11 @@ function SvgLogic() {
 					needToStop3 = false;
 					needToStop4 = false;
 					continueScrolling()
+					scrollNotAvailable = false
 				}, 500)
-
-				e.preventDefault()
-				e.stopPropagation()
+				// e.stopImmediatePropagation()
+				// e.preventDefault()
+				
 			}
 			if (globusPosition && document.getElementById('secend_path').getTotalLength() <= globusPosition) {
 				$("#lastBreackpoint").attr('r', 75)
@@ -931,6 +1033,7 @@ function SvgLogic() {
 		var firstPathLength = Math.ceil(document.getElementById('first_path').getTotalLength());
 
 
+
 		if ($(this).scrollTop() < changePath) {
 			drawLine($(document),
 				document.getElementById('first_path'));
@@ -948,7 +1051,7 @@ function SvgLogic() {
 
 
 
-	})
+	}
 	// init the line length
 	drawLine($(document),
 		document.getElementById('first_path'));
@@ -1070,7 +1173,7 @@ function SvgLogic() {
 	}
 
 	setBreackpointsPositions()
-	// _______________________________________________here i am dont go awai _____________________________________
+
 	// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
