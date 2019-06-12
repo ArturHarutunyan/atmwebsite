@@ -67,7 +67,7 @@
         <!-- TourInner content section -->
         <section class="tourInner-content">
             <div class="tourInner-content__location">
-                <img src="{{asset('uploads/images/main/tour-inner/tourInner-location.png')}}" alt="location"/>
+                <img class="not-intersection" src="{{asset('uploads/images/main/tour-inner/tourInner-location.png')}}" alt="location"/>
             </div>
             <div class="wrapper tourInner-content--wrapper">
             <!-- style="background: url({{asset('uploads/images/main/tour-inner/tourInner-division.png')}}) repeat-y center center;" -->
@@ -124,13 +124,13 @@
                                                     <div class="owl-carousel">
 
                                                         <div class="mySlides">
-                                                            <img src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                            <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
                                                         </div>
                                                         <div class="mySlides">
-                                                            <img src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                            <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
                                                         </div>
                                                         <div class="mySlides">
-                                                            <img src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                            <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
                                                         </div>
                                                       
                                                     </div>
@@ -207,13 +207,13 @@
                                                         <div class="owl-carousel">
 
                                                             <div class="mySlides">
-                                                                <img src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                                <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
                                                             </div>
                                                             <div class="mySlides">
-                                                                <img src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                                <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
                                                             </div>
                                                             <div class="mySlides">
-                                                                <img src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                                <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
                                                             </div>
                                                         
                                                         </div>
@@ -262,7 +262,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>

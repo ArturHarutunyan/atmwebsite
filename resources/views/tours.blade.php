@@ -70,7 +70,7 @@
                             <div class="tours-filter-inside__formCategory">
                                 @foreach($hotel_categories as $hotel_category)
                                     <div class="tours-filter-inside__formCategory__block">
-                                        <input type="button" class="inner-child tours-filter-inside__formCategory__input" style="background-image: url({{asset('uploads/images/main/tour/tours-close.png')}});" value="{{$hotel_category->name}}" @click="set_hotel_category({{$hotel_category->id}})" />
+                                        <input type="button" class="inner-child tours-filter-inside__formCategory__input lazy-bg" style="background-image: url({{asset('uploads/images/main/tour/tours-close.png')}});" value="{{$hotel_category->name}}" @click="set_hotel_category({{$hotel_category->id}})" />
                                     </div>
                                 @endforeach
                             </div>
@@ -104,8 +104,8 @@
             <div class="tours-filter--show">
                 <p id="show_p" class="tours-filter--show__title">{{trans('site.show_all_filters')}}</p>
                 <p id="close_p" style="display: none;" class="tours-filter--show__title">{{trans('site.close_filters')}}</p>
-                <img src="{{asset('uploads/images/main/tour/tours-arrowDown.png')}}" id="arrow_down" alt="arrow">
-                <img src="{{asset('uploads/images/main/tour/tours-arrowTop.png')}}" style="display: none;" id="arrow_top" alt="arrow">
+                <img data-src="{{asset('uploads/images/main/tour/tours-arrowDown.png')}}" id="arrow_down" alt="arrow">
+                <img data-src="{{asset('uploads/images/main/tour/tours-arrowTop.png')}}" style="display: none;" id="arrow_top" alt="arrow">
             </div>
         </section>
         <!-- Tour gallery section -->
@@ -127,7 +127,7 @@
                                     <span class="tours-gallery__figcaption__money--span">@{{tour.currency.sign}} @{{tour.start_price}}</span>
                                 </p> -->
                                 <div class="tours-gallery__figcaption__arrow">
-                                    <img src="{{asset('uploads/images/main/tour/tours-arrowRight.png')}}" alt="arrow"/>
+                                    <img class="not-intersection" src="{{asset('uploads/images/main/tour/tours-arrowRight.png')}}" alt="arrow"/>
                                 </div>
                             </figcaption>
                         </figure>
@@ -148,7 +148,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>

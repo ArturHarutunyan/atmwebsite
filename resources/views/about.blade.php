@@ -15,7 +15,7 @@
         <div class="wrapper-min">
             <div class="about-menu__mobile">
                 <div class="about-menu__mobile__link">{{trans('site.show_sections')}}
-                    <img src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="about-menu__mobile__icon" alt="arrow"/>
+                    <img data-src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="about-menu__mobile__icon" alt="arrow"/>
                 </div>
             </div>
             <ul class="about-menu__list">
@@ -85,13 +85,13 @@
                 @foreach($staff_members as $k=>$staff_member)
                 <div class="about-team__block{{$k>5?' about-team__toggleable about-team__hidden':''}}">
                     <div class="about-team__imgBox">
-                        <img src="{{$staff_member->image?asset($staff_member->image):asset('uploads/sample_image.jpg')}}" alt="{{$staff_member->name}} {{$staff_member->surname}}">
+                        <img data-src="{{$staff_member->image?asset($staff_member->image):asset('uploads/sample_image.jpg')}}" alt="{{$staff_member->name}} {{$staff_member->surname}}">
                         <div class="about-team__textBox">
                             <a href="{{$staff_member->facebook}}" target="_blank" class="about-team__social">
-                                <img src="{{asset('uploads/images/main/about/about-fb.png')}}" alt="facebook"/>
+                                <img data-src="{{asset('uploads/images/main/about/about-fb.png')}}" alt="facebook"/>
                             </a>
                             <a href="{{$staff_member->linkedin}}" target="_blank" class="about-team__social">
-                                <img src="{{asset('uploads/images/main/about/about-in.png')}}" alt="linkedin"/>
+                                <img data-src="{{asset('uploads/images/main/about/about-in.png')}}" alt="linkedin"/>
                             </a>
                         </div>
                     </div>
@@ -118,17 +118,17 @@
             <aside class="about-col">
                 <div class="about-project__col">
                     <a target="_blank" href="https://epicstudy.org/" class="about-project__block">
-                        <div class="about-project__imgBox" style="background-image: url({{asset('uploads/images/main/about/about-img3.png')}})"></div>
+                        <div class="about-project__imgBox lazy-bg" style="background-image: url({{asset('uploads/images/main/about/about-img3.png')}})"></div>
                         <div class="about-project__textBox">
                             <p class="about-project__textBox__text">EPIC Intrnational summer school Armenia 2019</p>
-                            <img src="{{asset('uploads/images/main/about/about-rightArrow.png')}}" alt="arrow"/>
+                            <img data-src="{{asset('uploads/images/main/about/about-rightArrow.png')}}" alt="arrow"/>
                         </div>
                     </a>
                     <a target="_blank" href="https://epiceyefestival.com/" class="about-project__block">
-                        <div class="about-project__imgBox" style="background-image: url({{asset('uploads/images/main/about/about-img4.png')}}"></div>
+                        <div class="about-project__imgBox lazy-bg" style="background-image: url({{asset('uploads/images/main/about/about-img4.png')}}"></div>
                         <div class="about-project__textBox">
                             <p class="about-project__textBox__text">EPIC Eye Festival</p>
-                            <img src="{{asset('uploads/images/main/about/about-rightArrow.png')}}" alt="arrow"/>
+                            <img data-src="{{asset('uploads/images/main/about/about-rightArrow.png')}}" alt="arrow"/>
                         </div>
                     </a>
                 </div>
@@ -267,9 +267,9 @@
             <div class="modal-content">
                 <div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <img src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
+                        <img data-src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
                     </button>
-                    <img class="modal-image" src="https://armeniatravel.am/uploads/about_armenia_contents/1540393149img_1.png" alt="image"/>
+                    <img class="modal-image" data-src="https://armeniatravel.am/uploads/about_armenia_contents/1540393149img_1.png" alt="image"/>
                 </div>
                 <div class="armenia-modal__body">
                     <div class="armenia-modal__text">
@@ -296,7 +296,7 @@
                     <div class="slider">
                         <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                             <div class="partners__img">
-                                <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                             </div>
                         </a>
                     </div>
