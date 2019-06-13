@@ -15,7 +15,7 @@
             <div class="armenia-tabs__menu " id="armenia-menuScroll">
                 <div class="about-menu__mobile">
                     <div class="about-menu__mobile__link">{{trans('site.show_sections')}}
-                        <img src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="about-menu__mobile__icon" alt="arrow">
+                        <img data-src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="about-menu__mobile__icon" alt="arrow">
                     </div>
                 </div>
                 <ul class="armenia-tabs__list wrapper ">
@@ -33,7 +33,7 @@
                         <div class="armenia-food">
                             @foreach($news as $single_news)
                                 <figure class="armenia-food__figure cardEfect" onclick="modalOpen('{{$single_news->id}}','news','{{asset($single_news->image)}}','{{App::getLocale()}}')">
-                                    <div class="armenia-food__imgBox cardEfectImage" style="background-image: url({{asset($single_news->image)}});"></div>
+                                    <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url({{asset($single_news->image)}});"></div>
                                     <div class="cardEfectBackground">
                                         {!! $single_news->text_content !!}
                                     </div>
@@ -53,7 +53,7 @@
                             <div class="armenia-food">
                                 @foreach($photos as $photo)
                                     <figure class="armenia-food__figure cardEfect" onclick="modalOpen('{{$photo->id}}','photo','{{asset($photo->image)}}','{{App::getLocale()}}')">
-                                        <div class="armenia-food__imgBox cardEfectImage" style="background-image: url('{{asset($photo->image)}}');"></div>
+                                        <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url('{{asset($photo->image)}}');"></div>
                                         <div class="cardEfectBackground"></div>
                                         <figcaption class="armenia-food__figcaption">{{ $photo->title }}</figcaption>
                                     </figure>
@@ -65,7 +65,7 @@
                         @foreach($videos as $video)
                             <div class="video-container">
                                 <div class="video-container__content" onclick="modalOpen('{{$video->id}}','video','','{{App::getLocale()}}')">
-                                    <img src="{{asset($video->image)}}" alt="">
+                                    <img data-src="{{asset($video->image)}}" alt="">
                                     <h4>{{$video->title}}</h4>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                 @foreach($blogs as $blog)
                                     <figure class="news-gallery__figure">
                                         <a href="{{route('blog.show',['slug'=>$blog->getTranslation(app()->getLocale())->slug])}}">
-                                            <div class="news-gallery__figure__imgBox" style="background-image: url({{asset($blog->image)}})"></div>
+                                            <div class="news-gallery__figure__imgBox lazy-bg" style="background-image: url({{asset($blog->image)}})"></div>
                                         </a>
                                         <figcaption class="news-gallery__figcaption">
                                             <a href="{{route('blog.show',['slug'=>$blog->getTranslation(app()->getLocale())->slug])}}">
@@ -94,7 +94,7 @@
                                                 {!! $blog->text_content !!}
                                             </div>
                                             <a href="{{route('blog.show',['slug'=>$blog->getTranslation(app()->getLocale())->slug])}}" class="news-gallery__figcaption__link">{{trans('site.read_more')}}
-                                                <img src="{{asset('uploads/images/main/news-arrow-right.png')}}" alt="arrow">
+                                                <img data-src="{{asset('uploads/images/main/news-arrow-right.png')}}" alt="arrow">
                                             </a>
                                         </figcaption>
                                     </figure>
@@ -111,11 +111,11 @@
                                     <div class="welcome__carousel__block">
                                         <div class="welcome__carousel__imgBlock">
                                             @if($testimonial->author_image)
-                                                <img src="{{asset($testimonial->author_image)}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
+                                                <img data-src="{{asset($testimonial->author_image)}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
                                             @elseif($testimonial->gender==1)
-                                                <img src="{{asset('uploads/images/main/woman.svg')}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
+                                                <img src="{{asset('uploads/images/main/woman.svg')}}" class="not-intersection welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
                                             @else
-                                                <img src="{{asset('uploads/images/main/man.svg')}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
+                                                <img src="{{asset('uploads/images/main/man.svg')}}" class="not-intersection welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
                                             @endif
                                         </div>
                                     </div>
@@ -134,9 +134,9 @@
                             @foreach($certificates as $certificate)
                                 <figure class="armenia-food__figure cardEfect" onclick="modalOpen('{{$certificate->id}}','certificate','{{asset($certificate->image?$certificate->image:'uploads/sample_image.jpg')}}','{{App::getLocale()}}')">
                                     @if($certificate->image)
-                                        <div class="armenia-food__imgBox cardEfectImage" style="background-image: url('{{asset($certificate->image)}}')"></div>
+                                        <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url('{{asset($certificate->image)}}')"></div>
                                     @else
-                                        <div class="armenia-food__imgBox cardEfectImage" style="background-image: url({{asset('uploads/sample_image.jpg')}})"></div>
+                                        <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url({{asset('uploads/sample_image.jpg')}})"></div>
                                     @endif
                                     <div class="cardEfectBackground">
                                         {!! $certificate->text_content !!}
@@ -154,9 +154,9 @@
                                 <li class="armenia-sightseeing__row">
                                     <aside class="armenia-sightseeing__aside">
                                         @if($trustee->image)
-                                            <div class="armenia-sightseeing__aside__imgBox" style="background-image: url('{{asset($trustee->image)}}')"></div>
+                                            <div class="armenia-sightseeing__aside__imgBox lazy-bg" style="background-image: url('{{asset($trustee->image)}}')"></div>
                                         @else
-                                            <div class="armenia-sightseeing__aside__imgBox" style="background-image: url({{asset('uploads/sample_image.jpg')}})"></div>
+                                            <div class="armenia-sightseeing__aside__imgBox lazy-bg" style="background-image: url({{asset('uploads/sample_image.jpg')}})"></div>
                                         @endif
                                     </aside>
                                     <article class="armenia-sightseeing__article" data-id="{{$trustee->id}}">
@@ -175,9 +175,9 @@
                         <div class="modal-content">
                             <div>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <img src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
+                                    <img data-src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
                                 </button>
-                                <img class="modal-image" src='{{asset('uploads/sample_image.jpg')}}' alt="image">
+                                <img class="modal-image" data-src='{{asset('uploads/sample_image.jpg')}}' alt="image">
                             </div>
                             <div class="armenia-modal__body">
                                 <h6 class="armenia-modal__title"></h6>
@@ -201,7 +201,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>

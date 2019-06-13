@@ -87,7 +87,7 @@
                                             <label for="dates" class="tours-custom-form__label">{{trans('site.dates')}}
                                                 <span class="tours-custom-form__star">*</span>
                                             </label>
-                                            <img src="{{asset('uploads/images/main/tour/calendar-icon.png')}}" alt="calendar"/>
+                                            <img class="not-intersection" src="{{asset('uploads/images/main/tour/calendar-icon.png')}}" alt="calendar"/>
                                         </div>
                                         <v-date-picker is-double-paned :mode='mode' v-model='selectedDate'
                                                        :min-date='new Date()'
@@ -125,7 +125,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>

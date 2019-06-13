@@ -33,7 +33,7 @@ $types=TourType::all();
 
     
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter48067601 = new Ya.Metrika({ id:48067601, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/48067601" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+    <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter48067601 = new Ya.Metrika({ id:48067601, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img class="not-intersection" src="https://mc.yandex.ru/watch/48067601" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -47,7 +47,7 @@ $types=TourType::all();
 </head>
 <body class="body">
 <div class="preloader_container">
-        <img src="{{asset('uploads/images/main/globus.gif')}}" alt="preloader">
+        <img class="not-intersection" src="{{asset('uploads/images/main/globus.gif')}}" alt="preloader">
 </div>
 <div id="MainBlock" style="visibility: hidden">
 <!-- header section -->
@@ -55,10 +55,10 @@ $types=TourType::all();
     <div class="wrapper">
         <div class="header--wrapper">
             <a href="{{route('website')}}" class="header__logo">
-                <img src="{{asset('uploads/images/main/logo.png')}}" alt="header-logo"/>
+                <img class="not-intersection" src="{{asset('uploads/images/main/logo.png')}}" alt="header-logo"/>
             </a>
             <a href="{{route('website')}}" class="header__logo--small">
-                <img src="{{asset('uploads/images/main/logo-s.png')}}" alt="header-logo"/>
+                <img class="not-intersection" src="{{asset('uploads/images/main/logo-s.png')}}" alt="header-logo"/>
             </a>
             <div class="header-mobile">
                 <span></span>
@@ -98,7 +98,7 @@ $types=TourType::all();
             <li class="header__item header__item--hidden">
                 <div class="header__languagePicker" onclick="dropdown_function()">
                     <button class="header__languagePicker__button">{{App::getLocale()}}</button>
-                    <img src="{{asset('uploads/images/main/lang-arrow.png')}}" alt="language arrow">
+                    <img class="not-intersection" src="{{asset('uploads/images/main/lang-arrow.png')}}" alt="language arrow">
                 </div>
                 <div id="header__languagePicker-dropDown" class="header__languagePicker__content show">
                     @foreach(config('translatable.locales') as $key=>$value)
@@ -230,13 +230,13 @@ $types=TourType::all();
                     </li>
                     <li class="footer__item footer-top__social">
                         <a href="https://www.facebook.com/AarmeniaTravelIncoming/" target="_blank" class="footer-top__social__block">
-                            <img src="{{asset('uploads/images/main/fb-s.png')}}" alt="facebook"/>
+                            <img data-src="{{asset('uploads/images/main/fb-s.png')}}" alt="facebook"/>
                         </a>
                         <a href="https://twitter.com/ArmeniaTravel_" target="_blank" class="footer-top__social__block">
-                            <img src="{{asset('uploads/images/main/tw-s.png')}}" alt="twitter"/>
+                            <img data-src="{{asset('uploads/images/main/tw-s.png')}}" alt="twitter"/>
                         </a>
                         <a href="https://plus.google.com/b/101216774593900676378/101216774593900676378" target="_blank" class="footer-top__social__block">
-                            <img src="{{asset('uploads/images/main/google-s.png')}}" alt="google"/>
+                            <img data-src="{{asset('uploads/images/main/google-s.png')}}" alt="google"/>
                         </a>
                     </li>
                 </ul>
@@ -247,7 +247,7 @@ $types=TourType::all();
     <div class="footer-bottom">
         <div class="wrapper footer__wrapper">
             <p class="footer__copyright">© {{trans('site.copyright')}} {{date("Y")}}. {{trans('site.copyright_text')}}</p>
-            <p class="footer__design">{{trans('site.design_created')}} <img src="{{asset('uploads/images/main/heart.png')}}" alt="heart"/> <a class="footer__design" href="http://braind.am">{{trans('site.by_braind')}}</a></p>
+            <p class="footer__design">{{trans('site.design_created')}} <img data-src="{{asset('uploads/images/main/heart.png')}}" alt="heart"/> <a class="footer__design" href="http://braind.am">{{trans('site.by_braind')}}</a></p>
         </div>
     </div>
    

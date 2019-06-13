@@ -279,9 +279,9 @@
                         </div>
                     </div>
                     @if($firsttour->tour_image)
-                        <div class="gallery__rightBig" style="background-image: url('{{asset($firsttour->tour_image)}}'); "></div>
+                        <div class="gallery__rightBig lazy-bg" style="background-image: url('{{asset($firsttour->tour_image)}}'); "></div>
                     @else
-                        <div class="gallery__rightBig" style="background-image: url('{{asset("uploads/sample_image.jpg")}}'); "></div>
+                        <div class="gallery__rightBig lazy-bg" style="background-image: url('{{asset("uploads/sample_image.jpg")}}'); "></div>
                     @endif
                 </a>
                 <div class="gallery__col2">
@@ -300,9 +300,9 @@
                                     </div>
                                 </div>
                                 @if($tour->tour_image)
-                                    <div class="gallery__right" style="background-image: url('{{asset($tour->tour_image)}}'); "></div>
+                                    <div class="gallery__right lazy-bg" style="background-image: url('{{asset($tour->tour_image)}}'); "></div>
                                 @else
-                                    <div class="gallery__right" style="background-image: url('{{asset("uploads/sample_image.jpg")}}'); "></div>
+                                    <div class="gallery__right lazy-bg" style="background-image: url('{{asset("uploads/sample_image.jpg")}}'); "></div>
                                 @endif
                             </a>
                         @endif
@@ -429,11 +429,11 @@
                                         <div class="welcome__carousel__block">
                                             <div class="welcome__carousel__imgBlock">
                                                 @if($testimonial->author_image)
-                                                    <img src="{{asset($testimonial->author_image)}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
+                                                    <img data-src="{{asset($testimonial->author_image)}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
                                                 @elseif($testimonial->gender==1)
-                                                    <img src="{{asset('uploads/images/main/woman.svg')}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
+                                                    <img src="{{asset('uploads/images/main/woman.svg')}}" class="not-intersection welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
                                                 @else
-                                                    <img src="{{asset('uploads/images/main/man.svg')}}" class="welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
+                                                    <img src="{{asset('uploads/images/main/man.svg')}}" class="not-intersection welcome__carousel__imgBlock--img" alt="{{$testimonial->author}}"/>
                                                 @endif
                                             </div>
                                         </div>
@@ -453,11 +453,11 @@
             <a href="{{route('website_news')}}#tab-4" class="homePageButton ">{{trans('site.see_more_testimonials')}}</a>
         </div>
         <!-- welcome section -->
-        <section class="welcome higherThanSvg" style="background-image: url({{asset('uploads/images/main/welcome.png')}})">
+        <section class="welcome higherThanSvg lazy-bg" style="background-image: url({{asset('uploads/images/main/welcome.png')}})">
              
             <a class='Welcome_link' href='{{route('armenia')}}'></a>
             <div class="welcome__quotes">
-                <img src="{{asset('uploads/images/main/quotes.png')}}" alt="quotes"/>
+                <img data-src="{{asset('uploads/images/main/quotes.png')}}" alt="quotes"/>
             </div>
         </section>
         <!-- partners section -->
@@ -474,7 +474,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>

@@ -16,7 +16,7 @@
             <div class="armenia-tabs__menu" id="armenia-menuScroll">
                 <div class="about-menu__mobile">
                     <div class="about-menu__mobile__link">{{trans('site.show_sections')}}
-                        <img src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="about-menu__mobile__icon" alt="arrow"/>
+                        <img data-src="{{asset('uploads/images/main/about/about-arrowDown.png')}}" class="about-menu__mobile__icon" alt="arrow"/>
                     </div>
                 </div>
                 <ul class="armenia-tabs__list wrapper">
@@ -54,7 +54,7 @@
                                     @endif
                                 </article>
                                 <aside class="armenia-about__col">
-                                    <img src="{{asset($about_armenia_content[0]->history_image)}}" alt="history image"/>
+                                    <img data-src="{{asset($about_armenia_content[0]->history_image)}}" alt="history image"/>
                                 </aside>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                     @endif
                                 </article>
                                 <aside class="armenia-about__col">
-                                    <img src="{{asset($about_armenia_content[0]->religion_image)}}" alt="religion image"/>
+                                    <img data-src="{{asset($about_armenia_content[0]->religion_image)}}" alt="religion image"/>
                                 </aside>
                             </div>
                         </div>
@@ -171,9 +171,9 @@
                                 <li class="armenia-sightseeing__row type_{{$sightseeing_place->sightseeing_type_id}}">
                                     <aside class="armenia-sightseeing__aside">
                                         @if($sightseeing_place->image)
-                                            <div class="armenia-sightseeing__aside__imgBox" style="background-image: url('{{asset($sightseeing_place->image)}}')"></div>
+                                            <div class="armenia-sightseeing__aside__imgBox lazy-bg" style="background-image: url('{{asset($sightseeing_place->image)}}')"></div>
                                         @else
-                                            <div class="armenia-sightseeing__aside__imgBox" style="background-image: url({{asset('uploads/sample_image.jpg')}})"></div>
+                                            <div class="armenia-sightseeing__aside__imgBox lazy-bg" style="background-image: url({{asset('uploads/sample_image.jpg')}})"></div>
                                         @endif
                                     </aside>
                                     <article class="armenia-sightseeing__article" data-id="{{$sightseeing_place->id}}">
@@ -208,12 +208,12 @@
                             @foreach($events as $event)
                                 <figure class="armenia-event__figure  cardEfect" onclick="modalOpen('{{$event->id}}','event','{{asset($event->image?$event->image:'uploads/sample_image.jpg')}}','{{App::getLocale()}}')">
                                     @if($event->image)
-                                        <div class="armenia-event__imgBox cardEfectImage" style="background-image: url('{{asset($event->image)}}')"></div>
+                                        <div class="armenia-event__imgBox cardEfectImage lazy-bg" style="background-image: url('{{asset($event->image)}}')"></div>
                                         <div class="armenia-event__background-text cardEfectBackground">
                                         {!! $event->description !!}
                                         </div>
                                     @else
-                                        <div class="armenia-event__imgBox" style="background-image: url('{{asset('uploads/sample_image.jpg')}}')"></div>
+                                        <div class="armenia-event__imgBox lazy-bg" style="background-image: url('{{asset('uploads/sample_image.jpg')}}')"></div>
                                         <div class="armenia-event__background-text">
                                         {!! $event->description !!}
                                         </div>
@@ -237,9 +237,9 @@
                             @foreach($entertainments as $entertainment)
                                 <figure class="armenia-entertain__figure" onclick="modalOpen('{{$entertainment->id}}','entertainment','{{asset($entertainment->image?$entertainment->image:'uploads/sample_image.jpg')}}','{{App::getLocale()}}')">
                                     @if($entertainment->image)
-                                        <div class="armenia-entertain__imgBox" style="background-image: url('{{asset($entertainment->image)}}');"></div>
+                                        <div class="armenia-entertain__imgBox lazy-bg" style="background-image: url('{{asset($entertainment->image)}}');"></div>
                                     @else
-                                        <div class="armenia-entertain__imgBox" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
+                                        <div class="armenia-entertain__imgBox lazy-bg" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
                                     @endif
                                     <figcaption class="armenia-entertain__figcaption">{{$entertainment->name}}</figcaption>
                                 </figure>
@@ -254,12 +254,12 @@
                             @foreach($food_and_drinks as $food_and_drink)
                                 <figure class="armenia-food__figure cardEfect" onclick="modalOpen('{{$food_and_drink->id}}','food_and_drink','{{asset($food_and_drink->image?$food_and_drink->image:'uploads/sample_image.jpg')}}','{{App::getLocale()}}')">
                                     @if($food_and_drink->image)
-                                        <div class="armenia-food__imgBox cardEfectImage" style="background-image: url('{{asset($food_and_drink->image)}}');"></div>
+                                        <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url('{{asset($food_and_drink->image)}}');"></div>
                                        <div class="cardEfectBackground">
                                            {!!$food_and_drink->description!!}
                                        </div>
                                     @else
-                                        <div class="armenia-food__imgBox cardEfectImage" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
+                                        <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url('{{asset('uploads/sample_image.jpg')}}');"></div>
                                         <div class="cardEfectBackground">
                                             {!!$food_and_drink->description!!}
                                         </div>
@@ -299,7 +299,7 @@
                 <div class="modal-content">
                     <div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <img src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
+                            <img data-src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
                         </button>
                         <img class="modal-image" src="{{asset('uploads/sample_image.jpg')}}" alt="image"/>
                     </div>
@@ -325,7 +325,7 @@
                             <div class="slider">
                                 <a href="{{$partner->link}}" class="partners__carousel" target="_blank">
                                     <div class="partners__img">
-                                        <img src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
+                                        <img class="not-intersection" src="{{asset($partner->partner_image)}}" alt="{{$partner->name}}"/>
                                     </div>
                                 </a>
                             </div>
