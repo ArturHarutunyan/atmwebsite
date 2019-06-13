@@ -1,6 +1,8 @@
 
 // --------------------------------------------- js svg code 
 // svg first head breackpoint
+
+var lastScrollPosition = 0
 var go_to_another_page = false;
 
 // $(document).load().scrollTop(0);
@@ -749,7 +751,9 @@ function SvgLogic() {
 	//_____________________________________________________________ SCROLLING !!!! __________________________________________________________ 
 
 	var globusPosition
-	var isItAnimated = false
+	var isItAnimated = false;
+
+	var canScrolling = true
 
 	function stopScrolling() {
 		$('.hiddenScrollbar').css({ 'visibility': 'visible' })
@@ -766,14 +770,18 @@ function SvgLogic() {
 		})
 		$('.svgContainer').css('padding-right', '' + $.position.scrollbarWidth() + 'px')
 
-		// $('html').stop().animate({
-		// 	scrollTop: lastScrollPosition
-		// }, 4000);
+		// returnBackInterval = setInterval(function(){
+		// 	$(document).scrollTop(lastScrollPosition);
+		// })
+
+
+		canScrolling = false
 	}
 
 
 
 	function continueScrolling() {
+		canScrolling = true
 		$('.hiddenScrollbar').css({ 'visibility': 'hidden' })
 		$('.svgContainer').css('padding-right', '0')
 		$('body').css({
@@ -788,18 +796,21 @@ function SvgLogic() {
 			'width': "100%",
 			'transition': 'all 0s'
 		})
+
+		// clearInterval(returnBackInterval)
 	}
 
-	var lastScrollPosition
 
 
 
+	var returnBackInterval
 
 
 	// document.addEventListener('scroll', scrollHandling, { passive: false });
 
-	document.addEventListener('scroll', scrollHandling,{ passive: false })
-	document.addEventListener('mousewheel', scrollHandling,{ passive: false })
+	document.addEventListener('scroll', scrollHandling, { passive: false })
+
+	document.addEventListener('mousewheel', scrollHandling, { passive: false })
 
 
 
@@ -836,33 +847,95 @@ function SvgLogic() {
 	// 		scrollTop: lastScrollPosition
 	// 	}, time);
 	// }
+	function wheel(event) {
+		var delta = 0;
+		if (event.wheelDelta) { (delta = event.wheelDelta / 120); }
+		else if (event.detail) { (delta = -event.detail / 3); }
 
 
-	var isFirstStep = true
+		// console.log($('html:animated , body:animated'))
+		// if(!$('html:animated , body:animated')){
+
+			handle(delta);
+		// }
+		if (event.preventDefault) { (event.preventDefault()); }
+		event.returnValue = false;
+	}
+
+
+	var scrollIsAnimated = false ;
+	var freeScrolling = false
+	function handle(delta) {
+
+		var time = 200;
+		var distance = 350;
+
+		if ($(window).scrollTop() + distance > firstBreackpointPositionOnTop && needToStop1) {
+			distance -= ($(window).scrollTop() + distance) - firstBreackpointPositionOnTop;
+			distance < 0 ? distance = 0 : null;
+		} else if ($(window).scrollTop() + distance > secendBreackpointPositionOnTop && needToStop2) {
+			distance -= ($(window).scrollTop() + distance) - secendBreackpointPositionOnTop;
+			distance < 0 ? distance = 0 : null;
+		} else if ($(window).scrollTop() + distance > thirdBreackpointPositionOnTop && needToStop3) {
+			distance -= ($(window).scrollTop() + distance) - thirdBreackpointPositionOnTop;
+			distance < 0 ? distance = 0 : null;
+		} else if ($(window).scrollTop() + distance > forthBreackpointPositionOnTop && needToStop4) {
+			distance -= ($(window).scrollTop() + distance) - forthBreackpointPositionOnTop;
+			distance < 0 ? distance = 0 : null;
+
+			freeScrolling = true;
+
+		}
+
+		if(!scrollIsAnimated){
+			scrollIsAnimated = true
+			$('html, body').stop().animate({
+				scrollTop: canScrolling ? $(window).scrollTop() - (distance * delta) : lastScrollPosition
+			}, time,function() { 
+				
+				scrollIsAnimated = false
+			});
+		}
+
+
+
+		if (freeScrolling && $(window).scrollTop() >= forthBreackpointPositionOnTop) {
+
+			window.onmousewheel = document.onmousewheel = function () { };
+		}
+	}
+
+
+	window.onmousewheel = document.onmousewheel = wheel;
+
+	var isFirstStep = true;
+
+	// $(document).scrollDistenceLimit
+	$(window).scroll(scrollHandling)
 
 	function scrollHandling(e) {
 
 
 
 		if ($('html').css('overflow-y') == 'hidden') {
-
+			e.returnValue = false; /* IE */
 			e.stopImmediatePropagation();
 
 			$('.hiddenScrollbar').scrollTop(lastScrollPosition);
-			$('html').scrollTop(lastScrollPosition);
+			$(document).scrollTop(lastScrollPosition);
 
-			e.returnValue = false;
-
-
+			// $('html').stop().animate({
+			// 	scrollTop: lastScrollPosition
+			// }, 0);
 
 
 
 			if (!e) { e = window.event; } /* IE7, IE8, Chrome, Safari */
-			if (e.preventDefault) { e.preventDefault(); } /* Chrome, Safari, Firefox */
-			/* IE7, IE8 */
+			// if (e.preventDefault) { e.preventDefault(); } /* Chrome, Safari, Firefox */
+
 
 			return
-			
+
 
 		}
 
@@ -903,7 +976,7 @@ function SvgLogic() {
 					$("#firstBreackpoint").attr('transform', ($("#dot").attr('transform')))
 				}, 100)
 
-		
+
 
 				setTimeout(function () {
 
@@ -918,12 +991,12 @@ function SvgLogic() {
 				}, 500)
 				// e.stopImmediatePropagation()
 				// e.preventDefault()
-				
+
 
 			} else if ($(document).scrollTop() >= secendBreackpointPositionOnTop && needToStop2) {
 				scrollNotAvailable = true
 				$(document).scrollTop(secendBreackpointPositionOnTop)
-				
+
 				lastScrollPosition = secendBreackpointPositionOnTop
 				stopScrolling()
 				// $('.hiddenScrollbar').scrollTop(secendBreackpointPositionOnTop)
@@ -944,7 +1017,7 @@ function SvgLogic() {
 				}, 500)
 				// e.stopImmediatePropagation()
 				// e.preventDefault()
-			
+
 			}
 			else if ($(document).scrollTop() >= thirdBreackpointPositionOnTop && needToStop3) {
 				scrollNotAvailable = true
@@ -952,7 +1025,7 @@ function SvgLogic() {
 				$(document).scrollTop(thirdBreackpointPositionOnTop)
 
 				lastScrollPosition = thirdBreackpointPositionOnTop
-				
+
 				stopScrolling()
 
 
@@ -978,7 +1051,7 @@ function SvgLogic() {
 				}, 500)
 				// e.stopImmediatePropagation()
 				// e.preventDefault()
-				
+
 
 			} else if ($(document).scrollTop() >= forthBreackpointPositionOnTop && needToStop4) {
 				scrollNotAvailable = true
@@ -1003,7 +1076,7 @@ function SvgLogic() {
 				}, 500)
 				// e.stopImmediatePropagation()
 				// e.preventDefault()
-				
+
 			}
 			if (globusPosition && document.getElementById('secend_path').getTotalLength() <= globusPosition) {
 				$("#lastBreackpoint").attr('r', 75)
@@ -1013,7 +1086,6 @@ function SvgLogic() {
 			if ($(document).scrollTop() >= secendBreackpointPositionOnTop && needToStop2 && !isItAnimated) {
 				countEfect(true)
 				isItAnimated = true
-				console.log('changed in hear')
 			}
 
 
