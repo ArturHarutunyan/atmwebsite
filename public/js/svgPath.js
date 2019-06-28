@@ -901,12 +901,15 @@ function SvgLogic() {
 
 		if (freeScrolling && $(window).scrollTop() >= forthBreackpointPositionOnTop) {
 
-			window.onmousewheel = document.onmousewheel = function () { };
+
+			window.removeEventListener('mousewheel', wheel,false)
+			document.removeEventListener('mousewheel', wheel,false)
 		}
 	}
 
 
-	window.onmousewheel = document.onmousewheel = wheel;
+	window.addEventListener('mousewheel', wheel,{passive:false})
+	document.addEventListener('mousewheel', wheel,{passive:false})
 
 	var isFirstStep = true;
 
