@@ -301,7 +301,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <img data-src="{{asset('uploads/images/main/armenia/modal-close.png')}}" alt="close">
                         </button>
-                        <img class="modal-image" src="{{asset('uploads/sample_image.jpg')}}" alt="image"/>
+                        <img class="modal-image not-intersection" src="{{asset('uploads/sample_image.jpg')}}" alt="image"/>
                     </div>
                     <div class="armenia-modal__body">
                         <h6 class="armenia-modal__title"></h6>
