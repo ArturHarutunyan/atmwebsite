@@ -32,14 +32,8 @@
                     <div class="wrapper-min">
                         <div class="armenia-food">
                             @foreach($news as $single_news)
-                                <figure class="armenia-food__figure cardEfect"
-                                        onclick="modalOpen(
-                                            '{{$single_news->id}}',
-                                            'news',
-                                            '{{isset($single_news->image)?asset($single_news->image):asset('uploads/sample_image.jpg')}}',
-                                            '{{App::getLocale()}}'
-                                        )">
-                                    <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url({{isset($single_news->image)?asset($single_news->image):asset('uploads/sample_image.jpg')}});"></div>
+                                <figure class="armenia-food__figure cardEfect" onclick="modalOpen('{{$single_news->id}}','news','{{asset($single_news->image)}}','{{App::getLocale()}}')">
+                                    <div class="armenia-food__imgBox cardEfectImage lazy-bg" style="background-image: url({{asset($single_news->image)}});"></div>
                                     <div class="cardEfectBackground">
                                         {!! $single_news->text_content !!}
                                     </div>
