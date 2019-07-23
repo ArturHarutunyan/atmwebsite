@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Tour;
 use App\TourType;
 use App\StaffMember;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,13 +23,31 @@ Route::group(['middleware' => 'api'], function(){
     Route::get('tour_types', function(){
         return TourType::all();
     })->name('tourtypes.api');
+
     Route::get('staff_members_short_list', function(){
         return StaffMember::orderBy('id', 'asc')->take(12)->get();
     })->name('staff_members_short.api');
     Route::get('staff_members_full_list', function(){
         return StaffMember::all();
     })->name('staff_members_full.api');
+
+
 });
+
+Route::group(['middleware' => 'api','prefix'=>'meridian'], function(){
+    Route::post('hotels/{ln}', [
+        'uses'=>'MeridianHotelsController@index',
+        'as'=>'MeridianHotels'
+    ]/*function ($ln){
+        MeridianHotels::with('imgs')->translatedIn($ln)->get();
+    }*/);
+
+    Route::get('excursions', function (){
+        return StaffMember::all();
+    });
+
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
