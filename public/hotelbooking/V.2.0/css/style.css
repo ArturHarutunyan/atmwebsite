@@ -16,8 +16,9 @@
 
 
 /* img preloader  */
-
-
+#Car_rent:not(:checked) ~ .car_rante_price {
+    display: none !important;
+}
 .ring {
 
     -webkit-box-sizing: initial;
@@ -2023,6 +2024,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .swipe-wrap>div img {
         min-height: 208px;
+    }
+    .transport_section  .swipe-wrap>div img {
+        min-height: 228px;
     }
 
 }

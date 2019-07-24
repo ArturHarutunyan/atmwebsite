@@ -156,6 +156,9 @@ function initOrders() {
 	var sopItemsContainer = document.querySelector('.shop_item_container');
 	sopItemsContainer.innerHTML = '';
 	var total = 0
+
+	var  countOrders = userOrders.length
+	
 	userOrders.forEach(function (oneOrder) {
 
 		var DomForm = oneOrder.parent;
@@ -198,7 +201,7 @@ function initOrders() {
 
 			var date = [new Date(date[0]), new Date(date[1])];
 
-			var price = ((+getPastDays(date) + 1) * +roomPrice);
+			var price = ((+getPastDays(date) ) * +roomPrice);
 
 			var qty = oneOrder.Qty.element.value;
 			var hotelName = DomForm.getAttribute('data-hotel_name');
@@ -246,8 +249,10 @@ function initOrders() {
 
 			var tripPrice = 0
 
+			countOrders--
 			keys.forEach(function (key) {
 				if (!oneOrder[key].checked) return;
+				countOrders++
 
 				var shopItem = document.createElement('div');
 				shopItem.classList.add('shope_item');
@@ -332,6 +337,7 @@ function initOrders() {
 
 				total += price;
 			})
+			if(!tripPrice) tripPrice =  carPrices[carType - 1];
 
 
 
@@ -346,6 +352,7 @@ function initOrders() {
 
 	})
 
+	document.querySelectorAll('.shopTitle .blue_color')[0].innerHTML = document.querySelectorAll('.shopTitle .blue_color')[1].innerHTML = countOrders
 	document.querySelector('.shop_total .blue_color').innerHTML = total + valuta;
 
 	if (total) {
@@ -356,7 +363,6 @@ function initOrders() {
 	}
 	shopListMinusTopPosition()
 }
-
 function addOrderToArray(order) {
 	userOrders.push(order);
 	initOrders()
@@ -369,10 +375,11 @@ function removeOrderFromArray(order) {
 
 	initOrders();
 }
+
 function countingHotelBookingPrice(form) {
 	var hotelName = (form.getAttribute('data-hotel_name')).toLowerCase();
 
-	console.log(hotelName);
+
 
 	var room = form.querySelector('[data-name="Room"]').value;
 	var qty = form.querySelector('[data-name="Qty"]').value;
@@ -382,7 +389,7 @@ function countingHotelBookingPrice(form) {
 
 	var roomPrice = rooms[hotelName][room - 1];
 	var days = getPastDays(newDates);
-	var nights = days + 1;
+	var nights = days ;
 	var price = qty * nights * roomPrice;
 
 
