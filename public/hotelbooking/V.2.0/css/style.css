@@ -828,9 +828,32 @@ body {
     transform        : rotate(45deg);
 }
 
-.form-group input~div {
+
+.form-group{
+    flex-wrap: wrap;
+}
+.form-group input~div:not(.swipe_container) {
     display: none;
 }
+
+
+.form-group input:checked ~ div.swipe_container {
+
+
+    opacity: 1  ;
+    
+}
+
+.form-group input~div.swipe_container {
+
+
+    width: 300px;
+
+    opacity:  0;
+    
+}
+
+
 
 .form-group input:checked~div {
     display: inline-block;
