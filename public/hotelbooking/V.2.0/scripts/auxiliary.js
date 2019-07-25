@@ -68,7 +68,7 @@ function shopListMinusTopPosition() {
 
 	if (shopList.classList.contains('showShop')) return;
 	var shopListHeight = shopList.offsetHeight;
-	shopList.style.bottom = - (shopListHeight + 200) + 'px';
+	// shopList.style.bottom = - (shopListHeight + 200) + 'px';
 
 
 
@@ -158,7 +158,7 @@ function initOrders() {
 	var total = 0
 
 	var  countOrders = userOrders.length;
-	console.log(userOrders)
+	// console.log(userOrders)
 
 
 
@@ -168,7 +168,7 @@ function initOrders() {
 		var DomForm = oneOrder.parent;
 
 
-		console.log(DomForm)
+		// console.log(DomForm)
 
 
 
@@ -270,7 +270,7 @@ function initOrders() {
 			shopItem.appendChild(removeOrders);
 
 
-			console.log(DomForm)
+			// console.log(DomForm)
 			removeOrders.onclick = function(){
 				removeOrderFromArray(oneOrder)
 				DomForm.querySelector('.add_tour_btn').click();
@@ -281,7 +281,7 @@ function initOrders() {
 
 			var keys = Object.keys(oneOrder);
 			
-			console.log(oneOrder);
+			// console.log(oneOrder);
 
 			var carType = oneOrder.carType;
 
@@ -380,7 +380,7 @@ function initOrders() {
 
 				shopItem.appendChild(removeOrders);
 
-				console.log(shopItem)
+				// console.log(shopItem)
 				removeOrders.onclick = function(){
 					var checkbox = parent.querySelector('[type="checkbox"')
 					checkbox.checked = false;
@@ -458,10 +458,13 @@ function initOrders() {
 
 	if (total) {
 		document.querySelector('.shopList').classList.add('show')
-		document.querySelector('.mobile_shopList_fi').classList.add('show')
+		document.querySelector('.mobile_shopList_fi').classList.add('show');
 	} else {
 		document.querySelector('.shopList').classList.remove('show')
-		document.querySelector('.mobile_shopList_fi').classList.remove('show')
+		document.querySelector('.mobile_shopList_fi').classList.remove('show');
+		
+		document.querySelector('.mobile_shopList_fi').style.top = '';
+
 
 	}
 	shopListMinusTopPosition()
@@ -512,7 +515,7 @@ function countingHotelBookingPrice(form) {
 
 	hotelIncludes[0].innerHTML = hotelIncludes[1].innerHTML = '';
 
-	totalPrises[0].innerHTML = totalPrises[1].innerHTML = price + valuta;
+	totalPrises[0].innerHTML = totalPrises[1].innerHTML = price + valuta; 
 
 
 	// console.log(price, days, nights)

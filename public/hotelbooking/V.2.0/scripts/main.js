@@ -356,7 +356,7 @@ document.addEventListener('scroll', function (event) {
 
         // console.log(event)
         if (event.otherHeight) {
-            var shopContainer = document.querySelector('.shopList_block_container');
+            var shopContainer = document.querySelector('.shopList_block_container'); 
             var shopListHeight = shopContainer.offsetHeight;
 
             
@@ -987,6 +987,9 @@ document.querySelector('.shopList_block .button_container button').addEventListe
 
     })
 
+
+
+    // ********************************************************************************************  REQ TO SERVER   n
     // var allOrders = { hotelOrders, carOrders, ExcursionOrders };
     // var finalForm = JSON.stringify({ allOrders, contacts });
     // var http = new XMLHttpRequest();

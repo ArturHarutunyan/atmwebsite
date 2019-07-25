@@ -19,14 +19,17 @@
 #Car_rent:not(:checked)~.car_rante_price {
     display: none !important;
 }
-.sections_icon_container p{
-    color: #656565 !important;
-    transition:all 0.5s linear;
+
+.sections_icon_container p {
+    color     : #656565 !important;
+    transition: all 0.5s linear;
 }
-.selected.sections_icon_container p{
-    
+
+.selected.sections_icon_container p {
+
     color: #286786 !important;
 }
+
 .sections_icon_container p svg {
     fill: #656565 !important;
 }
@@ -34,6 +37,7 @@
 .selected.sections_icon_container p svg {
     fill: #286786 !important;
 }
+
 .ring {
 
     -webkit-box-sizing: initial;
@@ -222,14 +226,14 @@ html {
 }
 
 body {
-    color     : #656565;
-    min-height: 100%;
+    color        : #656565;
+    min-height   : 100%;
     /* overflow-y: scroll; */
 
     /* margin       : -20px !important; */
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
-    padding-top: 40px;
+    padding-top     : 40px;
 
 
 
@@ -313,7 +317,25 @@ body {
 .show_all_content_button_container svg,
 .hide_all_content_button_container svg {
     width: 14px;
+    
 }
+
+.show_all_content_button_container,
+.hide_all_content_button_container{
+
+    margin: auto;
+    display: inline-block;
+    width: 30px;
+    max-width: 30px;
+    margin-left: calc(50% - 15px);
+}
+
+
+.hide_all_content_button_container{
+
+    margin-left: calc(50% - 28px);
+}
+
 
 .fixed_swipe_container .hotel_starts {
     display: none;
@@ -527,12 +549,14 @@ body {
 .removeOrderButton {
     cursor         : pointer;
     background     : red;
-    height         : 10px;
-    width          : 10px;
+    height         : 24px;
+    width          : 25px;
     border-radius  : 50%;
     display        : inline-flex;
     justify-content: center;
+    position       : relative;
     align-items    : center;
+    left           : -17px;
     color          : #fff;
 }
 
@@ -1300,6 +1324,7 @@ div.selector-element div.selector-options div.selector-option {
 }
 
 .hotels_shopList .main_Content {
+    margin       : 0;
     position     : relative;
     margin-top   : 10px;
     margin-bottom: 50px;
@@ -2161,17 +2186,21 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         /* padding-top: 200px; */
     }
 
+    .wrapper {
+        padding: 0 5px;
+    }
 
 
-    .tur_description_content img{
+    .tur_description_content img {
         width: 100%;
     }
-    .tur_description_content p{
+
+    .tur_description_content p {
         padding-right: 10px !important;
     }
 
     .shopList_block_container {
-        transition: all .5s linear;
+        transition         : all .5s linear;
         /* transition-delay: .5s; */
     }
 
@@ -2494,7 +2523,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         white-space: nowrap;
     }
 
-   
+
 }
 
 
