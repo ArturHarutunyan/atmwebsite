@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/select_plugin.css">
     <link rel="stylesheet" href="./css/pickmeup.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>Document</title> 
 
 
 </head>
@@ -44,12 +44,12 @@
                 <div class="logo_text ">
                     <div><img src="./images/ATM_logo.png" alt="nkar"></div>
                     <p>Компания «Армения Травел» основана в 1996 году. С 1999 года компания организует
-                        инсентив-программы для клиентов из различных стран мира. «Армения Травел» – один из лидеров
-                        национальной индустрии въездного туризма. С 2007 года «Армения Травел» становится официальным
-                        представителем немецкой авиакомпании «Люфтганза» в качестве ереванского “Люфтганза Сити Центра”.
-                        Менеджеры «Армения Травел» разрабатывают уникальные туристские маршруты и организуют специальные
-                        тематические туры. Компания предлагает туристские услуги, авиабилеты и грузоперевозки. «Армения
-                        Травел» - один из крупнейших операторов корпоративного туризма в стране.
+                        инсентив-программы для клиентов из различных стран мира. <span class="showMore">...show more</span> <span class='moreContent'>«Армения Травел» – один из лидеров
+                            национальной индустрии въездного туризма. С 2007 года «Армения Травел» становится официальным
+                            представителем немецкой авиакомпании «Люфтганза» в качестве ереванского “Люфтганза Сити Центра”.
+                            Менеджеры «Армения Травел» разрабатывают уникальные туристские маршруты и организуют специальные
+                            тематические туры. Компания предлагает туристские услуги, авиабилеты и грузоперевозки. «Армения
+                            Травел» - один из крупнейших операторов корпоративного туризма в стране. <span class="showLess">...show less</span></span>
                 </div>
             </div>
 
@@ -2090,7 +2090,7 @@
                                 <div class="gray_border_bottom display_block col-12 "></div>
 
                                 <p class="bold_font black_color mt-4">Car rent in Yerevan</p>
-                                <div class="form-group mt-0" data-form_name='Car-Rent' data-static_price='125'>
+                                <div class="form-group mt-0 rent_form"  data-static_price='125'>
 
                                     <input type="checkbox" id="Car_rent">
                                     <label for="Car_rent">Rent </label>
@@ -2103,7 +2103,7 @@
                                             <path class="st0"
                                                 d="M85.2,10.4H74.6V5.9c0-2.3-1.9-4.2-4.2-4.2s-4.2,1.9-4.2,4.2v4.5H33.8V5.9c0-2.3-1.9-4.2-4.2-4.2  s-4.2,1.9-4.2,4.2v4.5H14.8C6.7,10.4,0.1,17,0.1,25.2v58.4c0,8.1,6.6,14.8,14.8,14.8h70.3c8.1,0,14.8-6.6,14.8-14.8V25.2  C99.9,17,93.3,10.4,85.2,10.4z M29.6,27.5c2.3,0,4.2-1.9,4.2-4.2v-4.5h32.4v4.5c0,2.3,1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2v-4.5h10.6  c3.5,0,6.4,2.9,6.4,6.4v10.2H8.4V25.2c0-3.5,2.9-6.4,6.4-6.4h10.6v4.5C25.4,25.6,27.3,27.5,29.6,27.5z" />
                                         </svg>
-                                        <input type="text" class='hidden_input' data-name='date'>
+                                        <input type="text" class='hidden_input' >
                                         <input type="text" class="check_in_out_hotel datepicker_input"
                                             placeholder="Date" />
                                         <svg class="svg-inline--fa fa-chevron-down fa-w-14" aria-hidden="true"
@@ -2115,9 +2115,14 @@
                                         </svg>
                                     </div>
 
-                                    <span class="car_rante_price blue_color bold_font ml-1"></span>
+                                    <!-- <span class="car_rante_price blue_color bold_font ml-1"></span> -->
+
+                                    <div class="add_car_rante col-4">
+
+                                        <button class="custom_style_button add_transport_rante_btn">ADD</button>
+                                    </div>
                                     <div class='w-100 d-inline-block'></div>
-                                    <div class="swipe_container m-0 mt-3 car_images_swipper_container"
+                                    <div class="swipe_container m-0 mt-3 car_images_swipper_container rante_car_swiper"
                                         style="">
                                         <!-- <div class="ring">
                                             Loading
@@ -2154,7 +2159,7 @@
                                                 </svg></span>
                                         </div>
 
-                                        
+                                        <div class="car_price blue_color  "> <span class="bold_font car_rante_price">125$</span> </div>
                                     </div>
                                 </div>
 

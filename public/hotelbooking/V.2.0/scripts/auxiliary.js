@@ -68,7 +68,7 @@ function shopListMinusTopPosition() {
 
 	if (shopList.classList.contains('showShop')) return;
 	var shopListHeight = shopList.offsetHeight;
-	shopList.style.bottom = - (shopListHeight + 200) + 'px';
+	shopList.style.bottom = -'calc(100vh - 84px)';
 
 
 
@@ -157,11 +157,22 @@ function initOrders() {
 	sopItemsContainer.innerHTML = '';
 	var total = 0
 
-	var  countOrders = userOrders.length
+	var  countOrders = userOrders.length;
+	console.log(userOrders)
+
+
+
 	
 	userOrders.forEach(function (oneOrder) {
 
 		var DomForm = oneOrder.parent;
+
+
+		console.log(DomForm)
+
+
+
+
 
 		var shopItem = document.createElement('div');
 		shopItem.classList.add('shope_item');
@@ -187,6 +198,12 @@ function initOrders() {
 		shopItem.appendChild(AmountContainer)
 
 
+
+
+		var removeOrders = document.createElement('span');
+		
+		removeOrders.classList.add('removeOrderButton')
+		removeOrders.innerHTML = '-';
 
 
 
@@ -217,10 +234,19 @@ function initOrders() {
 
 			sopItemsContainer.appendChild(shopItem)
 
+
+			shopItem.appendChild(removeOrders);
+
+			removeOrders.onclick = function(){
+				removeOrderFromArray(oneOrder)
+				
+				DomForm.querySelector('.add_booking').click();
+				
+			}
+
 		} else if (DomForm.classList.contains('tur_description')) {
 			var date = JSON.parse(oneOrder.date.element.value);
 			// changing for one date 
-
 
 			var tourPrice = parseFloat(DomForm.getAttribute('data-tour_price'));
 
@@ -239,8 +265,20 @@ function initOrders() {
 			AmountContainer.innerHTML = totalPrice + valuta;
 			total += totalPrice;
 
-			sopItemsContainer.appendChild(shopItem)
+			sopItemsContainer.appendChild(shopItem);
+
+			shopItem.appendChild(removeOrders);
+
+
+			console.log(DomForm)
+			removeOrders.onclick = function(){
+				removeOrderFromArray(oneOrder)
+				DomForm.querySelector('.add_tour_btn').click();
+
+				
+			}
 		} else if (DomForm.classList.contains('transport_section')) {
+
 			var keys = Object.keys(oneOrder);
 			
 			console.log(oneOrder);
@@ -335,6 +373,21 @@ function initOrders() {
 				serviceNameContainer.innerHTML = serviceName;
 				sopItemsContainer.appendChild(shopItem);
 
+				var removeOrders =  document.createElement('span');
+
+				removeOrders.classList.add('removeOrderButton')
+				removeOrders.innerHTML = '-'
+
+				shopItem.appendChild(removeOrders);
+
+				console.log(shopItem)
+				removeOrders.onclick = function(){
+					var checkbox = parent.querySelector('[type="checkbox"')
+					checkbox.checked = false;
+					checkbox.dispatchEvent(new Event('change'));
+					initOrders()
+				}
+
 				total += price;
 			})
 			if(!tripPrice) tripPrice =  carPrices[carType - 1];
@@ -346,6 +399,54 @@ function initOrders() {
 			carsPrice[0].innerHTML = carsPrice[1].innerHTML = tripPrice + valuta;
 
 
+		} else if(DomForm.classList.contains('rent_form')){
+
+
+
+				var shopItem = document.createElement('div');
+				shopItem.classList.add('shope_item');
+
+				var serviceNameContainer = document.createElement('div');
+				serviceNameContainer.classList.add('service_item');
+
+
+				var priceContainer = document.createElement('div');
+				priceContainer.classList.add('price_item');
+
+
+				var QtyContainer = document.createElement('div');
+				QtyContainer.classList.add('Qty_item');
+
+				var AmountContainer = document.createElement('div');
+				AmountContainer.classList.add('Amount_item');
+
+
+				shopItem.appendChild(serviceNameContainer)
+				shopItem.appendChild(priceContainer)
+				shopItem.appendChild(QtyContainer)
+				shopItem.appendChild(AmountContainer)
+
+
+
+				serviceNameContainer.innerHTML  = 'rent car';
+				priceContainer.innerHTML =  carRentPrice + valuta;
+
+				QtyContainer.innerHTML = 1;
+
+				AmountContainer.innerHTML = oneOrder.totalPrice;
+
+
+
+				sopItemsContainer.appendChild(shopItem);
+				total+= parseFloat(oneOrder.totalPrice);
+
+
+				shopItem.appendChild(removeOrders);
+				removeOrders.onclick = function(){
+					removeOrderFromArray(oneOrder)
+
+					DomForm.querySelector('.add_transport_rante_btn').click()
+				}
 		}
 
 		// console.log(DomForm);
@@ -357,8 +458,10 @@ function initOrders() {
 
 	if (total) {
 		document.querySelector('.shopList').classList.add('show')
+		document.querySelector('.mobile_shopList_fi').classList.add('show')
 	} else {
 		document.querySelector('.shopList').classList.remove('show')
+		document.querySelector('.mobile_shopList_fi').classList.remove('show')
 
 	}
 	shopListMinusTopPosition()
@@ -469,6 +572,11 @@ function checkTransportFormValidation(form) {
 
 }
 
+
+
+
+
+
 function getTransportationFormObject() {
 
 
@@ -544,7 +652,8 @@ function getTransportationFormObject() {
 				}
 				if (form.added) {
 
-					checkTransportFormValidation(form);
+					
+					(form);
 					initOrders()
 				}
 			})
@@ -558,6 +667,7 @@ function getTransportationFormObject() {
 	return form;
 
 }
+
 
 
 

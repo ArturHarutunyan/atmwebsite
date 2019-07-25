@@ -84,7 +84,7 @@ div.selector-element div.selector-options.options-search {
 div.selector-element.open div.selector-options {
   display: block;
   z-index: 9999999999;
-  max-height: 95px;
+  max-height: 103px !important;
 }
 
 div.selector-element div.selector-options div.selector-option {

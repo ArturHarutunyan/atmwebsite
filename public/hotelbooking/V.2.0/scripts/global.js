@@ -3,7 +3,10 @@ var touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
 
 var touchendEvent = 'ontouchstart' in window ? 'touchend' : 'click';
 
-let hotelDateP = [...document.querySelectorAll('.datepicker_input')];
+var hotelDateP = [...document.querySelectorAll('.datepicker_input')];
+
+
+var carRentPrice = 125;
 
 var userOrders = [];
 var cloneOrders = [];

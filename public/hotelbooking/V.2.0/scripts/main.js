@@ -98,10 +98,15 @@ hotelDateP.forEach(elem => {
 
 document.addEventListener('click', function (event) {
     var target = event.target;
-    if (target.closest('.datePic_container')) {
+    if (target.closest('.datePic_container') ) {
 
+        target.closest('.datePic_container').querySelectorAll('input')[1].focus();
         target.closest('.datePic_container').querySelectorAll('input')[1].click();
 
+    }else if(target.closest('.datePicerInputContainer')){
+
+        target.closest('.datePicerInputContainer').querySelectorAll('input')[1].focus();
+        target.closest('.datePicerInputContainer').querySelectorAll('input')[1].click();
     }
 })
 
@@ -242,13 +247,19 @@ document.addEventListener(touchEvent, function (event) {
 shopListMinusTopPosition()
 
 document.onclick = function (event) {
+
+    var shopList = document.querySelector('.shopList_block_container');
+    
+    if(!userOrders.length){
+        shopList.classList.remove('showShop')
+        
+    }
     var target = event.target;
     if (!target.closest('.mobile_shopList_fi')) return;
-    var shopList = document.querySelector('.shopList_block_container');
     var top = shopList.style.bottom;
-
-
     var rotateIcon = document.querySelector('.mobile_shopList_fi .blue_color')
+
+
 
 
     shopList.classList.toggle('showShop')
@@ -257,11 +268,16 @@ document.onclick = function (event) {
         shopList.style.top = '-1000px';
 
         rotateIcon.style.transform = 'rotate(180deg)';
+        
+        target.closest('.mobile_shopList_fi').style.top = ''
+
     } else {
         shopListMinusTopPosition()
 
         rotateIcon.style.transform = 'rotate(0deg)';
         shopList.style.top = '1000px';
+        
+        target.closest('.mobile_shopList_fi').style.top = '0'
 
 
     }
@@ -686,20 +702,109 @@ clickEventListener('.selectCarForem .add_transport_btn', function (event) {
         transportFormObject.added = false
         removeOrderFromArray(transportFormObject)
     }
-
-
-
-
 })
 //****************************************************************************
 
 
 // **************************************************************************** transportTrip form actions  END @@@@@@@@@@@@@@@@
 
+
+
+
+// *****************************************************************************  all rent car  functionality
+// **********************************************************************************************************************************************************
+
+
+// get rent car object 
+
+var rentCarObject = {
+    checked:false,
+    date:'',
+    added:false,
+    days:'',
+    totalPrice:'',
+    parent: document.querySelector('.rent_form')
+} 
+
+
+
+// *********************************************************************************** dinamic change date
+
+document.querySelector('.rent_form .hidden_input').addEventListener('change', function(event){
+    var target = event.target;
+    rentCarObject.date = target.value;
+    var priceContainer  =  document.querySelector('.car_rante_price');
+    var dates = JSON.parse(rentCarObject.date);
+    var newDates =  [new Date(dates[0]),new Date(dates[1])];
+
+    var pastDays = getPastDays(newDates) + 1;
+    priceContainer.innerHTML = pastDays * carRentPrice + valuta;
+    rentCarObject.days = pastDays;
+    rentCarObject.totalPrice = pastDays * carRentPrice + valuta;
+    
+    if(userOrders.indexOf(rentCarObject) != '-1')
+        initOrders()
+
+
+})
+
+
+
+
+// ******************************************************************************** check watcher 
+document.querySelector('#Car_rent').addEventListener('change',function(event){
+    rentCarObject.checked = event.target.checked;
+    
+    checkAddRent();
+})
+
+// *******************************************************************************  add rent transport  button click handling
+
+document.querySelector('.add_car_rante button').onclick = function(event){
+
+    var target = event.target;
+    // get button and input parent
+    var allParent =  target.closest('.form-group');
+    
+    // get date picker inputs 
+    var datePickerContainer = allParent.querySelector('.datePicerInputContainer');
+    var datepickerInput = datePickerContainer.querySelector('.datepicker_input');
+    var hiddenInput = datePickerContainer.querySelector('.hidden_input');
+
+    if(!hiddenInput.value.trim() ){
+        datepickerInput.style.border = '2px solid red';
+        rentCarObject.added = false;
+        allParent.classList.remove('added');
+        checkAddRent()
+
+    }else{
+        rentCarObject.added = !rentCarObject.added;
+        
+        allParent.classList.toggle('added');
+        checkAddRent()
+    }
+}
+
+
+// function to chack if car can be ranted 
+
+function checkAddRent(){
+    if(rentCarObject.checked && rentCarObject.added){
+            addOrderToArray(rentCarObject);
+    }else{
+        removeOrderFromArray(rentCarObject);
+    }
+}
+
+
+
+
+
+
+
+
+
 // getFormObject
-
-
-
 
 function getDateFromString(stringDate) {
     var date = JSON.parse(stringDate);
@@ -862,6 +967,18 @@ document.querySelector('.shopList_block .button_container button').addEventListe
             }
 
             ExcursionOrders.push(oneTurOrder)
+        } else if (objectParent.classList.contains('rent_form')) {
+            
+            console.log(orderObj)
+            delete orderObj.checked;
+            delete orderObj.added;
+            delete orderObj.parent;
+            
+
+            orderObj.name = 'rent car in Yerevan'
+            
+
+            ExcursionOrders.push(orderObj)
         }
 
 
@@ -870,27 +987,27 @@ document.querySelector('.shopList_block .button_container button').addEventListe
 
     })
 
-    var allOrders = { hotelOrders, carOrders, ExcursionOrders };
-    var finalForm = JSON.stringify({ allOrders, contacts });
-    var http = new XMLHttpRequest();
-    var url = '/hotelbooking/ajax/sendmail.php';
-    var params = 'data=' + finalForm;
-    http.open('POST', url, true);
+    // var allOrders = { hotelOrders, carOrders, ExcursionOrders };
+    // var finalForm = JSON.stringify({ allOrders, contacts });
+    // var http = new XMLHttpRequest();
+    // var url = '/hotelbooking/ajax/sendmail.php';
+    // var params = 'data=' + finalForm;
+    // http.open('POST', url, true);
 
-    //Send the proper header information along with the request
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // //Send the proper header information along with the request
+    // http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    http.onreadystatechange = function () {//Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
+    // http.onreadystatechange = function () {//Call a function when the state changes.
+    //     if (http.readyState == 4 && http.status == 200) {
 
-            if (parseInt(http.responseText) == 1) {
-                alert('thank you  for your orders. our specialists will contact you soon')
-            } else {
-                alert('there is an error in program . pleas contact with us ')
-            }
-        }
-    }
-    http.send(params);
+    //         if (parseInt(http.responseText) == 1) {
+    //             alert('thank you  for your orders. our specialists will contact you soon')
+    //         } else {
+    //             alert('there is an error in program . pleas contact with us ')
+    //         }
+    //     }
+    // }
+    // http.send(params);
     // console.log(finalForm);
 
 })
@@ -934,4 +1051,24 @@ if (window.addEventListener) {
 }
 else {
     window.attachEvent("onmessage", displayMessage);
+}
+
+
+
+
+// ******************************************************************** show hide text content
+
+
+
+document.querySelector('.showMore').onclick = function(event){
+    document.querySelector('.moreContent').style.display = 'inline';
+    document.querySelector('.showMore').style.display = 'none'
+}
+
+
+document.querySelector('.showLess').onclick = function(event){
+    document.querySelector('.moreContent').style.display = 'none';
+    document.querySelector('.showMore').style.display = 'inline-block';
+
+
 }

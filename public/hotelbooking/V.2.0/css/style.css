@@ -16,8 +16,23 @@
 
 
 /* img preloader  */
-#Car_rent:not(:checked) ~ .car_rante_price {
+#Car_rent:not(:checked)~.car_rante_price {
     display: none !important;
+}
+.sections_icon_container p{
+    color: #656565 !important;
+    transition:all 0.5s linear;
+}
+.selected.sections_icon_container p{
+    
+    color: #286786 !important;
+}
+.sections_icon_container p svg {
+    fill: #656565 !important;
+}
+
+.selected.sections_icon_container p svg {
+    fill: #286786 !important;
 }
 .ring {
 
@@ -203,16 +218,18 @@
 
 html {
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
     color     : #656565;
-    min-height: 105%;
-    overflow-y: scroll;
+    min-height: 100%;
+    /* overflow-y: scroll; */
 
     /* margin       : -20px !important; */
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
+    padding-top: 40px;
 
 
 
@@ -369,6 +386,10 @@ body {
     /* width: 30% */
 }
 
+/* .mobile_shopList_fi{
+    display: none 
+} */
+
 
 
 
@@ -486,9 +507,39 @@ body {
 }
 
 
+.showMore,
+.showLess {
+    cursor: pointer;
+    color : #286786;
+}
+
+.moreContent {
+    display: none;
+}
+
+.showMore:hover,
+.showLess:hover {
+
+
+    text-decoration: underline;
+}
+
+.removeOrderButton {
+    cursor         : pointer;
+    background     : red;
+    height         : 10px;
+    width          : 10px;
+    border-radius  : 50%;
+    display        : inline-flex;
+    justify-content: center;
+    align-items    : center;
+    color          : #fff;
+}
+
 .Booking_details_form.added .add_booking,
 .tur_description.added .add_tour_btn,
-.transport_section.added .add_transport_btn {
+.transport_section.added .add_transport_btn,
+.rent_form.added .add_transport_rante_btn {
     color       : #fff !important;
     background  : #286786 !important;
     opacity     : 0.8 !important;
@@ -497,12 +548,19 @@ body {
 
 .Booking_details_form.added .add_booking:hover,
 .tur_description.added .add_tour_btn:hover,
-.transport_section.added .add_transport_btn:hover {
+.transport_section.added .add_transport_btn:hover,
+.rent_form.added .add_transport_rante_btn:hover {
     opacity: 0.5 !important;
 }
 
 /* select on open style end */
 
+
+.rante_car_swiper {
+
+    z-index : 1 !important;
+    position: static !important;
+}
 
 /* datepicker input on focus style */
 
@@ -829,19 +887,20 @@ body {
 }
 
 
-.form-group{
+.form-group {
     flex-wrap: wrap;
 }
+
 .form-group input~div:not(.swipe_container) {
     display: none;
 }
 
 
-.form-group input:checked ~ div.swipe_container {
+.form-group input:checked~div.swipe_container {
 
 
-    opacity: 1  ;
-    
+    opacity: 1 !important;
+
 }
 
 .form-group input~div.swipe_container {
@@ -849,8 +908,8 @@ body {
 
     width: 300px;
 
-    opacity:  0;
-    
+    opacity: 0;
+
 }
 
 
@@ -1897,6 +1956,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 /* excursion section style end */
 
+.mobile_shopList_fi span:nth-child(2) svg {
+    width: 12px;
+}
+
 
 
 @media only screen and (min-width: 1200px) {
@@ -2048,7 +2111,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .swipe-wrap>div img {
         min-height: 208px;
     }
-    .transport_section  .swipe-wrap>div img {
+
+    .transport_section .swipe-wrap>div img {
         min-height: 228px;
     }
 
@@ -2071,7 +2135,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_shower_item_container,
     .hide_all_content_button_container,
     .mobile_shopList_fi {
-        display: none;
+        display: none !important;
     }
 
     .mobile_sow_hide_elements .hotels_block {
@@ -2097,6 +2161,19 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         /* padding-top: 200px; */
     }
 
+
+
+    .tur_description_content img{
+        width: 100%;
+    }
+    .tur_description_content p{
+        padding-right: 10px !important;
+    }
+
+    .shopList_block_container {
+        transition: all .5s linear;
+        /* transition-delay: .5s; */
+    }
 
     .shopList_block_container {
         box-shadow: 0px 2px 20px 0px grey;
@@ -2250,7 +2327,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_shopList_fi {
         position: fixed;
 
-        top              : calc(100vh - 84px) !important;
+        top              : calc(100vh - 84px);
         height           : 84px;
         -webkit-box-align: center;
         -ms-flex-align   : center;
@@ -2260,11 +2337,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
+        display: none;
         z-index: 99999999999;
 
-        box-shadow      : -5px 3px 20px 0px black;
-        -webkit-box-pack: justify;
+        /* box-shadow      : -5px 3px 20px 0px black; */
+        -webkit-box-pack   : justify;
 
         -ms-flex-pack: justify;
 
@@ -2272,13 +2349,22 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         padding        : 10px;
         padding-top    : 0;
         background     : #fff;
-        border-top     : 2px solid black;
+        border-top     : 1px solid lavenderblush;
+        border-bottom  : 1px solid lavenderblush;
 
-        cursor       : pointer;
-        width        : calc(100% - 20px);
-        box-sizing   : initial;
-        border-bottom: 1000px solid #fff;
+        cursor          : pointer;
+        width           : calc(100% - 20px);
+        box-sizing      : initial;
+        /* border-bottom: 1000px solid #fff; */
 
+
+    }
+
+    .mobile_shopList_fi.show {
+        display   : flex !important;
+        /* bottom : initial !important;
+        top       : 0 !important; */
+        transition: all .5s linear;
 
     }
 
@@ -2290,9 +2376,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     }
 
-    .mobile_shopList_fi span:nth-child(2) svg {
-        width: 12px;
-    }
+
 
     .wrapper {
         margin-top: 40px;
@@ -2300,7 +2384,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .shopList_block_container {
         position             : fixed;
-        bottom               : -100vh;
+        bottom               : calc(-100vh + 84px);
         height               : 100vh;
         top                  : initial !important;
         background           : #fff;
@@ -2313,7 +2397,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .shopList_block_container.showShop {
-        bottom: 84px !important;
+        bottom: 0 !important;
     }
 
     .pickmeup {
@@ -2409,7 +2493,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .sections_icon_container p {
         white-space: nowrap;
     }
+
+   
 }
+
 
 
 

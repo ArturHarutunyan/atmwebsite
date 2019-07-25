@@ -394,7 +394,7 @@ Selector.prototype.changeSelectedOption = function (clicked) {
 };
 
 // Close Selectors on click outside
-document.onclick = function (clicked) {
+document.documentElement.onclick = function (clicked) {
     let SelectorInstances = document.querySelectorAll('div.selector-element');
     let target = clicked.target;
     for (let i = 0; i < SelectorInstances.length; ++i) {
