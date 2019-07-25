@@ -68,7 +68,7 @@ function shopListMinusTopPosition() {
 
 	if (shopList.classList.contains('showShop')) return;
 	var shopListHeight = shopList.offsetHeight;
-	shopList.style.bottom = -'calc(100vh - 84px)';
+	shopList.style.bottom = - (shopListHeight + 200) + 'px';
 
 
 
