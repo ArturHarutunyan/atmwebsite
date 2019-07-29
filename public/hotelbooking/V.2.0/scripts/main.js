@@ -1,9 +1,16 @@
 
 
-
+var documentClick = false;
 
 
 // here shud be inif function for orders lists 
+
+document.addEventListener('touchstart', function() {
+    documentClick = true;
+});
+document.addEventListener('touchmove', function() {
+    documentClick = false;
+});
 
 
 var now = new Date
@@ -13,7 +20,7 @@ var eventStartDate = new Date("2019-10-17")
 
 var endDate = new Date("2019-10-27");
 var eventEndDate = new Date('2019-10-21')
-
+var datepickerClosed = true;
 
 hotelDateP.forEach(elem => {
 
@@ -64,7 +71,6 @@ hotelDateP.forEach(elem => {
 
     elem.addEventListener('pickmeup-change', function (e) {
 
-
         // console.log(e.detail.formatted_date); // New date according to current format
         // console.log(e.detail.date);           // New date as Date object
 
@@ -86,14 +92,23 @@ hotelDateP.forEach(elem => {
             elem.style.border = '';
         }
         elem.blur();
+        datepickerClosed = true
 
     })
     elem.addEventListener('pickmeup-show', function (e) {
         // elem.blur();
         elem.setAttribute('readonly', 'readonly')
+        datepickerClosed = false
+
+        
     })
 
+    
 
+
+})
+document.addEventListener('click',function(){
+    console.log(datepickerClosed)
 })
 
 document.addEventListener('click', function (event) {
@@ -125,6 +140,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     setTurItemsTop();
+
+    setTimeout(function(){
+    
+        var event = new Event('click');
+
+
+        Object.defineProperty(event, 'target', {writable: false, value: document.querySelector('.sections_icon_container p')});
+        document.dispatchEvent(event)
+        // alert(1)
+        
+    } ,0)
     // document.querySelector('.main_Content').style.minHeight = showHide[0].querySelector('*').offsetHeight +200 + 'px';
 
 });
@@ -151,6 +177,7 @@ window.addEventListener('resize', function (event) {
     shopListMinusTopPosition()
 
 })
+
 
 document.addEventListener('click', function (event) {
     var target = event.target.closest('.sections_icon_container');
@@ -212,7 +239,9 @@ document.addEventListener('click', function (event) {
 
 
 // mobile show hide hotel items 
-document.addEventListener(touchEvent, function (event) {
+document.addEventListener(touchendEvent, function (event) {
+
+    if(!documentClick) return;
     var target = event.target
     if (!target.closest('.show_all_content_button_container') && !target.closest('.hide_all_content_button_container')) return;
 
@@ -257,9 +286,9 @@ document.onclick = function (event) {
     var target = event.target;
     if (!target.closest('.mobile_shopList_fi')) return;
     var top = shopList.style.bottom;
-    var rotateIcon = document.querySelector('.mobile_shopList_fi .blue_color')
+    var rotateIcon = document.querySelector('.mobile_shopList_fi span:nth-child(2)')
 
-
+    console.log(rotateIcon)
 
 
     shopList.classList.toggle('showShop')
@@ -270,6 +299,7 @@ document.onclick = function (event) {
         rotateIcon.style.transform = 'rotate(180deg)';
         
         target.closest('.mobile_shopList_fi').style.top = ''
+        
 
     } else {
         shopListMinusTopPosition()
@@ -305,7 +335,7 @@ var tabsContainerRelativeTop = parseInt(tabsContainer.getBoundingClientRect().to
 
 
 
-document.addEventListener('scroll', function (event) {
+document.body.addEventListener('scroll', function (event) {
     documentWidth = document.documentElement.clientWidth + window.innerWidth - document.documentElement.clientWidth;
 
 
@@ -420,7 +450,8 @@ setTurItemsTop();
 
 // buck hotel
 
-document.addEventListener(touchEvent, function (event) {
+document.addEventListener(touchendEvent, function (event) {
+    if(!documentClick) return;
     var target = event.target;
     if (!target.closest('.add_booking')) return;
     var form_parent = target.closest('.Booking_details_form');
@@ -738,9 +769,9 @@ document.querySelector('.rent_form .hidden_input').addEventListener('change', fu
     var newDates =  [new Date(dates[0]),new Date(dates[1])];
 
     var pastDays = getPastDays(newDates) + 1;
-    priceContainer.innerHTML = pastDays * carRentPrice + valuta;
+    priceContainer.innerHTML =   valuta + (pastDays * carRentPrice);
     rentCarObject.days = pastDays;
-    rentCarObject.totalPrice = pastDays * carRentPrice + valuta;
+    rentCarObject.totalPrice =  valuta + (pastDays * carRentPrice) ;
     
     if(userOrders.indexOf(rentCarObject) != '-1')
         initOrders()
@@ -761,6 +792,8 @@ document.querySelector('#Car_rent').addEventListener('change',function(event){
 // *******************************************************************************  add rent transport  button click handling
 
 document.querySelector('.add_car_rante button').onclick = function(event){
+
+
 
     var target = event.target;
     // get button and input parent
@@ -789,11 +822,14 @@ document.querySelector('.add_car_rante button').onclick = function(event){
 // function to chack if car can be ranted 
 
 function checkAddRent(){
+    
     if(rentCarObject.checked && rentCarObject.added){
+
             addOrderToArray(rentCarObject);
     }else{
-        removeOrderFromArray(rentCarObject);
+             removeOrderFromArray(rentCarObject);
     }
+    
 }
 
 
@@ -924,7 +960,7 @@ document.querySelector('.shopList_block .button_container button').addEventListe
                     var flight = escapeHtml(ownForm.flight.value);
                     localPrice = +staticPrice;
                     oneCarOrder.flight = flight;
-                    oneCarOrder.price = localPrice + valuta;
+                    oneCarOrder.price = valuta + localPrice ;
                     oneCarOrder.date = date;
                     oneCarOrder.event = eType;
                     oneCarOrder.carType = carType;
@@ -938,7 +974,7 @@ document.querySelector('.shopList_block .button_container button').addEventListe
                     localPrice = (getPastDays([new Date(startDate), new Date(endDate)]) + 1) * (+staticPrice);
 
 
-                    oneCarOrder.price = localPrice + valuta;
+                    oneCarOrder.price = valuta + localPrice ;
                     oneCarOrder.date = date;
                     oneCarOrder.event = eType;
                     oneCarOrder.index = 2;
@@ -1075,3 +1111,38 @@ document.querySelector('.showLess').onclick = function(event){
 
 
 }
+
+
+
+
+document.addEventListener('click', function(event){
+    
+    var target = event.target;
+    if(target.closest('button')){
+        if(target.closest('.add_transport_rante_btn')){
+            if(target.closest('.added')){
+                event.stopImmediatePropagation();
+                event.preventDefault()
+            }
+        }else{
+            
+            if(target.closest('.added')){
+
+
+              
+                event.stopImmediatePropagation();
+                event.preventDefault()
+            }
+        }
+      
+    }
+},true)
+
+// document.addEventListener("touchmove", function(event){
+//     event.stopImmediatePropagation();
+//     // event.preventDefault()
+// }, false);
+
+// document.addEventListener('focus', function(event){
+//     // document.scrol
+// })

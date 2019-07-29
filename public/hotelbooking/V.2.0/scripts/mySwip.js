@@ -46,7 +46,7 @@ swipes.forEach((swipeElement, index) => {
         draggable: !is_touch_device() ? true : false,
         // continuous: true,
         // autoRestart: true,
-        disableScroll: true, // prevent touch events from scrolling the page
+        disableScroll: false, // prevent touch events from scrolling the page
         stopPropagation: false,
         callback: function (index, elem, dir) { 
             var elem = elem.querySelector('img')

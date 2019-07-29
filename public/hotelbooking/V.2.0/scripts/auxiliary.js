@@ -114,7 +114,7 @@ function clickEventListener(selector, collBack) {
 	var elements = [...document.querySelectorAll(selector)];
 
 	elements.forEach(function (elem) {
-		elem.addEventListener(touchEvent, collBack)
+		elem.onclick =  collBack
 
 	})
 }
@@ -162,7 +162,6 @@ function initOrders() {
 
 
 
-	
 	userOrders.forEach(function (oneOrder) {
 
 		var DomForm = oneOrder.parent;
@@ -203,7 +202,7 @@ function initOrders() {
 		var removeOrders = document.createElement('span');
 		
 		removeOrders.classList.add('removeOrderButton')
-		removeOrders.innerHTML = '-';
+		removeOrders.innerHTML = '<svg aria-hidden="true" width="15" focusable="false" data-prefix="fas" data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-trash-alt fa-w-14 fa-3x"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" class=""></path></svg>';
 
 
 
@@ -225,17 +224,18 @@ function initOrders() {
 			var totalPrice = price * +qty
 
 			serviceNameContainer.innerHTML = hotelName;
-			priceContainer.innerHTML = price + valuta;
+			priceContainer.innerHTML = valuta +  price  ;
 			QtyContainer.innerHTML = qty;
 
 
-			AmountContainer.innerHTML = totalPrice + valuta;
+			AmountContainer.innerHTML = valuta +  totalPrice ;
 			total += totalPrice;
 
 			sopItemsContainer.appendChild(shopItem)
 
+			console.log(totalPrice);
 
-			shopItem.appendChild(removeOrders);
+			AmountContainer.appendChild(removeOrders);
 
 			removeOrders.onclick = function(){
 				removeOrderFromArray(oneOrder)
@@ -243,6 +243,10 @@ function initOrders() {
 				DomForm.querySelector('.add_booking').click();
 				
 			}
+			DomForm.querySelector('.datepicker_input').onblur = function(){
+				if(!totalPrice && this.closest('.added')) removeOrders.click();
+			}
+			// if(!totalPrice) removeOrders.click();
 
 		} else if (DomForm.classList.contains('tur_description')) {
 			var date = JSON.parse(oneOrder.date.element.value);
@@ -258,16 +262,16 @@ function initOrders() {
 
 
 			serviceNameContainer.innerHTML = serviceName;
-			priceContainer.innerHTML = price + valuta;
+			priceContainer.innerHTML = valuta + price ;
 			QtyContainer.innerHTML = qty;
 
 
-			AmountContainer.innerHTML = totalPrice + valuta;
+			AmountContainer.innerHTML = valuta + totalPrice ;
 			total += totalPrice;
 
 			sopItemsContainer.appendChild(shopItem);
 
-			shopItem.appendChild(removeOrders);
+			AmountContainer.appendChild(removeOrders);
 
 
 			// console.log(DomForm)
@@ -360,15 +364,15 @@ function initOrders() {
 
 					price *= days;
 
-					document.querySelector('.car_rante_price').innerHTML = price + valuta;
+					document.querySelector('.car_rante_price').innerHTML = valuta +price  ;
 
 
 					// count cra rante in day
 				}
 
 				QtyContainer.innerHTML = qty;
-				AmountContainer.innerHTML = price + valuta;
-				priceContainer.innerHTML = price + valuta;
+				AmountContainer.innerHTML =  valuta+ price ;
+				priceContainer.innerHTML = valuta + price ;
 
 				serviceNameContainer.innerHTML = serviceName;
 				sopItemsContainer.appendChild(shopItem);
@@ -376,9 +380,10 @@ function initOrders() {
 				var removeOrders =  document.createElement('span');
 
 				removeOrders.classList.add('removeOrderButton')
-				removeOrders.innerHTML = '-'
+				removeOrders.innerHTML = '<svg aria-hidden="true" width="15" focusable="false" data-prefix="fas" data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-trash-alt fa-w-14 fa-3x"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" class=""></path></svg>';
 
-				shopItem.appendChild(removeOrders);
+
+				AmountContainer.appendChild(removeOrders);
 
 				// console.log(shopItem)
 				removeOrders.onclick = function(){
@@ -396,11 +401,12 @@ function initOrders() {
 
 			var carsPrice = document.querySelectorAll('.car_price .bold_font')
 
-			carsPrice[0].innerHTML = carsPrice[1].innerHTML = tripPrice + valuta;
+			carsPrice[0].innerHTML = carsPrice[1].innerHTML = valuta +  tripPrice ;
 
 
 		} else if(DomForm.classList.contains('rent_form')){
 
+				// countOrders++
 
 
 				var shopItem = document.createElement('div');
@@ -429,7 +435,7 @@ function initOrders() {
 
 
 				serviceNameContainer.innerHTML  = 'rent car';
-				priceContainer.innerHTML =  carRentPrice + valuta;
+				priceContainer.innerHTML = valuta + carRentPrice  ;
 
 				QtyContainer.innerHTML = 1;
 
@@ -438,15 +444,20 @@ function initOrders() {
 
 
 				sopItemsContainer.appendChild(shopItem);
-				total+= parseFloat(oneOrder.totalPrice);
+				total+= parseFloat(oneOrder.totalPrice.substr(1));
+				console.log(total,oneOrder.totalPrice)
+				// oneOrder.totalPrice = valuta+oneOrder.totalPrice
 
 
-				shopItem.appendChild(removeOrders);
+				AmountContainer.appendChild(removeOrders);
 				removeOrders.onclick = function(){
 					removeOrderFromArray(oneOrder)
 
 					DomForm.querySelector('.add_transport_rante_btn').click()
 				}
+
+
+				console.log(14564)
 		}
 
 		// console.log(DomForm);
@@ -454,7 +465,7 @@ function initOrders() {
 	})
 
 	document.querySelectorAll('.shopTitle .blue_color')[0].innerHTML = document.querySelectorAll('.shopTitle .blue_color')[1].innerHTML = countOrders
-	document.querySelector('.shop_total .blue_color').innerHTML = total + valuta;
+	document.querySelector('.shop_total .blue_color').innerHTML = valuta + total ;
 
 	if (total) {
 		document.querySelector('.shopList').classList.add('show')
@@ -515,7 +526,7 @@ function countingHotelBookingPrice(form) {
 
 	hotelIncludes[0].innerHTML = hotelIncludes[1].innerHTML = '';
 
-	totalPrises[0].innerHTML = totalPrises[1].innerHTML = price + valuta; 
+	totalPrises[0].innerHTML = totalPrises[1].innerHTML = valuta +  price  ; 
 
 
 	// console.log(price, days, nights)
