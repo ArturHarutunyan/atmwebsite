@@ -14,6 +14,25 @@
 
 */
 
+.shopTitle{
+    justify-content: flex-start !important;
+    align-items: center
+}
+.shopTitle span{
+    background: #286786;
+    min-width: 26px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 25px;
+    border-radius: 50%;
+    color: #fff !important;
+    margin-top: -20px;
+    padding-right: 2px;
+    margin-left: 5px;
+    
+}
 
 /* img preloader  */
 #Car_rent:not(:checked)~.car_rante_price {
@@ -335,6 +354,7 @@ body {
 .hide_all_content_button_container {
 
     margin-left: calc(50% - 28px);
+    padding: 0 20px;
 }
 
 
@@ -1995,6 +2015,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         max-width: 95%;
         padding  : 0 15px;
     }
+    .shopList_block_container {
+        top:  0 !important;
+    }
 
 
 
@@ -2152,6 +2175,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_sow_hide_elements .hotels_block {
         margin-top: 0 !important;
     }
+  
 
    
 }
@@ -2169,9 +2193,15 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         /* height        : 94vh; */
         padding-bottom   : 40px;
         /* padding-top   : 200px; */
+
+        /* overflow: scroll;
+        -webkit-overflow-scrolling: touch; */
+        -webkit-overflow-scrolling : touch !important;
+	    /* overflow: auto !important; */
     }
 
-    .wrapper {
+    .html {
+        height: calc(var(--vh, 1vh) * 100  );
         padding: 0 5px;
     }
 
@@ -2343,8 +2373,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_shopList_fi {
         position: fixed;
 
-        top              : calc(100vh - 84px);
-        height           : 84px;
+        top              : calc(100vh - 65px);
+        height           : 55px;
         -webkit-box-align: center;
         -ms-flex-align   : center;
         align-items      : center;
@@ -2405,7 +2435,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .shopList_block_container {
         position             : fixed;
-        bottom               : calc(-100vh + 84px);
+        bottom               : calc(-100vh + 55px);
         height               : 100vh;
         top                  : initial !important;
         background           : #fff;
@@ -2414,7 +2444,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         z-index              : 999999999;
         left                 : 0;
         overflow-y           : auto !important;
-        max-height           : calc(100vh - 84px);
+        max-height           : calc(100vh - 55px);
     }
 
     .shopList_block_container.showShop {
@@ -2523,7 +2553,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 @media only screen and (max-width: 400px) {
     .mobile_shower_item_container svg {
-        margin-left : -3px;
+        margin-left : 0;
         margin-right: 3px;
     }
 }

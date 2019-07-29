@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="./css/fa/all.min.css"> -->
@@ -26,9 +26,10 @@
     body{
         padding-top: 140px;
     } */
+   
     
     body{
-        
+        -webkit-overflow-scrolling : touch !important;
         overflow: auto;
         position: relative;
     }
@@ -54,6 +55,7 @@
     }
 
     html{
+        -webkit-overflow-scrolling : touch ;
         height: 0;
         max-height:0;
     }
@@ -68,6 +70,8 @@
     input{
         font-size: 16px !important;
     }
+
+    
     </style>
 
 
@@ -84,7 +88,7 @@
         </div>
 
         <div class="mobile_shopList_fi">
-            <span class="bold_font black_color shopTitle">shop list <span class="blue_color"></span></span>
+            <span class="bold_font black_color shopTitle">Shopping cart <span class="blue_color"></span></span>
             <span class="blue_color">
 
                 <svg class="svg-inline--fa fa-chevron-down fa-w-14" aria-hidden="true" focusable="false"
@@ -125,12 +129,21 @@
                                         менеджер по туризму
 
                                     </span>
+
+                                    
                                     <span class="display_block">
-                                        +37494 27 01 81
+                                            <address>
+                                                    <a href="tel:+37494270181">+37494 27 01 81</a>
+                                            </address>
+                                        
 
                                     </span>
                                     <span class="display_block">
-                                        hotel_reservation@armeniatravel.am
+                                            <address>
+                                                    <a href="mailto:hotel_reservation@armeniatravel.am">hotel_reservation@armeniatravel.am</a><br>
+                                            </address>
+
+                                        
                                     </span>
                                 </div>
                             </div>
@@ -145,13 +158,23 @@
                                         менеджер по туризму
 
                                     </span>
-                                    <span class="display_block">
-                                        37493 44 65 58
 
+
+
+
+                                    <span class="display_block">
+                                            <address>
+                                                    <a href="tel:+37493446558">+37493 44 65 58</a>
+                                            </address>
+                                        
 
                                     </span>
                                     <span class="display_block">
-                                        hakob.kpryan@armeniatravel.am
+                                            <address>
+                                                    <a href="mailto:hakob.kpryan@armeniatravel.am">hakob.kpryan@armeniatravel.am</a><br>
+                                            </address>
+
+                                        
                                     </span>
                                 </div>
                             </div>
@@ -2077,12 +2100,10 @@
                                         <div class="swipe-wrap">
 
 
-
+                                            
                                             <div><img data-src="./images/3-4 seet/mercedes.jpg" alt=""></div>
-                                            <div><img
-                                                    data-src="./images/3-4 seet/location_vehicules_9_places_cannes.jpg"
-                                                    alt=""></div>
                                             <div><img data-src="./images/3-4 seet/0248955129004.jpg" alt=""></div>
+                                            <div><img data-src="./images/3-4 seet/location_vehicules_9_places_cannes.jpg" alt=""></div>
 
                                         </div>
 
@@ -2121,9 +2142,8 @@
 
                                             <div><img data-src="./images/1-2 seet/26_a_05061342109514.jpg" alt=""></div>
                                             <div><img data-src="./images/1-2 seet/26_a_05061342134887.jpg" alt=""></div>
+                                            <div><img data-src="./images/1-2 seet/26_mp_05061341541950.jpg" alt=""></div>
                                             <div><img data-src="./images/1-2 seet/26_a_0506134220112.jpg" alt=""></div>
-                                            <div><img data-src="./images/1-2 seet/26_mp_05061341541950.jpg" alt="">
-                                            </div>
                                         </div>
 
                                         <span class="next_swipe"><svg class="svg-inline--fa fa-angle-right fa-w-8"
@@ -2411,7 +2431,7 @@
                             <!-- tour item end -->
                             <!-- tour item -->
                             <div class="tur_description_item">
-                                <p><span>MOTHER SEE OF HOLY g*
+                                <p><span>Echmiadzin
                                     </span> <span class="blue_color bold_font"> $37,5</span></p>
                                 <input class="checkbox_show_hide_content" type="checkbox" id="tur2">
                                 <label for="tur2">
@@ -2425,7 +2445,7 @@
                                 </label>
 
                                 <div class="tur_description" data-tour_price='37.5$' data-index="1"
-                                    data-tour_name='MOTHER SEE OF HOLY g*'>
+                                    data-tour_name='Echmiadzin'>
 
                                     <div class="showHideContainer">
 
@@ -3144,7 +3164,7 @@
 
                 <div class="shopList_block ">
                     <div class="shopList" style='display: none'>
-                        <div class="shopList_title shopTitle">Shopping List <span class="blue_color"></span></div>
+                        <div class="shopList_title shopTitle">Shopping cart <span class="blue_color"></span></div>
                         <div class="shpListTitles">
                             <div class="Service_title">Service</div>
                             <div class="price_title">Price</div>

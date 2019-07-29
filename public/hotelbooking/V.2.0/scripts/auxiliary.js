@@ -233,7 +233,7 @@ function initOrders() {
 
 			sopItemsContainer.appendChild(shopItem)
 
-			console.log(totalPrice);
+			// console.log(totalPrice);
 
 			AmountContainer.appendChild(removeOrders);
 
@@ -387,10 +387,23 @@ function initOrders() {
 
 				// console.log(shopItem)
 				removeOrders.onclick = function(){
-					var checkbox = parent.querySelector('[type="checkbox"')
+					var checkbox = parent.querySelector('[type="checkbox"]')
 					checkbox.checked = false;
 					checkbox.dispatchEvent(new Event('change'));
-					initOrders()
+					
+					console.log(DomForm)
+
+					var checkboxes =  oneOrder.parent.querySelector('.select_trip_form').querySelectorAll('[type="checkbox"]');
+					console.log('====================================');
+					console.log(checkboxes[0],checkboxes[1]);
+					console.log('====================================');
+					if(checkboxes[0] && !checkboxes[0].checked && checkboxes[1]  && !checkboxes[1].checked ){
+						document.querySelector('.add_transport_btn').click()
+					}
+					
+					
+					initOrders();
+
 				}
 
 				total += price;
@@ -457,7 +470,7 @@ function initOrders() {
 				}
 
 
-				console.log(14564)
+				// console.log(14564)
 		}
 
 		// console.log(DomForm);

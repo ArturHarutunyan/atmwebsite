@@ -75,7 +75,7 @@ swipes.forEach((swipeElement, index) => {
     document.addEventListener('mousedown', () => drag = false);
     document.addEventListener('mousemove', () => drag = true);
     document.addEventListener('mouseup', () => {
-        console.log(drag ? 'drag' : 'click')
+        // console.log(drag ? 'drag' : 'click')
         drag = false;
     });
 
@@ -93,7 +93,7 @@ swipes.forEach((swipeElement, index) => {
 
 
             var indexOfSlide = swipe.getPos();
-            console.log(indexOfSlide);
+            // console.log(indexOfSlide);
 
 
             var html = swipeElement.cloneInnerHtml;
@@ -134,7 +134,7 @@ swipes.forEach((swipeElement, index) => {
                     var elem = elem.querySelector('img')
                    var dataSrc =  elem.getAttribute('data-src');
         
-                   console.log(elem)
+                //    console.log(elem)
                    if(dataSrc){
                        elem.removeAttribute('data-src');
                        elem.setAttribute('src',dataSrc);
