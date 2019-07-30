@@ -597,11 +597,22 @@ clickEventListener('.Booking_details_form .add_booking', function (event) {
     var form = BookingFormObjects[formKey];
     var isFormValid = checkFormValidation(form);
 
+
     // console.log(form['date'])
 
     if (isFormValid) {
         form.adds = !form.adds;
 
+        if(form.date.element.value){
+
+            var dates =  JSON.parse(form.date.element.value)
+            if(dates[0] ==  dates[1]){ 
+
+                form.adds = false;
+                form.date.element.nextElementSibling.style.border= "2px solid red";
+            
+            };
+        }
         if (form.adds) {
 
             addOrderToArray(form)
@@ -934,6 +945,7 @@ document.querySelector('.shopList_block .button_container button').addEventListe
     userOrders.forEach(function (orderObj) {
 
         var objectParent = orderObj.parent;
+
         if (objectParent.classList.contains('Booking_details_form')) {
 
             // escapeHtml(
@@ -1035,7 +1047,10 @@ document.querySelector('.shopList_block .button_container button').addEventListe
             ExcursionOrders.push(oneTurOrder)
         } else if (objectParent.classList.contains('rent_form')) {
 
-            // console.log(orderObj)
+            // console.log(orderObj);
+
+
+            //  es kara error beri bayc ej@ refresh a linum normal a 
             delete orderObj.checked;
             delete orderObj.added;
             delete orderObj.parent;
@@ -1044,9 +1059,8 @@ document.querySelector('.shopList_block .button_container button').addEventListe
             orderObj.name = 'rent car in Yerevan'
 
 
-            ExcursionOrders.push(orderObj)
+            carOrders.push(orderObj)
         }
-
 
 
 
@@ -1056,7 +1070,7 @@ document.querySelector('.shopList_block .button_container button').addEventListe
 
 
     // ********************************************************************************************  REQ TO SERVER   n
-    // var allOrders = { hotelOrders, carOrders, ExcursionOrders };
+    var allOrders = { hotelOrders, carOrders, ExcursionOrders };
     // var finalForm = JSON.stringify({ allOrders, contacts });
     // var http = new XMLHttpRequest();
     // var url = '/hotelbooking/ajax/sendmail.php';
