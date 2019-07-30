@@ -121,7 +121,9 @@
     -webkit-animation: animateCircle 2s linear infinite;
     animation        : animateCircle 2s linear infinite;
 }
-
+.mobile_shower_item_container,.hotels_block  {
+    will-change: margin-top;
+}
 
 .mobile_shower_item_container svg {
     margin-left : -5px;
@@ -254,6 +256,7 @@ body {
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
     padding-top     : 40px;
+    will-change: scroll-position;
 
 
 
@@ -587,7 +590,7 @@ body {
 .rent_form.added .add_transport_rante_btn {
     color       : #fff !important;
     background  : #286786 !important;
-    opacity     : 0.8 !important;
+    opacity     : 0.5 !important;
     border-color: #286786 !important;
 }
 
@@ -649,6 +652,8 @@ body {
     overflow: hidden;
     z-index : 9999;
     position: relative;
+    visibility: hidden;
+    height: 0;
 
 }
 
@@ -1994,7 +1999,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .shopList_block {
 
         margin-top: 0px;
-        max-height: 100vh;
+        max-height: 95vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -2556,6 +2561,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-left : 0;
         margin-right: 3px;
     }
+    .one_hotel_item_container{
+        padding: 6px;
+    }
 }
 
 @media only screen and (max-width: 340px) {
@@ -2585,6 +2593,22 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-left: 5px;
     } */
 
+    .add_car_rante{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        padding: 0;
+        margin-top: 10px;
+        /* padding-right: 10px !important; */
+    }
+    .add_car_rante button{
+        width: 95%;
+    }
+    .rent_form .datePicerInputContainer{
+        width: 95%;
+        margin-top:10px;
+        padding-right: 10px !important;
+    }
 }
 
 

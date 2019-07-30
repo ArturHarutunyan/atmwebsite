@@ -5,12 +5,17 @@ var documentClick = false;
 
 // here shud be inif function for orders lists 
 
-document.addEventListener('touchstart', function () {
-    documentClick = true;
-});
-document.addEventListener('touchmove', function () {
-    documentClick = false;
-});
+if('ontouchstart' in window){
+
+    document.addEventListener('touchstart', function () {
+        documentClick = true;
+    });
+    document.addEventListener('touchmove', function () {
+        documentClick = false;
+    });
+}else{
+    documentClick = true
+}
 
 
 var now = new Date
@@ -188,6 +193,7 @@ document.addEventListener('click', function (event) {
 
     if (!event.target.closest('p') || !target) return;
 
+    setTurItemsTop();
 
     var navButtons = [...document.querySelectorAll('.sections_icon_container')]
 
