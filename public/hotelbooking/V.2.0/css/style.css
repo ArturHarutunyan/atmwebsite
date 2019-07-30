@@ -256,7 +256,7 @@ body {
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
     padding-top     : 40px;
-    will-change: scroll-position;
+    /* will-change: height; */
 
 
 
@@ -1211,6 +1211,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     min-height    : 100vh;
     padding       : 0 20px;
     padding-top   : 10px;
+    will-change: height;
 }
 
 .header {
@@ -2023,11 +2024,16 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .shopList_block_container {
         top:  0 !important;
     }
-
-
-
 }
 
+@media only screen and (max-width: 681px) {
+    .checkboxes .form-group input:checked~div {
+        width: 50%;
+    }
+    .form-group label {
+        width: 100%;
+    }
+}
 
 
 @media only screen and (min-width: 1200px) {

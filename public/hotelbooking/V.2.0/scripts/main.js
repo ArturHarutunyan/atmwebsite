@@ -5,7 +5,7 @@ var documentClick = false;
 
 // here shud be inif function for orders lists 
 
-if('ontouchstart' in window){
+if ('ontouchstart' in window) {
 
     document.addEventListener('touchstart', function () {
         documentClick = true;
@@ -13,7 +13,7 @@ if('ontouchstart' in window){
     document.addEventListener('touchmove', function () {
         documentClick = false;
     });
-}else{
+} else {
     documentClick = true
 }
 
@@ -183,6 +183,10 @@ window.addEventListener('resize', function (event) {
     let vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    // if(document.querySelector('.shopList_block_container ').classList.contains('showShop')){
+    //     document.querySelector('.mobile_shopList_fi').click()
+    // }
 
 })
 
@@ -753,7 +757,7 @@ clickEventListener('.selectCarForem .add_transport_btn', function (event) {
         transportFormObject.added = false
         removeOrderFromArray(transportFormObject);
         this.innerHTML = 'ADD'
-        
+
     }
 })
 //****************************************************************************

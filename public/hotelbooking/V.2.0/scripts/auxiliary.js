@@ -488,6 +488,7 @@ function initOrders() {
 		document.querySelector('.mobile_shopList_fi').classList.remove('show');
 		
 		document.querySelector('.mobile_shopList_fi').style.top = '';
+		document.querySelector('.mobile_shopList_fi span:nth-child(2)').style.transform = 'rotate(180deg)';
 
 
 	}
