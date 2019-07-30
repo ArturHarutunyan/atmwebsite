@@ -68,7 +68,7 @@ function shopListMinusTopPosition() {
 
 	if (shopList.classList.contains('showShop')) return;
 	var shopListHeight = shopList.offsetHeight;
-	shopList.style.bottom = - (shopListHeight + 200) + 'px';
+	// shopList.style.bottom = - (shopListHeight + 200) + 'px';
 
 
 
@@ -114,7 +114,7 @@ function clickEventListener(selector, collBack) {
 	var elements = [...document.querySelectorAll(selector)];
 
 	elements.forEach(function (elem) {
-		elem.addEventListener(touchEvent, collBack)
+		elem.onclick =  collBack
 
 	})
 }
@@ -156,9 +156,22 @@ function initOrders() {
 	var sopItemsContainer = document.querySelector('.shop_item_container');
 	sopItemsContainer.innerHTML = '';
 	var total = 0
+
+	var  countOrders = userOrders.length;
+	// console.log(userOrders)
+
+
+
 	userOrders.forEach(function (oneOrder) {
 
 		var DomForm = oneOrder.parent;
+
+
+		// console.log(DomForm)
+
+
+
+
 
 		var shopItem = document.createElement('div');
 		shopItem.classList.add('shope_item');
@@ -186,6 +199,12 @@ function initOrders() {
 
 
 
+		var removeOrders = document.createElement('span');
+		
+		removeOrders.classList.add('removeOrderButton')
+		removeOrders.innerHTML = '<svg aria-hidden="true" width="15" focusable="false" data-prefix="fas" data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-trash-alt fa-w-14 fa-3x"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" class=""></path></svg>';
+
+
 
 		// sopItemsContainer
 		// shop_item_container shope_item
@@ -198,26 +217,40 @@ function initOrders() {
 
 			var date = [new Date(date[0]), new Date(date[1])];
 
-			var price = ((+getPastDays(date) + 1) * +roomPrice);
+			var price = ((+getPastDays(date) ) * +roomPrice);
 
 			var qty = oneOrder.Qty.element.value;
 			var hotelName = DomForm.getAttribute('data-hotel_name');
 			var totalPrice = price * +qty
 
 			serviceNameContainer.innerHTML = hotelName;
-			priceContainer.innerHTML = price + valuta;
+			priceContainer.innerHTML = valuta +  price  ;
 			QtyContainer.innerHTML = qty;
 
 
-			AmountContainer.innerHTML = totalPrice + valuta;
+			AmountContainer.innerHTML = valuta +  totalPrice ;
 			total += totalPrice;
 
 			sopItemsContainer.appendChild(shopItem)
 
+			// console.log(totalPrice);
+
+			AmountContainer.appendChild(removeOrders);
+
+			removeOrders.onclick = function(){
+				removeOrderFromArray(oneOrder)
+				
+				DomForm.querySelector('.add_booking').click();
+				
+			}
+			DomForm.querySelector('.datepicker_input').onblur = function(){
+				if(!totalPrice && this.closest('.added')) removeOrders.click();
+			}
+			// if(!totalPrice) removeOrders.click();
+
 		} else if (DomForm.classList.contains('tur_description')) {
 			var date = JSON.parse(oneOrder.date.element.value);
 			// changing for one date 
-
 
 			var tourPrice = parseFloat(DomForm.getAttribute('data-tour_price'));
 
@@ -229,25 +262,39 @@ function initOrders() {
 
 
 			serviceNameContainer.innerHTML = serviceName;
-			priceContainer.innerHTML = price + valuta;
+			priceContainer.innerHTML = valuta + price ;
 			QtyContainer.innerHTML = qty;
 
 
-			AmountContainer.innerHTML = totalPrice + valuta;
+			AmountContainer.innerHTML = valuta + totalPrice ;
 			total += totalPrice;
 
-			sopItemsContainer.appendChild(shopItem)
+			sopItemsContainer.appendChild(shopItem);
+
+			AmountContainer.appendChild(removeOrders);
+
+
+			// console.log(DomForm)
+			removeOrders.onclick = function(){
+				removeOrderFromArray(oneOrder)
+				DomForm.querySelector('.add_tour_btn').click();
+
+				
+			}
 		} else if (DomForm.classList.contains('transport_section')) {
+
 			var keys = Object.keys(oneOrder);
 			
-			console.log(oneOrder);
+			// console.log(oneOrder);
 
 			var carType = oneOrder.carType;
 
 			var tripPrice = 0
 
+			countOrders--
 			keys.forEach(function (key) {
 				if (!oneOrder[key].checked) return;
+				countOrders++
 
 				var shopItem = document.createElement('div');
 				shopItem.classList.add('shope_item');
@@ -317,46 +364,135 @@ function initOrders() {
 
 					price *= days;
 
-					document.querySelector('.car_rante_price').innerHTML = price + valuta;
+					document.querySelector('.car_rante_price').innerHTML = valuta +price  ;
 
 
 					// count cra rante in day
 				}
 
 				QtyContainer.innerHTML = qty;
-				AmountContainer.innerHTML = price + valuta;
-				priceContainer.innerHTML = price + valuta;
+				AmountContainer.innerHTML =  valuta+ price ;
+				priceContainer.innerHTML = valuta + price ;
 
 				serviceNameContainer.innerHTML = serviceName;
 				sopItemsContainer.appendChild(shopItem);
 
+				var removeOrders =  document.createElement('span');
+
+				removeOrders.classList.add('removeOrderButton')
+				removeOrders.innerHTML = '<svg aria-hidden="true" width="15" focusable="false" data-prefix="fas" data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-trash-alt fa-w-14 fa-3x"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" class=""></path></svg>';
+
+
+				AmountContainer.appendChild(removeOrders);
+
+				// console.log(shopItem)
+				removeOrders.onclick = function(){
+					var checkbox = parent.querySelector('[type="checkbox"]')
+					checkbox.checked = false;
+					checkbox.dispatchEvent(new Event('change'));
+					
+					console.log(DomForm)
+
+					var checkboxes =  oneOrder.parent.querySelector('.select_trip_form').querySelectorAll('[type="checkbox"]');
+					console.log('====================================');
+					console.log(checkboxes[0],checkboxes[1]);
+					console.log('====================================');
+					if(checkboxes[0] && !checkboxes[0].checked && checkboxes[1]  && !checkboxes[1].checked ){
+						document.querySelector('.add_transport_btn').click()
+					}
+					
+					
+					initOrders();
+
+				}
+
 				total += price;
 			})
+			if(!tripPrice) tripPrice =  carPrices[carType - 1];
 
 
 
 			var carsPrice = document.querySelectorAll('.car_price .bold_font')
 
-			carsPrice[0].innerHTML = carsPrice[1].innerHTML = tripPrice + valuta;
+			carsPrice[0].innerHTML = carsPrice[1].innerHTML = valuta +  tripPrice ;
 
 
+		} else if(DomForm.classList.contains('rent_form')){
+
+				// countOrders++
+
+
+				var shopItem = document.createElement('div');
+				shopItem.classList.add('shope_item');
+
+				var serviceNameContainer = document.createElement('div');
+				serviceNameContainer.classList.add('service_item');
+
+
+				var priceContainer = document.createElement('div');
+				priceContainer.classList.add('price_item');
+
+
+				var QtyContainer = document.createElement('div');
+				QtyContainer.classList.add('Qty_item');
+
+				var AmountContainer = document.createElement('div');
+				AmountContainer.classList.add('Amount_item');
+
+
+				shopItem.appendChild(serviceNameContainer)
+				shopItem.appendChild(priceContainer)
+				shopItem.appendChild(QtyContainer)
+				shopItem.appendChild(AmountContainer)
+
+
+
+				serviceNameContainer.innerHTML  = 'rent car';
+				priceContainer.innerHTML = valuta + carRentPrice  ;
+
+				QtyContainer.innerHTML = 1;
+
+				AmountContainer.innerHTML = oneOrder.totalPrice;
+
+
+
+				sopItemsContainer.appendChild(shopItem);
+				total+= parseFloat(oneOrder.totalPrice.substr(1));
+				console.log(total,oneOrder.totalPrice)
+				// oneOrder.totalPrice = valuta+oneOrder.totalPrice
+
+
+				AmountContainer.appendChild(removeOrders);
+				removeOrders.onclick = function(){
+					removeOrderFromArray(oneOrder)
+
+					DomForm.querySelector('.add_transport_rante_btn').click()
+				}
+
+
+				// console.log(14564)
 		}
 
 		// console.log(DomForm);
 
 	})
 
-	document.querySelector('.shop_total .blue_color').innerHTML = total + valuta;
+	document.querySelectorAll('.shopTitle .blue_color')[0].innerHTML = document.querySelectorAll('.shopTitle .blue_color')[1].innerHTML = countOrders
+	document.querySelector('.shop_total .blue_color').innerHTML = valuta + total ;
 
 	if (total) {
 		document.querySelector('.shopList').classList.add('show')
+		document.querySelector('.mobile_shopList_fi').classList.add('show');
 	} else {
 		document.querySelector('.shopList').classList.remove('show')
+		document.querySelector('.mobile_shopList_fi').classList.remove('show');
+		
+		document.querySelector('.mobile_shopList_fi').style.top = '';
+
 
 	}
 	shopListMinusTopPosition()
 }
-
 function addOrderToArray(order) {
 	userOrders.push(order);
 	initOrders()
@@ -369,10 +505,11 @@ function removeOrderFromArray(order) {
 
 	initOrders();
 }
+
 function countingHotelBookingPrice(form) {
 	var hotelName = (form.getAttribute('data-hotel_name')).toLowerCase();
 
-	console.log(hotelName);
+
 
 	var room = form.querySelector('[data-name="Room"]').value;
 	var qty = form.querySelector('[data-name="Qty"]').value;
@@ -382,7 +519,7 @@ function countingHotelBookingPrice(form) {
 
 	var roomPrice = rooms[hotelName][room - 1];
 	var days = getPastDays(newDates);
-	var nights = days + 1;
+	var nights = days ;
 	var price = qty * nights * roomPrice;
 
 
@@ -402,7 +539,7 @@ function countingHotelBookingPrice(form) {
 
 	hotelIncludes[0].innerHTML = hotelIncludes[1].innerHTML = '';
 
-	totalPrises[0].innerHTML = totalPrises[1].innerHTML = price + valuta;
+	totalPrises[0].innerHTML = totalPrises[1].innerHTML = valuta +  price  ; 
 
 
 	// console.log(price, days, nights)
@@ -461,6 +598,11 @@ function checkTransportFormValidation(form) {
 	return hasCheckboxes && isFormValid;
 
 }
+
+
+
+
+
 
 function getTransportationFormObject() {
 
@@ -537,7 +679,8 @@ function getTransportationFormObject() {
 				}
 				if (form.added) {
 
-					checkTransportFormValidation(form);
+					
+					(form);
 					initOrders()
 				}
 			})
@@ -551,6 +694,7 @@ function getTransportationFormObject() {
 	return form;
 
 }
+
 
 
 

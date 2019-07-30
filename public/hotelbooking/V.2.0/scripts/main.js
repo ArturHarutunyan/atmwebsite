@@ -1,9 +1,21 @@
 
 
-
+var documentClick = false;
 
 
 // here shud be inif function for orders lists 
+
+if('ontouchstart' in window){
+
+    document.addEventListener('touchstart', function () {
+        documentClick = true;
+    });
+    document.addEventListener('touchmove', function () {
+        documentClick = false;
+    });
+}else{
+    documentClick = true
+}
 
 
 var now = new Date
@@ -13,7 +25,6 @@ var eventStartDate = new Date("2019-10-17")
 
 var endDate = new Date("2019-10-27");
 var eventEndDate = new Date('2019-10-21')
-
 
 hotelDateP.forEach(elem => {
 
@@ -64,7 +75,6 @@ hotelDateP.forEach(elem => {
 
     elem.addEventListener('pickmeup-change', function (e) {
 
-
         // console.log(e.detail.formatted_date); // New date according to current format
         // console.log(e.detail.date);           // New date as Date object
 
@@ -91,17 +101,25 @@ hotelDateP.forEach(elem => {
     elem.addEventListener('pickmeup-show', function (e) {
         // elem.blur();
         elem.setAttribute('readonly', 'readonly')
+
+
     })
 
 
-})
 
+
+})
 document.addEventListener('click', function (event) {
     var target = event.target;
     if (target.closest('.datePic_container')) {
 
+        target.closest('.datePic_container').querySelectorAll('input')[1].focus();
         target.closest('.datePic_container').querySelectorAll('input')[1].click();
 
+    } else if (target.closest('.datePicerInputContainer')) {
+
+        target.closest('.datePicerInputContainer').querySelectorAll('input')[1].focus();
+        target.closest('.datePicerInputContainer').querySelectorAll('input')[1].click();
     }
 })
 
@@ -120,6 +138,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     setTurItemsTop();
+
+    setTimeout(function () {
+
+        var event = new Event('click');
+
+
+        Object.defineProperty(event, 'target', { writable: false, value: document.querySelector('.sections_icon_container p') });
+        document.dispatchEvent(event)
+        // alert(1)
+
+    }, 0)
+
+
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     // document.querySelector('.main_Content').style.minHeight = showHide[0].querySelector('*').offsetHeight +200 + 'px';
 
 });
@@ -144,8 +179,13 @@ window.addEventListener('resize', function (event) {
         setTurItemsTop();
     }
     shopListMinusTopPosition()
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 })
+
 
 document.addEventListener('click', function (event) {
     var target = event.target.closest('.sections_icon_container');
@@ -153,6 +193,7 @@ document.addEventListener('click', function (event) {
 
     if (!event.target.closest('p') || !target) return;
 
+    setTurItemsTop();
 
     var navButtons = [...document.querySelectorAll('.sections_icon_container')]
 
@@ -207,7 +248,9 @@ document.addEventListener('click', function (event) {
 
 
 // mobile show hide hotel items 
-document.addEventListener(touchEvent, function (event) {
+document.addEventListener(touchendEvent, function (event) {
+
+    if (!documentClick) return;
     var target = event.target
     if (!target.closest('.show_all_content_button_container') && !target.closest('.hide_all_content_button_container')) return;
 
@@ -242,13 +285,19 @@ document.addEventListener(touchEvent, function (event) {
 shopListMinusTopPosition()
 
 document.onclick = function (event) {
+
+    var shopList = document.querySelector('.shopList_block_container');
+
+    if (!userOrders.length) {
+        shopList.classList.remove('showShop')
+
+    }
     var target = event.target;
     if (!target.closest('.mobile_shopList_fi')) return;
-    var shopList = document.querySelector('.shopList_block_container');
     var top = shopList.style.bottom;
+    var rotateIcon = document.querySelector('.mobile_shopList_fi span:nth-child(2)')
 
-
-    var rotateIcon = document.querySelector('.mobile_shopList_fi .blue_color')
+    // console.log(rotateIcon)
 
 
     shopList.classList.toggle('showShop')
@@ -257,11 +306,17 @@ document.onclick = function (event) {
         shopList.style.top = '-1000px';
 
         rotateIcon.style.transform = 'rotate(180deg)';
+
+        target.closest('.mobile_shopList_fi').style.top = ''
+
+
     } else {
         shopListMinusTopPosition()
 
         rotateIcon.style.transform = 'rotate(0deg)';
         shopList.style.top = '1000px';
+
+        target.closest('.mobile_shopList_fi').style.top = '0'
 
 
     }
@@ -275,7 +330,7 @@ let fixedBar = document.querySelector('.shopList_block');
 let fixedBarParent = document.querySelector('.Accommodation_SH');
 
 
-var scrollPositionInIframe 
+var scrollPositionInIframe
 
 
 
@@ -283,37 +338,37 @@ var tabsContainer = document.querySelector('.tabs_container');
 
 
 
-var tabsContainerRelativeTop = parseInt(tabsContainer.getBoundingClientRect().top)  ;
+var tabsContainerRelativeTop = parseInt(tabsContainer.getBoundingClientRect().top);
 
 
 
 
 
-document.addEventListener('scroll', function (event) {
+document.body.addEventListener('scroll', function (event) {
     documentWidth = document.documentElement.clientWidth + window.innerWidth - document.documentElement.clientWidth;
 
 
 
     var plusTop = iframeTop;
 
-    if (documentWidth <= 1141){
-        plusTop-=55
-    }else{
-        plusTop -=71
+    if (documentWidth <= 1141) {
+        plusTop -= 55
+    } else {
+        plusTop -= 71
     }
 
-    if(event.otherScroll>tabsContainerRelativeTop + plusTop){
+    if (event.otherScroll > tabsContainerRelativeTop + plusTop) {
 
-                
+
 
         // (event.otherScroll + event.otherHeight) 
 
 
 
-        tabsContainer.style.top = Math.abs((event.otherScroll)-(tabsContainerRelativeTop +plusTop))+ 'px';
+        tabsContainer.style.top = Math.abs((event.otherScroll) - (tabsContainerRelativeTop + plusTop)) + 'px';
 
-    }else{
-        tabsContainer.style.top  = 0;
+    } else {
+        tabsContainer.style.top = 0;
     }
 
     if (documentWidth >= 1200) {
@@ -343,25 +398,25 @@ document.addEventListener('scroll', function (event) {
             var shopContainer = document.querySelector('.shopList_block_container');
             var shopListHeight = shopContainer.offsetHeight;
 
-            
+
 
             var isShopListShow = document.querySelector('.shopList_block_container').classList.contains('showAll')
-           
+
 
             shopContainer.style.maxHeight = (event.otherHeight) + 'px';
-            if(!isShopListShow){
-                
+            if (!isShopListShow) {
+
                 if (!(((event.otherScroll + event.otherHeight) - iframeTop) > event.iframeHeight))
-                shopContainer.style.marginTop = event.otherScroll + shopListHeight/6 + 'px';
-            }else{
-                shopContainer.style.top = (event.otherScroll + event.otherHeight + shopListHeight  ) - iframeTop+ 'px';
+                    shopContainer.style.marginTop = event.otherScroll + shopListHeight / 6 + 'px';
+            } else {
+                shopContainer.style.top = (event.otherScroll + event.otherHeight + shopListHeight) - iframeTop + 'px';
             }
 
-            if (!(((event.otherScroll + event.otherHeight) - iframeTop) > event.iframeHeight)){
+            if (!(((event.otherScroll + event.otherHeight) - iframeTop) > event.iframeHeight)) {
                 document.querySelector('.mobile_shopList_fi').style.bottom = '';
                 document.querySelector('.mobile_shopList_fi').style.position = 'absolute'
                 document.querySelector('.mobile_shopList_fi').style.top = ((event.otherScroll + event.otherHeight) - iframeTop) - 84 + 'px';
-            }else{
+            } else {
                 document.querySelector('.mobile_shopList_fi').style.position = 'fixed';
                 document.querySelector('.mobile_shopList_fi').style.top = 'initial';
                 document.querySelector('.mobile_shopList_fi').style.bottom = -1015 + 'px';
@@ -370,12 +425,12 @@ document.addEventListener('scroll', function (event) {
 
 
 
-           
 
 
 
 
-            
+
+
         }
         // event.otherHeight
 
@@ -404,7 +459,8 @@ setTurItemsTop();
 
 // buck hotel
 
-document.addEventListener(touchEvent, function (event) {
+document.addEventListener(touchendEvent, function (event) {
+    if (!documentClick) return;
     var target = event.target;
     if (!target.closest('.add_booking')) return;
     var form_parent = target.closest('.Booking_details_form');
@@ -545,14 +601,18 @@ clickEventListener('.Booking_details_form .add_booking', function (event) {
         if (form.adds) {
 
             addOrderToArray(form)
+
+            this.innerHTML = 'ADDED'
         }
         else {
             removeOrderFromArray(form)
+            this.innerHTML = 'ADD'
         }
 
 
     } else {
         removeOrderFromArray(form)
+        this.innerHTML = 'ADD'
         var selects = form.parent.querySelectorAll('.selector-element');
         var datepicker = form.parent.querySelector('.datepicker_input');
 
@@ -636,14 +696,17 @@ clickEventListener('.tur_description .add_tour_btn', function (event) {
         if (form.adds) {
 
             addOrderToArray(form)
+            this.innerHTML = 'ADDED TOUR'
         }
         else {
             removeOrderFromArray(form)
+            this.innerHTML = 'ADD TOUR'
         }
 
 
     } else {
         removeOrderFromArray(form)
+        this.innerHTML = 'ADD TOUR'
         var selects = form.parent.querySelectorAll('.selector-element');
         var datepicker = form.parent.querySelector('.datepicker_input');
 
@@ -678,28 +741,132 @@ clickEventListener('.selectCarForem .add_transport_btn', function (event) {
 
 
     // console.log(transportFormObject);
+
+    console.log(1544)
     if (!transportFormObject.added && checkTransportFormValidation(transportFormObject)) {
 
         transportFormObject.added = true
         addOrderToArray(transportFormObject);
+        this.innerHTML = 'ADDED'
+
     } else {
         transportFormObject.added = false
-        removeOrderFromArray(transportFormObject)
+        removeOrderFromArray(transportFormObject);
+        this.innerHTML = 'ADD'
+        
     }
-
-
-
-
 })
 //****************************************************************************
 
 
 // **************************************************************************** transportTrip form actions  END @@@@@@@@@@@@@@@@
 
+
+
+
+// *****************************************************************************  all rent car  functionality
+// **********************************************************************************************************************************************************
+
+
+// get rent car object 
+
+var rentCarObject = {
+    checked: false,
+    date: '',
+    added: false,
+    days: '',
+    totalPrice: '',
+    parent: document.querySelector('.rent_form')
+}
+
+
+
+// *********************************************************************************** dinamic change date
+
+document.querySelector('.rent_form .hidden_input').addEventListener('change', function (event) {
+    var target = event.target;
+    rentCarObject.date = target.value;
+    var priceContainer = document.querySelector('.car_rante_price');
+    var dates = JSON.parse(rentCarObject.date);
+    var newDates = [new Date(dates[0]), new Date(dates[1])];
+
+    var pastDays = getPastDays(newDates) + 1;
+    priceContainer.innerHTML = valuta + (pastDays * carRentPrice);
+    rentCarObject.days = pastDays;
+    rentCarObject.totalPrice = valuta + (pastDays * carRentPrice);
+
+    if (userOrders.indexOf(rentCarObject) != '-1')
+        initOrders()
+
+
+})
+
+
+
+
+// ******************************************************************************** check watcher 
+document.querySelector('#Car_rent').addEventListener('change', function (event) {
+    rentCarObject.checked = event.target.checked;
+
+    checkAddRent();
+})
+
+// *******************************************************************************  add rent transport  button click handling
+
+document.querySelector('.add_car_rante button').onclick = function (event) {
+
+
+
+    var target = event.target;
+    // get button and input parent
+    var allParent = target.closest('.form-group');
+
+    // get date picker inputs 
+    var datePickerContainer = allParent.querySelector('.datePicerInputContainer');
+    var datepickerInput = datePickerContainer.querySelector('.datepicker_input');
+    var hiddenInput = datePickerContainer.querySelector('.hidden_input');
+
+    if (!hiddenInput.value.trim()) {
+        datepickerInput.style.border = '2px solid red';
+        rentCarObject.added = false;
+        allParent.classList.remove('added');
+        checkAddRent()
+
+    } else {
+        rentCarObject.added = !rentCarObject.added;
+
+        allParent.classList.toggle('added');
+        checkAddRent()
+    }
+}
+
+
+// function to chack if car can be ranted 
+
+function checkAddRent() {
+    var button = document.querySelector('.add_transport_rante_btn')
+    if (rentCarObject.checked && rentCarObject.added) {
+
+        addOrderToArray(rentCarObject);
+        button.innerHTML = "ADDED"
+
+
+    } else {
+        removeOrderFromArray(rentCarObject);
+        button.innerHTML = "ADD"
+    }
+
+}
+
+
+
+
+
+
+
+
+
 // getFormObject
-
-
-
 
 function getDateFromString(stringDate) {
     var date = JSON.parse(stringDate);
@@ -819,7 +986,7 @@ document.querySelector('.shopList_block .button_container button').addEventListe
                     var flight = escapeHtml(ownForm.flight.value);
                     localPrice = +staticPrice;
                     oneCarOrder.flight = flight;
-                    oneCarOrder.price = localPrice + valuta;
+                    oneCarOrder.price = valuta + localPrice;
                     oneCarOrder.date = date;
                     oneCarOrder.event = eType;
                     oneCarOrder.carType = carType;
@@ -833,7 +1000,7 @@ document.querySelector('.shopList_block .button_container button').addEventListe
                     localPrice = (getPastDays([new Date(startDate), new Date(endDate)]) + 1) * (+staticPrice);
 
 
-                    oneCarOrder.price = localPrice + valuta;
+                    oneCarOrder.price = valuta + localPrice;
                     oneCarOrder.date = date;
                     oneCarOrder.event = eType;
                     oneCarOrder.index = 2;
@@ -862,6 +1029,18 @@ document.querySelector('.shopList_block .button_container button').addEventListe
             }
 
             ExcursionOrders.push(oneTurOrder)
+        } else if (objectParent.classList.contains('rent_form')) {
+
+            // console.log(orderObj)
+            delete orderObj.checked;
+            delete orderObj.added;
+            delete orderObj.parent;
+
+
+            orderObj.name = 'rent car in Yerevan'
+
+
+            ExcursionOrders.push(orderObj)
         }
 
 
@@ -870,27 +1049,30 @@ document.querySelector('.shopList_block .button_container button').addEventListe
 
     })
 
-    var allOrders = { hotelOrders, carOrders, ExcursionOrders };
-    var finalForm = JSON.stringify({ allOrders, contacts });
-    var http = new XMLHttpRequest();
-    var url = '/hotelbooking/ajax/sendmail.php';
-    var params = 'data=' + finalForm;
-    http.open('POST', url, true);
 
-    //Send the proper header information along with the request
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    http.onreadystatechange = function () {//Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
+    // ********************************************************************************************  REQ TO SERVER   n
+    // var allOrders = { hotelOrders, carOrders, ExcursionOrders };
+    // var finalForm = JSON.stringify({ allOrders, contacts });
+    // var http = new XMLHttpRequest();
+    // var url = '/hotelbooking/ajax/sendmail.php';
+    // var params = 'data=' + finalForm;
+    // http.open('POST', url, true);
 
-            if (parseInt(http.responseText) == 1) {
-                alert('thank you  for your orders. our specialists will contact you soon')
-            } else {
-                alert('there is an error in program . pleas contact with us ')
-            }
-        }
-    }
-    http.send(params);
+    // //Send the proper header information along with the request
+    // http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    // http.onreadystatechange = function () {//Call a function when the state changes.
+    //     if (http.readyState == 4 && http.status == 200) {
+
+    //         if (parseInt(http.responseText) == 1) {
+    //             alert('thank you  for your orders. our specialists will contact you soon')
+    //         } else {
+    //             alert('there is an error in program . pleas contact with us ')
+    //         }
+    //     }
+    // }
+    // http.send(params);
     // console.log(finalForm);
 
 })
@@ -935,3 +1117,61 @@ if (window.addEventListener) {
 else {
     window.attachEvent("onmessage", displayMessage);
 }
+
+
+
+
+// ******************************************************************** show hide text content
+
+
+
+document.querySelector('.showMore').onclick = function (event) {
+    document.querySelector('.moreContent').style.display = 'inline';
+    document.querySelector('.showMore').style.display = 'none'
+}
+
+
+document.querySelector('.showLess').onclick = function (event) {
+    document.querySelector('.moreContent').style.display = 'none';
+    document.querySelector('.showMore').style.display = 'inline-block';
+
+
+}
+
+
+
+
+document.addEventListener('click', function (event) {
+
+    var target = event.target;
+    if (target.closest('button')) {
+        if (target.closest('.add_transport_rante_btn')) {
+
+            if (target.closest('.rent_form').classList.contains('added')) {
+                event.stopImmediatePropagation();
+                event.preventDefault()
+            }
+
+
+        } else {
+
+            if (target.closest('.added')) {
+
+
+
+                event.stopImmediatePropagation();
+                event.preventDefault()
+            }
+        }
+
+    }
+}, true)
+
+// document.addEventListener("touchmove", function(event){
+//     event.stopImmediatePropagation();
+//     // event.preventDefault()
+// }, false);
+
+// document.addEventListener('focus', function(event){
+//     // document.scrol
+// })

@@ -977,7 +977,12 @@
 					top += 'px';
 				}
 				root_element.style.left = parseInt( left) - this.offsetWidth +'px';
-				root_element.style.top  = parseInt( top ) + this.offsetHeight + 'px';
+				root_element.style.top  = parseInt( top ) + this.offsetHeight + (-document.querySelector('.wrapper').getBoundingClientRect().top) + 'px';
+
+
+				
+
+				// alert(root_element.style.top +'|'+document.body.scrollTop + '|' + (-document.querySelector('.wrapper').getBoundingClientRect().top))
 				setTimeout(function () {
 					dom_on(target, document.documentElement, 'click', options.bound.hide);
 					dom_on(target, window, 'resize', options.bound.forced_show);

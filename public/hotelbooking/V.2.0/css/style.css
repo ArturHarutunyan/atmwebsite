@@ -14,9 +14,49 @@
 
 */
 
+.shopTitle{
+    justify-content: flex-start !important;
+    align-items: center
+}
+.shopTitle span{
+    background: #286786;
+    min-width: 26px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 25px;
+    border-radius: 50%;
+    color: #fff !important;
+    margin-top: -20px;
+    padding-right: 2px;
+    margin-left: 5px;
+    
+}
 
 /* img preloader  */
+#Car_rent:not(:checked)~.car_rante_price {
+    display: none !important;
+}
 
+.sections_icon_container p {
+    color             : #656565 !important;
+    -webkit-transition: all 0.5s linear;
+    transition        : all 0.5s linear;
+}
+
+.selected.sections_icon_container p {
+
+    color: #286786 !important;
+}
+
+.sections_icon_container p svg {
+    fill: #656565 !important;
+}
+
+.selected.sections_icon_container p svg {
+    fill: #286786 !important;
+}
 
 .ring {
 
@@ -81,7 +121,9 @@
     -webkit-animation: animateCircle 2s linear infinite;
     animation        : animateCircle 2s linear infinite;
 }
-
+.mobile_shower_item_container,.hotels_block  {
+    will-change: margin-top;
+}
 
 .mobile_shower_item_container svg {
     margin-left : -5px;
@@ -202,16 +244,19 @@
 
 html {
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
-    color     : #656565;
-    min-height: 105%;
-    overflow-y: scroll;
+    color        : #656565;
+    min-height   : 100%;
+    /* overflow-y: scroll; */
 
     /* margin       : -20px !important; */
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
+    padding-top     : 40px;
+    will-change: scroll-position;
 
 
 
@@ -295,7 +340,26 @@ body {
 .show_all_content_button_container svg,
 .hide_all_content_button_container svg {
     width: 14px;
+
 }
+
+.show_all_content_button_container,
+.hide_all_content_button_container {
+
+    margin     : auto;
+    display    : inline-block;
+    width      : 30px;
+    max-width  : 30px;
+    margin-left: calc(50% - 15px);
+}
+
+
+.hide_all_content_button_container {
+
+    margin-left: calc(50% - 28px);
+    padding: 0 20px;
+}
+
 
 .fixed_swipe_container .hotel_starts {
     display: none;
@@ -320,7 +384,7 @@ body {
 /* pickmeup style */
 
 .pickmeup {
-    z-index: 99999999999;
+    z-index: 999999999999999999999999999999;
 }
 
 /* pickmeup style end */
@@ -359,6 +423,7 @@ body {
     top       : 0px;
     z-index   : 100000000;
     background: #fff;
+    position  : -webkit-sticky;
     position  : sticky;
 
 
@@ -367,6 +432,10 @@ body {
 .tabs_container>* {
     /* width: 30% */
 }
+
+/* .mobile_shopList_fi{
+    display: none 
+} */
 
 
 
@@ -380,10 +449,7 @@ body {
     background: rgba(253, 211, 2, 0.575);
 }
 
-.event_date.pmu-button:hover {
-    background: rgba(253, 211, 2, 0.575) !important;
 
-}
 
 
 
@@ -417,14 +483,12 @@ body {
     border-color: #286786 !important;
 }
 
-[data-add] .add_booking:hover {
-    opacity: .5 !important;
-}
+
 
 /* addet hotel button style end */
 
 .pickmeup {
-    z-index: 9999999 !important;
+    z-index: 9999999999999999999 !important;
 }
 
 
@@ -485,23 +549,61 @@ body {
 }
 
 
+.showMore,
+.showLess {
+    cursor: pointer;
+    color : #286786;
+}
+
+.moreContent {
+    display: none;
+}
+
+
+
+.removeOrderButton {
+    cursor            : pointer;
+    /* background     : red; */
+    height            : 24px;
+    width             : 25px;
+    border-radius     : 50%;
+    display           : -webkit-inline-box;
+    display           : -ms-inline-flexbox;
+    display           : inline-flex;
+    -webkit-box-pack  : center;
+    -ms-flex-pack     : center;
+    justify-content   : center;
+    position          : relative;
+    -webkit-box-align : center;
+    -ms-flex-align    : center;
+    align-items       : center;
+    /* left           : -17px */
+
+
+    /* color          : #fff; */
+
+}
+
 .Booking_details_form.added .add_booking,
 .tur_description.added .add_tour_btn,
-.transport_section.added .add_transport_btn {
+.transport_section.added .add_transport_btn,
+.rent_form.added .add_transport_rante_btn {
     color       : #fff !important;
     background  : #286786 !important;
-    opacity     : 0.8 !important;
+    opacity     : 0.5 !important;
     border-color: #286786 !important;
 }
 
-.Booking_details_form.added .add_booking:hover,
-.tur_description.added .add_tour_btn:hover,
-.transport_section.added .add_transport_btn:hover {
-    opacity: 0.5 !important;
-}
+
 
 /* select on open style end */
 
+
+.rante_car_swiper {
+
+    z-index : 1 !important;
+    position: static !important;
+}
 
 /* datepicker input on focus style */
 
@@ -550,6 +652,8 @@ body {
     overflow: hidden;
     z-index : 9999;
     position: relative;
+    visibility: hidden;
+    height: 0;
 
 }
 
@@ -745,10 +849,7 @@ body {
     top                     : 2px;
 }
 
-.icon_text.sections_icon_container.blue_color:hover::after {
-    -webkit-transform: scale(1);
-    transform        : scale(1);
-}
+
 
 /* show hide styles */
 
@@ -827,9 +928,34 @@ body {
     transform        : rotate(45deg);
 }
 
-.form-group input~div {
+
+.form-group {
+    -ms-flex-wrap: wrap;
+    flex-wrap    : wrap;
+}
+
+.form-group input~div:not(.swipe_container) {
     display: none;
 }
+
+
+.form-group input:checked~div.swipe_container {
+
+
+    opacity: 1 !important;
+
+}
+
+.form-group input~div.swipe_container {
+
+
+    width: 300px;
+
+    opacity: 0;
+
+}
+
+
 
 .form-group input:checked~div {
     display: inline-block;
@@ -969,9 +1095,7 @@ body {
     min-height  : 40px;
 }
 
-.datePicerInputContainer input:hover {
-    background-color: #ebebeb;
-}
+
 
 
 
@@ -1073,11 +1197,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     transition        : all .2s linear;
 }
 
-.custom_style_button:hover {
-    color       : #fff;
-    border-color: #286786;
-    background  : #286786;
-}
+
 
 /* button style  end*/
 
@@ -1217,6 +1337,7 @@ div.selector-element div.selector-options div.selector-option {
 }
 
 .hotels_shopList .main_Content {
+    margin       : 0;
     position     : relative;
     margin-top   : 10px;
     margin-bottom: 50px;
@@ -1387,9 +1508,6 @@ div.selector-element div.selector-selected {
     outline     : none;
 }
 
-.hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel:hover {
-    background-color: #ebebeb;
-}
 
 .hotels_block .hotel_info_container .Booking_details_form .datePic_container svg {
     position: absolute;
@@ -1448,13 +1566,7 @@ div.selector-element div.selector-selected {
 
 }
 
-.hotels_block .hotel_info_container .Booking_details_form .add_booking:hover {
-    color     : #fff;
-    background: #286786;
-    opacity   : 0.8;
 
-    border-color: #286786;
-}
 
 
 /* hotels style end */
@@ -1477,9 +1589,13 @@ div.selector-element div.selector-selected {
 
 
 .shop_item_container {
-    width        : 100% !important;
-    -ms-flex-wrap: wrap;
-    flex-wrap    : wrap
+    /* width        : 100% !important; */
+    -ms-flex-wrap   : wrap;
+    flex-wrap       : wrap
+}
+
+.Amount_item {
+    white-space: nowrap
 }
 
 .shop_item_container .shope_item {
@@ -1488,9 +1604,11 @@ div.selector-element div.selector-selected {
     display: flex;
     width  : 100% !important;
 
-    padding: 6px 0px;
+    position: relative;
+    padding : 6px 0px;
 
-    border-bottom: 1px solid #F4F4F4;
+    border-bottom  : 1px solid #F4F4F4;
+    justify-content: space-between;
 }
 
 .shop_item_container .shope_item div:first-child {
@@ -1498,7 +1616,9 @@ div.selector-element div.selector-selected {
 }
 
 .shop_item_container .shope_item div {
-    width: 20%
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .shopList_block .shopList_title {
@@ -1616,11 +1736,7 @@ div.selector-element div.selector-selected {
 
 
 
-.costumerContacts button:hover {
-    color       : #fff;
-    border-color: #286786;
-    background  : #286786;
-}
+
 
 /* shopLists Style end */
 
@@ -1873,13 +1989,17 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 /* excursion section style end */
 
+.mobile_shopList_fi span:nth-child(2) svg {
+    width: 12px;
+}
+
 
 
 @media only screen and (min-width: 1200px) {
     .shopList_block {
 
         margin-top: 0px;
-        max-height: 100vh;
+        max-height: 95vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -1900,6 +2020,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         max-width: 95%;
         padding  : 0 15px;
     }
+    .shopList_block_container {
+        top:  0 !important;
+    }
+
 
 
 }
@@ -1909,7 +2033,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 @media only screen and (min-width: 1200px) {
 
 
-
+    .shopList_block_container {
+        top: 106px !important;
+    }
     .custom_col_md_9 {
         -webkit-box-flex: 0;
         -ms-flex        : 0 0 74%;
@@ -2025,6 +2151,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         min-height: 208px;
     }
 
+    .transport_section .swipe-wrap>div img {
+        min-height: 228px;
+    }
+
 }
 
 @media only screen and (max-width: 991px) {
@@ -2044,16 +2174,15 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_shower_item_container,
     .hide_all_content_button_container,
     .mobile_shopList_fi {
-        display: none;
+        display: none !important;
     }
 
     .mobile_sow_hide_elements .hotels_block {
         margin-top: 0 !important;
     }
+  
 
-    .shopList_block_container {
-        top: 106px !important;
-    }
+   
 }
 
 @media only screen and (max-width: 660px) {
@@ -2064,15 +2193,41 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .shopList_block {
-        overflow-y    : auto;
-        /* height     : 94vh; */
-        padding-bottom: 400px;
-        /* padding-top: 200px; */
+        overflow-y       : auto;
+        overflow-x       : hidden;
+        /* height        : 94vh; */
+        padding-bottom   : 40px;
+        /* padding-top   : 200px; */
+
+        /* overflow: scroll;
+        -webkit-overflow-scrolling: touch; */
+        -webkit-overflow-scrolling : touch !important;
+	    /* overflow: auto !important; */
+    }
+
+    .html {
+        height: calc(var(--vh, 1vh) * 100  );
+        padding: 0 5px;
     }
 
 
+    .tur_description_content img {
+        width: 100%;
+    }
+
+    .tur_description_content p {
+        padding-right: 10px !important;
+    }
+
     .shopList_block_container {
-        box-shadow: 0px 2px 20px 0px grey;
+        -webkit-transition : all .5s linear;
+        transition         : all .5s linear;
+        /* transition-delay: .5s; */
+    }
+
+    .shopList_block_container {
+        -webkit-box-shadow: 0px 2px 20px 0px grey;
+        box-shadow        : 0px 2px 20px 0px grey;
     }
 
     /* accommodation  item */
@@ -2223,8 +2378,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_shopList_fi {
         position: fixed;
 
-        top              : calc(100vh - 84px) !important;
-        height           : 84px;
+        top              : calc(100vh - 65px);
+        height           : 55px;
         -webkit-box-align: center;
         -ms-flex-align   : center;
         align-items      : center;
@@ -2233,11 +2388,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
+        display: none;
         z-index: 99999999999;
 
-        box-shadow      : -5px 3px 20px 0px black;
-        -webkit-box-pack: justify;
+        /* box-shadow      : -5px 3px 20px 0px black; */
+        -webkit-box-pack   : justify;
 
         -ms-flex-pack: justify;
 
@@ -2245,13 +2400,26 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         padding        : 10px;
         padding-top    : 0;
         background     : #fff;
-        border-top     : 2px solid black;
+        border-top     : 1px solid #F4F4F4;
+        border-bottom  : 1px solid #F4F4F4;
 
-        cursor       : pointer;
-        width        : calc(100% - 20px);
-        box-sizing   : initial;
-        border-bottom: 1000px solid #fff;
+        cursor            : pointer;
+        width             : calc(100% - 20px);
+        -webkit-box-sizing: initial;
+        box-sizing        : initial;
+        /* border-bottom  : 1000px solid #fff; */
 
+
+    }
+
+    .mobile_shopList_fi.show {
+        display           : -webkit-box !important;
+        display           : -ms-flexbox !important;
+        display           : flex !important;
+        /* bottom         : initial !important;
+        top               : 0 !important; */
+        -webkit-transition: all .5s linear;
+        transition        : all .5s linear;
 
     }
 
@@ -2260,12 +2428,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         transform-origin        : center;
         -webkit-transition      : all 0.5s linear;
         transition              : all 0.5s linear;
-
+        -webkit-transform       : rotate(180deg);
+        transform               : rotate(180deg)
     }
 
-    .mobile_shopList_fi span:nth-child(2) svg {
-        width: 12px;
-    }
+
 
     .wrapper {
         margin-top: 40px;
@@ -2273,7 +2440,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .shopList_block_container {
         position             : fixed;
-        bottom               : -100vh;
+        bottom               : calc(-100vh + 55px);
         height               : 100vh;
         top                  : initial !important;
         background           : #fff;
@@ -2282,11 +2449,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         z-index              : 999999999;
         left                 : 0;
         overflow-y           : auto !important;
-        max-height           : calc(100vh - 84px);
+        max-height           : calc(100vh - 55px);
     }
 
     .shopList_block_container.showShop {
-        bottom: 84px !important;
+        bottom: 0 !important;
     }
 
     .pickmeup {
@@ -2382,14 +2549,20 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .sections_icon_container p {
         white-space: nowrap;
     }
+
+
 }
+
 
 
 
 @media only screen and (max-width: 400px) {
     .mobile_shower_item_container svg {
-        margin-left : -3px;
+        margin-left : 0;
         margin-right: 3px;
+    }
+    .one_hotel_item_container{
+        padding: 6px;
     }
 }
 
@@ -2420,6 +2593,22 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-left: 5px;
     } */
 
+    .add_car_rante{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        padding: 0;
+        margin-top: 10px;
+        /* padding-right: 10px !important; */
+    }
+    .add_car_rante button{
+        width: 95%;
+    }
+    .rent_form .datePicerInputContainer{
+        width: 95%;
+        margin-top:10px;
+        padding-right: 10px !important;
+    }
 }
 
 
@@ -2430,3 +2619,70 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 
 /* hotels_shopList style  end*/
+
+
+
+
+
+
+
+
+
+/* hover medias  */
+
+
+@media (pointer: fine) {
+    .event_date.pmu-button:hover {
+        background: rgba(253, 211, 2, 0.575) !important;
+
+    }
+
+    [data-add] .add_booking:hover {
+        opacity: .5 !important;
+    }
+
+    .showMore:hover,
+    .showLess:hover {
+
+
+        text-decoration: underline;
+    }
+
+    .Booking_details_form.added .add_booking:hover,
+    .tur_description.added .add_tour_btn:hover,
+    .transport_section.added .add_transport_btn:hover,
+    .rent_form.added .add_transport_rante_btn:hover {
+        opacity: 0.5 !important;
+    }
+
+    .icon_text.sections_icon_container.blue_color:hover::after {
+        -webkit-transform: scale(1);
+        transform        : scale(1);
+    }
+
+    .datePicerInputContainer input:hover {
+        background-color: #ebebeb;
+    }
+
+    .custom_style_button:hover {
+        color       : #fff;
+        border-color: #286786;
+        background  : #286786;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel:hover {
+        background-color: #ebebeb;
+    }
+    .hotels_block .hotel_info_container .Booking_details_form .add_booking:hover {
+        color     : #fff;
+        background: #286786;
+        opacity   : 0.8;
+    
+        border-color: #286786;
+    }
+    .costumerContacts button:hover {
+        color       : #fff;
+        border-color: #286786;
+        background  : #286786;
+    }
+}
