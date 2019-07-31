@@ -426,7 +426,9 @@ body {
     position  : -webkit-sticky;
     position  : sticky;
 
-
+}
+.main_wrap{
+    position: relative;
 }
 
 .tabs_container>* {
@@ -2024,6 +2026,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .shopList_block_container {
         top:  0 !important;
     }
+
+
+
 }
 
 @media only screen and (max-width: 681px) {
@@ -2225,15 +2230,20 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         padding-right: 10px !important;
     }
 
+    .shopList_block_container.showShop {
+        -webkit-transition : bottom .5s linear;
+        transition         : bottom .5s linear;
+        /* transition-delay: .5s; */
+    }
     .shopList_block_container {
-        -webkit-transition : all .5s linear;
-        transition         : all .5s linear;
+        -webkit-transition : bottom .5s linear , background 5s linear 5s;
+        transition         : bottom .5s linear , background 5s linear 5s;
         /* transition-delay: .5s; */
     }
 
     .shopList_block_container {
-        -webkit-box-shadow: 0px 2px 20px 0px grey;
-        box-shadow        : 0px 2px 20px 0px grey;
+        /* -webkit-box-shadow: 0px 2px 20px 0px grey;
+        box-shadow        : 0px 2px 20px 0px grey; */
     }
 
     /* accommodation  item */
@@ -2383,6 +2393,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .mobile_shopList_fi {
         position: fixed;
+        /* will-change:position;s */
 
         top              : calc(100vh - 65px);
         height           : 55px;
@@ -2449,7 +2460,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         bottom               : calc(-100vh + 55px);
         height               : 100vh;
         top                  : initial !important;
-        background           : #fff;
+        
         /* -webkit-transition: all .5s linear;
         transition           : all .5s linear; */
         z-index              : 999999999;
@@ -2460,6 +2471,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .shopList_block_container.showShop {
         bottom: 0 !important;
+        background : #fff;
     }
 
     .pickmeup {

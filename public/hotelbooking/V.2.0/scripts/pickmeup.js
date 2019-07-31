@@ -1296,7 +1296,7 @@
 				target.appendChild(element);
 			} else {
 				dom_add_class(element, 'pmu-hidden');
-				document.body.appendChild(element);
+				document.querySelector('.main_wrap').appendChild(element);
 				dom_on(target, target, 'click', show.bind(target, target, false));
 				dom_on(target, target, 'input', options.bound.update);
 				dom_on(target, target, 'change', options.bound.update);

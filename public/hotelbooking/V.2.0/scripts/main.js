@@ -320,7 +320,8 @@ document.onclick = function (event) {
         rotateIcon.style.transform = 'rotate(0deg)';
         shopList.style.top = '1000px';
 
-        target.closest('.mobile_shopList_fi').style.top = '0'
+        target.closest('.mobile_shopList_fi').style.top = '0';
+        shopList.scrollTo(0,0)
 
 
     }
@@ -348,7 +349,7 @@ var tabsContainerRelativeTop = parseInt(tabsContainer.getBoundingClientRect().to
 
 
 
-document.body.addEventListener('scroll', function (event) {
+document.querySelector('.main_wrap').addEventListener('scroll', function (event) {
     documentWidth = document.documentElement.clientWidth + window.innerWidth - document.documentElement.clientWidth;
 
 
@@ -443,6 +444,33 @@ document.body.addEventListener('scroll', function (event) {
 
         // mobile_shopList_fi
     }
+
+    var tabContainer = document.querySelector('.mainTb');
+    var tabs = document.querySelector('.tabs_container')
+    if(tabContainer.getBoundingClientRect().top<=0){
+        if(tabContainer.innerHTML){
+            document.body.appendChild(tabs)
+            tabs.style.position = 'fixed'
+            tabs.style.top = '0'
+            tabs.style.left = tabContainer.getBoundingClientRect().left + 'px';
+
+            console.log(tabs.offsetWidth)
+            tabs.style.width = tabContainer.offsetWidth + 'px'
+
+
+            
+        }
+
+    }else{
+        if(document.querySelector('body > .tabs_container')){
+            tabContainer.appendChild(tabs);
+            tabs.style.position = 'initial'
+            tabs.style.top = '';
+            tabs.style.left = '';
+            tabs.style.width = '' ;
+
+        }
+    }
 });
 
 
@@ -499,8 +527,10 @@ selects.forEach(function (elem) {
 
 window.dispatchEvent(new Event('resize'))
 
-document.querySelector('.radios').addEventListener('input', function (event) {
+document.querySelector('.radios').addEventListener('change', function (event) {
     var target = event.target;
+
+    alert(1)
     if (!target.closest('[name="radio-group"]')) return;
 
 
@@ -509,9 +539,9 @@ document.querySelector('.radios').addEventListener('input', function (event) {
     var value = target.value;
     var sliders = formParent.querySelectorAll('.swipe_container');
     sliders.forEach(function (slider) {
-        slider.style.cssText = ''
-        slider.style.opacity = '0'
-        slider.style.position = 'absolute'
+        slider.style.cssText = '';
+        slider.style.opacity = '0';
+        slider.style.position = 'absolute';
         slider.style.zIndex = '-9999';
     })
     formParent.querySelector('.car_' + value).style.cssText = '';
