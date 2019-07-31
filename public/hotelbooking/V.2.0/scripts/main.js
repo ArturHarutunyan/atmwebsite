@@ -451,7 +451,7 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
         if(tabContainer.innerHTML){
             document.body.appendChild(tabs)
             tabs.style.position = 'fixed'
-            tabs.style.top = '0'
+            tabs.style.top = '-20px'
             tabs.style.left = tabContainer.getBoundingClientRect().left + 'px';
 
             console.log(tabs.offsetWidth)
