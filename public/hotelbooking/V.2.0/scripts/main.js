@@ -447,14 +447,25 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
 
     var tabContainer = document.querySelector('.mainTb');
     var tabs = document.querySelector('.tabs_container')
-    if(tabContainer.getBoundingClientRect().top<=0){
-        if(tabContainer.innerHTML){
+
+    // alert(tabContainer.getBoundingClientRect().top | 0)
+    if((tabContainer.getBoundingClientRect().top | 0)<=0){
+
+        // alert(tabContainer.innerHTML)
+        if(tabContainer.innerHTML.trim()){
+            
+            // alert(1)
             document.body.appendChild(tabs)
             tabs.style.position = 'fixed'
-            tabs.style.top = '-20px'
+            // alert(document.documentElement.offsetWidth+'|'+window.screen.width )
+            if(window.screen.width < 1261){
+
+                tabs.style.top = '-20px'
+            }
+            
             tabs.style.left = tabContainer.getBoundingClientRect().left + 'px';
 
-            console.log(tabs.offsetWidth)
+            // console.log(tabs.offsetWidth)
             tabs.style.width = tabContainer.offsetWidth + 'px'
 
 
@@ -462,6 +473,8 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
         }
 
     }else{
+        // alert(document.documentElement.offsetWidth+'|'+window.screen.width )
+
         if(document.querySelector('body > .tabs_container')){
             tabContainer.appendChild(tabs);
             tabs.style.position = 'initial'
