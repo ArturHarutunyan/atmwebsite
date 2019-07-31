@@ -530,7 +530,7 @@ window.dispatchEvent(new Event('resize'))
 document.querySelector('.radios').addEventListener('change', function (event) {
     var target = event.target;
 
-    alert(1)
+    // alert(1)
     if (!target.closest('[name="radio-group"]')) return;
 
 
