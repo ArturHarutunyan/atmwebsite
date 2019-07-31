@@ -362,19 +362,7 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
         plusTop -= 71
     }
 
-    if (event.otherScroll > tabsContainerRelativeTop + plusTop) {
-
-
-
-        // (event.otherScroll + event.otherHeight) 
-
-
-
-        tabsContainer.style.top = Math.abs((event.otherScroll) - (tabsContainerRelativeTop + plusTop)) + 'px';
-
-    } else {
-        tabsContainer.style.top = 0;
-    }
+   
 
     if (documentWidth >= 1200) {
         let top = fixedBarParent.getBoundingClientRect().top;
@@ -385,6 +373,19 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
         } else {
             fixedBar.style.marginTop = 0 + 'px';
 
+        }
+        if (event.otherScroll > tabsContainerRelativeTop + plusTop) {
+
+
+
+            // (event.otherScroll + event.otherHeight) 
+    
+    
+    
+            tabsContainer.style.top = Math.abs((event.otherScroll) - (tabsContainerRelativeTop + plusTop)) + 'px';
+    
+        } else {
+            tabsContainer.style.top = 0;
         }
 
 
@@ -458,9 +459,10 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
             document.body.appendChild(tabs)
             tabs.style.position = 'fixed'
             // alert(document.documentElement.offsetWidth+'|'+window.screen.width )
-            if(window.screen.width < 1261){
+            if(document.documentElement.offsetWidth < 1261){
 
                 tabs.style.top = '-20px'
+                console.log(111)
             }
             
             tabs.style.left = tabContainer.getBoundingClientRect().left + 'px';
