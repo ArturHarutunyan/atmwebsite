@@ -8,15 +8,46 @@ var documentClick = false;
 if ('ontouchstart' in window) {
 
     document.addEventListener('touchstart', function () {
+
+
+
         documentClick = true;
     });
     document.addEventListener('touchmove', function () {
         documentClick = false;
+        
     });
+
+
+
+    // document.addEventListener('mousedown', function (event) {
+
+    //     // alert(event)
+    //     // documentClick = false;
+    //     // if(event.target.closest('address')&&event.target.closest('a')){
+
+            
+            
+    //     // }
+        
+    // });
+
+   
 } else {
     documentClick = true
 }
 
+
+// var myObj = document.querySelector('a');
+// for(var key in myObj){
+//     if(key.search('on') === 0) {
+//        myObj.addEventListener(key.slice(2), function(event){
+//            event.preventDefault()
+//         event.stopImmediatePropagation()
+//         alert(event.type)
+//     })
+//     }
+// }
 
 var now = new Date
 
