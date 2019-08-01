@@ -14,24 +14,35 @@
 
 */
 
-.shopTitle{
-    justify-content: flex-start !important;
-    align-items: center
+.shopTitle {
+    -webkit-box-pack : start !important;
+    -ms-flex-pack    : start !important;
+    justify-content  : flex-start !important;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center
 }
-.shopTitle span{
-    background: #286786;
-    min-width: 26px;
-    text-align: center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 25px;
-    border-radius: 50%;
-    color: #fff !important;
-    margin-top: -20px;
-    padding-right: 2px;
-    margin-left: 5px;
-    
+
+.shopTitle span {
+    background       : #286786;
+    min-width        : 26px;
+    text-align       : center;
+    display          : -webkit-inline-box;
+    display          : -ms-inline-flexbox;
+    display          : inline-flex;
+    -webkit-box-pack : center;
+    -ms-flex-pack    : center;
+    justify-content  : center;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    min-height       : 25px;
+    border-radius    : 50%;
+    color            : #fff !important;
+    margin-top       : -20px;
+    padding-right    : 2px;
+    margin-left      : 5px;
+
 }
 
 /* img preloader  */
@@ -41,8 +52,8 @@
 
 .sections_icon_container p {
     color             : #656565 !important;
-    -webkit-transition: all 0.5s linear;
-    transition        : all 0.5s linear;
+    -webkit-transition: all 0.4s ease;
+    transition        : all 0.4s ease;
 }
 
 .selected.sections_icon_container p {
@@ -96,15 +107,15 @@
     text-shadow: 0 0 10px black;
     /* Creates dark shadow around circle*/
     /* -webkit-box-shadow: 0 0 20px rgb(0, 0, 0, .5);
-    box-shadow        : 0 0 20px rgb(0, 0, 0, .5); */
+    box-shadow           : 0 0 20px rgb(0, 0, 0, .5); */
 }
 
 /*Creates yellow spinner ring*/
 .ring:before {
-    -webkit-box-sizing: initial;
-    box-sizing        : initial;
+    -webkit-box-sizing   : initial;
+    box-sizing           : initial;
     /* content           : ''; */
-    position          : absolute;
+    position             : absolute;
     /*originally set to 0px, but it was off, so changed to -3px to align with the loading circle*/
     top   : -3px;
     left  : -3px;
@@ -118,10 +129,12 @@
     /*turns the box radius into a half circle :) */
     border-radius                             : 50%;
     /*creates animation*/
-    -webkit-animation: animateCircle 2s linear infinite;
-    animation        : animateCircle 2s linear infinite;
+    -webkit-animation: animateCircle 2s ease infinite;
+    animation        : animateCircle 2s ease infinite;
 }
-.mobile_shower_item_container,.hotels_block  {
+
+.mobile_shower_item_container,
+.hotels_block {
     will-change: margin-top;
 }
 
@@ -145,8 +158,8 @@
     background              : transparent;
     -webkit-transform-origin: left;
     transform-origin        : left;
-    -webkit-animation       : animate 2s linear infinite;
-    animation               : animate 2s linear infinite;
+    -webkit-animation       : animate 2s ease infinite;
+    animation               : animate 2s ease infinite;
 }
 
 /*creates the ball for the spinner to follow*/
@@ -256,7 +269,7 @@ body {
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
     padding-top     : 40px;
-    /* will-change: height; */
+    /* will-change  : height; */
 
 
 
@@ -357,7 +370,7 @@ body {
 .hide_all_content_button_container {
 
     margin-left: calc(50% - 28px);
-    padding: 0 20px;
+    padding    : 0 20px;
 }
 
 
@@ -427,7 +440,8 @@ body {
     position  : sticky;
 
 }
-.main_wrap{
+
+.main_wrap {
     position: relative;
 }
 
@@ -519,8 +533,8 @@ body {
 /* select on open style*/
 
 .selector-element svg {
-    -webkit-transition: all .5s linear;
-    transition        : all .5s linear;
+    -webkit-transition: all .5s ease;
+    transition        : all .5s ease;
 }
 
 
@@ -539,8 +553,8 @@ body {
     position                : absolute;
     top                     : 12px;
     right                   : 15px;
-    -webkit-transition      : all 0.5s linear;
-    transition              : all 0.5s linear;
+    -webkit-transition      : all 0.4s ease;
+    transition              : all 0.4s ease;
     -webkit-transform-origin: center center;
     transform-origin        : center center;
     -webkit-transform       : rotate(45deg);
@@ -615,8 +629,8 @@ body {
 }
 
 .datepicker_input+svg {
-    -webkit-transition: all .5s linear;
-    transition        : all .5s linear;
+    -webkit-transition: all .5s ease;
+    transition        : all .5s ease;
 }
 
 /* datepicker input on focus style end*/
@@ -638,7 +652,7 @@ body {
 
 .show_hide_container.open>* {
 
-    /* transition: margin-top .9s linear !important; */
+    /* transition: margin-top .9s ease !important; */
 
 }
 
@@ -651,23 +665,26 @@ body {
 
 .closed>* {
 
-    overflow: hidden;
-    z-index : 9999;
-    position: relative;
+    overflow  : hidden;
+    z-index   : 9999;
+    position  : relative;
     visibility: hidden;
-    height: 0;
+    height    : 0;
 
 }
-body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > div.col-xl-9.custom_col_md_9.main_Content > main > section{
-    width: 100%;
-    padding: 0 25px;
+
+body>div.main_wrap>div.wrapper.container-fluid>div.hotels_shopList.row>div.col-xl-9.custom_col_md_9.main_Content>main>section {
+    width    : 100%;
+    padding  : 0 25px;
     max-width: 100%;
 
 }
-body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > div.col-xl-9.custom_col_md_9.main_Content > main{
+
+body>div.main_wrap>div.wrapper.container-fluid>div.hotels_shopList.row>div.col-xl-9.custom_col_md_9.main_Content>main {
     padding: 0 !important;
 }
-body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > div.col-xl-9.custom_col_md_9.main_Content > main > section > div > div.selectCarForem.radio_container.position-relative > div.radios.container-fluid{
+
+body>div.main_wrap>div.wrapper.container-fluid>div.hotels_shopList.row>div.col-xl-9.custom_col_md_9.main_Content>main>section>div>div.selectCarForem.radio_container.position-relative>div.radios.container-fluid {
     padding-right: 0;
 }
 
@@ -676,8 +693,8 @@ body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > d
     background                 : #fff;
     -webkit-backface-visibility: hidden;
     backface-visibility        : hidden;
-    -webkit-transition         : all 0s linear !important;
-    transition                 : all 0s linear !important;
+    -webkit-transition         : all 0s ease !important;
+    transition                 : all 0s ease !important;
 }
 
 .show_hide_container {
@@ -706,27 +723,27 @@ body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > d
 
 .closed.show_hide_container>*:first-child {
     margin-top        : -5000px;
-    -webkit-transition: margin-top .3s linear;
-    transition        : margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
+    transition        : margin-top .3s ease;
 
 }
 
 .closed .hotels_shopList>div:first-child>div {
-    -webkit-transition: margin-top .3s linear;
-    transition        : margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
+    transition        : margin-top .3s ease;
 }
 
 .hotels_shopList>div:first-child>div {
-    -webkit-transition: margin-top .3s linear;
-    transition        : margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
+    transition        : margin-top .3s ease;
 }
 
 .closed.show_hide_container {
     border: none !important;
 
-    -webkit-transition: margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
 
-    transition: margin-top .3s linear;
+    transition: margin-top .3s ease;
 }
 
 .Accommodation {
@@ -751,8 +768,8 @@ body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > d
 .Accommodation,
 .transport_section,
 .turs_section {
-    -webkit-transition: all .3s linear;
-    transition        : all .3s linear;
+    -webkit-transition: all .3s ease;
+    transition        : all .3s ease;
     max-height        : auto;
     overflow          : hidden;
     overflow          : hidden;
@@ -761,8 +778,8 @@ body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > d
 [data-container] svg {
     -webkit-transform-origin: center;
     transform-origin        : center;
-    -webkit-transition      : all .3s linear;
-    transition              : all .3s linear;
+    -webkit-transition      : all .3s ease;
+    transition              : all .3s ease;
 }
 
 [data-container='Accommodation'] svg:last-child {
@@ -853,9 +870,9 @@ body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > d
     background: #286786;
     position  : relative;
 
-    -webkit-transition: all .5s linear;
+    -webkit-transition: all .5s ease;
 
-    transition              : all .5s linear;
+    transition              : all .5s ease;
     -webkit-transform-origin: center;
     transform-origin        : center;
     -webkit-transform       : scale(0);
@@ -1000,7 +1017,7 @@ body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > d
 }
 
 .radios>div {
-    width: 100%;
+    width : 100%;
     margin: 0;
 }
 
@@ -1208,8 +1225,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     background        : #fff;
     height            : 40px;
     min-width         : 80px;
-    -webkit-transition: all .2s linear;
-    transition        : all .2s linear;
+    -webkit-transition: all .2s ease;
+    transition        : all .2s ease;
 }
 
 
@@ -1226,7 +1243,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     min-height    : 100vh;
     padding       : 0 20px;
     padding-top   : 10px;
-    will-change: height;
+    will-change   : height;
 }
 
 .header {
@@ -1543,8 +1560,8 @@ div.selector-element div.selector-selected {
     color                   : inherit;
     -webkit-transform-origin: center;
     transform-origin        : center;
-    -webkit-transition      : all 0.5s linear;
-    transition              : all 0.5s linear;
+    -webkit-transition      : all 0.4s ease;
+    transition              : all 0.4s ease;
 }
 
 .hotels_block .hotel_info_container .Booking_details_form .datePic_container input {
@@ -1623,8 +1640,10 @@ div.selector-element div.selector-selected {
     position: relative;
     padding : 6px 0px;
 
-    border-bottom  : 1px solid #F4F4F4;
-    justify-content: space-between;
+    border-bottom   : 1px solid #F4F4F4;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
 }
 
 .shop_item_container .shope_item div:first-child {
@@ -1632,9 +1651,13 @@ div.selector-element div.selector-selected {
 }
 
 .shop_item_container .shope_item div {
-    width: 20%;
-    display: flex;
-    justify-content: space-between;
+    width           : 20%;
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
 }
 
 .shopList_block .shopList_title {
@@ -1746,8 +1769,8 @@ div.selector-element div.selector-selected {
     background        : #fff;
     width             : 200px;
     height            : 40px;
-    -webkit-transition: all .2s linear;
-    transition        : all .2s linear;
+    -webkit-transition: all .2s ease;
+    transition        : all .2s ease;
 }
 
 
@@ -1890,10 +1913,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 }
 
 .tur_description_item .tur_description {
-    -webkit-transition: all .2s linear;
-    transition        : all .2s linear;
+    -webkit-transition: all .2s ease;
+    transition        : all .2s ease;
     overflow          : hidden;
 }
+
 .add_btn_container {
     padding: 0;
 }
@@ -1935,8 +1959,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 }
 
 .tur_description_item .tur_description .showHideContainer {
-    -webkit-transition: all .3s linear;
-    transition        : all .3s linear;
+    -webkit-transition: all .3s ease;
+    transition        : all .3s ease;
     margin-top        : -110%;
 
 }
@@ -1972,8 +1996,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     top               : 1px;
     font-size         : 15px;
     cursor            : pointer;
-    -webkit-transition: all .3s linear;
-    transition        : all .3s linear;
+    -webkit-transition: all .3s ease;
+    transition        : all .3s ease;
 }
 
 .tur_description_item .checkbox_show_hide_content+label svg {
@@ -2039,8 +2063,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         max-width: 95%;
         padding  : 0 15px;
     }
+
     .shopList_block_container {
-        top:  0 !important;
+        top: 0 !important;
     }
 
 
@@ -2051,6 +2076,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .checkboxes .form-group input:checked~div {
         width: 50%;
     }
+
     .form-group label {
         width: 100%;
     }
@@ -2063,6 +2089,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .shopList_block_container {
         top: 106px !important;
     }
+
     .custom_col_md_9 {
         -webkit-box-flex: 0;
         -ms-flex        : 0 0 74%;
@@ -2207,11 +2234,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_sow_hide_elements .hotels_block {
         margin-top: 0 !important;
     }
-  
-    .shopTitle span{
+
+    .shopTitle span {
         zoom: 0.8;
     }
-   
+
 }
 
 @media only screen and (max-width: 660px) {
@@ -2228,14 +2255,14 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         padding-bottom   : 40px;
         /* padding-top   : 200px; */
 
-        /* overflow: scroll;
+        /* overflow               : scroll;
         -webkit-overflow-scrolling: touch; */
-        -webkit-overflow-scrolling : touch !important;
-	    /* overflow: auto !important; */
+        -webkit-overflow-scrolling: touch !important;
+        /* overflow               : auto !important; */
     }
 
     .html {
-        height: calc(var(--vh, 1vh) * 100  );
+        height : calc(var(--vh, 1vh) * 100);
         padding: 0 5px;
     }
 
@@ -2249,19 +2276,20 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .shopList_block_container.showShop {
-        -webkit-transition : bottom .5s linear;
-        transition         : bottom .5s linear;
+        -webkit-transition : bottom .4s ease;
+        transition         : bottom .4s ease;
         /* transition-delay: .5s; */
     }
+
     .shopList_block_container {
-        -webkit-transition : bottom .5s linear , background 5s linear 5s;
-        transition         : bottom .5s linear , background 5s linear 5s;
+        -webkit-transition : bottom .4s ease, background 5s ease 5s;
+        transition         : bottom .4s ease, background 5s ease 5s;
         /* transition-delay: .5s; */
     }
 
     .shopList_block_container {
         /* -webkit-box-shadow: 0px 2px 20px 0px grey;
-        box-shadow        : 0px 2px 20px 0px grey; */
+        box-shadow           : 0px 2px 20px 0px grey; */
     }
 
     /* accommodation  item */
@@ -2331,8 +2359,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .hotels_block {
 
         margin-top        : 0;
-        -webkit-transition: all .5s linear;
-        transition        : all .5s linear;
+        -webkit-transition: all .5s ease;
+        transition        : all .5s ease;
     }
 
     .mobile_sow_hide_elements,
@@ -2410,7 +2438,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .mobile_shopList_fi {
-        position: fixed;
+        position      : fixed;
         /* will-change:position;s */
 
         top              : calc(100vh - 55px);
@@ -2434,7 +2462,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         justify-content: space-between;
         padding        : 10px;
         padding-top    : 0;
-        padding-bottom: 0;
+        padding-bottom : 0;
         background     : #fff;
         border-top     : 1px solid #F4F4F4;
         border-bottom  : 1px solid #F4F4F4;
@@ -2454,16 +2482,16 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         display           : flex !important;
         /* bottom         : initial !important;
         top               : 0 !important; */
-        -webkit-transition: all .5s linear;
-        transition        : all .5s linear;
+        -webkit-transition: all .4s ease;
+        transition        : all .4s ease;
 
     }
 
     .mobile_shopList_fi span:nth-child(2) {
         -webkit-transform-origin: center;
         transform-origin        : center;
-        -webkit-transition      : all 0.5s linear;
-        transition              : all 0.5s linear;
+        -webkit-transition      : all 0.4s ease;
+        transition              : all 0.4s ease;
         -webkit-transform       : rotate(180deg);
         transform               : rotate(180deg)
     }
@@ -2472,17 +2500,17 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
     .wrapper {
         /* margin-top: 25px; */
-        padding-top: 0;
+        padding-top  : 0;
     }
 
     .shopList_block_container {
-        position             : fixed;
-        bottom               : calc(-100vh + 55px);
-        height               : 100vh;
-        top                  : initial !important;
-        
-        /* -webkit-transition: all .5s linear;
-        transition           : all .5s linear; */
+        position: fixed;
+        bottom  : calc(-100vh + 55px);
+        height  : 100vh;
+        top     : initial !important;
+
+        /* -webkit-transition: all .5s ease;
+        transition           : all .5s ease; */
         z-index              : 999999999;
         left                 : 0;
         overflow-y           : auto !important;
@@ -2490,8 +2518,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .shopList_block_container.showShop {
-        bottom: 0 !important;
-        background : #fff;
+        bottom    : 0 !important;
+        background: #fff;
     }
 
     .pickmeup {
@@ -2571,9 +2599,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         display      : inline-block;
         margin-bottom: -5px;
     }
-    .mainTb{
+
+    .mainTb {
         height: 69.5px !important;
-    }    
+    }
 
     .selected .navbarTextShow {
         width: 100% !important;
@@ -2602,7 +2631,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-left : 0;
         margin-right: 3px;
     }
-    .one_hotel_item_container{
+
+    .one_hotel_item_container {
         padding: 6px;
     }
 }
@@ -2634,20 +2664,22 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-left: 5px;
     } */
 
-    .add_car_rante{
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        padding: 0;
-        margin-top: 10px;
+    .add_car_rante {
+        width           : 100%;
+        max-width       : 100%;
+        min-width       : 100%;
+        padding         : 0;
+        margin-top      : 10px;
         /* padding-right: 10px !important; */
     }
-    .add_car_rante button{
+
+    .add_car_rante button {
         width: 100%;
     }
-    .rent_form .datePicerInputContainer{
-        width: 100%;
-        margin-top:10px;
+
+    .rent_form .datePicerInputContainer {
+        width           : 100%;
+        margin-top      : 10px;
         /* padding-right: 10px !important; */
     }
 }
@@ -2714,13 +2746,15 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel:hover {
         background-color: #ebebeb;
     }
+
     .hotels_block .hotel_info_container .Booking_details_form .add_booking:hover {
         color     : #fff;
         background: #286786;
         opacity   : 0.8;
-    
+
         border-color: #286786;
     }
+
     .costumerContacts button:hover {
         color       : #fff;
         border-color: #286786;
