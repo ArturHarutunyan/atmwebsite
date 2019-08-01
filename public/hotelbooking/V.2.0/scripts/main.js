@@ -219,6 +219,9 @@ window.addEventListener('resize', function (event) {
     //     document.querySelector('.mobile_shopList_fi').click()
     // }
 
+
+    var containerWidth =    document.querySelector('.mainTb').offsetWidth;
+    document.querySelector('.tabs_container').style.width = containerWidth+ 'px';
 })
 
 // wrapper 
