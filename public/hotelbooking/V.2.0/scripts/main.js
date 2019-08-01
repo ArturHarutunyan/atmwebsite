@@ -503,7 +503,7 @@ document.querySelector('.main_wrap').addEventListener('scroll', function (event)
             // alert(document.documentElement.offsetWidth+'|'+window.screen.width )
             if(document.documentElement.offsetWidth < 1261){
 
-                tabs.style.top = '-20px'
+                tabs.style.top = '-15px'
                 console.log(111)
             }
             
@@ -987,7 +987,7 @@ function getDateFromString(stringDate) {
 
 
 //********************************************************************************  send orders to database
-document.querySelector('.shopList_block .button_container button').addEventListener('click', function (event) {
+document.querySelector('.shopList_block .button_container button').onclick =  function (event) {
     var contactContainer = [...document.querySelectorAll('.contact_form_inputs input')]
 
     var contacts = {}
@@ -1158,29 +1158,30 @@ document.querySelector('.shopList_block .button_container button').addEventListe
 
     // ********************************************************************************************  REQ TO SERVER   n
     var allOrders = { hotelOrders, carOrders, ExcursionOrders };
-    // var finalForm = JSON.stringify({ allOrders, contacts });
-    // var http = new XMLHttpRequest();
-    // var url = '/hotelbooking/ajax/sendmail.php';
-    // var params = 'data=' + finalForm;
-    // http.open('POST', url, true);
+    var finalForm = JSON.stringify({ allOrders, contacts });
+    var http = new XMLHttpRequest();
+    var url = '/hotelbooking/ajax/sendmail.php';
+    var params = 'data=' + finalForm;
+    http.open('POST', url, true);
 
-    // //Send the proper header information along with the request
-    // http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    // http.onreadystatechange = function () {//Call a function when the state changes.
-    //     if (http.readyState == 4 && http.status == 200) {
+    http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState == 4 && http.status == 200) {
 
-    //         if (parseInt(http.responseText) == 1) {
-    //             alert('thank you  for your orders. our specialists will contact you soon')
-    //         } else {
-    //             alert('there is an error in program . pleas contact with us ')
-    //         }
-    //     }
-    // }
-    // http.send(params);
-    // console.log(finalForm);
+            if (parseInt(http.responseText) == 1) {
+                alert('thank you  for your orders. our specialists will contact you soon');
+                window.location.reload(true); 
+            } else {
+                alert('there is an error in program . pleas contact with us ');
+                window.location.reload(true); 
+            }
+        }
+    }
+    http.send(params);
 
-})
+}
 
 //************************************************************************************ 
 
