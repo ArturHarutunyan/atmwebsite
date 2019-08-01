@@ -109,8 +109,25 @@ hotelDateP.forEach(elem => {
         // console.log(e.detail.formatted_date); // New date according to current format
         // console.log(e.detail.date);           // New date as Date object
 
+        var dates  = e.detail.date;
+        if(dates instanceof Array){
+            var d1 = new Date(dates[0]);
+            d1.setDate(d1.getDate()+1)
+            var d2 =  new Date(dates[1]);
+            d2.setDate(d2.getDate()+1);
+            dates = [d1,d2]
+            dates = JSON.stringify(dates)
+        }else{
+            var d1 = new Date(dates)
 
-        elem.previousElementSibling.value = JSON.stringify(e.detail.date)
+            d1.setDate(d1.getDate()+1)
+            
+            dates = d1
+            dates = JSON.stringify(dates)
+        }
+
+        console.log(dates)
+        elem.previousElementSibling.value = dates
         var event = new Event('input', {
             'bubbles': true,
             'cancelable': true
@@ -1045,7 +1062,7 @@ document.querySelector('.shopList_block .button_container button').onclick =  fu
 
 
 
-            var nights = (getPastDays([new Date(startDate), new Date(endDate)]) + 1)
+            var nights = (getPastDays([new Date(startDate), new Date(endDate)]) )
 
 
 
@@ -1158,6 +1175,8 @@ document.querySelector('.shopList_block .button_container button').onclick =  fu
 
     // ********************************************************************************************  REQ TO SERVER   n
     var allOrders = { hotelOrders, carOrders, ExcursionOrders };
+
+    console.log(allOrders)
     var finalForm = JSON.stringify({ allOrders, contacts });
     var http = new XMLHttpRequest();
     var url = '/hotelbooking/ajax/sendmail.php';
