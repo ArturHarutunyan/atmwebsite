@@ -447,7 +447,7 @@ function initOrders() {
 
 
 
-				serviceNameContainer.innerHTML  = 'rent car';
+				serviceNameContainer.innerHTML  = 'Rent a car';
 				priceContainer.innerHTML = valuta + carRentPrice  ;
 
 				QtyContainer.innerHTML = 1;

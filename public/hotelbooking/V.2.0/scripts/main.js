@@ -221,12 +221,16 @@ window.addEventListener('resize', function (event) {
 
 })
 
+// wrapper 
 
+var isFirstClick = true;
 document.addEventListener('click', function (event) {
     var target = event.target.closest('.sections_icon_container');
 
 
     if (!event.target.closest('p') || !target) return;
+
+    var wrapperScrollTop = Math.abs(document.querySelector('.mainTb').getBoundingClientRect().top - document.querySelector('.wrapper').getBoundingClientRect().top);
 
     setTurItemsTop();
 
@@ -279,6 +283,10 @@ document.addEventListener('click', function (event) {
 
 
     }
+
+    if(!isFirstClick)
+       document.querySelector('.main_wrap').scrollTo(0,wrapperScrollTop);
+    else isFirstClick = false;
 })
 
 

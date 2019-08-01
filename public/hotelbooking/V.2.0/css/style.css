@@ -75,7 +75,7 @@
     /*Makes the word loading have a transparent background*/
     background: transparent;
     /*Creates a square*/
-    border: 3px solid black;
+    /* border: 3px solid black; */
     /*turns the square to a circle*/
     border-radius: 50%;
     /* Aligns the word Loading to the right so it is in the center of the circle*/
@@ -95,15 +95,15 @@
     /*To create glow effect*/
     text-shadow: 0 0 10px black;
     /* Creates dark shadow around circle*/
-    -webkit-box-shadow: 0 0 20px rgb(0, 0, 0, .5);
-    box-shadow        : 0 0 20px rgb(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 20px rgb(0, 0, 0, .5);
+    box-shadow        : 0 0 20px rgb(0, 0, 0, .5); */
 }
 
 /*Creates yellow spinner ring*/
 .ring:before {
     -webkit-box-sizing: initial;
     box-sizing        : initial;
-    content           : '';
+    /* content           : ''; */
     position          : absolute;
     /*originally set to 0px, but it was off, so changed to -3px to align with the loading circle*/
     top   : -3px;
@@ -658,6 +658,18 @@ body {
     height: 0;
 
 }
+body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > div.col-xl-9.custom_col_md_9.main_Content > main > section{
+    width: 100%;
+    padding: 0 25px;
+    max-width: 100%;
+
+}
+body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > div.col-xl-9.custom_col_md_9.main_Content > main{
+    padding: 0 !important;
+}
+body > div.main_wrap > div.wrapper.container-fluid > div.hotels_shopList.row > div.col-xl-9.custom_col_md_9.main_Content > main > section > div > div.selectCarForem.radio_container.position-relative > div.radios.container-fluid{
+    padding-right: 0;
+}
 
 .show_hide_container>* {
 
@@ -906,7 +918,7 @@ body {
     content              : '';
     -webkit-appearance   : none;
     background-color     : transparent;
-    border               : 1px solid #F4F4F4;
+    border               : 1px solid rgba(180, 174, 174, 0.61);
     /* box-shadow        : 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05); */
     padding              : 10px;
     display              : inline-block;
@@ -989,6 +1001,7 @@ body {
 
 .radios>div {
     width: 100%;
+    margin: 0;
 }
 
 .radios>div>div {
@@ -1881,6 +1894,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     transition        : all .2s linear;
     overflow          : hidden;
 }
+.add_btn_container {
+    padding: 0;
+}
 
 @-webkit-keyframes nullAnimation {
     from {}
@@ -2170,7 +2186,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 @media only screen and (max-width: 991px) {
     .car_images_swipper_container {
-        max-width: 95%;
+        max-width: 100%;
     }
 
     .swipe-wrap>div img {
@@ -2192,7 +2208,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-top: 0 !important;
     }
   
-
+    .shopTitle span{
+        zoom: 0.8;
+    }
    
 }
 
@@ -2395,8 +2413,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         position: fixed;
         /* will-change:position;s */
 
-        top              : calc(100vh - 65px);
-        height           : 50px;
+        top              : calc(100vh - 55px);
+        height           : 55px;
         -webkit-box-align: center;
         -ms-flex-align   : center;
         align-items      : center;
@@ -2416,6 +2434,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         justify-content: space-between;
         padding        : 10px;
         padding-top    : 0;
+        padding-bottom: 0;
         background     : #fff;
         border-top     : 1px solid #F4F4F4;
         border-bottom  : 1px solid #F4F4F4;
@@ -2452,7 +2471,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 
     .wrapper {
-        margin-top: 25px;
+        /* margin-top: 25px; */
+        padding-top: 0;
     }
 
     .shopList_block_container {
@@ -2524,7 +2544,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 }
 
-@media only screen and (max-width: 581px) {
+@media only screen and (max-width: 595px) {
 
 
     .transport_section_SH {
@@ -2551,6 +2571,9 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         display      : inline-block;
         margin-bottom: -5px;
     }
+    .mainTb{
+        height: 69.5px !important;
+    }    
 
     .selected .navbarTextShow {
         width: 100% !important;
@@ -2620,12 +2643,12 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         /* padding-right: 10px !important; */
     }
     .add_car_rante button{
-        width: 95%;
+        width: 100%;
     }
     .rent_form .datePicerInputContainer{
-        width: 95%;
+        width: 100%;
         margin-top:10px;
-        padding-right: 10px !important;
+        /* padding-right: 10px !important; */
     }
 }
 
