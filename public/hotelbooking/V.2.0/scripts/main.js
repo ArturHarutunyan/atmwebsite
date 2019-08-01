@@ -1142,8 +1142,8 @@ document.querySelector('.shopList_block .button_container button').onclick =  fu
             delete orderObj.added;
             delete orderObj.parent;
 
-
-            orderObj.name = 'rent car in Yerevan'
+            orderObj.event = 'rent car in Yerevan';
+            orderObj.price = orderObj.totalPrice;
 
 
             carOrders.push(orderObj)
