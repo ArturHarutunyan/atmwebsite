@@ -2441,8 +2441,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         position      : fixed;
         /* will-change:position;s */
 
-        top              : calc(100vh - 55px);
-        height           : 55px;
+        top              : calc(100vh - 62px);
+        height           : 62px;
         -webkit-box-align: center;
         -ms-flex-align   : center;
         align-items      : center;
