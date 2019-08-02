@@ -15,7 +15,10 @@
 */
 
 
-
+.flight_input{
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
 
 .shopTitle {
     -webkit-box-pack : start !important;
@@ -25,7 +28,8 @@
     -ms-flex-align   : center;
     align-items      : center
 }
-.heightAuto{
+
+.heightAuto {
     height: auto !important;
 }
 
@@ -146,7 +150,7 @@
 
 .mobile_shower_item_container svg {
     /* margin-left : -5px; */
-    margin-right: 5px;
+    margin-right   : 5px;
 }
 
 /*Creates dial for the spinner to follow*/
@@ -365,17 +369,17 @@ body {
 .show_all_content_button_container,
 .hide_all_content_button_container {
 
-    margin     : auto;
-    display    : inline-block;
-   width: 100%;
-   margin: auto;
+    margin : auto;
+    display: inline-block;
+    width  : 100%;
+    margin : auto;
 }
 
 
 .hide_all_content_button_container {
 
     /* margin-left: calc(50% - 28px); */
-    padding    : 0 20px;
+    padding       : 0 20px;
 }
 
 
@@ -1258,7 +1262,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 .header>div:first-child {
     border-right: 2px solid #F4F4F4;
-    max-height: 180%;
+    max-height  : 180%;
 }
 
 .select_accommodation,
@@ -1556,6 +1560,7 @@ div.selector-element div.selector-selected {
     cursor  : pointer;
     width   : 20px !important;
     fill    : #286786;
+    z-index: 2;
 }
 
 .hotels_block .hotel_info_container .Booking_details_form .datePic_container svg:last-child {
@@ -1828,6 +1833,7 @@ div.selector-element div.selector-selected {
     left    : 10px;
     width   : 20px;
     cursor  : pointer;
+    z-index: 9;
 }
 
 .flight_input input {
@@ -2157,7 +2163,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .header {
-        height:  auto !important;
+        height: auto !important;
     }
 
     .shopList_block {
@@ -2771,141 +2777,149 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         background  : #286786;
     }
 }
+
 /* custom alert styles */
 
 
-#modalContainer , .bigPreloader{
-	background-color:rgba(0, 0, 0, 0.3);
-	position:absolute;
-    top:0;
-	width:100%;
-	height:100%;
-	left:0px;
-	z-index:10000;
-    background-image:url(tp.png); /* required by MSIE to prevent actions on lower z-index elements */;
+#modalContainer,
+.bigPreloader {
+    background-color: rgba(0, 0, 0, 0.3);
+    position        : absolute;
+    top             : 0;
+    width           : 100%;
+    height          : 100%;
+    left            : 0px;
+    z-index         : 10000;
+    background-image: url(tp.png);
+    /* required by MSIE to prevent actions on lower z-index elements */
+    ;
     z-index: 9999999999999999999;
 }
-.bigPreloader{
-    z-index:999999999 ;
-}
-#alertBox {
-	position:relative;
-	width:33%;
-	min-height:100px;
-  max-height:400px;
-	margin-top:50px;
-	border:1px solid #fff;
-	background-color:#fff;
-	background-repeat:no-repeat;
-  top:30%;
-  padding: 17px;
+
+.bigPreloader {
+    z-index: 999999999;
 }
 
-#modalContainer > #alertBox {
-	position:fixed;
+#alertBox {
+    position         : relative;
+    width            : 33%;
+    min-height       : 100px;
+    max-height       : 400px;
+    margin-top       : 50px;
+    border           : 1px solid #fff;
+    background-color : #fff;
+    background-repeat: no-repeat;
+    top              : 30%;
+    padding          : 17px;
+}
+
+#modalContainer>#alertBox {
+    position: fixed;
 }
 
 #alertBox h1 {
-	margin:0;
-	font:bold 1em Raleway,arial;
-	color:#FFF;
-    padding:10px 0 10px 5px;
+    margin    : 0;
+    font      : bold 1em Raleway, arial;
+    color     : #FFF;
+    padding   : 10px 0 10px 5px;
     text-align: center;
-    font-size: 23px;
+    font-size : 23px;
 }
 
 #alertBox.success h1 {
-    color:#286786;
-   
+    color: #286786;
+
 }
+
 #alertBox.success #closeBtn {
     background: #286786;
 }
 
-#alertBox.error #closeBtn{
+#alertBox.error #closeBtn {
     background: red;
 }
-#alertBox.error h1  {
-    color:red;
+
+#alertBox.error h1 {
+    color: red;
 }
 
 
 #alertBox p {
-	min-height:50px;
-	padding-left:5px;
-  padding-top:30px;
-  text-align:center;
-  vertical-align:middle;
+    min-height    : 50px;
+    padding-left  : 5px;
+    padding-top   : 30px;
+    text-align    : center;
+    vertical-align: middle;
 }
 
 #alertBox #closeBtn {
-	display:block;
-	position:relative;
-	margin:10px auto 10px auto;
-	padding:7px;
-	border:0 none;
-	width:70px;
-	text-transform:uppercase;
-	text-align:center;
-	color:#FFF;
-	background-color:#f97352;
-	border-radius: 0px;
-	text-decoration:none;
-  outline:0!important;
-  cursor: pointer;
+    display         : block;
+    position        : relative;
+    margin          : 10px auto 10px auto;
+    padding         : 7px;
+    border          : 0 none;
+    width           : 70px;
+    text-transform  : uppercase;
+    text-align      : center;
+    color           : #FFF;
+    background-color: #f97352;
+    border-radius   : 0px;
+    text-decoration : none;
+    outline         : 0 !important;
+    cursor          : pointer;
 }
 
 /* unrelated styles */
 
 #mContainer {
-	position:relative;
-	width:600px;
-	margin:auto;
-	padding:5px;
-	border-top:2px solid #fff;
-	border-bottom:2px solid #fff;
+    position     : relative;
+    width        : 600px;
+    margin       : auto;
+    padding      : 5px;
+    border-top   : 2px solid #fff;
+    border-bottom: 2px solid #fff;
 }
 
-h1,h2 {
-	margin:0;
-	padding:4px;
+h1,
+h2 {
+    margin : 0;
+    padding: 4px;
 }
 
 code {
-	font-size:1.2em;
-	color:#069;
+    font-size: 1.2em;
+    color    : #069;
 }
 
 #credits {
-	position:relative;
-	margin:25px auto 0px auto;
-	width:350px; 
-	font:0.7em verdana;
-	border-top:1px solid #000;
-	border-bottom:1px solid #000;
-	height:90px;
-	padding-top:4px;
+    position     : relative;
+    margin       : 25px auto 0px auto;
+    width        : 350px;
+    font         : 0.7em verdana;
+    border-top   : 1px solid #000;
+    border-bottom: 1px solid #000;
+    height       : 90px;
+    padding-top  : 4px;
 }
 
 #credits img {
-	float:left;
-	margin:5px 10px 5px 0px;
-	border:1px solid #000000;
-	width:80px;
-	height:79px;
+    float : left;
+    margin: 5px 10px 5px 0px;
+    border: 1px solid #000000;
+    width : 80px;
+    height: 79px;
 }
 
 .important {
-	background-color:#F5FCC8;
-	padding:2px;
+    background-color: #F5FCC8;
+    padding         : 2px;
 
 }
 
-@media (max-width: 600px) 
-{
-  #alertBox {
-	position:relative;
-	width:90%;
-  top:30%;
+@media (max-width: 600px) {
+    #alertBox {
+        position: relative;
+        width   : 90%;
+        top     : 30%;
+    }
 }
-/* custom alert styles end */
