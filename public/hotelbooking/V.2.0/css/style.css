@@ -2797,7 +2797,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 }
 
 .bigPreloader {
-    z-index: 999999999;
+    z-index: 999999999991;
 }
 
 #alertBox {
