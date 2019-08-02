@@ -3,6 +3,12 @@
 var documentClick = false;
 
 
+var header = document.querySelector('.header');
+
+var logoText = document.querySelector('.logo_text');
+header.style.height = logoText.offsetHeight + 'px';
+
+
 // here shud be inif function for orders lists 
 
 if ('ontouchstart' in window) {
@@ -238,7 +244,9 @@ window.addEventListener('resize', function (event) {
 
 
     var containerWidth =    document.querySelector('.mainTb').offsetWidth;
-    document.querySelector('.tabs_container').style.width = containerWidth+ 'px';
+    document.querySelector('.tabs_container').style.width = containerWidth - 5+ 'px';
+
+    header.style.height = logoText.offsetHeight + 'px';
 })
 
 // wrapper 
@@ -1176,11 +1184,108 @@ document.querySelector('.shopList_block .button_container button').onclick =  fu
     // ********************************************************************************************  REQ TO SERVER   n
     var allOrders = { hotelOrders, carOrders, ExcursionOrders };
 
-    console.log(allOrders)
+    
+    // var config = {buttonText:'ok', title:'error',txt:'there is an error in program . pleas contact with us ' ,status:'error'}
+    // createCustomAlert(config,window.location.reload );
+    
+
     var finalForm = JSON.stringify({ allOrders, contacts });
     var http = new XMLHttpRequest();
     var url = '/hotelbooking/ajax/sendmail.php';
     var params = 'data=' + finalForm;
+
+    var preloader  = document.createElement('div');
+    preloader.classList.add('bigPreloader');
+    preloader.innerHTML = `   <div class="ring">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="lds-spin" width="80px" height="80px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><g transform="translate(80,50)">
+        <g transform="rotate(0)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="1" transform="scale(1.14365 1.14365)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.9166666666666666s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.9166666666666666s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(75.98076211353316,65)">
+        <g transform="rotate(29.999999999999996)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.9166666666666666" transform="scale(1.16031 1.16031)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.8333333333333334s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.8333333333333334s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(65,75.98076211353316)">
+        <g transform="rotate(59.99999999999999)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.8333333333333334" transform="scale(1.17698 1.17698)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.75s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.75s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(50,80)">
+        <g transform="rotate(90)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.75" transform="scale(1.19365 1.19365)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.6666666666666666s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.6666666666666666s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(35.00000000000001,75.98076211353316)">
+        <g transform="rotate(119.99999999999999)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.6666666666666666" transform="scale(1.01031 1.01031)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.5833333333333334s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.5833333333333334s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(24.01923788646684,65)">
+        <g transform="rotate(150.00000000000003)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.5833333333333334" transform="scale(1.02698 1.02698)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.5s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.5s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(20,50.00000000000001)">
+        <g transform="rotate(180)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.5" transform="scale(1.04365 1.04365)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.4166666666666667s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.4166666666666667s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(24.019237886466836,35.00000000000001)">
+        <g transform="rotate(209.99999999999997)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.4166666666666667" transform="scale(1.06031 1.06031)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.3333333333333333s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.3333333333333333s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(34.999999999999986,24.019237886466847)">
+        <g transform="rotate(239.99999999999997)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.3333333333333333" transform="scale(1.07698 1.07698)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.25s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.25s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(49.99999999999999,20)">
+        <g transform="rotate(270)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.25" transform="scale(1.09365 1.09365)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.16666666666666666s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.16666666666666666s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(65,24.019237886466843)">
+        <g transform="rotate(300.00000000000006)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.16666666666666666" transform="scale(1.11031 1.11031)">
+          <animateTransform attributeName="transform" type="scale" begin="-0.08333333333333333s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.08333333333333333s"/>
+        </circle>
+        </g>
+        </g><g transform="translate(75.98076211353316,34.999999999999986)">
+        <g transform="rotate(329.99999999999994)">
+        <circle cx="0" cy="0" r="5" fill="black" fill-opacity="0.08333333333333333" transform="scale(1.12698 1.12698)">
+          <animateTransform attributeName="transform" type="scale" begin="0s" values="1.2 1.2;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="0s"/>
+        </circle>
+        </g>
+        </g></svg>
+</div>
+`
+
+    document.body.appendChild(preloader)
     http.open('POST', url, true);
 
     //Send the proper header information along with the request
@@ -1190,12 +1295,17 @@ document.querySelector('.shopList_block .button_container button').onclick =  fu
         if (http.readyState == 4 && http.status == 200) {
 
             if (parseInt(http.responseText) == 1) {
-                alert('thank you  for your orders. our specialists will contact you soon');
-                window.location.reload(true); 
+                
+                var config = {buttonText:'ok', title:'success',txt:'thank you  for your orders. our specialists will contact you soon' ,status:'success'}
+                createCustomAlert(config,window.location.reload );
+                
             } else {
-                alert('there is an error in program . pleas contact with us ');
-                window.location.reload(true); 
+                
+                var config = {buttonText:'ok', title:'error',txt:'there is an error in program . pleas contact with us ' ,status:'error'}
+                createCustomAlert(error, window.location.reload);
+               
             }
+            document.body.removeChild(preloader)
         }
     }
     http.send(params);
@@ -1252,13 +1362,15 @@ else {
 
 document.querySelector('.showMore').onclick = function (event) {
     document.querySelector('.moreContent').style.display = 'inline';
-    document.querySelector('.showMore').style.display = 'none'
+    document.querySelector('.showMore').style.display = 'none';
+    header.classList.add('heightAuto')
 }
 
 
 document.querySelector('.showLess').onclick = function (event) {
     document.querySelector('.moreContent').style.display = 'none';
     document.querySelector('.showMore').style.display = 'inline-block';
+    header.classList.remove('heightAuto')
 
 
 }
