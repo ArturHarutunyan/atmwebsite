@@ -2792,7 +2792,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     z-index         : 10000;
     background-image: url(tp.png);
     /* required by MSIE to prevent actions on lower z-index elements */
-    ;
+    
     z-index: 9999999999999999999;
 }
 
@@ -2848,6 +2848,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     min-height    : 50px;
     padding-left  : 5px;
     padding-top   : 30px;
+    margin-top: -28px;
     text-align    : center;
     vertical-align: middle;
 }
