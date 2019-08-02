@@ -985,6 +985,7 @@
 				// alert(root_element.style.top +'|'+document.body.scrollTop + '|' + (-document.querySelector('.wrapper').getBoundingClientRect().top))
 				setTimeout(function () {
 					dom_on(target, document.documentElement, 'click', options.bound.hide);
+					
 					dom_on(target, window, 'resize', options.bound.forced_show);
 				});
 			}
@@ -1390,3 +1391,26 @@
 
 	return pickmeup_init;
 }));
+
+
+var documentClick = document.querySelector('.main_wrap').onclick;
+document.querySelector('.main_wrap').onclick = function(event){
+
+	// console.log(11)
+	if(documentClick instanceof Function)
+		documentClick()
+	if(!event.target.closest('.pickmeup') && !event.target.closest('.datepicker_input')){
+		if(document.querySelector('.pickmeup:not(pmu-hidden)')){
+			
+			[...document.querySelectorAll('.pickmeup')].forEach(elem => {
+				if(!elem.classList.contains('pmu-hidden'))
+					elem.classList.add('pmu-hidden')
+				// console.log(elem)
+			})
+		}
+	}
+	if(event.target.closest('.datepicker_input') && event.isTrusted){
+		this.click();
+		event.target.closest('.datepicker_input').focus()
+	}
+}

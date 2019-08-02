@@ -367,15 +367,14 @@ body {
 
     margin     : auto;
     display    : inline-block;
-    width      : 30px;
-    max-width  : 30px;
-    margin-left: calc(50% - 15px);
+   width: 100%;
+   margin: auto;
 }
 
 
 .hide_all_content_button_container {
 
-    margin-left: calc(50% - 28px);
+    /* margin-left: calc(50% - 28px); */
     padding    : 0 20px;
 }
 
@@ -2799,6 +2798,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 	background-color:#fff;
 	background-repeat:no-repeat;
   top:30%;
+  padding: 17px;
 }
 
 #modalContainer > #alertBox {
@@ -2808,19 +2808,25 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 #alertBox h1 {
 	margin:0;
 	font:bold 1em Raleway,arial;
-	background-color:#f97352;
 	color:#FFF;
-	border-bottom:1px solid #f97352;
-	padding:10px 0 10px 5px;
+    padding:10px 0 10px 5px;
+    text-align: center;
+    font-size: 23px;
 }
 
-#alertBox.success h1 ,#alertBox.success #closeBtn {
-    background-color:#286786;
-    border-bottom-color: #286786;
+#alertBox.success h1 {
+    color:#286786;
+   
 }
-#alertBox.error h1 ,#alertBox.error #closeBtn {
-    background-color:red;
-    border-bottom-color: red;
+#alertBox.success #closeBtn {
+    background: #286786;
+}
+
+#alertBox.error #closeBtn{
+    background: red;
+}
+#alertBox.error h1  {
+    color:red;
 }
 
 
@@ -2846,6 +2852,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 	border-radius: 0px;
 	text-decoration:none;
   outline:0!important;
+  cursor: pointer;
 }
 
 /* unrelated styles */

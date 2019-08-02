@@ -715,7 +715,8 @@ function createCustomAlert(config , callback) {
 	alertObj.style.visiblity="visible";
 
 	h1 = alertObj.appendChild(d.createElement("h1"));
-	h1.appendChild(d.createTextNode(config.title));
+	
+	h1.innerHTML =  config.title;
 
 	msg = alertObj.appendChild(d.createElement("p"));
 	//msg.appendChild(d.createTextNode(txt));
