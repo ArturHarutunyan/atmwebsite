@@ -869,17 +869,16 @@ clickEventListener('.selectCarForem .add_transport_btn', function (event) {
 
     // console.log(transportFormObject);
 
-    console.log(1544)
     if (!transportFormObject.added && checkTransportFormValidation(transportFormObject)) {
 
         transportFormObject.added = true
         addOrderToArray(transportFormObject);
-        this.innerHTML = 'ADDED'
+        document.querySelector('.add_transport_btn').innerHTML = 'ADDED'
 
     } else {
         transportFormObject.added = false
         removeOrderFromArray(transportFormObject);
-        this.innerHTML = 'ADD'
+        document.querySelector('.add_transport_btn').innerHTML = 'ADD'
 
     }
 })
@@ -1296,12 +1295,12 @@ document.querySelector('.shopList_block .button_container button').onclick =  fu
 
             if (parseInt(http.responseText) == 1) {
                 
-                var config = {buttonText:'ok', title:' <svg aria-hidden="true" style="width:20px" focusable="false" data-prefix="fas" data-icon="check-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-check-circle fa-w-16 fa-3x"><path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" class=""></path></svg>  <br/> success',txt:'thank you  for your orders. our specialists will contact you soon' ,status:'success'}
+                var config = {buttonText:'ok', title:' <svg aria-hidden="true" style="width:20px" focusable="false" data-prefix="fas" data-icon="check-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-check-circle fa-w-16 fa-3x"><path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" class=""></path></svg>  <br/> success',txt:'Thank you  for your orders. our specialists will contact you soon' ,status:'success'}
                 createCustomAlert(config,window.location.reload );
                 
             } else {
                 
-                var config = {buttonText:'ok', title:'<svg aria-hidden="true" style="width:20px" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-exclamation-circle fa-w-16 fa-3x"><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" class=""></path></svg> <br/> error ',txt:'there is an error in program . pleas contact with us ' ,status:'error'}
+                var config = {buttonText:'ok', title:'<svg aria-hidden="true" style="width:20px" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-exclamation-circle fa-w-16 fa-3x"><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" class=""></path></svg> <br/> error ',txt:'There is an error in program . pleas contact with us ' ,status:'error'}
                 createCustomAlert(config, window.location.reload);
                
             }

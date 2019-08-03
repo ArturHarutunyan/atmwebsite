@@ -357,18 +357,7 @@ function initOrders() {
 
 
 
-				} else {
-					var days = getPastDays([date1, date2]) + 1;
-
-					price = +parent.getAttribute('data-static_price')
-
-					price *= days;
-
-					document.querySelector('.car_rante_price').innerHTML = valuta +price  ;
-
-
-					// count cra rante in day
-				}
+				} 
 
 				QtyContainer.innerHTML = qty;
 				AmountContainer.innerHTML =  valuta+ price ;
@@ -394,11 +383,10 @@ function initOrders() {
 					console.log(DomForm)
 
 					var checkboxes =  oneOrder.parent.querySelector('.select_trip_form').querySelectorAll('[type="checkbox"]');
-					console.log('====================================');
-					console.log(checkboxes[0],checkboxes[1]);
-					console.log('====================================');
-					if(checkboxes[0] && !checkboxes[0].checked && checkboxes[1]  && !checkboxes[1].checked ){
+				
+					if(!checkboxes[0].checked && !checkboxes[1].checked ){
 						document.querySelector('.add_transport_btn').click()
+						console.log(111)
 					}
 					
 					
@@ -594,7 +582,8 @@ function checkTransportFormValidation(form) {
 	// console.log(hasCheckboxes && isFormValid)
 	if (!hasCheckboxes || !isFormValid) {
 
-		removeOrderFromArray(form)
+		removeOrderFromArray(form);
+		document.querySelector('.add_transport_btn').innerHTML ='ADD'
 	}
 	return hasCheckboxes && isFormValid;
 
@@ -667,6 +656,11 @@ function getTransportationFormObject() {
 			oneInput.addEventListener('input', function (event) {
 				var value = event.target.value;
 				form[elemName].ownForm[formKey].value = value.trim();
+
+				
+				if (form.added) 				
+					checkTransportFormValidation(form) 
+				
 				if (!value.trim()) {
 					if (!oneInput.classList.contains('.hidden_input')) {
 						oneInput.style.border = '2px solid red'
@@ -679,9 +673,7 @@ function getTransportationFormObject() {
 					oneInput.style.border = '';
 				}
 				if (form.added) {
-
 					
-					(form);
 					initOrders()
 				}
 			})
