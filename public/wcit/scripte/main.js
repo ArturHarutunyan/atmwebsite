@@ -45,8 +45,54 @@ if (window.dispatchEvent) {
     window.dispatchEvent(event);
 }
 
+// Setup isScrolling variable
+var isScrolling;
 
+// Listen for scroll events
+
+// var x = window.matchMedia("(min-height: "+window.innerHeight+"px)");
+// x.addListener(function(){
+//     alert(555)
+// })
+// document.body.addEventListener('scroll', function ( event ) {
+
+//     if(window.outerWidth >991 || document.querySelector('.shop_list_container.show')) return
+//     // Clear our timeout throughout the scroll
+//     // alert(1)
+//     document.querySelector('.shop_list_container').style.top = '100vh';
+    
+    
+//     document.querySelector('.shop_list_container').style.transition = 'all 0s';
+//     window.clearTimeout( isScrolling );
+// 	// Set a timeout to run after scrolling ends
+// 	isScrolling = setTimeout(function() {
+
+// 		// Run the callback
+// 		document.querySelector('.shop_list_container').style.top = '';
+
+// 	},0);
+
+// }, false);
+// document.body.addEventListener('touchmove',function(){
+//     if(window.outerWidth >991 || document.querySelector('.shop_list_container.show')) return
+//     // Clear our timeout throughout the scroll
+//     // alert(1)
+//     document.querySelector('.shop_list_container').style.top = '100vh';
+//     document.querySelector('.shop_list_container').style.transition = 'all 0s';
+//     window.clearTimeout( isScrolling );
+// 	// Set a timeout to run after scrolling ends
+// 	isScrolling = setTimeout(function() {
+
+// 		// Run the callback
+//         document.querySelector('.shop_list_container').style.top = '';
+//         document.querySelector('.shop_list_container').style.transition = '';
+
+// 	},500);
+// })
 // for pickmeup bug fixing 
+
+
+
 window.onresize = function () {
     var event;
     if (typeof (Event) === 'function') {

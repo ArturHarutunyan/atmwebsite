@@ -19,6 +19,12 @@ body {
 hr {
     border-top: 2px solid black;
 }
+
+.shop_list_container>div {
+    max-height    : calc(100vh - 15px);
+    padding-bottom: 50px;
+    overflow      : auto;
+}
 .mobileShowForm {
 
     width:calc(100% + 15px) !important;
@@ -918,7 +924,9 @@ hr {
     background: black;
     color: #fff;
     border-radius: 50%;
-    top: -10px;
+    /* top: -10px; */
+
+    transform: translateY(-5px);
     left: 5px;
     position: relative;
     display: inline-flex;
@@ -1162,10 +1170,15 @@ hr {
 @media only screen and (max-width: 991px) {
     .shop_list_container {
         margin-top: 2px !important;
+        max-height: 100vh;
+        overflow: hidden !important;
     }
 
     .shop_container:not(.hide) {
         margin-top: 30px;
+    }
+    .shop_list_container > h4{
+        display: block !important;
     }
 
     .shoppingListTitles>div:nth-child(2),
@@ -1190,29 +1203,43 @@ hr {
     
     .shop_list_container{
         position: fixed;
-        top: calc(100% - 50px);
+        bottom: calc(-100vh + 50px);
         z-index: 99;
-        min-height: 100%;
+        height: 100vh;
+        margin-top: 100vh !important;
+        
+        margin-bottom: 0vh !important; 
+
+        /* top: calc(100vh  50px); */
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-        transition: top .5s ease;
-
-        background: #fff;
-        padding-bottom: 50px;
         
+        transition: all .5s ease ;
+        background: #fff
+        /* padding-bottom: 250px; */
+        /* transform: translateZ(0); */
+        
+    }
+    .shopListMobileShow{
+        padding-bottom: 0 !important;
     }
     .shop_list_container 
     .position-sticky{
         position: initial  !important;
-        height: 100% ;
+        height: 100vh ;
         padding-bottom: 250px;
     }
     .shop_list_container{
         padding-bottom: 0;
     }
     .shop_list_container.show{
-        top: 0;
-        margin-top: 0 !important; 
+        
+        bottom: auto !important;
+        top: 0 !important;
+        margin-top: 0vh !important; 
+        margin-bottom: 100% !important; 
+        height: 100vh;
+        
     }
 
     .shop_list_container
@@ -1239,15 +1266,11 @@ hr {
         display: flex !important;
         justify-content: space-between
     }
-    .shop_list_container h4{
+    .shop_container h4{
         display: none;
     }
 
-    .shop_list_container>div {
-        max-height    : 100vh;
-        padding-bottom: 10px;
-        overflow      : auto;
-    }
+
 
 }
 
