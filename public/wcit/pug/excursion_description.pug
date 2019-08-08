@@ -1,0 +1,75 @@
+
+- var radioCount = 0
+- var rCount = 0
+
+mixin description(tour)
+    .excursion_description_form.col-xl-8
+        .container-fluid
+            .row
+                .col-xl-8.px-0.py-0
+                    p.excursionName
+                        span.name.font-weight-bold= tour.tourName
+                        span.popularity [Popularity 9+]
+                    .descriptionContainer
+                        .shortDescription_show_all.Private.hide
+                            span.font-weight-bold Description: 
+                            span= tour.privateShortDesc
+                            span ...
+                            span.showMore.font-weight-bold show more
+                            .allDescription.mt-2= tour.privateDescription
+                                span.showLess.font-weight-bold show less
+                            
+                        .shortDescription_show_all.Group
+                            span.font-weight-bold Description: 
+                            span= tour.groupShortDesc
+                            span ...
+                            span.showMore.font-weight-bold show more
+                            .allDescription.mt-2= tour.groupDescription
+                                span.showLess.font-weight-bold show less
+                        h5.my-1 includes
+                        .includeContainer.my-2
+                            - tour.including.forEach((incl,index)=>{
+                                div(class=''+(index>0? 'ml-2':''))
+                                    img(src=incl.img)
+                                    span= incl.name
+                            - })
+
+                .col-xl-4.px-0.py-0.text-right.pr-2.pt-2.tour_price
+                    .eur
+                        h2.black_color.mb-0= tour.prices.eur + ' EUR' 
+                        p.mt-0.pt-0.exclude_VAT.font-weight-bold exclude VAT
+                    .other_valutas
+                        .usd.black_color.font-weight-bold= tour.prices.usd +' USD' 
+                        .amd.black_color.font-weight-bold= tour.prices.amd + ' AMD'
+
+            
+            .row.tourForm(data-tourname=tour.tourName data-tourprice=''+ tour.prices.eur)
+                .radiosContainer.custom_radio.col-12.d-flex.px-0(data-name='tour_type')
+                    p
+                        input(id='t'+ ++radioCount type='radio' value='Group' name='r'+ ++rCount checked='')
+                        label.font-weight-bold(for='t'+radioCount) Group
+                    p.pl-3
+                        input(id='t'+ ++radioCount type='radio' value='Private' name='r'+ rCount)
+                        label.font-weight-bold(for='t'+radioCount) Private      
+                
+            
+                .datePickerContainer(data-name='date')
+                    input.datepicker_input(type='text' data-validator='date' readonly='readonly')
+                .tourLanguage(data-name='language')
+                    .select_container.d-inline-block(data-validator='language')
+                        .Mselect.d-inline-block
+                            .Moption(data-value='' selected='') language 
+                            .Moption(data-value='1') eng 
+                .persons
+                    .select_container.d-inline-block(data-validator='persons' data-name='persons')
+                        .Mselect.d-inline-block
+                            .Moption(data-value='' selected='') persons
+                            - for(var i = 1; i< 50 ;i++){
+
+                                .Moption(data-value=i)= i
+                            - } 
+                .addButtonContainer
+                    span.btn.btn-dark.add_desktop Add
+                    span.btn.btn-dark.add_mobile Add Excursion
+            .mobileShowForm.row.my-4.w-100.p-0
+                span.btn.btn-dark.w-100 pick tour options

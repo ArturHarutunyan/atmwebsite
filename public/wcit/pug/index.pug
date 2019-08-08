@@ -1,0 +1,134 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible', content='ie=edge')
+		title Document
+		link(rel='stylesheet', href='./css/bootstrap.min.css')
+		link(rel='stylesheet', href='./css/pickmeup.css')
+		link(rel='stylesheet', href='./css/swiper.css')
+		link(rel='stylesheet', href='./css/style.css')
+	body.body
+		//- input(style="position:fixed;z-index:-999999; top:0" id="hid")
+		.wrapper.container-fluid
+			.nav_bar
+				img(style='width:100%;', src='./images/timeHeader.jpg', alt='timeHeader')
+			// <div class="head_image">head image</div>
+			.ArmeniaTravelLogo
+				.limitWidth
+					h1 Official travel partner
+					.travel_logo
+						img(src='./images/atm_logo.png', alt='logo')
+					.logo_circle
+						img(src='./images/circle.png', alt='circle')
+			.contacts_block.limitWidth
+				h1.mb-0.black_color Contact Us
+				.container-fluid.pl-0.pr-0
+					.row
+						// contact component
+						.col-lg-4.ml-1
+							// icon x
+							p.my-0.py-0
+								svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='26px', height='26px', viewBox='0 0 26 26', version='1.1')
+									// Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch
+									title Fill 1
+									desc Created with Sketch.
+									g#About-Event(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
+										g#About(transform='translate(-706.000000, -3965.000000)', fill='#000000')
+											polygon#Fill-1(transform='translate(719.000000, 3978.000000) rotate(90.000000) translate(-719.000000, -3978.000000) ', points='732 3970.99149 724.991991 3978 732 3985.00758 726.008009 3991 719 3983.99242 711.991991 3991 706 3985.00758 713.008009 3978 706 3970.99149 711.991991 3965 719 3972.00851 726.008009 3965')
+							p.my-0.py-1.font-weight-bold Kristina Garibyan – Tourismus manager
+							address.my-0.py-1.black_color
+								| Phone: 
+								a.black_color(href='tel:+37494270181')  +37494 27 01 81
+							address.my-0.py-1.black_color
+								| Email: 
+								a.black_color(href='mailto:hotel_reservation@armeniatravel.am') hotel_reservation@armeniatravel.am
+								br
+							hr(color='black')
+						.col-lg-4.ml-1.second_contact
+							// icon x
+							p.my-0.py-0
+								svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='26px', height='26px', viewBox='0 0 26 26', version='1.1')
+									// Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch
+									title Fill 1
+									desc Created with Sketch.
+									g#About-Event(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
+										g#About(transform='translate(-706.000000, -3965.000000)', fill='#000000')
+											polygon#Fill-1(transform='translate(719.000000, 3978.000000) rotate(90.000000) translate(-719.000000, -3978.000000) ', points='732 3970.99149 724.991991 3978 732 3985.00758 726.008009 3991 719 3983.99242 711.991991 3991 706 3985.00758 713.008009 3978 706 3970.99149 711.991991 3965 719 3972.00851 726.008009 3965')
+							p.my-0.py-1.font-weight-bold Hakob Kpryan – Tourismus manager 
+							address.my-0.py-1.black_color
+								| Phone: 
+								a.black_color(href='tel:+37493446558')  +37493 44 65 58
+							address.my-0.py-1.black_color
+								| Email: 
+								a.black_color(href='mailto:hakob.kpryan@armeniatravel.am') hakob.kpryan@armeniatravel.am
+								br
+							hr(color='black')
+			.row.limitWidth
+				.col-lg-8.excursion_block
+					.head_select_container.mb-4
+						h1 Excursion 
+						p.d-inline-block
+							span Chose participation type
+						.select_container.d-inline-block.ml-2(data-placeholder='Delegation')
+							.Mselect.d-inline-block
+								.Moption(data-value='0', selected='') Delegation
+								.Moption(data-value='1') eng 
+					// excrsion component
+                    
+					include ./tourComponent
+				.col-lg-4.shop_list_container
+					.shopListMobileShow
+						h4
+							span Shopping Cart 
+								span.cartCount 0
+							svg.svg-inline--fa.fa-chevron-up.fa-w-14.fa-3x(aria-hidden='true' style='width:18px; height:18px' focusable='false' data-prefix='fas' data-icon='chevron-up' role='img' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 448 512')
+								path(fill='currentColor' d='M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z')
+
+					.position-sticky(style='top: 10px;')
+						.shop_container.hide
+							h4.black_color Shopping Cart
+								span.cartCount 0
+							.shoppingListTitles.black_color.font-weight-bold
+								div Excursion
+								div Price
+								div Qty
+								div Amount
+								div(style='min-width: 26px;')
+							.shop_items
+								//
+									<div class="one_item">
+									<div class="excursion_name">Excursion Name</div>
+									<div class="excursion_price">60 EUR</div>
+									<div class="excursion_type">Group</div>
+									<div class="excursion_amount">70 EUR</div>
+									</div>
+							.total_price.black_color.font-weight-bold.text-right.mt-2
+								span Total Price
+								span.tPrice  130 EUR
+						h4.black_color.mt-5 Contacts
+						.contacts_form
+							.inputs
+								input.contact_name(type='text', placeholder='* Name', data-name='name')
+								input.contact_name(type='text', placeholder='* Surname', data-name='Surname')
+								input.contact_name(type='text', placeholder='Phone', data-name='Phone')
+								input.contact_name(type='email', placeholder='* Email', data-name='Email')
+								input.contact_name(type='text', placeholder='* Organization', data-name='Organization')
+							.pay_button.text-right.mt-4.hide
+								span.btn.btn-dark Pay Now
+						h6.mt-4.pt-4.black_color Guaranteed safe checkout
+						.Guaranteed_icons.d-flex
+							img(src='./images/payPal.jpg', alt='')
+							img(src='./images/payPal.jpg', alt='')
+							img(src='./images/payPal.jpg', alt='')
+script(src='./scripte/global.js')
+script(src='./scripte/swipe.min.js')
+script(src='./scripte/mySwip.js')
+script(src='./scripte/pickmeup.js')
+script(src='./scripte/myPickmeup.js')
+script(src='./scripte/auxiliary.js')
+script(src='./scripte/main.js')
+script(src='./scripte/Mselect.js')
+script(src='./scripte/myMselect.js')
+
