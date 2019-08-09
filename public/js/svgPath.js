@@ -760,7 +760,7 @@ function SvgLogic() {
 	var canAnimate = true;
 	
 	function slowAnimate() {
-		console.log($(window).scrollTop() > firstBreackpointPositionOnTop)
+		// console.log($(window).scrollTop() > firstBreackpointPositionOnTop)
 
 		if ($(window).scrollTop() > firstBreackpointPositionOnTop+50 && canAnimate) {
 			countEfect(true, 0, 20000)

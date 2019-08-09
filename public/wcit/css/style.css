@@ -596,6 +596,10 @@ hr {
 
 .datePickerContainer {
     position: relative;
+    
+}
+.datepicker_input{
+    cursor: pointer !important;
 }
 
 
@@ -1191,7 +1195,7 @@ hr {
         letter-spacing: -1px;
     }
     .excursion_type{
-        min-width: 13px;
+        min-width: 20px !important;
     }
     .tourForm {
         display: none;
@@ -1206,7 +1210,7 @@ hr {
         bottom: calc(-100vh + 50px);
         z-index: 99;
         height: 100vh;
-        margin-top: 100vh !important;
+        margin-top: calc(100vh - 100px) !important;
         
         margin-bottom: 0vh !important; 
 
@@ -1214,7 +1218,7 @@ hr {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         
-        transition: all .5s ease ;
+        transition: all .5s ease , background 0s;
         background: #fff
         /* padding-bottom: 250px; */
         /* transform: translateZ(0); */
@@ -1234,10 +1238,11 @@ hr {
     }
     .shop_list_container.show{
         
-        bottom: auto !important;
-        top: 0 !important;
+        bottom: -50px !important;
+        transition: all .5s ease , background 0s ;
+        top: 0px !important;
         margin-top: 0vh !important; 
-        margin-bottom: 100% !important; 
+        /* margin-bottom: 100% !important;  */
         height: 100vh;
         
     }

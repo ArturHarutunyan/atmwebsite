@@ -43,7 +43,7 @@ mixin description(tour)
                         .amd.black_color.font-weight-bold= tour.prices.amd + ' AMD'
 
             
-            .row.tourForm(data-tourname=tour.tourName data-tourprice=''+ tour.prices.eur)
+            .row.tourForm(data-tourname=tour.tourName data-tourprice=''+ tour.prices.eur data-tourPrivatePrice=""+tour.privatePrice.eur data-Group='' + JSON.stringify(tour.prices) data-Private=''+ JSON.stringify(tour.privatePrice))
                 .radiosContainer.custom_radio.col-12.d-flex.px-0(data-name='tour_type')
                     p
                         input(id='t'+ ++radioCount type='radio' value='Group' name='r'+ ++rCount checked='')

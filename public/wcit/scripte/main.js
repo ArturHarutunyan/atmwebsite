@@ -126,6 +126,7 @@ var tourForms = document.querySelectorAll('.tourForm');
 
     orderForm.tourName = oneTourForm.getAttribute('data-tourName');
     orderForm.price = +oneTourForm.getAttribute('data-tourPrice');
+    orderForm.privatePrice = +oneTourForm.getAttribute('data-tourPrivatePrice');
     orderForm.added = false;
     orderForm.html = oneTourForm;
 
@@ -154,11 +155,19 @@ var tourForms = document.querySelectorAll('.tourForm');
            
 
             descFormContainer.querySelector('.shortDescription_show_all.'+target.value).classList.remove('hide')
-            // if (target.value == 'Private') {
+            
+            // console.log(target.value, target.closest('.tourForm'))
 
-            // } else {
 
-            // }
+            var prices = JSON.parse(oneTourForm.getAttribute('data-' + target.value));
+
+
+            var descContainer = oneTourForm.previousElementSibling
+            descContainer.querySelector('.eur h2').innerHTML = prices.eur + "EUR";
+            descContainer.querySelector('.usd').innerHTML = prices.usd + "USD";
+            descContainer.querySelector('.amd').innerHTML = prices.amd + "AMD";
+             
+            console.log(prices)
         }
         // Private
 
@@ -233,10 +242,17 @@ function init() {
 
         var tourName = oneOrder.tourName;
         var type = oneOrder.tour_type;
+
+        // console.log(type)
+
+        // console.log(oneOrder.privatePrice, type)
         var price = oneOrder.price;
+
+        if(type == 'Private')
+            price = oneOrder.privatePrice
         var date = oneOrder.date;
         var persons = +oneOrder.persons;
-
+        
         var date = new Date(new Date(date.split('.').reverse().join(' ')));
 
 
