@@ -159,6 +159,7 @@ var tourForms = document.querySelectorAll('.tourForm');
             // console.log(target.value, target.closest('.tourForm'))
 
 
+            console.log(oneTourForm.getAttribute('data-' + target.value))
             var prices = JSON.parse(oneTourForm.getAttribute('data-' + target.value));
 
 
