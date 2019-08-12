@@ -30,9 +30,9 @@ function createTours(json) {
     // <script src="./scripte/Mselect.js"></script>
     // <script src="./scripte/myMselect.js"></script>`
 
-    var script = document.createElement('script')
-    script.src = './scripte/script.js'
-    document.body.appendChild(script)
+    // var script = document.createElement('script')
+    // script.src = './scripte/script.js'
+    // document.body.appendChild(script)
 
 
     var script = document.createElement('script')

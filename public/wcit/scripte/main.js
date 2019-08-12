@@ -304,11 +304,15 @@ function init() {
 
     if (!total) {
         document.querySelector('.shop_container').classList.add('hide');
-        document.querySelector('.pay_button').classList.add('hide')
+        document.querySelector('.pay_button').classList.add('hide');
+        document.querySelector('.shop_list_container').classList.remove('canShowButton')
+        document.querySelector('.shop_list_container').classList.remove('show')
+
     } else {
         document.querySelector('.shop_container').classList.remove('hide')
 
         document.querySelector('.pay_button').classList.remove('hide')
+        document.querySelector('.shop_list_container').classList.add('canShowButton');
     }
     var counters = document.querySelectorAll('.cartCount')
     counters[0].innerHTML = counters[1].innerHTML = readyOrders.length

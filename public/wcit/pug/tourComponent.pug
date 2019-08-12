@@ -3,6 +3,14 @@ include  ./swiper
 include ./excursion_description
 
 
+mixin template 
+    .excursion_component_container.container-fluid.px-0
+        .excursion_component.row
+            +swipe(tour)
+            +description(tour)
+script var template = ` +template`
+    | console.log(template)
+
 
     .excursion_component_container.container-fluid.px-0
         .excursion_component.row

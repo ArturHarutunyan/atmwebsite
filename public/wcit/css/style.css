@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
     -webkit-overflow-scrolling: touch;
 }
 
@@ -25,27 +26,32 @@ hr {
     padding-bottom: 50px;
     overflow      : auto;
 }
+
 .mobileShowForm {
 
-    width:calc(100% + 15px) !important;
+    width    : calc(100% + 15px) !important;
     max-width: 130% !important;
 }
-.mobileShowForm.close{
+
+.mobileShowForm.close {
     position: absolute;
 
-    width: 10px !important;
-    right: 68px;
-    bottom: 273px;
+    width  : 10px !important;
+    right  : 68px;
+    bottom : 273px;
     opacity: 1;
 }
-.mobileShowForm span{
+
+.mobileShowForm span {
     transition: all 0s !important;
 }
-.mobileShowForm.close span{
+
+.mobileShowForm.close span {
     background: #fff !important;
-    color: black !important;
-    font-size: 20px !important;
+    color     : black !important;
+    font-size : 20px !important;
 }
+
 .preloader {
     position: absolute;
 
@@ -596,9 +602,10 @@ hr {
 
 .datePickerContainer {
     position: relative;
-    
+
 }
-.datepicker_input{
+
+.datepicker_input {
     cursor: pointer !important;
 }
 
@@ -735,7 +742,7 @@ hr {
     margin-left : 40px;
 }
 
-.pmu-button.selected.pmu-selected{
+.pmu-button.selected.pmu-selected {
     background: red;
 }
 
@@ -920,29 +927,32 @@ hr {
     padding-bottom: 70px;
 }
 
-.cartCount{
-    width: 25px;
-    height: 25px;;
-    font-size: 16px;
-    padding: 5px;
-    background: black;
-    color: #fff;
+.cartCount {
+    width : 25px;
+    height: 25px;
+    ;
+    font-size    : 16px;
+    padding      : 5px;
+    background   : black;
+    color        : #fff;
     border-radius: 50%;
-    /* top: -10px; */
+    /* top       : -10px; */
 
-    transform: translateY(-5px);
-    left: 5px;
-    position: relative;
-    display: inline-flex;
+    transform      : translateY(-5px);
+    left           : 5px;
+    position       : relative;
+    display        : inline-flex;
     justify-content: center;
-    align-items: center;
+    align-items    : center;
 }
-.shopListMobileShow{
-    display: none;
-    background: #fff;
+
+.shopListMobileShow {
+    display            : none;
+    background         : #fff;
     backface-visibility: hidden;
-    border: none !important;
+    border             : none !important;
 }
+
 .event_date {
     background: #fff;
     color     : black !important
@@ -1175,13 +1185,14 @@ hr {
     .shop_list_container {
         margin-top: 2px !important;
         max-height: 100vh;
-        overflow: hidden !important;
+        overflow  : hidden !important;
     }
 
     .shop_container:not(.hide) {
         margin-top: 30px;
     }
-    .shop_list_container > h4{
+
+    .shop_list_container>h4 {
         display: block !important;
     }
 
@@ -1191,90 +1202,145 @@ hr {
     .shop_items .one_item>div:nth-child(3),
     .shoppingListTitles>div:nth-child(4),
     .shop_items .one_item>div:nth-child(4) {
-        min-width: 0;
+        min-width     : 0;
         letter-spacing: -1px;
     }
-    .excursion_type{
+
+    .excursion_type {
         min-width: 20px !important;
     }
+
     .tourForm {
         display: none;
     }
-    .tourForm.show{
+
+    .tourForm.show {
         display: block !important;
     }
-  
-    
-    .shop_list_container{
-        position: fixed;
-        bottom: calc(-100vh + 50px);
-        z-index: 99;
-        height: 100vh;
-        margin-top: calc(100vh - 100px) !important;
-        
-        margin-bottom: 0vh !important; 
 
-        /* top: calc(100vh  50px); */
-        overflow: auto;
+
+    .shop_list_container {
+        position  : fixed;
+        bottom    : calc(-100vh + 50px);
+        z-index   : 99;
+        height    : 100vh;
+        margin-top: calc(100vh - 100px) !important;
+
+        margin-bottom: 0vh !important;
+
+        /* top                    : calc(100vh  50px); */
+        overflow                  : auto;
         -webkit-overflow-scrolling: touch;
-        
-        transition: all .5s ease , background 0s;
-        background: #fff
+
+        transition: all .5s ease, background 0s ease .5s;
+
         /* padding-bottom: 250px; */
-        /* transform: translateZ(0); */
-        
+        /* transform     : translateZ(0); */
+
     }
-    .shopListMobileShow{
+
+    .shopListMobileShow {
         padding-bottom: 0 !important;
+        transition    : margin-top 0.06s linear 0.5s;
+        position: relative;
+        overflow: visible !important;
     }
-    .shop_list_container 
-    .position-sticky{
-        position: initial  !important;
-        height: 100vh ;
+
+    .shop_list_container .position-sticky {
+        position      : initial !important;
+        height        : 100vh;
         padding-bottom: 250px;
     }
-    .shop_list_container{
+
+    .shop_list_container.show {
         padding-bottom: 0;
     }
-    .shop_list_container.show{
-        
-        bottom: -50px !important;
-        transition: all .5s ease , background 0s ;
-        top: 0px !important;
-        margin-top: 0vh !important; 
-        /* margin-bottom: 100% !important;  */
-        height: 100vh;
-        
+    .shop_list_container:not(.canShowButton){
+        bottom: calc(-100vh);
+    }
+    
+
+    .shop_list_container:not(.canShowButton) .shopListMobileShow {
+        /* margin-top: 50px; */
+        /* bottom    : calc(-100vh + 50px); */
+    }
+    
+    .shopListMobileShow::after{
+        content: '';
+        width: 100vw;
+        left: -15px;
+        top: 0;
+        position: absolute;
+        border-top: 2px solid black;
     }
 
-    .shop_list_container
-    .shopListMobileShow h4 svg{
+    .shop_list_container.show {
+
+        bottom          : -50px !important;
+        transition      : all .5s ease, background 0s;
+        top             : 0px !important;
+        margin-top      : 0vh !important;
+        /* margin-bottom: 100% !important;  */
+        height          : 100vh;
+        background      : #fff;
+
+    }
+
+    .shop_list_container .shopListMobileShow h4 svg {
         transition: top .5s ease;
-    }    
-    .shop_list_container.show
-    .shopListMobileShow h4 svg{
+    }
+
+    .shop_list_container.show .shopListMobileShow h4 svg {
         transform: rotate(180deg);
     }
-    .shopListMobileShow{
-        display: block !important;
-        background: #fff;
+
+    .shopListMobileShow {
+        display    : block;
+        background : #fff;
         padding-top: 10px;
     }
-    .shop_list_container h4{
 
-        border-bottom: 3px solid black;
+    .shop_list_container h4 {
+
+        border-bottom : 3px solid black;
         padding-bottom: 10px;
-        
+
     }
-    .shopListMobileShow h4{
-        
-        display: flex !important;
+
+    .shopListMobileShow h4 {
+
+        display        : flex !important;
         justify-content: space-between
     }
-    .shop_container h4{
+
+    .shop_container h4 {
         display: none;
     }
 
+
+    .pickmeup .pmu-instance nav:first-child{
+        justify-content: space-around;
+    }
+    .pickmeup .pmu-instance{
+        width: calc(100vw - 62px);
+        height: auto;
+        min-height: 200px
+    }
+    .pmu-years > *, .pmu-months > *{
+        width:  calc(25%) !important;
+    }
+    .pmu-days > *{
+        width: 13% !important;
+        line-height: 3;
+        line-height: 2em !important;
+    }
+    .pmu-day-of-week > *{
+        width: 12.8% !important;
+        text-align: right;
+    }
+    .pmu-day-of-week{
+        /* padding: 0 25px; */
+    }
 
 
 }
@@ -1285,29 +1351,32 @@ hr {
     .second_contact {
         padding-right: 1.5rem;
     }
-  
-  
+
+
 }
+
 @media only screen and (min-width:992px) {
     .mobileShowForm {
         display: none;
     }
-  
-}
-@media only screen and (max-width:991px) {
 
-
-    
 }
+
+@media only screen and (max-width:991px) {}
 
 
 
 
 @media only screen and (min-width:769px) {
     body>div.wrapper.container-fluid>div.contacts_block.limitWidth>div>div>div.col-md-4.ml-1 {
-
         padding-right: 1.5rem !important;
     }
+
+    
 }
 
-@media only screen and (max-width: 360px) {}
+@media only screen and (max-width: 991px) {
+
+
+
+}

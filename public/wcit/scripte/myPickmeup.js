@@ -14,7 +14,7 @@
 var datepickerInputs = document.querySelectorAll('.datepicker_input');
 
 var startDateMin = new Date("2019-09-29");
-var startDate = new Date("2019-09-30");
+var startDate = new Date("2019-09-28");
 var eventStartDate = new Date("2019-10-6")
 
 var endDate = new Date("2019-10-16");
@@ -29,7 +29,7 @@ var eventEndDate = new Date('2019-10-9');
         position: 'right',
         hide_on_select: true,
         mode: 'simple',
-        date: startDateMin,
+        date: new Date("2019-10-23"),
         calendars: 1,
         format: 'd.m.Y',
         render: function (date) {
@@ -81,6 +81,9 @@ var eventEndDate = new Date('2019-10-9');
     elem.selectedInfo = { date: null, datepicker: elem }
 
     var parent = elem.closest('.datePickerContainer');
+
+
+
     elem.addEventListener('pickmeup-change', function (e) {
 
         elem.selectedInfo.date = pickmeup(elem).get_date();
