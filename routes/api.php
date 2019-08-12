@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Tour;
 use App\TourType;
 use App\StaffMember;
+use App\WcitExcursions;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +49,13 @@ Route::group(['middleware' => 'api','prefix'=>'meridian'], function(){
     });
 
 });
+Route::group(['middleware' => 'api','prefix'=>'wcit'], function(){
+    Route::get('excursions', function(){
+        return WcitExcursions::with('photos','includes')->get();
+//        return WcitExcursions::all();
+    })->name('WCIT_excursionss.api');
 
+});
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
