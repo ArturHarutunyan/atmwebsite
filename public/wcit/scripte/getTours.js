@@ -120,11 +120,11 @@ function swiperComponent(tour) {
 
     var galleryThumbs = '<div class="swiper-container gallery-thumbs">'
 
-    tour.swipeImages.forEach(src => {
+    tour.photos.forEach(photo => {
         var item = `
         <div class="swiper-slide">
             <div class="swiper-slide-container">
-                <img class="lazy_image" data-src="${src}" alt="">
+                <img class="lazy_image" data-src="${photo.src}" alt="">
             </div>
         </div>
         `
@@ -147,19 +147,31 @@ function swiperComponent(tour) {
 
 
 function tourDescription(tour) {
+
+    tour.prices = {
+        amd: tour.group_price_amd,
+        usd: tour.group_price_usd,
+        eur: tour.group_price_eur,
+    }
+
+    tour.privatePrice = {
+        amd: tour.private_price_amd,
+        usd: tour.private_price_usd,
+        eur: tour.private_price_eur,
+    }
     var description = `  
     <div class="excursion_description_form col-xl-8">
         <div class="container-fluid">
             <div class="row">
                  <div class="col-xl-8 px-0 py-0">
-                     <p class="excursionName"><span class="name font-weight-bold">${tour.tourName}</span><span class="popularity">[Popularity 9+]</span></p>`;
+                     <p class="excursionName"><span class="name font-weight-bold">${tour.name}</span><span class="popularity">[Popularity 9+]</span></p>`;
 
 
     var includes = '';
     tour.including.forEach((incl, index) => {
 
 
-        includes += `<div class='${+index > 0 ? 'ml-2' : ''}'><img src=${incl.img}><span>${incl.name}</span></div>`
+        includes += `<div class='${+index > 0 ? 'ml-2' : ''}'><img src=${incl.icon_src}><span>${incl.name}</span></div>`
         // div(class=''+(index>0? 'ml-2':''))
         //     img(src=incl.img)
         //     span= incl.name
@@ -167,16 +179,16 @@ function tourDescription(tour) {
     var privateDescription =
         `<div class="descriptionContainer">
                         <div class="shortDescription_show_all Private hide">
-                            <span class="font-weight-bold">Description: </span><span> ${tour.privateShortDesc}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
+                            <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
                             <div class="allDescription mt-2">
-                                ${tour.privateDescription}
+                                ${tour.description}
                                 <span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
 
                         <div class="shortDescription_show_all Group">
-                            <span class="font-weight-bold">Description: </span><span> ${tour.groupShortDesc}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
-                            <div class="allDescription mt-2"> ${tour.groupDescription}<span class="showLess font-weight-bold">show less</span>
+                            <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
+                            <div class="allDescription mt-2"> ${tour.description}<span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
                         <h5 class="my-1">includes</h5>
@@ -217,7 +229,7 @@ function tourDescription(tour) {
     var dataPrivate =  JSON.stringify(tour.privatePrice);
     console.log(dataGroup,dataPrivate)
     var tourForm = `
-        <div class="row tourForm" data-tourname="${tour.tourName}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
+        <div class="row tourForm" data-tourname="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
             <div class="radiosContainer custom_radio col-12 d-flex px-0" data-name="tour_type"> 
                 <p><input id="${'t' + ++radioCount}" type="radio" value="Group" name="${'r' + ++rCount}" checked=""><label class="font-weight-bold" for="${'t' + radioCount}">Group</label></p>
 
