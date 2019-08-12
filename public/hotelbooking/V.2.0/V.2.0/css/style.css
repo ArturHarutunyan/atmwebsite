@@ -1,0 +1,2688 @@
+/*  
+
+    blue color #286786
+
+    
+    gray color #656565
+    text color ^
+
+
+    black color #040404
+
+
+    border_color #F4F4F4
+
+*/
+
+.shopTitle{
+    justify-content: flex-start !important;
+    align-items: center
+}
+.shopTitle span{
+    background: #286786;
+    min-width: 26px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 25px;
+    border-radius: 50%;
+    color: #fff !important;
+    margin-top: -20px;
+    padding-right: 2px;
+    margin-left: 5px;
+    
+}
+
+/* img preloader  */
+#Car_rent:not(:checked)~.car_rante_price {
+    display: none !important;
+}
+
+.sections_icon_container p {
+    color             : #656565 !important;
+    -webkit-transition: all 0.5s linear;
+    transition        : all 0.5s linear;
+}
+
+.selected.sections_icon_container p {
+
+    color: #286786 !important;
+}
+
+.sections_icon_container p svg {
+    fill: #656565 !important;
+}
+
+.selected.sections_icon_container p svg {
+    fill: #286786 !important;
+}
+
+.ring {
+
+    -webkit-box-sizing: initial;
+
+    box-sizing: initial;
+    position  : absolute;
+    /*Moves the word loading down and into the center of the page*/
+    top : 50%;
+    left: 50%;
+    /*Moves the circle and loading word to the center of the page*/
+    -webkit-transform: translate(-50%, -50%);
+    transform        : translate(-50%, -50%);
+    width            : 150px;
+    height           : 150px;
+    /*Makes the word loading have a transparent background*/
+    background: transparent;
+    /*Creates a square*/
+    border: 3px solid black;
+    /*turns the square to a circle*/
+    border-radius: 50%;
+    /* Aligns the word Loading to the right so it is in the center of the circle*/
+    text-align: center;
+    /*Moves the word Loading down and into the center of the circle*/
+    line-height: 150px;
+    /*Set font type*/
+    font-family: sans-serif;
+    /*Size font*/
+    font-size: 20px;
+    /*Sets font color*/
+    color: black;
+    /*Spaces out letters*/
+    letter-spacing: 4px;
+    /*makes text uppercase*/
+    text-transform: uppercase;
+    /*To create glow effect*/
+    text-shadow: 0 0 10px black;
+    /* Creates dark shadow around circle*/
+    -webkit-box-shadow: 0 0 20px rgb(0, 0, 0, .5);
+    box-shadow        : 0 0 20px rgb(0, 0, 0, .5);
+}
+
+/*Creates yellow spinner ring*/
+.ring:before {
+    -webkit-box-sizing: initial;
+    box-sizing        : initial;
+    content           : '';
+    position          : absolute;
+    /*originally set to 0px, but it was off, so changed to -3px to align with the loading circle*/
+    top   : -3px;
+    left  : -3px;
+    width : 100%;
+    height: 100%;
+    /*Creates half a circle for the spinner portion*/
+    border: 3px solid transparent;
+    /*creates  top and right square border portion*/
+    border-top                                : 3px solid #286786;
+    border-right                              : 3px solid #286786;
+    /*turns the box radius into a half circle :) */
+    border-radius                             : 50%;
+    /*creates animation*/
+    -webkit-animation: animateCircle 2s linear infinite;
+    animation        : animateCircle 2s linear infinite;
+}
+.mobile_shower_item_container,.hotels_block  {
+    will-change: margin-top;
+}
+
+.mobile_shower_item_container svg {
+    margin-left : -5px;
+    margin-right: 5px;
+}
+
+/*Creates dial for the spinner to follow*/
+.ring span {
+    -webkit-box-sizing: initial;
+    box-sizing        : initial;
+    /*display         : block; starts a new line for the HTML span element*/
+    display           : block;
+    position          : absolute;
+    /* The calc() function takes a single expression as its parameter, with the expression's result used as the value */
+    top                     : calc(50% - 2px);
+    left                    : 50%;
+    width                   : 50%;
+    height                  : 4px;
+    background              : transparent;
+    -webkit-transform-origin: left;
+    transform-origin        : left;
+    -webkit-animation       : animate 2s linear infinite;
+    animation               : animate 2s linear infinite;
+}
+
+/*creates the ball for the spinner to follow*/
+.ring span:before {
+    -webkit-box-sizing: initial;
+    box-sizing        : initial;
+    content           : '';
+    position          : absolute;
+    width             : 16px;
+    height            : 16px;
+    border-radius     : 50%;
+    background        : #286786;
+    /*moves the ball to the top of the line created in the previous span*/
+    top               : -6px;
+    right             : -8px;
+    -webkit-box-shadow: 0 0 20px #286786;
+    box-shadow        : 0 0 20px #286786;
+}
+
+/*Now the fun part, the ring will move with the ball that we set with the animate and animateCircle variables*/
+@-webkit-keyframes animateCircle {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform        : rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform        : rotate(360deg);
+    }
+}
+
+@keyframes animateCircle {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform        : rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform        : rotate(360deg);
+    }
+}
+
+@-webkit-keyframes animate {
+    0% {
+        -webkit-transform: rotate(45deg);
+        transform        : rotate(45deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(405deg);
+        transform        : rotate(405deg);
+    }
+}
+
+@keyframes animate {
+    0% {
+        -webkit-transform: rotate(45deg);
+        transform        : rotate(45deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(405deg);
+        transform        : rotate(405deg);
+    }
+}
+
+/*followed tutorial on YouTube for guidance*/
+
+
+
+
+/* disabled text  selecting*/
+
+.hotel_name {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently                                   supported by Chrome and Opera */
+}
+
+
+
+/* img preloader end */
+
+
+
+html {
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    color        : #656565;
+    min-height   : 100%;
+    /* overflow-y: scroll; */
+
+    /* margin       : -20px !important; */
+    margin-bottom   : 0px !important;
+    padding-bottom  : 18px !important;
+    padding-top     : 40px;
+    will-change: scroll-position;
+
+
+
+    /* max-width: calc(100% + 20px) ; */
+}
+
+
+* {
+    margin : 0;
+    padding: 0;
+
+    -webkit-box-sizing: border-box;
+
+    box-sizing: border-box;
+}
+
+
+
+/* fixed swipe  style */
+
+
+.fixed_swipe_container {
+
+    position  : fixed;
+    z-index   : 99999999999999999999999999999999999999;
+    top       : 0;
+    left      : 0;
+    right     : 0;
+    bottom    : 0;
+    background: #2867865e;
+    display   : none;
+
+
+    -webkit-box-pack: center;
+
+
+    -ms-flex-pack: center;
+
+
+    justify-content  : center;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+
+    padding: 50px 0;
+}
+
+.fixed_swipe_container .swipe {
+    position          : relative;
+    -webkit-box-sizing: initial;
+    box-sizing        : initial;
+}
+
+.fixed_swipe_container .swipe-wrap,
+.fixed_swipe_container .next_swipe,
+.fixed_swipe_container .prev_swipe {
+    z-index: 2;
+}
+
+
+.fixed_swipe_container .ring {
+    width : 150px !important;
+    height: 150px !important;
+}
+
+.fixed_swipe_container div {
+    width     : 70%;
+    max-height: 100% !important;
+    height    : 100vw;
+
+}
+
+.fixed_swipe_container .swipe-wrap>div img {
+    /* max-height: 100% !important;
+    height       : 100vw; */
+    height       : auto;
+
+}
+
+
+.show_all_content_button_container svg,
+.hide_all_content_button_container svg {
+    width: 14px;
+
+}
+
+.show_all_content_button_container,
+.hide_all_content_button_container {
+
+    margin     : auto;
+    display    : inline-block;
+    width      : 30px;
+    max-width  : 30px;
+    margin-left: calc(50% - 15px);
+}
+
+
+.hide_all_content_button_container {
+
+    margin-left: calc(50% - 28px);
+    padding: 0 20px;
+}
+
+
+.fixed_swipe_container .hotel_starts {
+    display: none;
+}
+
+.fixed_swipe_container .next_swipe,
+.fixed_swipe_container .prev_swipe {
+    top: 46%;
+}
+
+.next_swipe svg,
+.prev_swipe svg {
+    width : 13px;
+    height: 20px;
+    ;
+}
+
+/* fixed swipe style end */
+
+
+
+/* pickmeup style */
+
+.pickmeup {
+    z-index: 999999999999999999999999999999;
+}
+
+/* pickmeup style end */
+
+
+
+.hotel_starts svg {
+
+    width: 13px;
+}
+
+
+/* swiper image stile */
+
+
+.swipe-wrap>div img {
+    width        : 100%;
+    height       : 0;
+    /* max-height: 100%; */
+}
+
+/* swiper image stile end */
+/* tabs style  */
+
+
+.tabs_container {
+    display      : -webkit-box;
+    display      : -ms-flexbox;
+    display      : flex;
+    border       : none !important;
+    border-bottom: 2px solid #F4F4F4 !important;
+    width        : 100%;
+    margin-bottom: 10px;
+
+    position  : relative;
+    top       : 0px;
+    z-index   : 100000000;
+    background: #fff;
+    position  : -webkit-sticky;
+    position  : sticky;
+
+
+}
+
+.tabs_container>* {
+    /* width: 30% */
+}
+
+/* .mobile_shopList_fi{
+    display: none 
+} */
+
+
+
+
+
+/* tabs style end */
+
+/* calendar event dates style  */
+
+.event_date.pmu-button {
+    background: rgba(253, 211, 2, 0.575);
+}
+
+
+
+
+
+/* hidden input */
+
+.hidden_input {
+    position  : absolute;
+    top       : 0;
+    visibility: hidden;
+    ;
+    z-index: -99999;
+}
+
+
+/* addet hotel button style   */
+.select_container {
+    position: relative;
+}
+
+.icon_container_postFix {
+    position: absolute;
+    right   : 15px;
+    z-index : 45;
+    top     : 6px;
+}
+
+[data-add] .add_booking {
+    color       : #fff !important;
+    background  : #286786 !important;
+    opacity     : 0.8 !important;
+    border-color: #286786 !important;
+}
+
+
+
+/* addet hotel button style end */
+
+.pickmeup {
+    z-index: 9999999999999999999 !important;
+}
+
+
+/* .tur_description_content{
+    display: flex;
+} */
+.tur_description_content img {
+
+    -ms-flex-item-align: baseline;
+
+    align-self  : baseline;
+    margin-right: 1em;
+    width       : 30%;
+    min-width   : 210px;
+    float       : left;
+
+}
+
+.tur_description_content p {
+    display: block !important;
+}
+
+
+
+
+/* select on open style*/
+
+.selector-element svg {
+    -webkit-transition: all .5s linear;
+    transition        : all .5s linear;
+}
+
+
+.selector-element.open::after {
+
+    -webkit-transform: rotate(225deg);
+
+    transform: rotate(225deg);
+}
+
+.selector-element::after {
+    content                 : '';
+    width                   : 9px;
+    height                  : 9px;
+    display                 : block;
+    position                : absolute;
+    top                     : 12px;
+    right                   : 15px;
+    -webkit-transition      : all 0.5s linear;
+    transition              : all 0.5s linear;
+    -webkit-transform-origin: center center;
+    transform-origin        : center center;
+    -webkit-transform       : rotate(45deg);
+    transform               : rotate(45deg);
+    border-right            : 2px solid #656565;
+    border-bottom           : 2px solid #656565;
+
+}
+
+
+.showMore,
+.showLess {
+    cursor: pointer;
+    color : #286786;
+}
+
+.moreContent {
+    display: none;
+}
+
+
+
+.removeOrderButton {
+    cursor            : pointer;
+    /* background     : red; */
+    height            : 24px;
+    width             : 25px;
+    border-radius     : 50%;
+    display           : -webkit-inline-box;
+    display           : -ms-inline-flexbox;
+    display           : inline-flex;
+    -webkit-box-pack  : center;
+    -ms-flex-pack     : center;
+    justify-content   : center;
+    position          : relative;
+    -webkit-box-align : center;
+    -ms-flex-align    : center;
+    align-items       : center;
+    /* left           : -17px */
+
+
+    /* color          : #fff; */
+
+}
+
+.Booking_details_form.added .add_booking,
+.tur_description.added .add_tour_btn,
+.transport_section.added .add_transport_btn,
+.rent_form.added .add_transport_rante_btn {
+    color       : #fff !important;
+    background  : #286786 !important;
+    opacity     : 0.5 !important;
+    border-color: #286786 !important;
+}
+
+
+
+/* select on open style end */
+
+
+.rante_car_swiper {
+
+    z-index : 1 !important;
+    position: static !important;
+}
+
+/* datepicker input on focus style */
+
+.datepicker_input:focus+svg {
+    -webkit-transform: rotate(180deg);
+    transform        : rotate(180deg);
+}
+
+.datepicker_input+svg {
+    -webkit-transition: all .5s linear;
+    transition        : all .5s linear;
+}
+
+/* datepicker input on focus style end*/
+
+
+[data-form_name='Car-Rent'] {
+    margin-top: 50px;
+}
+
+.show {
+    display: block !important;
+}
+
+
+
+/* open close big sections style */
+
+
+
+.show_hide_container.open>* {
+
+    /* transition: margin-top .9s linear !important; */
+
+}
+
+.show_hide_container.open {
+    z-index : 999999;
+    position: relative;
+    border  : 2px solid transparent;
+    /* top  : 20px; */
+}
+
+.closed>* {
+
+    overflow: hidden;
+    z-index : 9999;
+    position: relative;
+    visibility: hidden;
+    height: 0;
+
+}
+
+.show_hide_container>* {
+
+    background                 : #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility        : hidden;
+    -webkit-transition         : all 0s linear !important;
+    transition                 : all 0s linear !important;
+}
+
+.show_hide_container {
+
+    overflow: hidden !important;
+    position: absolute;
+
+    width                      : 100%;
+    background                 : #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility        : hidden;
+}
+
+.show_hide_container:not(.closed),
+.show_hide_container:not(.closed)>* {
+
+    -webkit-animation: .5s delay-overflow;
+
+    animation                  : .5s delay-overflow;
+    -webkit-animation-delay    : 1.6s;
+    animation-delay            : 1.6s;
+    padding-bottom             : 15px;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode        : forwards;
+}
+
+.closed.show_hide_container>*:first-child {
+    margin-top        : -5000px;
+    -webkit-transition: margin-top .3s linear;
+    transition        : margin-top .3s linear;
+
+}
+
+.closed .hotels_shopList>div:first-child>div {
+    -webkit-transition: margin-top .3s linear;
+    transition        : margin-top .3s linear;
+}
+
+.hotels_shopList>div:first-child>div {
+    -webkit-transition: margin-top .3s linear;
+    transition        : margin-top .3s linear;
+}
+
+.closed.show_hide_container {
+    border: none !important;
+
+    -webkit-transition: margin-top .3s linear;
+
+    transition: margin-top .3s linear;
+}
+
+.Accommodation {
+    padding-bottom: 0 !important;
+    padding-top   : 0 !important;
+    padding       : 0;
+}
+
+.Accommodation_SH {
+
+    border: 2px solid transparent !important;
+}
+
+.Accommodation>div {
+    margin-top: 15px;
+}
+
+.Accommodation>div:last-child {
+    margin-bottom: 15px;
+}
+
+.Accommodation,
+.transport_section,
+.turs_section {
+    -webkit-transition: all .3s linear;
+    transition        : all .3s linear;
+    max-height        : auto;
+    overflow          : hidden;
+    overflow          : hidden;
+}
+
+[data-container] svg {
+    -webkit-transform-origin: center;
+    transform-origin        : center;
+    -webkit-transition      : all .3s linear;
+    transition              : all .3s linear;
+}
+
+[data-container='Accommodation'] svg:last-child {
+    -webkit-transform: rotate(-180deg);
+    transform        : rotate(-180deg)
+}
+
+[data-container='transport_section'] svg:last-child {
+    -webkit-transform: rotate(-180deg);
+    transform        : rotate(-180deg)
+}
+
+
+
+.one_hotel_item_container {
+    padding: 15px;
+    border : 2px solid #F4F4F4;
+}
+
+/* open close big sections style  end*/
+
+
+
+
+
+
+.display_block {
+    display: block;
+}
+
+.blue_color {
+    color: #286786 !important;
+}
+
+.black_color {
+    color: #040404;
+}
+
+.gold_color {
+    color: #F6B576;
+}
+
+.bold_font {
+    font-weight: bold;
+}
+
+.relative {
+    position: relative;
+}
+
+.gray_border_bottom {
+    border-bottom: 2px solid #F4F4F4;
+}
+
+.sections_icon_container p {
+    padding          : 0;
+    margin           : 0;
+    padding-bottom   : 15px;
+    display          : inline-block;
+    /* border-bottom : 2px solid #286786; */
+    margin-bottom    : -2px;
+
+    padding-left : 15px;
+    padding-right: 15px;
+    cursor       : pointer;
+}
+
+.sections_icon_container p svg {
+    width     : 28px;
+    margin-top: -3px;
+    fill      : #286786;
+}
+
+
+
+.icon_text.sections_icon_container.blue_color.selected::after {
+
+    -webkit-transform: scale(1) !important;
+
+    transform: scale(1) !important;
+}
+
+.icon_text.sections_icon_container.blue_color::after {
+    content   : '';
+    display   : block;
+    width     : 100%;
+    height    : 2px;
+    background: #286786;
+    position  : relative;
+
+    -webkit-transition: all .5s linear;
+
+    transition              : all .5s linear;
+    -webkit-transform-origin: center;
+    transform-origin        : center;
+    -webkit-transform       : scale(0);
+    transform               : scale(0);
+    top                     : 2px;
+}
+
+
+
+/* show hide styles */
+
+
+/* show hide styles end*/
+
+/* checkbox style  */
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
+    margin            : 0;
+    padding           : 0;
+}
+
+.new {
+    padding: 50px;
+}
+
+.form-group {
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    margin-bottom    : 15px;
+}
+
+.form-group input {
+    padding      : 0;
+    height       : initial;
+    width        : initial;
+    margin-bottom: 0;
+    display      : none;
+    cursor       : pointer;
+}
+
+.form-group label {
+    position : relative;
+    cursor   : pointer;
+    font-size: 14px;
+
+    margin-right: 50px;
+    display     : inline-block;
+}
+
+
+.form-group label:before {
+    content              : '';
+    -webkit-appearance   : none;
+    background-color     : transparent;
+    border               : 1px solid #F4F4F4;
+    /* box-shadow        : 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05); */
+    padding              : 10px;
+    display              : inline-block;
+    position             : relative;
+    vertical-align       : middle;
+    cursor               : pointer;
+    margin-right         : 10px;
+}
+
+.form-group input:checked+label:after {
+    content          : '';
+    display          : block;
+    position         : absolute;
+    top              : 1px;
+    left             : 9px;
+    width            : 8px;
+    height           : 20px;
+    border           : solid #286786;
+    border-width     : 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    transform        : rotate(45deg);
+}
+
+
+.form-group {
+    -ms-flex-wrap: wrap;
+    flex-wrap    : wrap;
+}
+
+.form-group input~div:not(.swipe_container) {
+    display: none;
+}
+
+
+.form-group input:checked~div.swipe_container {
+
+
+    opacity: 1 !important;
+
+}
+
+.form-group input~div.swipe_container {
+
+
+    width: 300px;
+
+    opacity: 0;
+
+}
+
+
+
+.form-group input:checked~div {
+    display: inline-block;
+}
+
+.checkboxes .datePicerInputContainer {
+    margin-right: 7px;
+}
+
+/*  checkbox style end */
+
+
+/* radio style  */
+
+
+
+.radios {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: justify;
+
+    -ms-flex-pack: justify;
+
+    justify-content: space-between;
+    max-width      : 100% !important;
+}
+
+.radios>div {
+    width: 100%;
+}
+
+.radios>div>div {
+    text-align: right
+}
+
+
+
+.radio_container [type="radio"]:checked,
+.radio_container [type="radio"]:not(:checked) {
+    position: absolute;
+    left    : -9999px;
+}
+
+.radio_container [type="radio"]:checked+label,
+.radio_container [type="radio"]:not(:checked)+label {
+    position    : relative;
+    padding-left: 28px;
+    cursor      : pointer;
+    line-height : 20px;
+    display     : inline-block;
+    color       : #666;
+}
+
+.radio_container [type="radio"]:checked+label:before,
+.radio_container [type="radio"]:not(:checked)+label:before {
+    content      : '';
+    position     : absolute;
+    left         : 0;
+    top          : 4px;
+    width        : 15px;
+    height       : 15px;
+    border       : 1px solid #ddd;
+    border-radius: 100%;
+    background   : #fff;
+}
+
+.radio_container [type="radio"]:checked+label:after,
+.radio_container [type="radio"]:not(:checked)+label:after {
+
+    content           : '';
+    width             : 13px;
+    height            : 13px;
+    background        : #286786;
+    position          : absolute;
+    top               : 5px;
+    left              : 1px;
+    border-radius     : 100%;
+    -webkit-transition: all 0.2s ease;
+    transition        : all 0.2s ease;
+}
+
+.radio_container [type="radio"]:not(:checked)+label:after {
+    opacity          : 0;
+    -webkit-transform: scale(0);
+    transform        : scale(0);
+}
+
+.radio_container [type="radio"]:checked+label:after {
+    opacity          : 1;
+    -webkit-transform: scale(1);
+    transform        : scale(1);
+}
+
+/* radio style  end*/
+
+
+/* dat picker input styles */
+.datePicerInputContainer input {
+    min-width: 220px;
+}
+
+.datePicerInputContainer {
+    min-width: 220px;
+}
+
+.datePicerInputContainer {
+    position: relative;
+    display : inline-block;
+}
+
+.datePicerInputContainer svg {
+    position: absolute;
+    top     : 10px;
+    color   : #286786;
+    left    : 10px;
+    cursor  : pointer;
+    width   : 20px !important;
+    fill    : #286786 !important;
+}
+
+.datePicerInputContainer svg:last-child {
+    right: 10px;
+    left : initial;
+    width: 15px !important;
+}
+
+.datePicerInputContainer input {
+    padding-left: 40px;
+    width       : 100%;
+    font-size   : 13px;
+    border      : 1px solid;
+    border-color: #F4F4F4;
+    outline     : none;
+    display     : block;
+    min-height  : 40px;
+}
+
+
+
+
+
+/* selects style */
+select {
+    outline           : none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow        : none !important;
+    /* border         : 1px solid  !important; */
+    border-radius     : 0 !important;
+}
+
+select.input-lg {
+    -webkit-appearance: none;
+    -moz-appearance   : none;
+    -o-appearance     : none;
+    /* no standardized syntax available, no ie-friendly solution available */
+}
+
+select+i.fa {
+    /* position : relative; */
+    margin-top  : -30px;
+    margin-right: 5px;
+    /* this is so when you click on the chevron, your click actually goes on the dropdown menu */
+    pointer-events: none;
+    /* everything after this is just to cover up the original arrow */
+    /* (for browsers that don't support the syntax used above) */
+    background-color: #fff;
+    padding-right   : 5px;
+
+}
+
+select+svg {
+    position: absolute;
+    right   : 10px;
+    top     : 10px;
+    cursor  : pointer
+}
+
+.select .row>div:first-child {
+    min-width: 300px;
+}
+
+.option_inside_postText {
+    font-weight: bold;
+    color      : #286786;
+}
+
+.option-text {
+    font-size   : 15px;
+    padding-left: 10px;
+}
+
+div.selector-element {
+    height: 40px;
+    color : inherit !important
+}
+
+div.selector-element div.selector-selected {
+    border-color: #F4F4F4;
+}
+
+
+div.selector-element div.selector-options {
+    border-color: #F4F4F4;
+}
+
+div.selector-element div.selector-selected p.selected-text {
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+}
+
+div.selector-element div.selector-selected p.selected-text svg:last-child {
+    position  : absolute;
+    right     : 4px;
+    top       : 32%;
+    visibility: hidden;
+}
+
+/* select style end */
+
+
+
+/* button style  */
+
+.custom_style_button {
+    font-size         : 15px;
+    font-weight       : bold;
+    border            : 2px solid #286786;
+    color             : #286786;
+    background        : #fff;
+    height            : 40px;
+    min-width         : 80px;
+    -webkit-transition: all .2s linear;
+    transition        : all .2s linear;
+}
+
+
+
+/* button style  end*/
+
+
+
+.wrapper {
+    max-width     : 1360px;
+    width         : 100%;
+    margin        : auto;
+    /* background : gray; */
+    min-height    : 100vh;
+    padding       : 0 20px;
+    padding-top   : 10px;
+}
+
+.header {
+    /* background-color: #57e23f; */
+    min-height         : 100px;
+}
+
+.header>div:first-child {
+    border-right: 2px solid #F4F4F4
+}
+
+.select_accommodation,
+.hotels_shopList,
+.transport_excursion {
+    /* background-color: #57e23f; */
+    min-height         : 100px;
+    margin-top         : 10px;
+}
+
+.select_accommodation>div {
+    /* background: rgb(219, 233, 23) */
+}
+
+.hotels_shopList>div:nth-child(1) {
+    /* background: #dde2f2; */
+}
+
+.hotels_shopList>div:nth-child(2) {
+    /* background   : #5a9aee; */
+    padding-right   : 0;
+    padding-left    : 40px;
+    overflow        : hidden;
+}
+
+.transport_excursion>div:nth-child(1) {
+    background: #06f6ba;
+}
+
+/* .header styling */
+
+.header {}
+
+
+
+.header .contact_info .contact_info_item {
+    line-height : 18px;
+    padding     : 10px 0;
+    padding-left: 25px;
+}
+
+.header .contact_info .contact_info_item p.bold_font {
+    margin: 0px 0;
+
+}
+
+.header .contact_info .contact_info_item span.display_block:nth-child(3),
+.header .contact_info .contact_info_item span.display_block:nth-child(4) {
+    margin-top: 10px;
+
+}
+
+.header .logo_text img {
+    width : 220px;
+    margin: 10px 0;
+}
+
+/* .header styling  end*/
+
+
+
+
+
+/* select_accommodation  style*/
+
+
+/* .select_accommodation>div:first-child {
+    border-bottom: 2px solid #F4F4F4;
+} */
+
+.select_accommodation .icon_text {
+    font-size : 20px;
+    margin-top: 14px;
+}
+
+.selector-options::before {
+
+    content           : '';
+    width             : 85%;
+    margin            : auto;
+    height            : 0;
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
+    border            : 1px solid #F4F4F4;
+    display           : block;
+    top               : -1px;
+    z-index           : 99999999;
+    left              : 6%;
+    position          : absolute;
+
+}
+
+div.selector-element div.selector-options {
+    max-height: 250px;
+}
+
+div.selector-element div.selector-options div.selector-option {
+    background-color: #fff;
+    padding-left    : 0;
+}
+
+.select_accommodation .icon_text p svg {
+    margin-right: 5px;
+}
+
+/* select_accommodation  style end*/
+
+/* hotels_shopList style  */
+
+/* hotels style */
+.hotels_shopList {
+
+
+    position: relative;
+}
+
+.hotels_shopList .main_Content {
+    margin       : 0;
+    position     : relative;
+    margin-top   : 10px;
+    margin-bottom: 50px;
+}
+
+.hotels_shopList>div:first-child {
+    padding: 0;
+}
+
+.hotels_shopList>div:first-child>div:first-child {
+    margin-top: 0;
+}
+
+.hotels_shopList>div:first-child>div {
+    border          : 2px solid #F6F6F6;
+    /* padding      : 15px; */
+    /* margin-top   : 15px; */
+}
+
+.swipe_container {
+    margin-top: 0;
+}
+
+.hotels_block .hotel_info_container {
+    margin    : auto;
+    margin-top: 0;
+
+}
+
+.hotels_block .hotel_info_container .hotel_address svg {
+    color: #286786;
+}
+
+.hotels_block .hotel_info_container .services {
+    display           : -webkit-box;
+    display           : -ms-flexbox;
+    display           : flex;
+    -ms-flex-wrap     : wrap;
+    flex-wrap         : wrap;
+    width             : 100%;
+    line-height       : 25px;
+    padding           : 0;
+    /* justify-content: center */
+
+}
+
+.hotels_block .hotel_info_container .services>div {
+
+    width: 184px;
+
+}
+
+
+.important_facility>svg {
+
+    color: #286786 !important;
+    fill : #286786;
+}
+
+.hotels_block .hotel_info_container .services>div>svg {
+    color: #286786 !important;
+
+    width    : 20px !important;
+    font-size: 15px;
+}
+
+.hotels_block .hotel_info_container .facilities {
+    margin-bottom: 0 !important;
+}
+
+
+.hotels_block .hotel_info_container p {
+    margin-bottom: 4px !important;
+}
+
+
+
+.hotels_block .hotel_info_container .Booking_details {
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
+}
+
+.hotels_block .hotel_info_container .Booking_details {
+    line-height: initial !important;
+    margin-top : -32px;
+}
+
+.hotels_block .hotel_info_container .Booking_details p {
+    margin   : 0;
+    font-size: 18px;
+}
+
+.hotels_block .hotel_info_container .Booking_details .right_side_booking_information p~p {
+    font-size: 14px;
+}
+
+.hotels_block .hotel_info_container .Booking_details .right_side_booking_information p:nth-child(2) {
+    margin-top: 2px;
+}
+
+
+
+.hotels_block .hotel_info_container .Booking_details .total_price {
+    font-weight: bold;
+}
+
+.hotels_block .hotel_info_container .Booking_details>p {
+    font-weight: bold;
+    margin-top : 47px;
+    font-size  : 16px;
+    position   : relative;
+    top        : -6px;
+}
+
+.hotels_block .hotel_info_container .Booking_details .right_side_booking_information {
+    text-align: right;
+}
+
+.hotels_block .hotel_info_container .Booking_details .right_side_booking_information p {
+    margin-bottom: 0 !important;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .select_container:nth-child(1) .selector-element {
+    z-index: 3;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .select_container:nth-child(2) .selector-element {
+    z-index: 2;
+}
+
+
+.hotels_block .hotel_info_container .Booking_details_form .select_container .option-text svg:first-child {
+    color: #286786;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form div.selector-element div.selector-options div.selector-option,
+div.selector-element div.selector-selected {
+    padding-left: 0 !important
+}
+
+.hotels_block .hotel_info_container .Booking_details_form div.selector-element div.selector-selected p.selected-text svg:last-child {
+    top: 29%
+}
+
+
+
+
+
+.hotels_block .hotel_info_container .Booking_details_form .datePic_container {
+    width   : 40%;
+    position: relative;
+
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel {
+    border      : 1px solid;
+    border-color: #F4F4F4;
+    outline     : none;
+}
+
+
+.hotels_block .hotel_info_container .Booking_details_form .datePic_container svg {
+    position: absolute;
+    top     : 10px;
+    color   : #286786;
+    left    : 10px;
+    cursor  : pointer;
+    width   : 20px !important;
+    fill    : #286786;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .datePic_container svg:last-child {
+    right: 10px;
+    left : initial;
+    width: 15px !important;
+
+    color                   : inherit;
+    -webkit-transform-origin: center;
+    transform-origin        : center;
+    -webkit-transition      : all 0.5s linear;
+    transition              : all 0.5s linear;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .datePic_container input {
+    display     : inline-block;
+    width       : 100%;
+    height      : 100%;
+    padding-left: 40px;
+    font-size   : 13px;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .select_container:nth-child(2) {
+    width: 23%;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .select_container:nth-child(3) {
+    width: 23%;
+}
+
+.hotels_block .hotel_info_container .Booking_details_form .add_booking {
+    width             : 14%;
+    border-radius     : 0;
+    border-color      : #286786;
+    border            : 2px solid;
+    background        : #fff;
+    color             : #286786;
+    font-weight       : bold;
+    outline           : none !important;
+    padding           : 0;
+    height            : initial !important;
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
+    -webkit-box-shadow: none !important;
+    box-shadow        : none !important;
+    z-index           : 9;
+
+}
+
+
+
+
+/* hotels style end */
+
+
+/* shopLists Style */
+
+
+.shopList_block {
+
+    min-height: 100px;
+    border    : 1px solid #F4F4F4;
+    top       : 0;
+    min-width : 320px;
+    padding   : 20px 0;
+
+
+}
+
+
+
+.shop_item_container {
+    /* width        : 100% !important; */
+    -ms-flex-wrap   : wrap;
+    flex-wrap       : wrap
+}
+
+.Amount_item {
+    white-space: nowrap
+}
+
+.shop_item_container .shope_item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width  : 100% !important;
+
+    position: relative;
+    padding : 6px 0px;
+
+    border-bottom  : 1px solid #F4F4F4;
+    justify-content: space-between;
+}
+
+.shop_item_container .shope_item div:first-child {
+    width: 30.1%;
+}
+
+.shop_item_container .shope_item div {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopList_block .shopList_title {
+    color         : #040404;
+    font-weight   : bold;
+    font-size     : 15px;
+    padding-bottom: 10px !important;
+    margin-bottom : 10px !important;
+
+}
+
+.shopList_block .shopList>div {
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
+    padding         : 6px 0px;
+    margin          : 0 20px;
+
+}
+
+.shopList_block .shopList>div:nth-child(2),
+.shopList_block .shopList>div:last-child {
+    border-bottom: none;
+}
+
+.shopList_block .shopList>div:last-child {
+    -webkit-box-pack: end;
+    -ms-flex-pack   : end;
+    justify-content : flex-end;
+    font-weight     : bold;
+}
+
+.shopList_block .shopList>div>div:nth-child(1) {
+    width: 30%;
+}
+
+.shopList_block .shopList>div>div:nth-child(2) {
+    width: 20%;
+}
+
+.shopList_block .shopList>div>div:nth-child(3) {
+    width: 20%;
+}
+
+.shopList_block .shopList>div>div:nth-child(4) {
+    width: 20%;
+}
+
+
+
+.costumerContacts {
+    padding: 10px 20px;
+}
+
+.costumerContacts .costumerContacts_title {
+    border-bottom : #F4F4F4;
+    color         : #040404;
+    font-weight   : bold;
+    font-size     : 15px;
+    padding-bottom: 10px;
+    border-bottom : 1px solid #F4F4F4;
+    margin-bottom : 10px;
+
+}
+
+.costumerContacts .contact_form_inputs {
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -ms-flex-wrap   : wrap;
+    flex-wrap       : wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
+    line-height     : 20px;
+}
+
+.costumerContacts .contact_form_inputs input {
+    width           : 47%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
+
+    margin-bottom: 10px;
+    height       : 40px;
+    padding-left : 10px;
+    border       : 1px solid #F4F4F4;
+
+}
+
+.costumerContacts .contact_form_inputs input:nth-child(6),
+.costumerContacts .contact_form_inputs input:nth-child(5) {
+    width: 100%;
+    ;
+}
+
+.costumerContacts .button_container {
+    text-align: right;
+}
+
+.costumerContacts button {
+    font-size         : 15px;
+    font-weight       : bold;
+    border            : 2px solid #286786;
+    color             : #286786;
+    background        : #fff;
+    width             : 200px;
+    height            : 40px;
+    -webkit-transition: all .2s linear;
+    transition        : all .2s linear;
+}
+
+
+
+
+
+/* shopLists Style end */
+
+
+/* transport_block style */
+.icon_text {
+
+
+    padding-top: 20px;
+    font-size  : 20px;
+    font-weight: bold;
+    border     : none !important
+}
+
+.select_trip_form {
+    margin-top: 10px;
+}
+
+.flight_input {
+    position   : relative;
+    min-height : 40px;
+    margin-left: -7px;
+    border-left: none;
+
+}
+
+.flight_input input {
+    min-height  : 40px;
+    width       : 150px;
+    padding-left: 40px;
+
+}
+
+
+.flight_input {
+    position: relative;
+    display : inline-block;
+}
+
+.flight_input img {
+    position: absolute;
+    top     : 12px;
+    color   : #286786;
+    left    : 10px;
+    width   : 20px;
+    cursor  : pointer;
+}
+
+.flight_input input {
+    padding-left: 40px;
+    width       : 150px;
+    font-size   : 13px;
+    border      : 1px solid;
+    border-color: #F4F4F4;
+    outline     : none;
+    display     : block;
+    min-height  : 40px;
+}
+
+.selectCarForem {
+    margin-top: 15px;
+    width     : 100%;
+}
+
+.car_images_swipper_container {
+    margin       : 10px 0;
+    border       : 1px solid #F4F4F4;
+    max-width    : 300px;
+    padding-left : 0;
+    padding-right: 0;
+}
+
+.car_images_swipper_container .car_price {
+
+    border : 1px solid #F4F4F4;
+    padding: 10px;
+
+}
+
+path {
+    color: inherit !important;
+}
+
+.one_tour_form .selected-text svg :nth-child(1),
+.selector-element .option-text svg:first-child {
+    color: #286786;
+}
+
+.one_tour_form * svg :nth-child(2) {}
+
+.one_tour_form .datePicerInputContainer svg:last-child,
+div.selector-element div.selector-selected p.selected-text svg:last-child {
+
+    color: #656565 !important;
+}
+
+.add_tour_btn {
+    width: 150px;
+}
+
+/* transport_block style end*/
+
+
+
+/* excursion section style */
+
+
+.excursion_section {
+    margin     : 0;
+    padding    : 15px 0;
+    padding-top: 0;
+    margin-top : 0;
+}
+
+.turs_information_section {
+    margin-top   : 10px;
+    margin-bottom: 40px;
+}
+
+.one_tour_form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.one_tour_form .datePicerInputContainer {
+    width: 30%;
+}
+
+.tur_description_item {
+    position  : relative;
+    width     : 100%;
+    margin-top: 20px;
+
+}
+
+.tur_description_item .tur_description {
+    -webkit-transition: all .2s linear;
+    transition        : all .2s linear;
+    overflow          : hidden;
+}
+
+@-webkit-keyframes nullAnimation {
+    from {}
+
+    to {}
+}
+
+@keyframes nullAnimation {
+    from {}
+
+    to {}
+}
+
+
+@-webkit-keyframes delay-overflow {
+    from {
+
+        overflow: hidden;
+    }
+
+    to {
+        overflow: initial;
+    }
+}
+
+
+@keyframes delay-overflow {
+    from {
+
+        overflow: hidden;
+    }
+
+    to {
+        overflow: initial;
+    }
+}
+
+.tur_description_item .tur_description .showHideContainer {
+    -webkit-transition: all .3s linear;
+    transition        : all .3s linear;
+    margin-top        : -110%;
+
+}
+
+.tur_description_item p {
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
+    padding-right   : 40px;
+}
+
+.tur_description_item p span:last-child {
+    font-size: 15px;
+}
+
+.tur_description_item .checkbox_show_hide_content {
+
+    height  : 30px;
+    cursor  : pointer;
+    width   : 100%;
+    position: absolute;
+    opacity : 0;
+    top     : 0;
+
+}
+
+.tur_description_item .checkbox_show_hide_content+label {
+    position          : absolute;
+    right             : 15px;
+    top               : 1px;
+    font-size         : 15px;
+    cursor            : pointer;
+    -webkit-transition: all .3s linear;
+    transition        : all .3s linear;
+}
+
+.tur_description_item .checkbox_show_hide_content+label svg {
+    width: 14px;
+}
+
+.tur_description_item .checkbox_show_hide_content:checked~label {
+    -webkit-transform-origin: center;
+    transform-origin        : center;
+    -webkit-transform       : rotate(-180deg);
+    transform               : rotate(-180deg);
+
+}
+
+.tur_description_item .checkbox_show_hide_content:checked~.tur_description {
+    /* animation: .1s delay-overflow; */
+
+    -webkit-animation: 1s delay-overflow;
+
+    animation                  : 1s delay-overflow;
+    -webkit-animation-delay    : 1s;
+    animation-delay            : 1s;
+    padding-bottom             : 15px;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode        : forwards;
+}
+
+.tur_description_item .checkbox_show_hide_content:checked~.tur_description .showHideContainer {
+    margin-top: 1px;
+}
+
+
+/* excursion section style end */
+
+.mobile_shopList_fi span:nth-child(2) svg {
+    width: 12px;
+}
+
+
+
+@media only screen and (min-width: 1200px) {
+    .shopList_block {
+
+        margin-top: 0px;
+        max-height: 95vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1390px) {
+
+    /* STYLES HERE */
+    body {
+        /* background: red; */
+
+        padding-left: 10px;
+    }
+}
+
+@media only screen and (min-width: 661px) and (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+        padding  : 0 15px;
+    }
+    .shopList_block_container {
+        top:  0 !important;
+    }
+
+
+
+}
+
+
+
+@media only screen and (min-width: 1200px) {
+
+
+    .shopList_block_container {
+        top: 106px !important;
+    }
+    .custom_col_md_9 {
+        -webkit-box-flex: 0;
+        -ms-flex        : 0 0 74%;
+        flex            : 0 0 74%;
+        max-width       : 71%;
+    }
+
+    .custom_col_md_3 {
+        -webkit-box-flex: 0;
+        -ms-flex        : 0 0 29%;
+        flex            : 0 0 29%;
+        max-width       : 29%;
+    }
+
+    .hotel_info_container {
+        padding-left: 0
+    }
+
+    .swipe_container {
+        /* max-width : 280px; */
+        min-height   : 208px;
+    }
+
+    .swipe-wrap>div img {
+        min-height: 208px;
+    }
+
+    .hotels_block .hotel_info_container {
+        margin-top: -7px;
+    }
+
+    .hotels_block .hotel_info_container .services {
+        -webkit-box-flex: 0;
+        -ms-flex        : 0 0 92%;
+        flex            : 0 0 92%;
+        max-width       : 92%;
+    }
+
+    .hotels_block .hotel_info_container {
+        padding-right: 30px;
+    }
+
+    .add_btn_container {
+        width        : 50%;
+        text-align   : right;
+        padding-right: 0;
+    }
+
+    /* .radios {
+        padding-right: 42px;
+    } */
+
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .hotels_shopList>div:nth-child(2) {
+        padding-left: 0 !important;
+    }
+
+    .shopList_block {
+        margin-top: 0px !important;
+    }
+
+    .header .contact_info .contact_info_item {
+        padding-left: 0;
+    }
+
+    .excursion_section {
+        padding-left : 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .excursion_section .sections_icon_container p {
+        margin-left: -30px;
+    }
+
+    /* .datePicerInputContainer input {
+        padding-left: 25px;
+        font-size   : 10px;
+        font-weight : bold;
+    } */
+
+    .header>div:first-child {
+        border-right: none;
+    }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+    [data-container='transport_section'] svg:last-child {
+        -webkit-transform: rotate(0deg);
+        transform        : rotate(0deg)
+    }
+
+    [data-container='turs_section '] svg:last-child {
+        -webkit-transform: rotate(0deg);
+        transform        : rotate(0deg)
+    }
+
+    .transport_section_SH:not(.open) .transport_section,
+    .turs_section_SH:not(.open) .turs_section {
+        /* margin-top: -5000px; */
+        overflow     : hidden;
+    }
+}
+
+
+@media only screen and (min-width: 990px) {
+
+    .swipe-wrap>div img {
+        min-height: 208px;
+    }
+
+    .transport_section .swipe-wrap>div img {
+        min-height: 228px;
+    }
+
+}
+
+@media only screen and (max-width: 991px) {
+    .car_images_swipper_container {
+        max-width: 95%;
+    }
+
+    .swipe-wrap>div img {
+        min-height: 350px;
+    }
+}
+
+
+@media only screen and (min-width: 661px) {
+
+    .mobile_booking_price_block,
+    .mobile_shower_item_container,
+    .hide_all_content_button_container,
+    .mobile_shopList_fi {
+        display: none !important;
+    }
+
+    .mobile_sow_hide_elements .hotels_block {
+        margin-top: 0 !important;
+    }
+  
+
+   
+}
+
+@media only screen and (max-width: 660px) {
+
+    .hotel_info_container h4 {
+        font-size : 18px;
+        margin-top: 4px;
+    }
+
+    .shopList_block {
+        overflow-y       : auto;
+        overflow-x       : hidden;
+        /* height        : 94vh; */
+        padding-bottom   : 40px;
+        /* padding-top   : 200px; */
+
+        /* overflow: scroll;
+        -webkit-overflow-scrolling: touch; */
+        -webkit-overflow-scrolling : touch !important;
+	    /* overflow: auto !important; */
+    }
+
+    .html {
+        height: calc(var(--vh, 1vh) * 100  );
+        padding: 0 5px;
+    }
+
+
+    .tur_description_content img {
+        width: 100%;
+    }
+
+    .tur_description_content p {
+        padding-right: 10px !important;
+    }
+
+    .shopList_block_container {
+        -webkit-transition : all .5s linear;
+        transition         : all .5s linear;
+        /* transition-delay: .5s; */
+    }
+
+    .shopList_block_container {
+        -webkit-box-shadow: 0px 2px 20px 0px grey;
+        box-shadow        : 0px 2px 20px 0px grey;
+    }
+
+    /* accommodation  item */
+    .hotels_block .hotel_info_container .Booking_details_form {
+        -ms-flex-wrap: wrap;
+        flex-wrap    : wrap;
+
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .datePic_container {
+        width : 100%;
+        height: 40px;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .select_container:nth-child(2) {
+        width : 50%;
+        height: 40px;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .select_container:nth-child(3) {
+        width : 50%;
+        height: 40px;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .add_booking {
+        width     : 100%;
+        height    : 40px !important;
+        margin-top: 10px;
+    }
+
+    .right_side_booking_information {
+        display: none;
+    }
+
+    .mobile_booking_price_block {
+        margin     : 10px 0;
+        line-height: 15px;
+    }
+
+    .pickmeup {
+        z-index: 99;
+    }
+
+    .selector-element {
+        z-index: 98 !important;
+    }
+
+    .mobile_shower_item_container img {
+        min-width: 130px;
+    }
+
+    .mobile_shower_item_container .container-fluid {
+        padding-right: 0;
+        padding-left : 0;
+    }
+
+    .mobile_shower_item_container .d-inline {
+        line-height: 16px;
+        font-size  : 14px;
+    }
+
+    .mobile_shower_item_container .hotel_starts {
+        left: 23px;
+    }
+
+    .mobile_shower_item_container,
+    .hotels_block {
+
+        margin-top        : 0;
+        -webkit-transition: all .5s linear;
+        transition        : all .5s linear;
+    }
+
+    .mobile_sow_hide_elements,
+    .mobile_shower_item {
+        overflow: hidden;
+    }
+
+    .mobile_sow_hide_elements .hotels_block {
+        margin-top: -350%;
+    }
+
+    .one_tour_form {
+        -ms-flex-wrap: wrap;
+        flex-wrap    : wrap;
+    }
+
+    .one_tour_form>*:nth-child(1) {
+        width: 55%
+    }
+
+    .one_tour_form>*:nth-child(2) {
+        width: 45%
+    }
+
+    .one_tour_form>*:nth-child(3) {
+        width     : 100%;
+        margin-top: 10px;
+    }
+
+    /* accommodation  item end*/
+
+
+    /* radios style */
+    .radios>div>* {
+
+        max-width: 100%;
+
+        -webkit-box-flex: 0;
+
+        -ms-flex: 0 0 100%;
+
+        flex: 0 0 100%;
+    }
+
+    .radios>div>* button {
+        width: 100%;
+    }
+
+    .radios {
+        padding-left : 0;
+        padding-right: 0;
+    }
+
+
+    .add_btn_container {
+        padding-right: 0;
+    }
+
+    .transport_section {
+        padding-right: 1px;
+    }
+
+    /* radios style  end */
+
+    /* orders and contacts style  */
+
+    .costumerContacts input,
+    .costumerContacts button {
+        width: 100% !important;
+    }
+
+
+    .shopList_block .shopList_title {
+        display: none !important;
+    }
+
+    .mobile_shopList_fi {
+        position: fixed;
+
+        top              : calc(100vh - 65px);
+        height           : 55px;
+        -webkit-box-align: center;
+        -ms-flex-align   : center;
+        align-items      : center;
+        left             : 0;
+        right            : 0;
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: none;
+        z-index: 99999999999;
+
+        /* box-shadow      : -5px 3px 20px 0px black; */
+        -webkit-box-pack   : justify;
+
+        -ms-flex-pack: justify;
+
+        justify-content: space-between;
+        padding        : 10px;
+        padding-top    : 0;
+        background     : #fff;
+        border-top     : 1px solid #F4F4F4;
+        border-bottom  : 1px solid #F4F4F4;
+
+        cursor            : pointer;
+        width             : calc(100% - 20px);
+        -webkit-box-sizing: initial;
+        box-sizing        : initial;
+        /* border-bottom  : 1000px solid #fff; */
+
+
+    }
+
+    .mobile_shopList_fi.show {
+        display           : -webkit-box !important;
+        display           : -ms-flexbox !important;
+        display           : flex !important;
+        /* bottom         : initial !important;
+        top               : 0 !important; */
+        -webkit-transition: all .5s linear;
+        transition        : all .5s linear;
+
+    }
+
+    .mobile_shopList_fi span:nth-child(2) {
+        -webkit-transform-origin: center;
+        transform-origin        : center;
+        -webkit-transition      : all 0.5s linear;
+        transition              : all 0.5s linear;
+        -webkit-transform       : rotate(180deg);
+        transform               : rotate(180deg)
+    }
+
+
+
+    .wrapper {
+        margin-top: 40px;
+    }
+
+    .shopList_block_container {
+        position             : fixed;
+        bottom               : calc(-100vh + 55px);
+        height               : 100vh;
+        top                  : initial !important;
+        background           : #fff;
+        /* -webkit-transition: all .5s linear;
+        transition           : all .5s linear; */
+        z-index              : 999999999;
+        left                 : 0;
+        overflow-y           : auto !important;
+        max-height           : calc(100vh - 55px);
+    }
+
+    .shopList_block_container.showShop {
+        bottom: 0 !important;
+    }
+
+    .pickmeup {
+        z-index: 999999999999;
+    }
+
+    /* orders and contacts style  */
+
+
+    /* select trip style  */
+
+    .form-group {
+        display      : -webkit-box;
+        display      : -ms-flexbox;
+        display      : flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap    : wrap;
+    }
+
+    .form-group>*:nth-child(1) {
+        width      : 100%;
+        white-space: nowrap;
+    }
+
+
+    .form-group>*:nth-child(2),
+    .form-group>*:nth-child(3) {
+        width: 50%;
+
+        white-space: nowrap;
+    }
+
+    .flight_input input {
+        width: 100%;
+    }
+
+
+    .checkboxes .form-group input:checked~div {
+        width: 50%;
+    }
+
+    /* select trip style  end*/
+
+
+
+    .swipe-wrap>div img {
+        min-height: 250px;
+    }
+
+
+}
+
+@media only screen and (max-width: 581px) {
+
+
+    .transport_section_SH {
+        padding-left : 15px;
+        padding-right: 15px;
+    }
+
+    .datePicerInputContainer input {
+        min-width     : 0;
+        font-size     : 12px;
+        /* font-weight: bold; */
+        padding-left  : 32px;
+        letter-spacing: -1px;
+    }
+
+    .datePicerInputContainer {
+        min-width: 0;
+    }
+
+    .navbarTextShow {
+        font-size    : 15px;
+        width        : 0;
+        overflow     : hidden;
+        display      : inline-block;
+        margin-bottom: -5px;
+    }
+
+    .selected .navbarTextShow {
+        width: 100% !important;
+    }
+
+    .sections_icon_container p svg {
+        fill: #656565;
+    }
+
+    .selected.sections_icon_container p svg {
+        fill: #286786;
+    }
+
+    .sections_icon_container p {
+        white-space: nowrap;
+    }
+
+
+}
+
+
+
+
+@media only screen and (max-width: 400px) {
+    .mobile_shower_item_container svg {
+        margin-left : 0;
+        margin-right: 3px;
+    }
+    .one_hotel_item_container{
+        padding: 6px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .mobile_shower_item_container svg {
+        margin-left : 2px;
+        margin-right: 1px;
+        width       : 10px !important;
+    }
+}
+
+
+@media only screen and (max-width: 380px) {
+    .mobile_shower_item_container img {
+        min-width: 110px;
+    }
+
+    .mobile_shower_item_container h4 {
+        font-size: 1rem;
+    }
+
+    .swipe-wrap>div img {
+        min-height: 220px;
+    }
+
+    /* .mobile_shower_item_container svg {
+        width      : 0.6em;
+        margin-left: 5px;
+    } */
+
+    .add_car_rante{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        padding: 0;
+        margin-top: 10px;
+        /* padding-right: 10px !important; */
+    }
+    .add_car_rante button{
+        width: 95%;
+    }
+    .rent_form .datePicerInputContainer{
+        width: 95%;
+        margin-top:10px;
+        padding-right: 10px !important;
+    }
+}
+
+
+
+
+
+
+
+
+/* hotels_shopList style  end*/
+
+
+
+
+
+
+
+
+
+/* hover medias  */
+
+
+@media (pointer: fine) {
+    .event_date.pmu-button:hover {
+        background: rgba(253, 211, 2, 0.575) !important;
+
+    }
+
+    [data-add] .add_booking:hover {
+        opacity: .5 !important;
+    }
+
+    .showMore:hover,
+    .showLess:hover {
+
+
+        text-decoration: underline;
+    }
+
+    .Booking_details_form.added .add_booking:hover,
+    .tur_description.added .add_tour_btn:hover,
+    .transport_section.added .add_transport_btn:hover,
+    .rent_form.added .add_transport_rante_btn:hover {
+        opacity: 0.5 !important;
+    }
+
+    .icon_text.sections_icon_container.blue_color:hover::after {
+        -webkit-transform: scale(1);
+        transform        : scale(1);
+    }
+
+    .datePicerInputContainer input:hover {
+        background-color: #ebebeb;
+    }
+
+    .custom_style_button:hover {
+        color       : #fff;
+        border-color: #286786;
+        background  : #286786;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel:hover {
+        background-color: #ebebeb;
+    }
+    .hotels_block .hotel_info_container .Booking_details_form .add_booking:hover {
+        color     : #fff;
+        background: #286786;
+        opacity   : 0.8;
+    
+        border-color: #286786;
+    }
+    .costumerContacts button:hover {
+        color       : #fff;
+        border-color: #286786;
+        background  : #286786;
+    }
+}

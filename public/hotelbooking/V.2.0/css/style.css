@@ -15,8 +15,69 @@
 */
 
 
-/* img preloader  */
+.flight_input{
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
 
+.shopTitle {
+    -webkit-box-pack : start !important;
+    -ms-flex-pack    : start !important;
+    justify-content  : flex-start !important;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center
+}
+
+.heightAuto {
+    height: auto !important;
+}
+
+.shopTitle span {
+    background       : #286786;
+    min-width        : 26px;
+    text-align       : center;
+    display          : -webkit-inline-box;
+    display          : -ms-inline-flexbox;
+    display          : inline-flex;
+    -webkit-box-pack : center;
+    -ms-flex-pack    : center;
+    justify-content  : center;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    min-height       : 25px;
+    border-radius    : 50%;
+    color            : #fff !important;
+    margin-top       : -20px;
+    padding-right    : 2px;
+    margin-left      : 5px;
+
+}
+
+/* img preloader  */
+#Car_rent:not(:checked)~.car_rante_price {
+    display: none !important;
+}
+
+.sections_icon_container p {
+    color             : #656565 !important;
+    -webkit-transition: all 0.4s ease;
+    transition        : all 0.4s ease;
+}
+
+.selected.sections_icon_container p {
+
+    color: #286786 !important;
+}
+
+.sections_icon_container p svg {
+    fill: #656565 !important;
+}
+
+.selected.sections_icon_container p svg {
+    fill: #286786 !important;
+}
 
 .ring {
 
@@ -35,7 +96,7 @@
     /*Makes the word loading have a transparent background*/
     background: transparent;
     /*Creates a square*/
-    border: 3px solid black;
+    /* border: 3px solid black; */
     /*turns the square to a circle*/
     border-radius: 50%;
     /* Aligns the word Loading to the right so it is in the center of the circle*/
@@ -55,16 +116,16 @@
     /*To create glow effect*/
     text-shadow: 0 0 10px black;
     /* Creates dark shadow around circle*/
-    -webkit-box-shadow: 0 0 20px rgb(0, 0, 0, .5);
-    box-shadow        : 0 0 20px rgb(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 20px rgb(0, 0, 0, .5);
+    box-shadow           : 0 0 20px rgb(0, 0, 0, .5); */
 }
 
 /*Creates yellow spinner ring*/
 .ring:before {
-    -webkit-box-sizing: initial;
-    box-sizing        : initial;
-    content           : '';
-    position          : absolute;
+    -webkit-box-sizing   : initial;
+    box-sizing           : initial;
+    /* content           : ''; */
+    position             : absolute;
     /*originally set to 0px, but it was off, so changed to -3px to align with the loading circle*/
     top   : -3px;
     left  : -3px;
@@ -78,14 +139,18 @@
     /*turns the box radius into a half circle :) */
     border-radius                             : 50%;
     /*creates animation*/
-    -webkit-animation: animateCircle 2s linear infinite;
-    animation        : animateCircle 2s linear infinite;
+    -webkit-animation: animateCircle 2s ease infinite;
+    animation        : animateCircle 2s ease infinite;
 }
 
+.mobile_shower_item_container,
+.hotels_block {
+    will-change: margin-top;
+}
 
 .mobile_shower_item_container svg {
-    margin-left : -5px;
-    margin-right: 5px;
+    /* margin-left : -5px; */
+    margin-right   : 5px;
 }
 
 /*Creates dial for the spinner to follow*/
@@ -103,8 +168,8 @@
     background              : transparent;
     -webkit-transform-origin: left;
     transform-origin        : left;
-    -webkit-animation       : animate 2s linear infinite;
-    animation               : animate 2s linear infinite;
+    -webkit-animation       : animate 2s ease infinite;
+    animation               : animate 2s ease infinite;
 }
 
 /*creates the ball for the spinner to follow*/
@@ -202,16 +267,19 @@
 
 html {
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
-    color     : #656565;
-    min-height: 105%;
-    overflow-y: scroll;
+    color        : #656565;
+    min-height   : 100%;
+    /* overflow-y: scroll; */
 
     /* margin       : -20px !important; */
     margin-bottom   : 0px !important;
     padding-bottom  : 18px !important;
+    padding-top     : 40px;
+    /* will-change  : height; */
 
 
 
@@ -295,7 +363,25 @@ body {
 .show_all_content_button_container svg,
 .hide_all_content_button_container svg {
     width: 14px;
+
 }
+
+.show_all_content_button_container,
+.hide_all_content_button_container {
+
+    margin : auto;
+    display: inline-block;
+    width  : 100%;
+    margin : auto;
+}
+
+
+.hide_all_content_button_container {
+
+    /* margin-left: calc(50% - 28px); */
+    padding       : 0 20px;
+}
+
 
 .fixed_swipe_container .hotel_starts {
     display: none;
@@ -320,7 +406,7 @@ body {
 /* pickmeup style */
 
 .pickmeup {
-    z-index: 99999999999;
+    z-index: 999999999999999999999999999999;
 }
 
 /* pickmeup style end */
@@ -359,14 +445,22 @@ body {
     top       : 0px;
     z-index   : 100000000;
     background: #fff;
+    position  : -webkit-sticky;
     position  : sticky;
 
+}
 
+.main_wrap {
+    position: relative;
 }
 
 .tabs_container>* {
     /* width: 30% */
 }
+
+/* .mobile_shopList_fi{
+    display: none 
+} */
 
 
 
@@ -380,10 +474,7 @@ body {
     background: rgba(253, 211, 2, 0.575);
 }
 
-.event_date.pmu-button:hover {
-    background: rgba(253, 211, 2, 0.575) !important;
 
-}
 
 
 
@@ -417,14 +508,12 @@ body {
     border-color: #286786 !important;
 }
 
-[data-add] .add_booking:hover {
-    opacity: .5 !important;
-}
+
 
 /* addet hotel button style end */
 
 .pickmeup {
-    z-index: 9999999 !important;
+    z-index: 9999999999999999999 !important;
 }
 
 
@@ -453,8 +542,8 @@ body {
 /* select on open style*/
 
 .selector-element svg {
-    -webkit-transition: all .5s linear;
-    transition        : all .5s linear;
+    -webkit-transition: all .5s ease;
+    transition        : all .5s ease;
 }
 
 
@@ -473,8 +562,8 @@ body {
     position                : absolute;
     top                     : 12px;
     right                   : 15px;
-    -webkit-transition      : all 0.5s linear;
-    transition              : all 0.5s linear;
+    -webkit-transition      : all 0.4s ease;
+    transition              : all 0.4s ease;
     -webkit-transform-origin: center center;
     transform-origin        : center center;
     -webkit-transform       : rotate(45deg);
@@ -485,23 +574,61 @@ body {
 }
 
 
+.showMore,
+.showLess {
+    cursor: pointer;
+    color : #286786;
+}
+
+.moreContent {
+    display: none;
+}
+
+
+
+.removeOrderButton {
+    cursor            : pointer;
+    /* background     : red; */
+    height            : 24px;
+    width             : 25px;
+    border-radius     : 50%;
+    display           : -webkit-inline-box;
+    display           : -ms-inline-flexbox;
+    display           : inline-flex;
+    -webkit-box-pack  : center;
+    -ms-flex-pack     : center;
+    justify-content   : center;
+    position          : relative;
+    -webkit-box-align : center;
+    -ms-flex-align    : center;
+    align-items       : center;
+    /* left           : -17px */
+
+
+    /* color          : #fff; */
+
+}
+
 .Booking_details_form.added .add_booking,
 .tur_description.added .add_tour_btn,
-.transport_section.added .add_transport_btn {
+.transport_section.added .add_transport_btn,
+.rent_form.added .add_transport_rante_btn {
     color       : #fff !important;
     background  : #286786 !important;
-    opacity     : 0.8 !important;
+    opacity     : 0.5 !important;
     border-color: #286786 !important;
 }
 
-.Booking_details_form.added .add_booking:hover,
-.tur_description.added .add_tour_btn:hover,
-.transport_section.added .add_transport_btn:hover {
-    opacity: 0.5 !important;
-}
+
 
 /* select on open style end */
 
+
+.rante_car_swiper {
+
+    z-index : 1 !important;
+    position: static !important;
+}
 
 /* datepicker input on focus style */
 
@@ -511,8 +638,8 @@ body {
 }
 
 .datepicker_input+svg {
-    -webkit-transition: all .5s linear;
-    transition        : all .5s linear;
+    -webkit-transition: all .5s ease;
+    transition        : all .5s ease;
 }
 
 /* datepicker input on focus style end*/
@@ -534,7 +661,7 @@ body {
 
 .show_hide_container.open>* {
 
-    /* transition: margin-top .9s linear !important; */
+    /* transition: margin-top .9s ease !important; */
 
 }
 
@@ -547,10 +674,27 @@ body {
 
 .closed>* {
 
-    overflow: hidden;
-    z-index : 9999;
-    position: relative;
+    overflow  : hidden;
+    z-index   : 9999;
+    position  : relative;
+    visibility: hidden;
+    height    : 0;
 
+}
+
+body>div.main_wrap>div.wrapper.container-fluid>div.hotels_shopList.row>div.col-xl-9.custom_col_md_9.main_Content>main>section {
+    width    : 100%;
+    padding  : 0 25px;
+    max-width: 100%;
+
+}
+
+body>div.main_wrap>div.wrapper.container-fluid>div.hotels_shopList.row>div.col-xl-9.custom_col_md_9.main_Content>main {
+    padding: 0 !important;
+}
+
+body>div.main_wrap>div.wrapper.container-fluid>div.hotels_shopList.row>div.col-xl-9.custom_col_md_9.main_Content>main>section>div>div.selectCarForem.radio_container.position-relative>div.radios.container-fluid {
+    padding-right: 0;
 }
 
 .show_hide_container>* {
@@ -558,8 +702,8 @@ body {
     background                 : #fff;
     -webkit-backface-visibility: hidden;
     backface-visibility        : hidden;
-    -webkit-transition         : all 0s linear !important;
-    transition                 : all 0s linear !important;
+    -webkit-transition         : all 0s ease !important;
+    transition                 : all 0s ease !important;
 }
 
 .show_hide_container {
@@ -588,27 +732,27 @@ body {
 
 .closed.show_hide_container>*:first-child {
     margin-top        : -5000px;
-    -webkit-transition: margin-top .3s linear;
-    transition        : margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
+    transition        : margin-top .3s ease;
 
 }
 
 .closed .hotels_shopList>div:first-child>div {
-    -webkit-transition: margin-top .3s linear;
-    transition        : margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
+    transition        : margin-top .3s ease;
 }
 
 .hotels_shopList>div:first-child>div {
-    -webkit-transition: margin-top .3s linear;
-    transition        : margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
+    transition        : margin-top .3s ease;
 }
 
 .closed.show_hide_container {
     border: none !important;
 
-    -webkit-transition: margin-top .3s linear;
+    -webkit-transition: margin-top .3s ease;
 
-    transition: margin-top .3s linear;
+    transition: margin-top .3s ease;
 }
 
 .Accommodation {
@@ -633,8 +777,8 @@ body {
 .Accommodation,
 .transport_section,
 .turs_section {
-    -webkit-transition: all .3s linear;
-    transition        : all .3s linear;
+    -webkit-transition: all .3s ease;
+    transition        : all .3s ease;
     max-height        : auto;
     overflow          : hidden;
     overflow          : hidden;
@@ -643,8 +787,8 @@ body {
 [data-container] svg {
     -webkit-transform-origin: center;
     transform-origin        : center;
-    -webkit-transition      : all .3s linear;
-    transition              : all .3s linear;
+    -webkit-transition      : all .3s ease;
+    transition              : all .3s ease;
 }
 
 [data-container='Accommodation'] svg:last-child {
@@ -735,9 +879,9 @@ body {
     background: #286786;
     position  : relative;
 
-    -webkit-transition: all .5s linear;
+    -webkit-transition: all .5s ease;
 
-    transition              : all .5s linear;
+    transition              : all .5s ease;
     -webkit-transform-origin: center;
     transform-origin        : center;
     -webkit-transform       : scale(0);
@@ -745,10 +889,7 @@ body {
     top                     : 2px;
 }
 
-.icon_text.sections_icon_container.blue_color:hover::after {
-    -webkit-transform: scale(1);
-    transform        : scale(1);
-}
+
 
 /* show hide styles */
 
@@ -803,7 +944,7 @@ body {
     content              : '';
     -webkit-appearance   : none;
     background-color     : transparent;
-    border               : 1px solid #F4F4F4;
+    border               : 1px solid rgba(180, 174, 174, 0.61);
     /* box-shadow        : 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05); */
     padding              : 10px;
     display              : inline-block;
@@ -827,9 +968,34 @@ body {
     transform        : rotate(45deg);
 }
 
-.form-group input~div {
+
+.form-group {
+    -ms-flex-wrap: wrap;
+    flex-wrap    : wrap;
+}
+
+.form-group input~div:not(.swipe_container) {
     display: none;
 }
+
+
+.form-group input:checked~div.swipe_container {
+
+
+    opacity: 1 !important;
+
+}
+
+.form-group input~div.swipe_container {
+
+
+    width: 300px;
+
+    opacity: 0;
+
+}
+
+
 
 .form-group input:checked~div {
     display: inline-block;
@@ -860,7 +1026,8 @@ body {
 }
 
 .radios>div {
-    width: 100%;
+    width : 100%;
+    margin: 0;
 }
 
 .radios>div>div {
@@ -969,9 +1136,7 @@ body {
     min-height  : 40px;
 }
 
-.datePicerInputContainer input:hover {
-    background-color: #ebebeb;
-}
+
 
 
 
@@ -1069,15 +1234,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     background        : #fff;
     height            : 40px;
     min-width         : 80px;
-    -webkit-transition: all .2s linear;
-    transition        : all .2s linear;
+    -webkit-transition: all .2s ease;
+    transition        : all .2s ease;
 }
 
-.custom_style_button:hover {
-    color       : #fff;
-    border-color: #286786;
-    background  : #286786;
-}
+
 
 /* button style  end*/
 
@@ -1091,6 +1252,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     min-height    : 100vh;
     padding       : 0 20px;
     padding-top   : 10px;
+    will-change   : height;
 }
 
 .header {
@@ -1099,7 +1261,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 }
 
 .header>div:first-child {
-    border-right: 2px solid #F4F4F4
+    border-right: 2px solid #F4F4F4;
+    max-height  : 180%;
 }
 
 .select_accommodation,
@@ -1217,6 +1380,7 @@ div.selector-element div.selector-options div.selector-option {
 }
 
 .hotels_shopList .main_Content {
+    margin       : 0;
     position     : relative;
     margin-top   : 10px;
     margin-bottom: 50px;
@@ -1285,6 +1449,7 @@ div.selector-element div.selector-options div.selector-option {
 
 .hotels_block .hotel_info_container .facilities {
     margin-bottom: 0 !important;
+    font-weight: bold;
 }
 
 
@@ -1387,9 +1552,6 @@ div.selector-element div.selector-selected {
     outline     : none;
 }
 
-.hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel:hover {
-    background-color: #ebebeb;
-}
 
 .hotels_block .hotel_info_container .Booking_details_form .datePic_container svg {
     position: absolute;
@@ -1399,6 +1561,7 @@ div.selector-element div.selector-selected {
     cursor  : pointer;
     width   : 20px !important;
     fill    : #286786;
+    z-index: 2;
 }
 
 .hotels_block .hotel_info_container .Booking_details_form .datePic_container svg:last-child {
@@ -1409,8 +1572,8 @@ div.selector-element div.selector-selected {
     color                   : inherit;
     -webkit-transform-origin: center;
     transform-origin        : center;
-    -webkit-transition      : all 0.5s linear;
-    transition              : all 0.5s linear;
+    -webkit-transition      : all 0.4s ease;
+    transition              : all 0.4s ease;
 }
 
 .hotels_block .hotel_info_container .Booking_details_form .datePic_container input {
@@ -1448,13 +1611,7 @@ div.selector-element div.selector-selected {
 
 }
 
-.hotels_block .hotel_info_container .Booking_details_form .add_booking:hover {
-    color     : #fff;
-    background: #286786;
-    opacity   : 0.8;
 
-    border-color: #286786;
-}
 
 
 /* hotels style end */
@@ -1477,9 +1634,13 @@ div.selector-element div.selector-selected {
 
 
 .shop_item_container {
-    width        : 100% !important;
-    -ms-flex-wrap: wrap;
-    flex-wrap    : wrap
+    /* width        : 100% !important; */
+    -ms-flex-wrap   : wrap;
+    flex-wrap       : wrap
+}
+
+.Amount_item {
+    white-space: nowrap
 }
 
 .shop_item_container .shope_item {
@@ -1488,9 +1649,13 @@ div.selector-element div.selector-selected {
     display: flex;
     width  : 100% !important;
 
-    padding: 6px 0px;
+    position: relative;
+    padding : 6px 0px;
 
-    border-bottom: 1px solid #F4F4F4;
+    border-bottom   : 1px solid #F4F4F4;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
 }
 
 .shop_item_container .shope_item div:first-child {
@@ -1498,7 +1663,13 @@ div.selector-element div.selector-selected {
 }
 
 .shop_item_container .shope_item div {
-    width: 20%
+    width           : 20%;
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between;
 }
 
 .shopList_block .shopList_title {
@@ -1610,17 +1781,13 @@ div.selector-element div.selector-selected {
     background        : #fff;
     width             : 200px;
     height            : 40px;
-    -webkit-transition: all .2s linear;
-    transition        : all .2s linear;
+    -webkit-transition: all .2s ease;
+    transition        : all .2s ease;
 }
 
 
 
-.costumerContacts button:hover {
-    color       : #fff;
-    border-color: #286786;
-    background  : #286786;
-}
+
 
 /* shopLists Style end */
 
@@ -1667,6 +1834,7 @@ div.selector-element div.selector-selected {
     left    : 10px;
     width   : 20px;
     cursor  : pointer;
+    z-index: 9;
 }
 
 .flight_input input {
@@ -1758,9 +1926,13 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 }
 
 .tur_description_item .tur_description {
-    -webkit-transition: all .2s linear;
-    transition        : all .2s linear;
+    -webkit-transition: all .2s ease;
+    transition        : all .2s ease;
     overflow          : hidden;
+}
+
+.add_btn_container {
+    padding: 0;
 }
 
 @-webkit-keyframes nullAnimation {
@@ -1800,8 +1972,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 }
 
 .tur_description_item .tur_description .showHideContainer {
-    -webkit-transition: all .3s linear;
-    transition        : all .3s linear;
+    -webkit-transition: all .3s ease;
+    transition        : all .3s ease;
     margin-top        : -110%;
 
 }
@@ -1837,8 +2009,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     top               : 1px;
     font-size         : 15px;
     cursor            : pointer;
-    -webkit-transition: all .3s linear;
-    transition        : all .3s linear;
+    -webkit-transition: all .3s ease;
+    transition        : all .3s ease;
 }
 
 .tur_description_item .checkbox_show_hide_content+label svg {
@@ -1873,13 +2045,17 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 /* excursion section style end */
 
+.mobile_shopList_fi span:nth-child(2) svg {
+    width: 12px;
+}
+
 
 
 @media only screen and (min-width: 1200px) {
     .shopList_block {
 
         margin-top: 0px;
-        max-height: 100vh;
+        max-height: 95vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -1901,14 +2077,31 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         padding  : 0 15px;
     }
 
+    .shopList_block_container {
+        top: 0 !important;
+    }
+
+
 
 }
 
+@media only screen and (max-width: 681px) {
+    .checkboxes .form-group input:checked~div {
+        width: 50%;
+    }
+
+    .form-group label {
+        width: 100%;
+    }
+}
 
 
 @media only screen and (min-width: 1200px) {
 
 
+    .shopList_block_container {
+        top: 106px !important;
+    }
 
     .custom_col_md_9 {
         -webkit-box-flex: 0;
@@ -1970,6 +2163,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         padding-left: 0 !important;
     }
 
+    .header {
+        height: auto !important;
+    }
+
     .shopList_block {
         margin-top: 0px !important;
     }
@@ -2025,11 +2222,15 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         min-height: 208px;
     }
 
+    .transport_section .swipe-wrap>div img {
+        min-height: 228px;
+    }
+
 }
 
 @media only screen and (max-width: 991px) {
     .car_images_swipper_container {
-        max-width: 95%;
+        max-width: 100%;
     }
 
     .swipe-wrap>div img {
@@ -2044,16 +2245,17 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .mobile_shower_item_container,
     .hide_all_content_button_container,
     .mobile_shopList_fi {
-        display: none;
+        display: none !important;
     }
 
     .mobile_sow_hide_elements .hotels_block {
         margin-top: 0 !important;
     }
 
-    .shopList_block_container {
-        top: 106px !important;
+    .shopTitle span {
+        zoom: 0.8;
     }
+
 }
 
 @media only screen and (max-width: 660px) {
@@ -2064,15 +2266,47 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .shopList_block {
-        overflow-y    : auto;
-        /* height     : 94vh; */
-        padding-bottom: 400px;
-        /* padding-top: 200px; */
+        overflow-y       : auto;
+        overflow-x       : hidden;
+        /* height        : 94vh; */
+        padding-bottom   : 40px;
+        /* padding-top   : 200px; */
+
+        /* overflow               : scroll;
+        -webkit-overflow-scrolling: touch; */
+        -webkit-overflow-scrolling: touch !important;
+        /* overflow               : auto !important; */
+    }
+
+    .html {
+        height : calc(var(--vh, 1vh) * 100);
+        padding: 0 5px;
     }
 
 
+    .tur_description_content img {
+        width: 100%;
+    }
+
+    .tur_description_content p {
+        padding-right: 10px !important;
+    }
+
+    .shopList_block_container.showShop {
+        -webkit-transition : bottom .4s ease;
+        transition         : bottom .4s ease;
+        /* transition-delay: .5s; */
+    }
+
     .shopList_block_container {
-        box-shadow: 0px 2px 20px 0px grey;
+        -webkit-transition : bottom .4s ease, background 5s ease 5s;
+        transition         : bottom .4s ease, background 5s ease 5s;
+        /* transition-delay: .5s; */
+    }
+
+    .shopList_block_container {
+        /* -webkit-box-shadow: 0px 2px 20px 0px grey;
+        box-shadow           : 0px 2px 20px 0px grey; */
     }
 
     /* accommodation  item */
@@ -2142,8 +2376,8 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .hotels_block {
 
         margin-top        : 0;
-        -webkit-transition: all .5s linear;
-        transition        : all .5s linear;
+        -webkit-transition: all .5s ease;
+        transition        : all .5s ease;
     }
 
     .mobile_sow_hide_elements,
@@ -2221,10 +2455,11 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     }
 
     .mobile_shopList_fi {
-        position: fixed;
+        position      : fixed;
+        /* will-change:position;s */
 
-        top              : calc(100vh - 84px) !important;
-        height           : 84px;
+        top              : calc(100vh - 62px);
+        height           : 62px;
         -webkit-box-align: center;
         -ms-flex-align   : center;
         align-items      : center;
@@ -2233,60 +2468,75 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
+        display: none;
         z-index: 99999999999;
 
-        box-shadow      : -5px 3px 20px 0px black;
-        -webkit-box-pack: justify;
+        /* box-shadow      : -5px 3px 20px 0px black; */
+        -webkit-box-pack   : justify;
 
         -ms-flex-pack: justify;
 
         justify-content: space-between;
         padding        : 10px;
         padding-top    : 0;
+        padding-bottom : 0;
         background     : #fff;
-        border-top     : 2px solid black;
+        border-top     : 1px solid #F4F4F4;
+        border-bottom  : 1px solid #F4F4F4;
 
-        cursor       : pointer;
-        width        : calc(100% - 20px);
-        box-sizing   : initial;
-        border-bottom: 1000px solid #fff;
+        cursor            : pointer;
+        width             : calc(100% - 20px);
+        -webkit-box-sizing: initial;
+        box-sizing        : initial;
+        /* border-bottom  : 1000px solid #fff; */
 
+
+    }
+
+    .mobile_shopList_fi.show {
+        display           : -webkit-box !important;
+        display           : -ms-flexbox !important;
+        display           : flex !important;
+        /* bottom         : initial !important;
+        top               : 0 !important; */
+        -webkit-transition: all .4s ease;
+        transition        : all .4s ease;
 
     }
 
     .mobile_shopList_fi span:nth-child(2) {
         -webkit-transform-origin: center;
         transform-origin        : center;
-        -webkit-transition      : all 0.5s linear;
-        transition              : all 0.5s linear;
-
+        -webkit-transition      : all 0.4s ease;
+        transition              : all 0.4s ease;
+        -webkit-transform       : rotate(180deg);
+        transform               : rotate(180deg)
     }
 
-    .mobile_shopList_fi span:nth-child(2) svg {
-        width: 12px;
-    }
+
 
     .wrapper {
-        margin-top: 40px;
+        /* margin-top: 25px; */
+        padding-top  : 0;
     }
 
     .shopList_block_container {
-        position             : fixed;
-        bottom               : -100vh;
-        height               : 100vh;
-        top                  : initial !important;
-        background           : #fff;
-        /* -webkit-transition: all .5s linear;
-        transition           : all .5s linear; */
+        position: fixed;
+        bottom  : calc(-100vh + 55px);
+        height  : 100vh;
+        top     : initial !important;
+
+        /* -webkit-transition: all .5s ease;
+        transition           : all .5s ease; */
         z-index              : 999999999;
         left                 : 0;
         overflow-y           : auto !important;
-        max-height           : calc(100vh - 84px);
+        max-height           : calc(100vh - 55px);
     }
 
     .shopList_block_container.showShop {
-        bottom: 84px !important;
+        bottom    : 0 !important;
+        background: #fff;
     }
 
     .pickmeup {
@@ -2339,7 +2589,7 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 }
 
-@media only screen and (max-width: 581px) {
+@media only screen and (max-width: 595px) {
 
 
     .transport_section_SH {
@@ -2367,6 +2617,10 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-bottom: -5px;
     }
 
+    .mainTb {
+        height: 69.5px !important;
+    }
+
     .selected .navbarTextShow {
         width: 100% !important;
     }
@@ -2382,14 +2636,21 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
     .sections_icon_container p {
         white-space: nowrap;
     }
+
+
 }
+
 
 
 
 @media only screen and (max-width: 400px) {
     .mobile_shower_item_container svg {
-        margin-left : -3px;
+        margin-left : 0;
         margin-right: 3px;
+    }
+
+    .one_hotel_item_container {
+        padding: 6px;
     }
 }
 
@@ -2420,6 +2681,24 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
         margin-left: 5px;
     } */
 
+    .add_car_rante {
+        width           : 100%;
+        max-width       : 100%;
+        min-width       : 100%;
+        padding         : 0;
+        margin-top      : 10px;
+        /* padding-right: 10px !important; */
+    }
+
+    .add_car_rante button {
+        width: 100%;
+    }
+
+    .rent_form .datePicerInputContainer {
+        width           : 100%;
+        margin-top      : 10px;
+        /* padding-right: 10px !important; */
+    }
 }
 
 
@@ -2430,3 +2709,219 @@ div.selector-element div.selector-selected p.selected-text svg:last-child {
 
 
 /* hotels_shopList style  end*/
+
+
+
+
+
+
+
+
+
+/* hover medias  */
+
+
+@media (pointer: fine) {
+    .event_date.pmu-button:hover {
+        background: rgba(253, 211, 2, 0.575) !important;
+
+    }
+
+    [data-add] .add_booking:hover {
+        opacity: .5 !important;
+    }
+
+    .showMore:hover,
+    .showLess:hover {
+
+
+        text-decoration: underline;
+    }
+
+    .Booking_details_form.added .add_booking:hover,
+    .tur_description.added .add_tour_btn:hover,
+    .transport_section.added .add_transport_btn:hover,
+    .rent_form.added .add_transport_rante_btn:hover {
+        opacity: 0.5 !important;
+    }
+
+    .icon_text.sections_icon_container.blue_color:hover::after {
+        -webkit-transform: scale(1);
+        transform        : scale(1);
+    }
+
+    .datePicerInputContainer input:hover {
+        background-color: #ebebeb;
+    }
+
+    .custom_style_button:hover {
+        color       : #fff;
+        border-color: #286786;
+        background  : #286786;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .datePic_container .check_in_out_hotel:hover {
+        background-color: #ebebeb;
+    }
+
+    .hotels_block .hotel_info_container .Booking_details_form .add_booking:hover {
+        color     : #fff;
+        background: #286786;
+        opacity   : 0.8;
+
+        border-color: #286786;
+    }
+
+    .costumerContacts button:hover {
+        color       : #fff;
+        border-color: #286786;
+        background  : #286786;
+    }
+}
+
+/* custom alert styles */
+
+
+#modalContainer,
+.bigPreloader {
+    background-color: rgba(0, 0, 0, 0.3);
+    position        : absolute;
+    top             : 0;
+    width           : 100%;
+    height          : 100%;
+    left            : 0px;
+    z-index         : 10000;
+    background-image: url(tp.png);
+    /* required by MSIE to prevent actions on lower z-index elements */
+    
+    z-index: 9999999999999999999;
+}
+
+.bigPreloader {
+    z-index: 999999999991;
+}
+
+#alertBox {
+    position         : relative;
+    width            : 33%;
+    min-height       : 100px;
+    max-height       : 400px;
+    margin-top       : 50px;
+    border           : 1px solid #fff;
+    background-color : #fff;
+    background-repeat: no-repeat;
+    top              : 30%;
+    padding          : 17px;
+}
+
+#modalContainer>#alertBox {
+    position: fixed;
+}
+
+#alertBox h1 {
+    margin    : 0;
+    font      : bold 1em Raleway, arial;
+    color     : #FFF;
+    padding   : 10px 0 10px 5px;
+    text-align: center;
+    font-size : 23px;
+}
+
+#alertBox.success h1 {
+    color: #286786;
+
+}
+
+#alertBox.success #closeBtn {
+    background: #286786;
+}
+
+#alertBox.error #closeBtn {
+    background: red;
+}
+
+#alertBox.error h1 {
+    color: red;
+}
+
+
+#alertBox p {
+    min-height    : 50px;
+    padding-left  : 5px;
+    padding-top   : 30px;
+    margin-top: -28px;
+    text-align    : center;
+    vertical-align: middle;
+}
+
+#alertBox #closeBtn {
+    display         : block;
+    position        : relative;
+    margin          : 10px auto 10px auto;
+    padding         : 7px;
+    border          : 0 none;
+    width           : 70px;
+    text-transform  : uppercase;
+    text-align      : center;
+    color           : #FFF;
+    background-color: #f97352;
+    border-radius   : 0px;
+    text-decoration : none;
+    outline         : 0 !important;
+    cursor          : pointer;
+}
+
+/* unrelated styles */
+
+#mContainer {
+    position     : relative;
+    width        : 600px;
+    margin       : auto;
+    padding      : 5px;
+    border-top   : 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+h1,
+h2 {
+    margin : 0;
+    padding: 4px;
+}
+
+code {
+    font-size: 1.2em;
+    color    : #069;
+}
+
+#credits {
+    position     : relative;
+    margin       : 25px auto 0px auto;
+    width        : 350px;
+    font         : 0.7em verdana;
+    border-top   : 1px solid #000;
+    border-bottom: 1px solid #000;
+    height       : 90px;
+    padding-top  : 4px;
+}
+
+#credits img {
+    float : left;
+    margin: 5px 10px 5px 0px;
+    border: 1px solid #000000;
+    width : 80px;
+    height: 79px;
+}
+
+.important {
+    background-color: #F5FCC8;
+    padding         : 2px;
+
+}
+
+@media (max-width: 600px) {
+    #alertBox {
+        position: relative;
+        width   : 90%;
+        top     : 30%;
+    }
+}

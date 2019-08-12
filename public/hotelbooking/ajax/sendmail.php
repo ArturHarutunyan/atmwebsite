@@ -6,8 +6,8 @@ ini_set("display_errors", true);
 error_reporting(E_ALL);
 
 require_once "./phpmayler/PHPMailerAutoload.php";
-
 $data = json_decode($_POST['data']);
+
 $text= "								MERIDIAN EXPO CONTACT FROM SUBMITED 					<br><br>";
 
 $text.= "								CONTACTS 					<br><br>";
@@ -48,7 +48,7 @@ if (is_array($data->allOrders->hotelOrders)) {
 		$price+= $hotelsPrices[$value->index][$value->room]*$value->nights*$value->qty;
 
 		$text.= "|		Hotel 			: ".$value->hotelName."<br>";
-		$text.= "|		days 			: ".$value->startDate." - ".$value->endDate."<br>";
+		$text.= "|		days 			: ".substr($value->startDate,0,10)." - ".substr($value->endDate,0,10)."<br>";
 		$text.= "|		room 			: ".$room[$value->room]."<br>";
 		$text.= "|		PRICE PER DAY 	: ".$hotelsPrices[$value->index][$value->room]."<br>";
 		$text.= "|		NIGHT COUNT 	: ".$value->nights."<br>";
@@ -60,18 +60,21 @@ if (is_array($data->allOrders->hotelOrders)) {
 
 	}
 }
+
 //test
 if (is_array($data->allOrders->carOrders)) {
 	$text.= "								CARS 					<br><br>";
 	$text.=" --------------------------------------------------------------- <br>";
 
 	foreach ($data->allOrders->carOrders as  $value) {
-		$price+=intval($value->price);
-		$text.= "|		event 		: ".$value->event."<br>";
-		if (!is_array($value->date)) {
-		$text.= "|		days 		: ".$value->date."<br>";
+		$value->totalPrice = intval(substr($value->price, 1));
+		$price+= $value->totalPrice;
+		$text.= "|		service		: ".$value->event."<br>";
+		if (!is_array(json_decode($value->date))) {
+		$text.= "|		days 		: ".substr($value->date,0,10)."<br>";
 		}else{
-		$text.= "|		days 		: ".$value->date[0]." - ".$value->date[1]."<br>";
+			$value->date = json_decode($value->date);
+		$text.= "|		days 		: ".substr($value->date[0],0,10)." - ".substr($value->date[1],0,10)."<br>";
 
 		}
 		if(isset($value->carType))
@@ -84,6 +87,7 @@ if (is_array($data->allOrders->carOrders)) {
 		$text.=" --------------------------------------------------------------- <br>";
 
 	}
+
 }
 
 if (is_array($data->allOrders->ExcursionOrders)) {
@@ -93,7 +97,7 @@ if (is_array($data->allOrders->ExcursionOrders)) {
 	foreach ($data->allOrders->ExcursionOrders as  $value) {
 		$text.= "|		Name 		: ".$value->turName."<br>";
 		$text.= "|		quantity 	: ".$value->Qty."<br>";
-		$text.= "|		date 		: ".$value->date."<br>";
+		$text.= "|		date 		: ".substr($value->date,1,10)."<br>";
 		$text.= "|		Price FOR ONE: ".$ExcursionsPrice[$value->index]."<br>";
 		$text.= "|		price 		: ".$ExcursionsPrice[$value->index]*$value->Qty."<br>";
 

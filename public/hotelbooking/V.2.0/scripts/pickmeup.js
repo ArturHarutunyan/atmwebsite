@@ -977,9 +977,15 @@
 					top += 'px';
 				}
 				root_element.style.left = parseInt( left) - this.offsetWidth +'px';
-				root_element.style.top  = parseInt( top ) + this.offsetHeight + 'px';
+				root_element.style.top  = parseInt( top ) + this.offsetHeight + (-document.querySelector('.wrapper').getBoundingClientRect().top) + 'px';
+
+
+				
+
+				// alert(root_element.style.top +'|'+document.body.scrollTop + '|' + (-document.querySelector('.wrapper').getBoundingClientRect().top))
 				setTimeout(function () {
 					dom_on(target, document.documentElement, 'click', options.bound.hide);
+					
 					dom_on(target, window, 'resize', options.bound.forced_show);
 				});
 			}
@@ -1291,7 +1297,7 @@
 				target.appendChild(element);
 			} else {
 				dom_add_class(element, 'pmu-hidden');
-				document.body.appendChild(element);
+				document.querySelector('.main_wrap').appendChild(element);
 				dom_on(target, target, 'click', show.bind(target, target, false));
 				dom_on(target, target, 'input', options.bound.update);
 				dom_on(target, target, 'change', options.bound.update);
@@ -1385,3 +1391,26 @@
 
 	return pickmeup_init;
 }));
+
+
+var documentClick = document.querySelector('.main_wrap').onclick;
+document.querySelector('.main_wrap').onclick = function(event){
+
+	// console.log(11)
+	if(documentClick instanceof Function)
+		documentClick()
+	if(!event.target.closest('.pickmeup') && !event.target.closest('.datepicker_input')){
+		if(document.querySelector('.pickmeup:not(pmu-hidden)')){
+			
+			[...document.querySelectorAll('.pickmeup')].forEach(elem => {
+				if(!elem.classList.contains('pmu-hidden'))
+					elem.classList.add('pmu-hidden')
+				// console.log(elem)
+			})
+		}
+	}
+	if(event.target.closest('.datepicker_input') && event.isTrusted){
+		this.click();
+		event.target.closest('.datepicker_input').focus()
+	}
+}

@@ -22,26 +22,34 @@ function getOffset(element) {
 		left: bound.left + window.pageXOffset - html.clientLeft
 	};
 }
-
-function countEfect(needToAnimate, plasValue) {
+var arrayForCountLimit = [20, 100, 4700, 80]
+var copyStart = [0, 0, 0, 0]
+function countEfect(needToAnimate, plasValue, speed) {
+	var countSteps = 0
 	$('.achievement__col-article__number').css('color', '#0069b2')
 	$('.achievement__col-article__text').css('color', '#57585b')
 	var a = 0;
 	var element = $('.scroll-count');
 	if (element.length > 0) {
 		var oTop = $('.scroll-count').offset().top - window.innerHeight + plasValue ? plasValue : 300;
-		var arrayForCountLimit = [20, 100, 4700, 80]
+
 		var i = 0;
 		if (a === 0 && $(window).scrollTop() > oTop) {
-			$('.count').each(function () {
+			$('.count').each(function (index) {
 
-				$(this).prop('Counter', 0).animate({
+				console.log(123)
+				var count = (!speed ? copyStart[index] : 0)
+				$(this).stop(true).prop({ 'Counter': count }).animate({
 					Counter: arrayForCountLimit[i]
 				}, {
-						duration: needToAnimate ? 2000 : 0,
+						duration: needToAnimate ? speed ? speed : 2000 : 0,
 						easing: 'swing',
 						step: function (now) {
 							$(this).text(Math.ceil(now));
+
+							copyStart[index] = $(this).text();
+							// countSteps++
+							// if (countSteps == 4) countSteps = 0;
 						}
 					});
 				i++;
@@ -50,6 +58,9 @@ function countEfect(needToAnimate, plasValue) {
 		}
 	}
 }
+
+
+
 window.onpageshow = function () {
 
 
@@ -746,8 +757,23 @@ function SvgLogic() {
 	}
 
 
+	var canAnimate = true;
+	
+	function slowAnimate() {
+		// console.log($(window).scrollTop() > firstBreackpointPositionOnTop)
 
+		if ($(window).scrollTop() > firstBreackpointPositionOnTop+50 && canAnimate) {
+			countEfect(true, 0, 20000)
+			canAnimate = false;
+		}
+	}
 
+	if($(window).scrollTop() <= secendBreackpointPositionOnTop && $(window).scrollTop() > firstBreackpointPositionOnTop )
+		slowAnimate()
+	if($(window).scrollTop() >= secendBreackpointPositionOnTop)
+		canAnimate = false;
+	// else if(){
+	// }
 	//_____________________________________________________________ SCROLLING !!!! __________________________________________________________ 
 
 	var globusPosition
@@ -856,14 +882,14 @@ function SvgLogic() {
 		// console.log($('html:animated , body:animated'))
 		// if(!$('html:animated , body:animated')){
 
-			handle(delta);
+		handle(delta);
 		// }
 		if (event.preventDefault) { (event.preventDefault()); }
 		event.returnValue = false;
 	}
 
 
-	var scrollIsAnimated = false ;
+	var scrollIsAnimated = false;
 	var freeScrolling = false
 	function handle(delta) {
 
@@ -887,12 +913,12 @@ function SvgLogic() {
 
 		}
 
-		if(!scrollIsAnimated){
+		if (!scrollIsAnimated) {
 			scrollIsAnimated = true
 			$('html, body').stop().animate({
 				scrollTop: canScrolling ? $(window).scrollTop() - (distance * delta) : lastScrollPosition
-			}, time,function() { 
-				
+			}, time, function () {
+
 				scrollIsAnimated = false
 			});
 		}
@@ -902,14 +928,14 @@ function SvgLogic() {
 		if (freeScrolling && $(window).scrollTop() >= forthBreackpointPositionOnTop) {
 
 
-			window.removeEventListener('mousewheel', wheel,false)
-			document.removeEventListener('mousewheel', wheel,false)
+			window.removeEventListener('mousewheel', wheel, false)
+			document.removeEventListener('mousewheel', wheel, false)
 		}
 	}
 
 
-	window.addEventListener('mousewheel', wheel,{passive:false})
-	document.addEventListener('mousewheel', wheel,{passive:false})
+	window.addEventListener('mousewheel', wheel, { passive: false })
+	document.addEventListener('mousewheel', wheel, { passive: false })
 
 	var isFirstStep = true;
 
@@ -918,6 +944,10 @@ function SvgLogic() {
 
 	function scrollHandling(e) {
 
+
+
+
+		slowAnimate();
 
 
 		if ($('html').css('overflow-y') == 'hidden') {
