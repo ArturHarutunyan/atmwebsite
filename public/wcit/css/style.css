@@ -682,6 +682,7 @@ hr {
 .showLess {
     cursor     : pointer;
     white-space: nowrap;
+    font-size: 12px;
 }
 
 .popularity {
