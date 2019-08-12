@@ -202,7 +202,7 @@ function tourDescription(tour) {
     description += `<div class="col-xl-4 px-0 py-0 text-right pr-2 pt-2 tour_price">
                         <div class="eur">
                             <h2 class="black_color mb-0">${tour.prices.eur} EUR</h2>
-                            <p class="mt-0 pt-0 exclude_VAT font-weight-bold">exclude VAT</p>
+                            <p class="mt-0 pt-0 exclude_VAT">exclude VAT</p>
                         </div>
                         <div class="other_valutas">
                             <div class="usd black_color font-weight-bold">${tour.prices.usd} USD</div>
@@ -231,7 +231,7 @@ function tourDescription(tour) {
     var tourForm = `
         <div class="row tourForm" data-tourname="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
             <div class="radiosContainer custom_radio col-12 d-flex px-0" data-name="tour_type"> 
-                <p><input id="${'t' + ++radioCount}" type="radio" value="Group" name="${'r' + ++rCount}" checked=""><label class="font-weight-bold" for="${'t' + radioCount}">In group</label></p>
+                <p><input id="${'t' + ++radioCount}" type="radio" value="Group" name="${'r' + ++rCount}" checked=""><label class="font-weight-bold" for="${'t' + radioCount}">Joining a group</label></p>
 
                 <p class="pl-3"><input id="${'t' + ++radioCount}" type="radio" value="Private" name="${'r' + rCount}"><label class="font-weight-bold" for="${'t' + radioCount}">Private      </label></p>  
             </div>
@@ -239,7 +239,7 @@ function tourDescription(tour) {
             <div class="tourLanguage" data-name="language">
                 <div class="select_container d-inline-block" data-validator="language">
                    <div class="Mselect d-inline-block">
-                      <div class="Moption" data-value="" selected="">language </div>
+                      <div class="Moption" data-value="" selected="">Language </div>
                       <div class="Moption" data-value="1">eng </div>
                    </div>
                 </div>
@@ -247,7 +247,7 @@ function tourDescription(tour) {
             <div class="persons">
                 <div class="select_container d-inline-block" data-validator="persons" data-name="persons">
                     <div class="Mselect d-inline-block">
-                        <div class="Moption" data-value="" selected="">persons</div>
+                        <div class="Moption" data-value="" selected="">Persons</div>
                     ` + mOption + `
                     </div>
                 </div>
