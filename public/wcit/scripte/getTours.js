@@ -164,7 +164,7 @@ function tourDescription(tour) {
         <div class="container-fluid">
             <div class="row">
                  <div class="col-xl-8 px-0 py-0">
-                     <p class="excursionName"><span class="name font-weight-bold">${tour.name}</span><span class="popularity">[Popularity 9+]</span></p>`;
+                     <p class="excursionName"><span class="name font-weight-bold">${tour.name}</span></p>`;
 
 
     var includes = '';
