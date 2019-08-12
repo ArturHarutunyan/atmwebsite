@@ -168,7 +168,7 @@ function tourDescription(tour) {
 
 
     var includes = '';
-    tour.including.forEach((incl, index) => {
+    tour.includes.forEach((incl, index) => {
 
 
         includes += `<div class='${+index > 0 ? 'ml-2' : ''}'><img src=${incl.icon_src}><span>${incl.name}</span></div>`
