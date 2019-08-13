@@ -1,11 +1,35 @@
 
+@font-face {
+    font-family: D-DIN;
+    src: url(./DINPro-Bold.woff);
+}
+@font-face {
+    font-family: D-DINlight;
+    src: url(./DINPro.woff);
+}
+span , p {
+    font-family: D-DINlight;
+}
+h1, h1 *
+,h2, h2 *
+,h3, h3 *
+,h4, h4 *
+,h5, h5 *
+,h6, h6 *, p.excursionName span, .btn  ,.btn  span ,.font-weight-bold{
+    
+    font-family: D-DIN !important;
+}
 
+  /* src: url(./DINPro-Cond.otf); */
 :root{
     --gFontSize: 100%;
 }
 html,
 body {
     -webkit-overflow-scrolling: touch;
+    /* font-family: D-DIN; */
+    font-family: D-DINlight;
+    font-weight: bold;
 }
 
 
@@ -627,6 +651,7 @@ hr {
     /* border-color: green; */
     font-weight: bold;
     color: black;
+    font-family: D-DIN;
   }
 
 .datePickerContainer {
@@ -711,7 +736,7 @@ hr {
 .showLess {
     cursor     : pointer;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .popularity {

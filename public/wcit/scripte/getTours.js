@@ -222,7 +222,7 @@ function tourDescription(tour) {
     //     label.font-weight-bold(for='t'+radioCount) Private      
     var mOption = ''
     for (var i = 1; i < 50; i++) {
-        mOption += `<div class="Moption" data-value="${i}"><span style='color:black; font-weight:bold;'>${i}</span></div>`
+        mOption += `<div class="Moption" data-value="${i}"><span style='color:black; font-weight:bold;' class="font-weight-bold">${i}</span></div>`
     }
 
     var dataGroup = JSON.stringify(tour.prices);
@@ -243,9 +243,9 @@ function tourDescription(tour) {
             <div class="tourLanguage" data-name="language">
                 <div class="select_container d-inline-block" data-placeholder='Language' data-validator="language">
                    <div class="Mselect d-inline-block">
-                      <div class="Moption" data-value="1"><span style='color:black; font-weight:bold;'>English</span> </div>
-                      <div class="Moption" data-value="2"><span style='color:black; font-weight:bold;'>Russian</span> </div>
-                      <div class="Moption" data-value="3"><span style='color:black; font-weight:bold;'>French </span></div>
+                      <div class="Moption" data-value="1"><span style='color:black; ' class='font-weight-bold'>English</span> </div>
+                      <div class="Moption" data-value="2"><span style='color:black; ' class='font-weight-bold'>Russian</span> </div>
+                      <div class="Moption" data-value="3"><span style='color:black; ' class='font-weight-bold'>French </span></div>
                    </div>
                 </div>
             </div>
