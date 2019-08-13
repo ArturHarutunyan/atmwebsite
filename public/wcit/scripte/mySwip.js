@@ -16,6 +16,7 @@ function getScrollbarWidth(element) {
 
     var galleryTop = new Swiper(galleryTopElem, {
         // spaceBetween: 10,
+        // calculateHeight:true,
         navigation: {
 
             // .next_swipe , .prev_swipe

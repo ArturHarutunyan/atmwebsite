@@ -131,6 +131,7 @@ Mseletc.prototype.createCustomSelect = function () { // at first create once
         var target = event.target;
         var container = this;
         var option = target.closest('.Moption');
+        var containerAllOptions = target.closest('.absolute_container')
 
 
 
@@ -138,7 +139,15 @@ Mseletc.prototype.createCustomSelect = function () { // at first create once
             // if (!container.classList.contains('opened'))
                 container.classList.toggle('opened');
 
-        if (option) { //dispatch select change on select 
+        if (option) { //dispatch select change on select z
+
+            if(container){
+                var optionsArry =  Array.from (containerAllOptions.querySelectorAll('.Moption'));
+                optionsArry.forEach(function(option){
+                    option.classList.remove('selected')
+                })
+             }
+             option.classList.add('selected')
             self.select.value = option.getAttribute('data-value');
 
 

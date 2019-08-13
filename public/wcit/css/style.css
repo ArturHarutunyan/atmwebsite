@@ -47,7 +47,7 @@ hr {
 }
 
 .mobileShowForm.close span {
-    background: #fff !important;
+    background: transparent !important;
     color     : black !important;
     font-size : 20px !important;
 }
@@ -280,6 +280,10 @@ hr {
     color: black !important;
 }
 
+.includeContainer  span{
+    color: #666 !important;
+}
+
 
 
 
@@ -396,7 +400,7 @@ hr {
     overflow              : hidden;
     margin                : -2px;
     /* backface-visibility: hidden; */
-    background            : #fff;
+    /* background            : #fff; */
     /* margin-right       : 0;*/
 }
 
@@ -465,15 +469,17 @@ hr {
     -ms-flex        : 0 0 auto;
     flex            : 0 0 auto;
     width           : 100%;
+    /* height: 40vw; */
 }
 
 
 
 .gallery-top .swiper-wrapper>* img {
     width     : 100%;
-    height    : 100%;
+    /* height    : 50vw; */
     min-height: 10px;
     min-width : 10px;
+    height: 100%;
 }
 
 .gallery-top .swiper-wrapper {
@@ -576,6 +582,9 @@ hr {
 .excursion_component_container {
     border: 2px solid black;
 }
+/* .swiper-slide .swiper-slide-active{
+    height: 100%;
+} */
 
 .includeContainer {
     display      : -webkit-box;
@@ -583,6 +592,12 @@ hr {
     display      : flex;
     -ms-flex-wrap: wrap;
     flex-wrap    : wrap;
+    justify-content: space-between;
+}
+.includeContainer > div{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 0 !important
 }
 
 .includeContainer img {
@@ -592,6 +607,9 @@ hr {
 .allDescription {
     display: none;
 }
+.Moption.selected{
+    display: none;
+}
 
 .datepicker_input {
     padding   : 8px;
@@ -599,6 +617,12 @@ hr {
     width     : 130px;
     background: transparent
 }
+
+.datepicker_input:not(:placeholder-shown) {
+    /* border-color: green; */
+    font-weight: bold;
+    color: black;
+  }
 
 .datePickerContainer {
     position: relative;
@@ -652,7 +676,7 @@ hr {
     width: 200px
 }
 
-.addButtonContainer span {
+.addButtonContainer > span {
     border-radius: 0;
     height       : 42px;
     padding-top  : 7px;
@@ -845,6 +869,21 @@ hr {
     color     : black !important;
 
 }
+.tourForm.added .notAddedButton{
+    display: none
+}
+.tourForm.added .AddedButton{
+    display: inline-block;
+}
+
+.tourForm .notAddedButton{
+    
+    display: inline-block;
+}
+.tourForm .AddedButton{
+    display: none
+}
+
 
 .shoppingListTitles,
 .shop_items .one_item {
@@ -977,7 +1016,7 @@ hr {
 
 @media only screen and (min-width: 1200px) {
 
-    .excursion_component,
+    
     .swipers_container {
         /* overflow: hidden; */
         max-height : 400px;
@@ -1066,7 +1105,7 @@ hr {
     .select_container,
 
     .datePickerContainer input,
-    .addButtonContainer span {
+    .addButtonContainer > span {
         width     : 100% !important;
         margin-top: 15px;
 
@@ -1377,8 +1416,11 @@ hr {
     
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 333px) {
 
-
+    .mobileShowForm.close{
+        right: 57px;
+        bottom: 290px;
+    }
 
 }
