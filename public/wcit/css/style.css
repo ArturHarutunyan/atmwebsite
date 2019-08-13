@@ -1,3 +1,8 @@
+
+
+:root{
+    --gFontSize: 100%;
+}
 html,
 body {
     -webkit-overflow-scrolling: touch;
@@ -706,7 +711,7 @@ hr {
 .showLess {
     cursor     : pointer;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .popularity {
@@ -847,7 +852,7 @@ hr {
     content : '';
     width   : 50px;
     display : inline-block;
-    border  : 1px solid black;
+    border-top  : 2px solid black;
     position: absolute;
     top     : 130%;
     right   : 0;
@@ -866,8 +871,44 @@ hr {
 
 .shop_list_container h6 {
     border-top: 1px solid #BABABA;
-    color     : black !important;
+    color: black !important;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
 
+}
+.Guaranteed_icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Guaranteed_icons > *{
+    width: 25%;
+    height: auto ;
+    
+}
+.shop_list_container h6 span{
+    padding-right: 11px;
+    font-size: 20px;
+}
+.svgContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.svgContainer svg text{
+    font-size: 14px;
+}
+
+.shop_list_container h6::before , .shop_list_container h6::after {
+    content: '';
+    width: 40px;
+    border-top: 4px solid !important;
+}
+.shop_list_container h6 svg{
+    height: 82px !important;
+    width: 82px !important;
 }
 .tourForm.added .notAddedButton{
     display: none
@@ -1228,6 +1269,9 @@ hr {
         max-height: 100vh;
         overflow  : hidden !important;
     }
+    .shop_list_container h6 span{
+        font-size: 5.6vw;
+    }
 
     .shop_container:not(.hide) {
         margin-top: 30px;
@@ -1403,7 +1447,11 @@ hr {
 
 }
 
-@media only screen and (max-width:991px) {}
+@media only screen and (min-width:1598px) {
+    .shop_list_container h6 span{
+        font-size: 25px;
+    }
+}
 
 
 
