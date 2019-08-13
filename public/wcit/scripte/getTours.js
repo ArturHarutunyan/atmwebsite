@@ -1,6 +1,6 @@
 var radioCount = 0
 var rCount = 0
-fetch('https://www.armeniatravel.am/api/wcit/excursions')
+fetch('tours.json')
     .then(function (response) {
         return response.json();
     })
@@ -181,14 +181,14 @@ function tourDescription(tour) {
                         <div class="shortDescription_show_all Private hide">
                             <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
                             <div class="allDescription mt-2">
-                                ${tour.description}
+                            <span class="font-weight-bold">Description: </span> ${tour.description}
                                 <span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
 
                         <div class="shortDescription_show_all Group">
                             <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
-                            <div class="allDescription mt-2"> ${tour.description}<span class="showLess font-weight-bold">show less</span>
+                            <div class="allDescription mt-2"><span class="font-weight-bold">Description: </span>  ${tour.description}<span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
                         <h5 class="my-1">includes</h5>
@@ -201,12 +201,12 @@ function tourDescription(tour) {
 
     description += `<div class="col-xl-4 px-0 py-0 text-right pr-2 pt-2 tour_price">
                         <div class="eur">
-                            <h2 class="black_color mb-0">${tour.prices.eur} EUR</h2>
+                            <h2 class="black_color mb-0">EUR${tour.prices.eur}</h2>
                             <p class="mt-0 pt-0 exclude_VAT">exclude VAT</p>
                         </div>
                         <div class="other_valutas">
-                            <div class="usd black_color font-weight-bold">${tour.prices.usd} USD</div>
-                            <div class="amd black_color font-weight-bold">${tour.prices.amd} AMD</div>
+                            <div class="usd black_color font-weight-bold">USD${tour.prices.usd} </div>
+                            <div class="amd black_color font-weight-bold">AMD${tour.prices.amd} </div>
                         </div>
                     </div>
                 </div>

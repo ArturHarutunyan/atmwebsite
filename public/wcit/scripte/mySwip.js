@@ -78,10 +78,10 @@ function getScrollbarWidth(element) {
             fixedContainer.classList.add('fixedContainer');
             fixedContainer.appendChild(swipeContainer);
             document.body.appendChild(fixedContainer);
-
+            console.log(galleryTop)
             var galleryTop2 = new Swiper(swipeContainer, {
                 // spaceBetween: 10,
-                initialSlide:galleryTop.activeIndex,
+                initialSlide:galleryTop.activeIndex- galleryTop.loopedSlides ,
                 navigation: {
 
                     // .next_swipe , .prev_swipe
