@@ -1,6 +1,6 @@
 var radioCount = 0
 var rCount = 0
-fetch('https://www.armeniatravel.am/api/wcit/excursions')
+fetch('tours.json')
     .then(function (response) {
         return response.json();
     })
@@ -18,8 +18,8 @@ function createTours(json) {
         excursionBlok.appendChild(createExcursionBlock(tour))
     });
     // document.body.innerHTML += `
-    
-    
+
+
     // <script src="./scripte/script.js">
     // </script><script src="./scripte/swipe.min.js"></script>
     // <script src="./scripte/mySwip.js"></script>
@@ -226,12 +226,12 @@ function tourDescription(tour) {
     }
 
     var dataGroup = JSON.stringify(tour.prices);
-    var dataPrivate =  JSON.stringify(tour.privatePrice);
-    console.log(dataGroup,dataPrivate)
-    
-                    //   <div class="Moption" data-value="" selected="">Language </div>
-                    
-                        // <div class="Moption" data-value="" selected="">Persons</div>
+    var dataPrivate = JSON.stringify(tour.privatePrice);
+    console.log(dataGroup, dataPrivate)
+
+    //   <div class="Moption" data-value="" selected="">Language </div>
+
+    // <div class="Moption" data-value="" selected="">Persons</div>
     var tourForm = `
         <div class="row tourForm" data-tourname="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
             <div class="radiosContainer custom_radio col-12 d-flex px-0" data-name="tour_type"> 
@@ -241,7 +241,7 @@ function tourDescription(tour) {
             </div>
             <div class="datePickerContainer" data-name="date"><input class="datepicker_input" type="text" data-validator="date" readonly="readonly"></div>
             <div class="tourLanguage" data-name="language">
-                <div class="select_container d-inline-block" data-placeholder='language' data-validator="language">
+                <div class="select_container d-inline-block" data-placeholder='Language' data-validator="language">
                    <div class="Mselect d-inline-block">
                       <div class="Moption" data-value="1"><span style='color:black; font-weight:bold;'>English</span> </div>
                       <div class="Moption" data-value="2"><span style='color:black; font-weight:bold;'>Russian</span> </div>
@@ -256,7 +256,7 @@ function tourDescription(tour) {
                     </div>
                 </div>
             </div>
-            <div class="addButtonContainer"><span class="btn btn-dark add_desktop"><span class='notAddedButton'>ADD</span> <span class='AddedButton'>ADDED</span> </span><span class="btn btn-dark add_mobile"><span class='notAddedButton'>ADD Excursion</span> <span class='AddedButton'>ADDED Excursion</span></span></div>
+            <div class="addButtonContainer"><span class="btn btn-dark add_desktop"><span class='notAddedButton'>ADD</span> <span class='AddedButton'>ADDED</span> </span><span class="btn btn-dark add_mobile"><span class='notAddedButton'>ADD Excursion</span> <span class='AddedButton'>Excursion is ADDED </span></span></div>
              </div>
              <div class="mobileShowForm row my-4 w-100 p-0"><span class="btn btn-dark w-100">pick tour options</span></div>
           </div>
