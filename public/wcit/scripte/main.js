@@ -222,7 +222,6 @@ function init() {
             if (!order.added || order == oneOrder) return;
 
             otherDate = order.html.querySelector('[data-validator="date"]').value;
-            console.log(order.html.classList.contains('added'),order)
             if(otherDate == date && order.html.classList.contains('added')){
 
                 isOrderValid = false;

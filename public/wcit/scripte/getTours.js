@@ -222,12 +222,16 @@ function tourDescription(tour) {
     //     label.font-weight-bold(for='t'+radioCount) Private      
     var mOption = ''
     for (var i = 1; i < 50; i++) {
-        mOption += `<div class="Moption" data-value="${i}">${i}</div>`
+        mOption += `<div class="Moption" data-value="${i}"><span style='color:black; font-weight:bold;'>${i}</span></div>`
     }
 
     var dataGroup = JSON.stringify(tour.prices);
     var dataPrivate =  JSON.stringify(tour.privatePrice);
     console.log(dataGroup,dataPrivate)
+    
+                    //   <div class="Moption" data-value="" selected="">Language </div>
+                    
+                        // <div class="Moption" data-value="" selected="">Persons</div>
     var tourForm = `
         <div class="row tourForm" data-tourname="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
             <div class="radiosContainer custom_radio col-12 d-flex px-0" data-name="tour_type"> 
@@ -237,22 +241,22 @@ function tourDescription(tour) {
             </div>
             <div class="datePickerContainer" data-name="date"><input class="datepicker_input" type="text" data-validator="date" readonly="readonly"></div>
             <div class="tourLanguage" data-name="language">
-                <div class="select_container d-inline-block" data-validator="language">
+                <div class="select_container d-inline-block" data-placeholder='language' data-validator="language">
                    <div class="Mselect d-inline-block">
-                      <div class="Moption" data-value="" selected="">Language </div>
-                      <div class="Moption" data-value="1">eng </div>
+                      <div class="Moption" data-value="1"><span style='color:black; font-weight:bold;'>English</span> </div>
+                      <div class="Moption" data-value="2"><span style='color:black; font-weight:bold;'>Russian</span> </div>
+                      <div class="Moption" data-value="3"><span style='color:black; font-weight:bold;'>French </span></div>
                    </div>
                 </div>
             </div>
             <div class="persons">
-                <div class="select_container d-inline-block" data-validator="persons" data-name="persons">
+                <div class="select_container d-inline-block" data-placeholder='Persons' data-validator="persons" data-name="persons">
                     <div class="Mselect d-inline-block">
-                        <div class="Moption" data-value="" selected="">Persons</div>
                     ` + mOption + `
                     </div>
                 </div>
             </div>
-            <div class="addButtonContainer"><span class="btn btn-dark add_desktop">Add</span><span class="btn btn-dark add_mobile">Add Excursion</span></div>
+            <div class="addButtonContainer"><span class="btn btn-dark add_desktop"><span class='notAddedButton'>ADD</span> <span class='AddedButton'>ADDED</span> </span><span class="btn btn-dark add_mobile"><span class='notAddedButton'>ADD Excursion</span> <span class='AddedButton'>ADDED Excursion</span></span></div>
              </div>
              <div class="mobileShowForm row my-4 w-100 p-0"><span class="btn btn-dark w-100">pick tour options</span></div>
           </div>
