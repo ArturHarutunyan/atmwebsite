@@ -191,7 +191,7 @@ function tourDescription(tour) {
                             <div class="allDescription mt-2"><span class="font-weight-bold">Description: </span>  ${tour.description}<span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
-                        <h5 class="my-1">includes</h5>
+                        <h5 class="my-1">Includes</h5>
                         <div class="includeContainer my-2">
                             `+ includes + `
                         </div>
