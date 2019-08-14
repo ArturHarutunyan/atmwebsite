@@ -1,0 +1,130 @@
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  width: 100px;
+  position: relative;
+  text-align: center;
+  min-height: 100px;
+  /* justify-content: center; */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex
+}
+.swipe-wrap > div {
+  width: 100%;
+  position: relative;
+  
+  min-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.swipe-wrap > div img{
+  width: 100%;
+}
+.swipe_container{
+  /* width: 300px; */
+  margin: auto;
+  position: relative;
+}
+.next_swipe , .prev_swipe{
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  color: #ffffff;
+  background: #ffffff;
+  opacity: 0.5;
+  padding:5px 10px; 
+  -webkit-transition: all 0.3s linear; 
+  transition: all 0.3s linear;
+  color: rgba(0, 76, 255, 0.911);
+}
+
+.next_swipe:hover , .prev_swipe:hover{
+  opacity: 1;
+}
+.next_swipe{
+  right: 0;
+}
+
+.hotel_starts{
+  background: #FDD402;
+  color: #ffffff;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding: 10px 10px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hotel_starts svg{
+  font-size: 13px;
+  width: auto;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  position: absolute;
+  top: 42%;
+  cursor: pointer;
+  background: #ffffff;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  opacity: 0.5;
+}
+
+
+.swiper-button-next svg, .swiper-button-prev svg {
+
+  width: 10px;
+  
+ 
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+.swiper-button-next {
+  right: 0;
+}
+
+.gallery-thumbs .swiper-slide{
+  margin-left: 2.2%;
+}
+  /* .gallery-thumbs .swiper-slide:first-child{
+  margin-left: 10%;
+}  */
+
+.gallery-thumbs .swiper-slide:first-child{
+ padding-left: 0 !important;
+} 
+
+
+
