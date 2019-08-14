@@ -626,6 +626,7 @@ hr {
     padding   : 50px;
     max-height: 100vh;
     max-width : 100vw;
+    z-index: 9999;
 }
 
 .fixedContainer .assessment_of_tur {
@@ -645,11 +646,12 @@ hr {
 .gallery-thumbs .swiper-button-next, .gallery-thumbs .swiper-button-prev{
     z-index: 9999;
     left: 0;
-    top: 10%;
+    top: 4%;
     height: calc(100% - 10px);
     display: flex;
     width: 10.1%;
     justify-content: center;
+    outline:  none !important;
 }
 
 .gallery-thumbs .swiper-button-next:hover, .gallery-thumbs .swiper-button-prev:hover{
