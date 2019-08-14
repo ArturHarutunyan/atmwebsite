@@ -1,6 +1,6 @@
 var radioCount = 0
 var rCount = 0
-fetch('https://www.armeniatravel.am/api/wcit/excursions')
+fetch('tours.json')
     .then(function (response) {
         return response.json();
     })
@@ -91,11 +91,7 @@ function swiperComponent(tour) {
     <div class="swipers_container col-xl-4">
     <div class="swiper-container gallery-top position-relative">
        <div class="preloader">
-          <svg class="lds-eclipse" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" preserveaspectratio="xMidYMid">
-             <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#28292f" transform="rotate(13.1609 50 51)">
-                <animatetransform attributename="transform" type="rotate" calcmode="linear" values="0 50 51;360 50 51" keytimes="0;1" dur="1s" begin="0s" repeatcount="indefinite"></animatetransform>
-             </path>
-          </svg>
+          <img src='./images/preloader.gif'/>
        </div>
     `;
 
