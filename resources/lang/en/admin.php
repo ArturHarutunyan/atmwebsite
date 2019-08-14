@@ -212,4 +212,6 @@
      "edit_the_photo"=>"Edit the photo",
      "photos"=>"Photos",
      "unique_services_content"=>"Unique services content",
+     "upload_images"=>"Upload images",
+
  ];

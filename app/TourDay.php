@@ -25,4 +25,8 @@ class TourDay extends Model
     {
         return $this->belongsTo('App\Tour');
     }
+    public function tour_day_images()
+    {
+        return $this->hasMany('App\TourDayImage');
+    }
 }

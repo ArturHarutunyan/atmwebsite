@@ -1,6 +1,7 @@
 @extends('backpack::layout')
 @push('after_styles')
-<link href="{{asset('css/custom.css')}}" rel="stylesheet">
+    <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
 @endpush
 @section('content')
     @if(count($errors)>0)
@@ -18,7 +19,7 @@
             <h2>
                 {{trans('admin.add_a_new_tour_day')}}
             </h2>
-            <form action="{{route('tour_day.store')}}" method="post">
+            <form action="{{route('tour_day.store')}}" method="post" id="main-form">
                 {{ csrf_field() }}
                 <ul class="nav nav-tabs">
                     @foreach(config('translatable.locales') as $key=>$value)
@@ -50,22 +51,62 @@
                         <option v-for="n in parseInt(count)" v-bind:value="n">@{{n}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <div class="text-center">
-                        <button class="btn btn-success" type="submit">{{trans('admin.store')}}</button>
-                    </div>
-                </div>
+                <input type="hidden" name="images_encoded">
             </form>
+            <div class="form-group">
+                <label for="images-dropzone">{{trans('admin.upload_images')}}</label>
+                <form action="{{route('tour_day.add_image')}}"
+                      method="post"
+                      class="dropzone"
+                      id="images-dropzone">
+                    {{csrf_field()}}
+                </form>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                    <button class="btn btn-success" id="main_submit" type="submit" form="main-form">{{trans('admin.store')}}</button>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
 @push('after_scripts')
-<script src="{{asset('js/tabs.js')}}"></script>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{ asset('js/tabs.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/dropzone.js') }}"></script>
 <script src="{{ asset('vendor/backpack/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('vendor/backpack/ckeditor/adapters/jquery.js') }}"></script>
 
 <script>
+    var files=[];
+    Dropzone.options.imagesDropzone = {
+        maxFilesize: 2, // MB
+        timeout: 1000000,
+        maxFiles: 20,
+        addRemoveLinks: true,
+        autoProcessQueue: false,
+        parallelUploads: 100,
+        init: function() {
+            var self=this;
+            var mainForm = document.getElementById('main-form');
+            mainForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                var c=0;
+                files.length=0;
+                for (var i = 0; i < self.files.length; i++) {
+                    self.processFile(self.files[i]);
+                    if(self.files[i].xhr.responseText){
+                        files.push(self.files[i].xhr.responseText);
+                    }
+                    c=i;
+                }
+                $('[name="images_encoded"]').val(JSON.stringify(files));
+                if(c==(self.files.length-1)){
+                    mainForm.submit();
+                }
+            });
+        }
+    };
     $(document).ready(function(){
         $('.ckeditor-content').ckeditor({
             "filebrowserBrowseUrl": "{{ url(config('backpack.base.route_prefix').'/elfinder/ckeditor') }}",
@@ -79,18 +120,14 @@
             count: 0,
         },
         mounted: function () {
-            //console.log(this.count);
-
             axios.get("{{route('tours.api')}}").then((response) => {
                 this.items = response.data;
-            var self=this;
-            this.items.filter(function (tour) {
-                if (self.selected == tour.id) {
-                    self.count = tour.days_count;
-                }
-            })
-
-            //console.log(this.items);
+                var self=this;
+                this.items.filter(function (tour) {
+                    if (self.selected == tour.id) {
+                        self.count = tour.days_count;
+                    }
+                });
             }).catch((error) => {
                 console.log(error);
             });

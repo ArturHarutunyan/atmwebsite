@@ -85,155 +85,112 @@
                             ++$first;
                         ?>
                         <div class="turs_items_container" >
-                                    @if($c%2)
+                            @if($c%2)
                                         <!-- <div class="col-md-6"></div>
                                         <div class="tourInner-content__asideRight">
                                             <h3 class="tourInner-content__title">{{trans('site.day')}} {{$day->day_number}}</h3>
                                             <div class="tourInner-content__text">{!! $day->text_content!!}</div>
                                         </div> -->
-
-                                        <!-- svg Line  1-->
-
-                                        <svg class="tursSVGLine {{$first==1? 'firstPathTur':null}}" style="z-index:{{$zIndex}} ;" xmlns:xlink="http://www.w3.org/1999/xlink"  style="overflow:visible" fill="none" preserveAspectRatio="none">
-                                            
-
-                                       
-                                            <path d="M -33 -86 Q 50.5 -22.5 -48 54" date_line="1" date_open='0' ></path>
-                                            <!-- <path d="M-49,-75 Q84.5,48.5,91,75" date_line="1" date_open='0' ></path> -->
-                                                
-
-                                            <defs>
-                                             <pattern id="secendBreackpointImage1" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                                                 <image xlink:href="{{asset('uploads/images/main/secondBreackpoint.png')}}" preserveAspectRatio="none"   width="1.01" height="1.01" >
-
-                                                 </image>
-                                             </pattern>
-                                             </defs>
-                                                 <circle cx="0" cy="0" class="breackpointCircle shadow" r="15" fill="#004270" >
-                                             </circle>
-                                        </svg>
-
-                                        <div class="tours_slider_container">
-                                            
-
-
-                                            <div class="slider">
-
-                                                <div class="slider-holder">
-
-                                                    <div class="owl-carousel">
-
-                                                        <div class="mySlides">
-                                                            <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
-                                                        </div>
-                                                        <div class="mySlides">
-                                                            <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
-                                                        </div>
-                                                        <div class="mySlides">
-                                                            <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
-                                                        </div>
-                                                      
-                                                    </div>
-
-                                                    <div class="controls slide_change_container">
-                                                    <span>
-                                                        <div class="arrowleft">←</div>
-                                                        
-                                                    </span>
-                                                    <span>
-                                                     <div class="arrowright">→</div>
-                                                   
-                                                    </span>
-                                                         </div>
-
-                                                </div>
-                                            </div>
-
-                                            
-                                        </div>
-                                        <div >
-                                            <h3 class="tourInner-content__title">
-                                               
-                                                <p class='h3Text'>{{trans('site.day')}} {{$day->day_number}}</p>
-
-                                                <span>+</span>
-                                            </h3>
-                                            <div class="tourInner-content__text">{!! $day->text_content!!}</div>
-                                        </div>
-                                    @else
-                                    
-                                    <!-- svg Line  2-->
-                                    <svg class="tursSVGLine" style="z-index:{{$zIndex}}" xmlns:xlink="http://www.w3.org/1999/xlink"  style="overflow:visible" fill="none" preserveAspectRatio="none">
-	
-                                        <path d="M -43 -80 Q -131.5 -22.5 -35 48"  date_line="2" date_open='0'   ></path>
-                                        <!-- <path d="M94, -50Q -70.5,55.5,-44,53" date_line="2" date_open='0'   ></path> -->
-                                        <!-- path("M -53 -76 Q -221.5 -31.5 91 78") -->
-
-                                        <defs>
-                                        <pattern id="secendBreackpointImage2" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                                <!-- svg Line  1-->
+                                <svg class="tursSVGLine {{$first==1? 'firstPathTur':null}}" style="z-index:{{$zIndex}} ;" xmlns:xlink="http://www.w3.org/1999/xlink"  style="overflow:visible" fill="none" preserveAspectRatio="none">
+                                    <path d="M -33 -86 Q 50.5 -22.5 -48 54" date_line="1" date_open='0' ></path>
+                                    <defs>
+                                        <pattern id="secendBreackpointImage1" height="100%" width="100%" patternContentUnits="objectBoundingBox">
                                             <image xlink:href="{{asset('uploads/images/main/secondBreackpoint.png')}}" preserveAspectRatio="none"   width="1.01" height="1.01" >
-
                                             </image>
                                         </pattern>
-                                         </defs>
-                                             <circle cx="0" cy="0" class="breackpointCircle shadow" r="15" fill="#004270" >
-                                         </circle>
-
-                                    </svg>
-                                    <!-- <div class="col-md-6 tourInner-content__asideLeft">
-                                        <h3 class="tourInner-content__title">{{trans('site.day')}} {{$day->day_number}}</h3>
-                                        <div class="tourInner-content__text">{!! $day->text_content!!}</div>
-                                    </div>  
-                                    <div class="col-md-6"></div>  -->
-                                         <div >   
-                                             <h3 class="tourInner-content__title">
-                                             <p class='h3Text'>{{trans('site.day')}} {{$day->day_number}}</p>
-
-                                                <span>+</span>
-                                             </h3>
-                                             <div class="tourInner-content__text">{!! $day->text_content!!}</div>
+                                    </defs>
+                                    <circle cx="0" cy="0" class="breackpointCircle shadow" r="15" fill="#004270" >
+                                    </circle>
+                                </svg>
+                                <div class="tours_slider_container">
+                                    <div class="slider">
+                                        <div class="slider-holder">
+                                            <div class="owl-carousel">
+                                                @foreach($day->tour_day_images as $day_image)
+                                                <div class="mySlides">
+                                                    <img data-src="{{asset($day_image->name)}}" style="width:100%">
+                                                </div>
+                                                @endforeach
+                                                {{--<div class="mySlides">
+                                                    <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                </div>
+                                                <div class="mySlides">
+                                                    <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                </div>--}}
+                                            </div>
+                                            <div class="controls slide_change_container">
+                                                <span>
+                                                    <div class="arrowleft">←</div>
+                                                </span>
+                                                <span>
+                                                    <div class="arrowright">→</div>
+                                                </span>
+                                            </div>
                                         </div>
-                                         
-                                             
-                                             <div class="tours_slider_container">
-                                        
-
-
-
-                                             <div class="slider">
-
-                                                    <div class="slider-holder">
-
-                                                        <div class="owl-carousel">
-
-                                                            <div class="mySlides">
-                                                                <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
-                                                            </div>
-                                                            <div class="mySlides">
-                                                                <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
-                                                            </div>
-                                                            <div class="mySlides">
-                                                                <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
-                                                            </div>
-                                                        
-                                                        </div>
-
-                                                        <div class="controls slide_change_container">
-                                                        <span>
-                                                            <div class="arrowleft">←</div>
-                                                            
-                                                        </span>
-                                                        <span>
-                                                        <div class="arrowright">→</div>
-                                                    
-                                                        </span>
-                                                            </div>
-
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="tourInner-content__title">
+                                        <p class='h3Text'>{{trans('site.day')}} {{$day->day_number}}</p>
+                                        <span>+</span>
+                                    </h3>
+                                    <div class="tourInner-content__text">{!! $day->text_content!!}</div>
+                                </div>
+                            @else
+                                <!-- svg Line  2-->
+                                <svg class="tursSVGLine" style="z-index:{{$zIndex}}" xmlns:xlink="http://www.w3.org/1999/xlink"  style="overflow:visible" fill="none" preserveAspectRatio="none">
+                                    <path d="M -43 -80 Q -131.5 -22.5 -35 48"  date_line="2" date_open='0'   ></path>
+                                    <!-- <path d="M94, -50Q -70.5,55.5,-44,53" date_line="2" date_open='0'   ></path> -->
+                                    <!-- path("M -53 -76 Q -221.5 -31.5 91 78") -->
+                                    <defs>
+                                    <pattern id="secendBreackpointImage2" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                                        <image xlink:href="{{asset('uploads/images/main/secondBreackpoint.png')}}" preserveAspectRatio="none"   width="1.01" height="1.01" >
+                                        </image>
+                                    </pattern>
+                                     </defs>
+                                         <circle cx="0" cy="0" class="breackpointCircle shadow" r="15" fill="#004270" >
+                                     </circle>
+                                </svg>
+                                <!-- <div class="col-md-6 tourInner-content__asideLeft">
+                                    <h3 class="tourInner-content__title">{{trans('site.day')}} {{$day->day_number}}</h3>
+                                    <div class="tourInner-content__text">{!! $day->text_content!!}</div>
+                                </div>
+                                <div class="col-md-6"></div>  -->
+                                <div>
+                                    <h3 class="tourInner-content__title">
+                                        <p class='h3Text'>{{trans('site.day')}} {{$day->day_number}}</p>
+                                        <span>+</span>
+                                    </h3>
+                                    <div class="tourInner-content__text">{!! $day->text_content!!}</div>
+                                </div>
+                                <div class="tours_slider_container">
+                                    <div class="slider">
+                                        <div class="slider-holder">
+                                            <div class="owl-carousel">
+                                                @foreach($day->tour_day_images as $day_image)
+                                                    <div class="mySlides">
+                                                        <img data-src="{{asset($day_image->name)}}" style="width:100%">
                                                     </div>
-                                                    </div>
-                                            
+                                                @endforeach
+                                                {{--<div class="mySlides">
+                                                    <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                </div>
+                                                <div class="mySlides">
+                                                    <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                </div>
+                                                <div class="mySlides">
+                                                    <img data-src="{{asset('uploads/tours/1533214003DSC01220.1.jpg')}}" style="width:100%">
+                                                </div>--}}
+                                            </div>
+                                            <div class="controls slide_change_container">
+                                                <span><div class="arrowleft">←</div></span>
+                                                <span><div class="arrowright">→</div></span>
+                                            </div>
                                         </div>
-                                    @endif
+                                    </div>
+                                </div>
+                            @endif
                          </div>
                     @endforeach
                 </aside>

@@ -221,10 +221,19 @@ Route::group(['prefix'=>'admin', 'middleware'=>'admin', 'namespace'=>'App\Http\C
         'uses'=>'TourDaysController@update',
         'as'=>'tour_day.update'
     ]);
+    Route::post('/tour_day/add_image', [
+        'uses'=>'TourDaysController@add_image',
+        'as'=>'tour_day.add_image'
+    ]);
+    Route::get('/tour_day/remove_image/{id}', [
+        'uses'=>'TourDaysController@remove_single_image',
+        'as'=>'tour_day.remove_single_image'
+    ]);
     Route::get('/tour_day/delete/{id}', [
         'uses'=>'TourDaysController@destroy',
         'as'=>'tour_day.delete'
     ]);
+
     Route::get('/tour_seasons', [
         'uses'=>'TourSeasonsController@index',
         'as'=>'tour_seasons'

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Tour;
 use App\TourDay;
+use App\TourDayImage;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class TourDaysController extends Controller
@@ -36,6 +39,39 @@ class TourDaysController extends Controller
     }
 
     /**
+     * Store an image in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function add_image(Request $request){
+        $image_raw=$request->file('file');
+        $image_new_name=time().$image_raw->getClientOriginalName();
+        $image_raw->move('uploads/tour_days',$image_new_name);
+        $image=resize_image('uploads/tour_days/'.$image_new_name,500,500);
+        $imageName = substr($image_new_name,0,strpos($image_new_name,"."));
+        unlink('uploads/tour_days/'.$image_new_name);
+        imagepng($image,'uploads/tour_days/'.$imageName.".png");
+        return response()->json('uploads/tour_days/'.rawurlencode($imageName).'.png');
+    }
+
+    /**
+     * Remove an image when clicked on a button on image from edit page
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function remove_single_image($id){
+        $image=TourDayImage::find($id);
+        $image_name=$image->name;
+        if(file_exists(public_path().'/'.$image_name)){
+            unlink($image_name);
+        }
+        $image->delete();
+        return redirect()->back();
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -44,38 +80,29 @@ class TourDaysController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            //'author' =>'required',
-            //'author_image' => 'image',
-            //'text_content' => 'required',
             'tour_id'=>'required',
             'day_number'=>'required'
         ]);
-
-            $tour_day=TourDay::create([
-                'tour_id'=>$request->tour_id,
-                'day_number'=>$request->day_number,
-            ]);
-
-            foreach (array_keys(config('translatable.locales')) as $locale) {
-                $text_content='text_content_'.$locale;
-                $tour_day->translateOrNew($locale)->text_content = $request->$text_content;
-
+        $tour_day=TourDay::create([
+            'tour_id'=>$request->tour_id,
+            'day_number'=>$request->day_number,
+        ]);
+        foreach (array_keys(config('translatable.locales')) as $locale) {
+            $text_content='text_content_'.$locale;
+            $tour_day->translateOrNew($locale)->text_content = $request->$text_content;
+        }
+        $tour_day->save();
+        if($request->images_encoded){
+            $images=json_decode($request->images_encoded);
+            foreach ($images as $image){
+                TourDayImage::create([
+                   'tour_day_id'=>$tour_day->id,
+                   'name'=>json_decode($image)
+                ]);
             }
-            $tour_day->save();
-
+        }
         Session::flash('success','Tour day created successfully.');
         return redirect()->back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -117,6 +144,15 @@ class TourDaysController extends Controller
             $tour_day->save();
         }
         $tour_day->save();
+        if($request->images_encoded){
+            $images=json_decode($request->images_encoded);
+            foreach ($images as $image){
+                TourDayImage::create([
+                    'tour_day_id'=>$tour_day->id,
+                    'name'=>json_decode($image)
+                ]);
+            }
+        }
         Session::flash('success', 'Tour day updated successfully');
         return redirect()->route('tour_days');
     }

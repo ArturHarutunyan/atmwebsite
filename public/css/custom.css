@@ -11,3 +11,49 @@
     height: 200px;
     margin-bottom: 15px;
 }
+.bottom-figure--wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+.bottom-figure--container{
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    position: relative;
+}
+.bottom-figure--container .overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.bottom-figure--container img{
+    width: 100%;
+    height: 100%;
+}
+.remove-button{
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 60px;
+    border-radius: 100px;
+    font-weight: bolder;
+    display: none;
+    text-align: center;
+    line-height: 1.75;
+}
+.bottom-figure--container:hover img{
+    opacity: 0.4;
+}
+.bottom-figure--container:hover .remove-button{
+    display: block;
+    z-index: 9;
+}
