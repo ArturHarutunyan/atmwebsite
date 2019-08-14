@@ -75,7 +75,11 @@ hr {
     padding-bottom: 50px;
     overflow      : auto;
 }
+.shop_list_container{
+    background: #fff !important;
 
+    /* padding-top:1px;  */
+}
 .mobileShowForm {
 
     width    : calc(100% + 15px) !important;
