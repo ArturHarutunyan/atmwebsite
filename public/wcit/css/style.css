@@ -33,6 +33,12 @@ p.excursionName span,
     font-family: D-DIN !important;
 }
 
+.getScrollPosition{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 /* src: url(./DINPro-Cond.otf); */
       :root {
     --gFontSize: 100%;
@@ -52,7 +58,7 @@ body {
     position: relative;
     height  : 100%;
 
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 body {
