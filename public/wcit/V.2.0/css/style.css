@@ -833,7 +833,9 @@ hr {
     -webkit-box-align: start;
     -ms-flex-align   : start;
     align-items      : flex-start;
-}
+    height: auto;
+    padding: 20px 0;
+ }
 
 .ArmeniaTravelLogo .limitWidth {
     width            : 100%;
