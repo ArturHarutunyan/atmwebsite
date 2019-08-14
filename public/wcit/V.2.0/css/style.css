@@ -452,7 +452,12 @@ hr {
     /* background            : #fff; */
     /* margin-right          : 0;*/
 }
-
+.headerBtn{
+    white-space: nowrap;
+    border-radius: 0;
+    padding: 15px 55px;
+    color: black;
+}
 .triangle_container {
     display          : -webkit-box;
     display          : -ms-flexbox;
@@ -475,6 +480,8 @@ hr {
     display: -ms-flexbox;
 
     display: flex;
+
+    display: none
 }
 
 
@@ -630,9 +637,31 @@ hr {
 }
 
 .excursion_component_container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    border-bottom: 4px solid black;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.gallery-thumbs .swiper-button-next, .gallery-thumbs .swiper-button-prev{
+    z-index: 9999;
+    left: 0;
+    top: 10%;
+    height: calc(100% - 10px);
+    display: flex;
+    width: 10.1%;
+    justify-content: center;
 }
 
+.gallery-thumbs .swiper-button-next:hover, .gallery-thumbs .swiper-button-prev:hover{
+    opacity:  1 !important;
+}
+.gallery-thumbs .swiper-button-next{
+    right: 11%;
+    left: inherit;
+}
+.gallery-thumbs{
+    position: relative;
+}
 /* .swiper-slide .swiper-slide-active{
     height: 100%;
 } */
@@ -841,6 +870,9 @@ hr {
 .contacts_block {
     padding: 0 15px;
 }
+.ArmeniaTravelLogo .limitWidth p {
+    font-size: 20px;
+}
 
 .ArmeniaTravelLogo .limitWidth {
     padding-left: 17px;
@@ -864,6 +896,38 @@ hr {
     display: none;
 }
 
+footer{
+    background: url(https://novostink.net/uploads/posts/2016-10/1476101518_14567583_623553577822574_5587602181120066047_o.jpg);
+    background-size: cover;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+footer .footerContent >div{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+
+    padding: 0;
+    flex-wrap: wrap;
+    text-align: center
+}
+footer  .footerContent h1{
+
+    font-family: D-DINlight !important;
+    letter-spacing: -1px;
+    
+    margin-right: 80px;
+    white-space: nowrap;
+}
+
+.travel_logo img{
+    width: 300px;
+}
 .excursion_component.showAll {
     max-height: none;
 }
@@ -873,6 +937,8 @@ hr {
     visibility: visible;
     height    : auto;
     opacity   : 1;
+    padding-left: 13%;
+    width: 113%
 }
 
 .excursion_component.showAll .swipers_container {
@@ -910,7 +976,7 @@ hr {
     content   : '';
     width     : 50px;
     display   : inline-block;
-    border-top: 2px solid black;
+    /* border-top: 2px solid black; */
     position  : absolute;
     top       : 130%;
     right     : 0;
@@ -1087,7 +1153,7 @@ hr {
     border-radius: 50%;
     /* top       : -10px; */
 
-    transform      : translateY(-5px);
+    transform      : translateY(-4px);
     left           : 5px;
     position       : relative;
     display        : inline-flex;
@@ -1292,9 +1358,9 @@ hr {
     }
 
     .ArmeniaTravelLogo .limitWidth {
-        -ms-flex-wrap: wrap;
+        /* -ms-flex-wrap: wrap;
         flex-wrap    : wrap;
-        text-align   : center;
+        text-align   : center; */
     }
 
     .ArmeniaTravelLogo .logo_circle,
@@ -1544,6 +1610,38 @@ hr {
 
 
 }
+
+@media only screen and (max-width:800px) {
+    .ArmeniaTravelLogo .limitWidth {
+        -ms-flex-wrap: wrap;
+        flex-wrap    : wrap;
+        /* text-align   : center; */
+    }
+    .ArmeniaTravelLogo .limitWidth .btn{
+        margin-top: 10px;
+        width:100%;
+    }
+    .ArmeniaTravelLogo{
+        min-height: 280px;
+    }
+    .ArmeniaTravelLogo p{
+        margin-right: 0 !important;
+    }
+    /* .ArmeniaTravelLogo .limitWidth  */
+
+
+}
+@media only screen and (max-width: 390px) {
+
+    footer .footerContent h1{
+        font-size: 30px;
+    }
+    .travel_logo img{
+        width: 280px;
+    }
+
+}
+
 
 @media only screen and (max-width: 333px) {
 

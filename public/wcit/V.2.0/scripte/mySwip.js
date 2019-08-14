@@ -32,6 +32,12 @@ function getScrollbarWidth(element) {
         centeredSlides: true,
         slidesPerView: 'auto',
         touchRatio: 1,
+        navigation: {
+
+            // .next_swipe , .prev_swipe
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
 
         slideToClickedSlide: true,
         loop: true,
