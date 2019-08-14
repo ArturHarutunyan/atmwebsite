@@ -641,7 +641,8 @@ hr {
     /* border: 2px solid black; */
     border-bottom: 4px solid black;
     padding-bottom: 10px;
-    overflow: hidden;
+    /* overflow-x: hidden;
+    overflow-y: visible; */
 }
 .gallery-thumbs .swiper-button-next, .gallery-thumbs .swiper-button-prev{
     z-index: 9999;
@@ -658,7 +659,8 @@ hr {
     opacity:  1 !important;
 }
 .gallery-thumbs .swiper-button-next{
-    right: 11%;
+    right: 7%;
+    width: 16.1%;
     left: inherit;
 }
 .gallery-thumbs{
