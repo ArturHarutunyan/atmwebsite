@@ -181,17 +181,17 @@ function tourDescription(tour) {
                         <div class="shortDescription_show_all Private hide">
                             <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
                             <div class="allDescription mt-2">
-                                ${tour.description}
+                            <span class="font-weight-bold">Description: </span> ${tour.description}
                                 <span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
 
                         <div class="shortDescription_show_all Group">
                             <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
-                            <div class="allDescription mt-2"> ${tour.description}<span class="showLess font-weight-bold">show less</span>
+                            <div class="allDescription mt-2"><span class="font-weight-bold">Description: </span>  ${tour.description}<span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
-                        <h5 class="my-1">includes</h5>
+                        <h5 class="my-1">Includes</h5>
                         <div class="includeContainer my-2">
                             `+ includes + `
                         </div>
@@ -201,12 +201,12 @@ function tourDescription(tour) {
 
     description += `<div class="col-xl-4 px-0 py-0 text-right pr-2 pt-2 tour_price">
                         <div class="eur">
-                            <h2 class="black_color mb-0">${tour.prices.eur} EUR</h2>
+                            <h2 class="black_color mb-0">EUR${tour.prices.eur}</h2>
                             <p class="mt-0 pt-0 exclude_VAT">exclude VAT</p>
                         </div>
                         <div class="other_valutas">
-                            <div class="usd black_color font-weight-bold">${tour.prices.usd} USD</div>
-                            <div class="amd black_color font-weight-bold">${tour.prices.amd} AMD</div>
+                            <div class="usd black_color font-weight-bold">USD${tour.prices.usd} </div>
+                            <div class="amd black_color font-weight-bold">AMD${tour.prices.amd} </div>
                         </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ function tourDescription(tour) {
     //     label.font-weight-bold(for='t'+radioCount) Private      
     var mOption = ''
     for (var i = 1; i < 50; i++) {
-        mOption += `<div class="Moption" data-value="${i}"><span style='color:black; font-weight:bold;'>${i}</span></div>`
+        mOption += `<div class="Moption" data-value="${i}"><span style='color:black; font-weight:bold;' class="font-weight-bold">${i}</span></div>`
     }
 
     var dataGroup = JSON.stringify(tour.prices);
@@ -243,9 +243,9 @@ function tourDescription(tour) {
             <div class="tourLanguage" data-name="language">
                 <div class="select_container d-inline-block" data-placeholder='Language' data-validator="language">
                    <div class="Mselect d-inline-block">
-                      <div class="Moption" data-value="1"><span style='color:black; font-weight:bold;'>English</span> </div>
-                      <div class="Moption" data-value="2"><span style='color:black; font-weight:bold;'>Russian</span> </div>
-                      <div class="Moption" data-value="3"><span style='color:black; font-weight:bold;'>French </span></div>
+                      <div class="Moption" data-value="1"><span style='color:black; ' class='font-weight-bold'>English</span> </div>
+                      <div class="Moption" data-value="2"><span style='color:black; ' class='font-weight-bold'>Russian</span> </div>
+                      <div class="Moption" data-value="3"><span style='color:black; ' class='font-weight-bold'>French </span></div>
                    </div>
                 </div>
             </div>

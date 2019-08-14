@@ -8,7 +8,7 @@ function getScrollbarWidth(element) {
 }
 
 
-[].forEach.call(swipesContainers,function(swiperContainer) {
+[].forEach.call(swipesContainers, function (swiperContainer) {
     var galleryTopElem = swiperContainer.querySelector('.gallery-top');
     var galleryThumbsElem = swiperContainer.querySelector('.gallery-thumbs');
 
@@ -24,28 +24,25 @@ function getScrollbarWidth(element) {
             prevEl: '.swiper-button-prev',
         },
         loop: true,
-        loopedSlides: 5
+        loopedSlides: 100
     });
     var galleryThumbs = new Swiper(galleryThumbsElem, {
         // spaceBetween: 10,
-      
+
         centeredSlides: true,
         slidesPerView: 'auto',
         touchRatio: 1,
-        
+
         slideToClickedSlide: true,
         loop: true,
-        loopedSlides: 5
+        loopedSlides: 100
 
     });
 
-    setTimeout(function () {
 
 
-        galleryTop.controller.control = galleryThumbs;
-        galleryThumbs.controller.control = galleryTop;
-    }, 2000)
-
+    galleryTop.controller.control = galleryThumbs;
+    galleryThumbs.controller.control = galleryTop;
 
 
 
@@ -78,17 +75,17 @@ function getScrollbarWidth(element) {
             fixedContainer.classList.add('fixedContainer');
             fixedContainer.appendChild(swipeContainer);
             document.body.appendChild(fixedContainer);
-
+            console.log(galleryTop)
             var galleryTop2 = new Swiper(swipeContainer, {
                 // spaceBetween: 10,
-                initialSlide:galleryTop.activeIndex,
+                initialSlide: galleryTop.activeIndex - galleryTop.loopedSlides,
                 navigation: {
 
                     // .next_swipe , .prev_swipe
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
-                lazy:true,
+                lazy: true,
                 loop: true,
                 touchRatio: 1,
                 loopedSlides: 5,
@@ -97,7 +94,7 @@ function getScrollbarWidth(element) {
 
             currentFixedSlider = galleryTop2
             var images = fixedContainer.querySelectorAll('[data-src]')
-            
+
             Array.from(images).forEach(image => preloadImage(image));
             // lazyLoad()
             // lazyLoad()

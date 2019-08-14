@@ -5,6 +5,7 @@ html(lang='en')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		meta(http-equiv='X-UA-Compatible', content='ie=edge')
 		title Document
+		//- link(rel="stylesheet", href="./css/D-DIN.otf")
 		link(rel='stylesheet', href='./css/bootstrap.min.css')
 		link(rel='stylesheet', href='./css/pickmeup.css')
 		link(rel='stylesheet', href='./css/swiper.css')
@@ -12,6 +13,7 @@ html(lang='en')
 		script(src="./scripte/getTours.js")
 	body.body
 		//- input(style="position:fixed;z-index:-999999; top:0" id="hid")
+		.getScrollPosition
 		.wrapper.container-fluid
 			.nav_bar
 				img(style='width:100%;', src='./images/timeHeader.jpg', alt='timeHeader')
@@ -38,7 +40,7 @@ html(lang='en')
 									g#About-Event(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
 										g#About(transform='translate(-706.000000, -3965.000000)', fill='#000000')
 											polygon#Fill-1(transform='translate(719.000000, 3978.000000) rotate(90.000000) translate(-719.000000, -3978.000000) ', points='732 3970.99149 724.991991 3978 732 3985.00758 726.008009 3991 719 3983.99242 711.991991 3991 706 3985.00758 713.008009 3978 706 3970.99149 711.991991 3965 719 3972.00851 726.008009 3965')
-							p.my-0.py-1.font-weight-bold Kristina Garibyan – Tourismmanager
+							p.my-0.py-1.font-weight-bold Kristina Garibyan – Tourism manager
 							address.my-0.py-1.black_color
 								| Phone: 
 								a.black_color(href='tel:+37494270181')  +37494 27 01 81
@@ -57,7 +59,7 @@ html(lang='en')
 									g#About-Event(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
 										g#About(transform='translate(-706.000000, -3965.000000)', fill='#000000')
 											polygon#Fill-1(transform='translate(719.000000, 3978.000000) rotate(90.000000) translate(-719.000000, -3978.000000) ', points='732 3970.99149 724.991991 3978 732 3985.00758 726.008009 3991 719 3983.99242 711.991991 3991 706 3985.00758 713.008009 3978 706 3970.99149 711.991991 3965 719 3972.00851 726.008009 3965')
-							p.my-0.py-1.font-weight-bold Hakob Kpryan – Tourismmanager 
+							p.my-0.py-1.font-weight-bold Hakob Kpryan – Tourism manager 
 							address.my-0.py-1.black_color
 								| Phone: 
 								a.black_color(href='tel:+37493446558')  +37493 44 65 58
@@ -107,7 +109,7 @@ html(lang='en')
 									<div class="excursion_amount">70 EUR</div>
 									</div>
 							.total_price.black_color.font-weight-bold.text-right.mt-2
-								span Total Price
+								span Total Price: 
 								span.tPrice  130 EUR
 						h4.black_color.mt-5 Contacts
 						.contacts_form

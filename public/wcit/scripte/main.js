@@ -45,6 +45,10 @@ if (window.dispatchEvent) {
     window.dispatchEvent(event);
 }
 
+
+// document.onscroll = function(){
+//     this.focus()
+// }
 // Setup isScrolling variable
 var isScrolling;
 
@@ -164,9 +168,9 @@ var tourForms = document.querySelectorAll('.tourForm');
 
 
             var descContainer = oneTourForm.previousElementSibling
-            descContainer.querySelector('.eur h2').innerHTML = prices.eur + "EUR";
-            descContainer.querySelector('.usd').innerHTML = prices.usd + "USD";
-            descContainer.querySelector('.amd').innerHTML = prices.amd + "AMD";
+            descContainer.querySelector('.eur h2').innerHTML =  " EUR"+ prices.eur  ;
+            descContainer.querySelector('.usd').innerHTML =  "USD" + prices.usd  ;
+            descContainer.querySelector('.amd').innerHTML =  "AMD" + prices.amd  ;
              
             console.log(prices)
         }
@@ -278,7 +282,7 @@ function init() {
 
 
 
-        var shopListItem = '<div class="excursion_name">' + tourName + '</div><div class="excursion_price">' + price + ' EUR</div><div class="excursion_type">' + persons + '</div><div class="excursion_amount">' + amount + ' EUR</div><div class="remove_item">x</div> '
+        var shopListItem = '<div class="excursion_name">' + tourName + '</div><div class="excursion_price"> EUR  ' + price + '</div><div class="excursion_type">' + persons + '</div><div class="excursion_amount"> EUR  ' + amount + '</div><div class="remove_item">x</div> '
 
         var sItem = document.createElement('div')
         sItem.classList.add('one_item');
@@ -298,7 +302,7 @@ function init() {
     })
 
 
-    document.querySelector('.tPrice').innerHTML = total + 'EUR';
+    document.querySelector('.tPrice').innerHTML =   ' EUR ' + total ;
 
 
     if (!total) {

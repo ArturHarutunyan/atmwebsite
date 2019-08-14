@@ -977,7 +977,12 @@
 					top += 'px';
 				}
 				root_element.style.left = parseInt( left) - this.offsetWidth +'px';
-				root_element.style.top  = parseInt( top )+ this.offsetHeight + Math.abs(document.querySelector('.wrapper').getBoundingClientRect().top) + 'px';
+				// alert(this.getBoundingClientRect().top+ ' | ' + window.innerHeight)
+				if (this.getBoundingClientRect().top + root_element.offsetHeight > window.innerHeight) {
+					root_element.style.top  =   this.getBoundingClientRect().top + Math.abs(document.querySelector('.getScrollPosition').getBoundingClientRect().top)  - (root_element.offsetHeight) + 'px';
+			
+				}else
+					root_element.style.top  =  this.offsetHeight + this.getBoundingClientRect().top + Math.abs(document.querySelector('.getScrollPosition').getBoundingClientRect().top) + 'px';
 				setTimeout(function () {
 					dom_on(target, document.documentElement, 'click', options.bound.hide);
 					dom_on(target, window, 'resize', options.bound.forced_show);
