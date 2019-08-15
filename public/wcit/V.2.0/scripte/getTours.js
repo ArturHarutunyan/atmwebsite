@@ -1,6 +1,6 @@
 var radioCount = 0
 var rCount = 0
-fetch('https://www.armeniatravel.am/api/wcit/excursions')
+fetch('tours.json')
     .then(function (response) {
         return response.json();
     })

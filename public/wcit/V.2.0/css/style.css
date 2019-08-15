@@ -541,6 +541,8 @@ hr {
     min-height   : 10px;
     min-width    : 10px;
     height       : 100%;
+    object-fit: cover;
+    min-height: 250px;
 }
 
 .gallery-top .swiper-wrapper {
@@ -1016,12 +1018,12 @@ footer  .footerContent h1{
 .Guaranteed_icons {
     display        : flex;
     flex-wrap      : wrap;
-    justify-content: space-between;
 }
 
 .Guaranteed_icons>* {
     width : 17%;
     height: auto;
+    margin-right: 15px;
 
 }
 
@@ -1198,6 +1200,9 @@ footer  .footerContent h1{
 
 }
 
+
+
+
 @media only screen and (min-width: 1200px) {
 
 
@@ -1235,6 +1240,25 @@ footer  .footerContent h1{
 }
 
 
+@media only screen and (min-width: 1800px) {
+    div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
+        height: 100% !important;
+        /* object-fit: cover; */
+    }
+}
+@media only screen and (max-width:1480px) and (min-width:1200px) {
+
+    .selected_container,
+    .absolute_container {
+        width: 136px;
+    }
+
+    div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
+        height: 225px !important;
+        min-height: 225px !important;
+        /* object-fit: cover; */
+    }
+}
 
 
 @media only screen and (max-width: 1360px) {
