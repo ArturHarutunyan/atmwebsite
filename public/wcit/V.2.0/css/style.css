@@ -129,7 +129,7 @@ hr {
 
 }
 
-.preloader svg {
+.preloader img {
     width      : 100px;
     font-weight: bolder;
 }
@@ -344,6 +344,10 @@ hr {
     color        : black;
 }
 
+.shortDescription_show_all > span , .shortDescription_show_all > p,body > div.wrapper.container-fluid > div.row.limitWidth.mt-5.bigContentRow > div.col-lg-8.excursion_block > div:nth-child(3) > div > div.excursion_description_form.col-xl-8 > div > div:nth-child(1) > div.col-xl-8.px-0.py-0 > div > div.shortDescription_show_all.Group > div > span:nth-child(1){
+    
+    font-family:  D-DINLighter !important
+}
 .head_select_container h1,
 .descriptionContainer span,
 .descriptionContainer+h5 {
@@ -403,7 +407,9 @@ hr {
 
 
 /* paddings of custom select */
-
+.excursion_component.showAll .allDescription {
+    font-family:  D-DINLighter !important
+}
 .Mselect .selected_container>div,
 .Moption {
     padding: 8px;
@@ -829,12 +835,18 @@ hr {
     font-weight  : bold;
     border       : none;
 }
+.IncludesTitle{
+    font-family: D-DINlight !important;
+    margin-bottom: 5px !important;
+    font-size: 20px;
+    display: inline-block;
+}
 
 .showMore,
 .showLess {
     cursor         : pointer;
     white-space    : nowrap;
-    font-size      : 16px !important;
+    font-size      : 12px !important;
     text-decoration: underline;
 }
 
@@ -941,6 +953,13 @@ hr {
 .excursion_component.showAll .shortDescription_show_all>span:nth-child(3) {
     display: none;
 }
+.excursion_component.showAll .allDescription > span:first-child:not(.showMore){
+    font-family: D-DINLighter !important
+}
+
+.shortDescription_show_all  .showMore {
+    font-family: D-DIN !important
+}
 
 footer {
     background     :  url(../images/backgroundF2.svg), black url(../images/footerBg1.jpg);
@@ -951,6 +970,9 @@ footer {
     background-repeat: no-repeat;
     align-items    : center;
     justify-content: flex-start;
+
+    max-width: 100vw;
+    overflow: hidden;
 
 }
 
@@ -981,6 +1003,9 @@ footer .footerContent h1 {
 
 .excursion_component.showAll {
     max-height: none;
+}
+.excursion_component {
+    justify-content: space-between
 }
 
 .excursion_component.showAll .gallery-thumbs {
@@ -1214,6 +1239,11 @@ footer .footerContent h1 {
     align-items    : center;
 }
 
+div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
+    /* max-height: 100%; */
+    /* min-height: 400px; */
+}
+
 .shopListMobileShow {
     display            : none;
     background         : #fff;
@@ -1253,7 +1283,7 @@ footer .footerContent h1 {
     }
 
     div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
-        height       : 250px !important;
+        /* height       : 250px !important; */
         /* object-fit: cover; */
     }
 
@@ -1262,7 +1292,7 @@ footer .footerContent h1 {
 
 
     .swipers_container {
-        max-width     : 500px;
+        /* max-width     : 500px; */
         /* max-height : 400px !important; */
     }
 
@@ -1284,7 +1314,7 @@ footer .footerContent h1 {
 
 @media only screen and (min-width: 1800px) {
     div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
-        height       : 100% !important;
+        /* height       : 100% !important; */
         /* object-fit: cover; */
     }
 }
@@ -1297,8 +1327,8 @@ footer .footerContent h1 {
     }
 
     div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
-        height       : 225px !important;
-        min-height   : 225px !important;
+        /* height       : 225px !important;
+        min-height   : 225px !important; */
         /* object-fit: cover; */
     }
 }
@@ -1532,7 +1562,9 @@ footer .footerContent h1 {
     }
 
 
-
+    .wrapper{
+        overflow: hidden !important;
+    }
     .shop_list_container {
         position  : fixed;
         bottom    : calc(-100vh + 50px);

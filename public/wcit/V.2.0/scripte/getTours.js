@@ -91,6 +91,7 @@ function swiperComponent(tour) {
     
     <div class="swipers_container col-xl-4">
     <div class="swiper-container gallery-top position-relative">
+     
        <div class="preloader">
           <img src='./images/preloader.gif'/>
        </div>
@@ -109,7 +110,10 @@ function swiperComponent(tour) {
                     <svg class="svg-inline--fa fa-angle-left fa-w-6 fa-fw fa-2x" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-left" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 192 512">
                     <path fill="currentColor" d="M4.2 247.5L151 99.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17L69.3 256l118.5 119.7c4.7 4.7 4.7 12.3 0 17L168 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 264.5c-4.7-4.7-4.7-12.3 0-17z"></path>
                     </svg>
-                </div>`;
+                </div>
+                
+              
+                `;
 
 
     var assessment_of_tur = `<div class="assessment_of_tur">${tour.assessment_of_tur ? tour.assessment_of_tur : '5+'} </div>`;
@@ -138,7 +142,7 @@ function swiperComponent(tour) {
         swiperWrapper += item
     })
 
-    galleryThumbs += swiperWrapper += '</div>';
+    galleryThumbs += swiperWrapper += `</div>`;
 
     swiperComponent += swiperWrapper;
     swiperComponent += buttons;
@@ -186,7 +190,7 @@ function tourDescription(tour) {
     var privateDescription =
         `<div class="descriptionContainer">
                         <div class="shortDescription_show_all Private hide">
-                            <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
+                            <span class="">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
                             <div class="allDescription mt-2">
                             <span class="font-weight-bold">Description: </span> ${tour.description}
                                 <span class="showLess font-weight-bold">show less</span>
@@ -194,11 +198,11 @@ function tourDescription(tour) {
                         </div>
 
                         <div class="shortDescription_show_all Group">
-                            <span class="font-weight-bold">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
+                            <span class="">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
                             <div class="allDescription mt-2"><span class="font-weight-bold">Description: </span>  ${tour.description}<span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
-                        <h5 class="my-1">Includes</h5>
+                        <span class="my-1 IncludesTitle">Includes</span>
                         <div class="includeContainer my-2">
                             `+ includes + `
                         </div>
