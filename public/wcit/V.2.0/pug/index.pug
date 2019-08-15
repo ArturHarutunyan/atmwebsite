@@ -10,6 +10,7 @@ html(lang='en')
 		link(rel='stylesheet', href='./css/pickmeup.css')
 		link(rel='stylesheet', href='./css/swiper.css')
 		link(rel='stylesheet', href='./css/style.css')
+		link(rel='stylesheet', href='./css/extremal.css')
 		script(src="./scripte/getTours.js")
 	body.body
 		//- input(style="position:fixed;z-index:-999999; top:0" id="hid")
@@ -76,8 +77,9 @@ html(lang='en')
 								a.black_color(href='mailto:hakob.kpryan@armeniatravel.am') hakob.kpryan@armeniatravel.am
 								br
 							hr(color='black')
-			.row.limitWidth.mt-5
+			.row.limitWidth.mt-5.bigContentRow
 				.col-lg-8.excursion_block
+					iframe(name='frame' width='100%'  class='resizeContent' style='position:absolute;z-index:-1;visibility:hidden')
 					.head_select_container.mb-4
 						h1 Excursion 
 						p.d-inline-block
@@ -129,7 +131,7 @@ html(lang='en')
 								input.contact_name(type='text', placeholder='* Organization', data-name='Organization')
 							.pay_button.text-right.mt-4.hide
 								span.btn.btn-dark Send Request
-						h6.mt-4.pt-4.black_color 
+						//- h6.mt-4.pt-4.black_color 
 								svg(xmlns='http://www.w3.org/2000/svg' version='1.0' width='184.000000pt' height='156.000000pt' viewbox='0 0 184.000000 156.000000' preserveaspectratio='xMidYMid meet')
 									metadata
 									| Created by potrace 1.13, written by Peter Selinger 2001-2015
@@ -142,7 +144,7 @@ html(lang='en')
 											
 								
 					
-						.Guaranteed_icons.d-flex
+						//- .Guaranteed_icons.d-flex
 							svg#Layer_1(xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns#' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:sodipodi='http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd' xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape' version='1.1' x='0px' y='0px' width='1000.046' height='323.65302' viewbox='0 0 1000.046 323.653' enable-background='new 0 0 258.381 161.154' xml:space='preserve' inkscape:version='0.91 r13725' sodipodi:docname='Visa_2006.svg')
 								metadata#metadata23
 									rdf:rdf

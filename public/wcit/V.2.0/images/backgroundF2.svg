@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111px" height="105px" viewBox="0 0 111 105" version="1.1" style="&#10;    /* background: black; */&#10;">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Polygon 2</title>
+    <desc xmlns="http://www.w3.org/2000/svg">Created with Sketch.</desc>
+
+
+    <g xmlns="http://www.w3.org/2000/svg" y="10" id="About-Event" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" style="&#10;    /* y: 10px; */&#10;">
+        <g id="About" transform="scale(0.4) translate(-606.000000, -3805.000000)" fill="#fff" style="&#10;    transform: scale(0.2) translate(-484px, -3766px)!important;&#10;">
+            <polygon id="Fill-1" transform=" translate(760, 4025) rotate(90.000000) translate(-719.000000, -3978) " points="732 3970.99149 724.991991 3978 732 3985.00758 726.008009 3991 719 3983.99242 711.991991 3991 706 3985.00758 713.008009 3978 706 3970.99149 711.991991 3965 719 3972.00851 726.008009 3965" style="&#10;    transform: translate(760, 4025) rotate(90.000000) translate(-719.000000, -3978);&#10;"/>
+        </g>
+    </g><g id="About-Event" stroke="none" stroke-width="0.01" fill="none" fill-rule="evenodd" style="&#10;    stroke: 1px;&#10;    stroke-width: 1px !important;&#10;">
+        <g id="About" transform="translate(-664.000000, -3919.000000)" stroke="#fff" stroke-width="4">
+            <polygon id="Polygon-2" points="719.5 3922 772 3960.1966 751.946784 4022 687.053216 4022 667 3960.1966" style="&#10;    stroke-width: 1px;&#10;"/>
+        </g>
+    </g>
+</svg>

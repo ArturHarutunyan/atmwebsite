@@ -45,6 +45,9 @@ p.excursionName span,
     left    : 0;
 }
 
+
+
+
 /* src: url(./DINPro-Cond.otf); */
       :root {
     --gFontSize: 100%;
@@ -274,14 +277,15 @@ hr {
     cursor      : pointer;
     line-height : 20px;
     display     : inline-block;
-    color       : #666;
+    /* color       : #666; */
     font-size   : 18px;
+    
+    color: black;
+
     font-family : D-DINLighter !important;
 }
 
 .custom_radio [type="radio"]:checked+label.font-weight-bold {
-    color: black;
-
     font-family: D-DIN !important;
 }
 
@@ -337,7 +341,7 @@ hr {
 
 .descriptionContainer {
     padding-right: 10px;
-    color        : gray;
+    color        : black;
 }
 
 .head_select_container h1,
@@ -939,10 +943,12 @@ hr {
 }
 
 footer {
-    background     : url(https://novostink.net/uploads/posts/2016-10/1476101518_14567583_623553577822574_5587602181120066047_o.jpg);
-    background-size: cover;
+    background     :  url(../images/backgroundF2.svg), black url(../images/footerBg1.jpg);
+    background-size:400px , cover;
+    background-position: 105% -50px ,center;
     min-height     : 200px;
     display        : flex;
+    background-repeat: no-repeat;
     align-items    : center;
     justify-content: flex-start;
 
@@ -1487,6 +1493,10 @@ footer .footerContent h1 {
         overflow  : hidden !important;
     }
 
+    .wrapper{
+        overflow: hidden;
+    }
+
     .shop_list_container h6 span {
         font-size: 5.6vw;
     }
@@ -1663,6 +1673,23 @@ footer .footerContent h1 {
         padding-right: 1.5rem;
     }
 
+    .bigContentRow{
+        flex-wrap: nowrap;
+    }
+    
+    .bigContentRow.show .excursion_block{
+        flex: 0 0 66.666667% !important;
+        max-width: 66.666667% !important;
+    }
+    .bigContentRow:not(.show)
+    .shop_list_container{
+        display: none
+    }
+    .bigContentRow .excursion_block{
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        /* transition: all .5s; */
+    }
 
 }
 
