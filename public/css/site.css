@@ -3090,8 +3090,18 @@ a:hover, a:focus{
 	from {opacity: .9}
 	to {opacity: 1}
 }*/
+
+div{
+
+}
+
 .slider{
-	position: relative;
+    position: relative !important;
+    height:fit-content;
+}
+
+.slider img{
+    object-fit: cover !important;
 }
 .controls{
 	position: absolute;
@@ -3156,7 +3166,7 @@ a:hover, a:focus{
 }
 .slide_change_container{
     position: absolute;
-    top:200px;
+    top:50%;
 }
 .turs_items_container{
     position: relative;
