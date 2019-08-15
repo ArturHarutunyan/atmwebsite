@@ -76,7 +76,7 @@ var eventEndDate = new Date('2019-10-9');
         }
     });
     elem.value = '';
-    elem.setAttribute('placeholder', 'Choose Date');
+    elem.setAttribute('placeholder', 'Date');
 
     elem.selectedInfo = { date: null, datepicker: elem }
 

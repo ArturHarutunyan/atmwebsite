@@ -1,6 +1,7 @@
 var radioCount = 0
-var rCount = 0
-fetch('tours.json')
+var rCount = 0;
+// https://www.armeniatravel.am/api/wcit/excursions
+fetch('https://www.armeniatravel.am/api/wcit/excursions')
     .then(function (response) {
         return response.json();
     })
@@ -247,7 +248,7 @@ function tourDescription(tour) {
             </div>
             <div class="datePickerContainer" data-name="date"><input class="datepicker_input" type="text" data-validator="date" readonly="readonly"></div>
             <div class="tourLanguage" data-name="language">
-                <div class="select_container d-inline-block" data-placeholder='Language' data-validator="language">
+                <div class="select_container d-inline-block" data-placeholder='<span style="color:gray;font-weight: 100;">Language</span>' data-validator="language">
                    <div class="Mselect d-inline-block">
                       <div class="Moption" data-value="1"><span style='color:black; ' class='font-weight-bold'>English</span> </div>
                       <div class="Moption" data-value="2"><span style='color:black; ' class='font-weight-bold'>Russian</span> </div>
@@ -256,7 +257,7 @@ function tourDescription(tour) {
                 </div>
             </div>
             <div class="persons">
-                <div class="select_container d-inline-block" data-placeholder='Persons' data-validator="persons" data-name="persons">
+                <div class="select_container d-inline-block" data-placeholder='<span style="color:gray;font-weight: 100;">Persons </span>' data-validator="persons" data-name="persons">
                     <div class="Mselect d-inline-block">
                     ` + mOption + `
                     </div>
