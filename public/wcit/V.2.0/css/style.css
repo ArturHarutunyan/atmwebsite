@@ -666,6 +666,10 @@ hr {
     z-index   : 9999;
 }
 
+.fixedContainer .swiper-container{
+    height: 100% !important;
+}
+
 .fixedContainer .assessment_of_tur {
     display: none !important;
 }
