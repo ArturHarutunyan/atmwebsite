@@ -368,36 +368,12 @@ document.querySelector('.pay_button').onclick = function (event) {
 
 
 var containerWidth = document.querySelector('.resizeContent').contentWindow.innerWidth;
-let root = document.documentElement;
-    
-root.style.setProperty('--swipeImageHeight', ((containerWidth/100)*30)-50 + "px");
-
-window.dispatchEvent(new Event('resize'));
-setTimeout(function(){
-
-    window.dispatchEvent(new Event('resize'));
-})
-
-if(window.innerWidth<1200){
-    root.style.setProperty('--swipeImageHeight', 100+ "%");
-}
+resizeImages(containerWidth)
 
 document.querySelector('.resizeContent').contentWindow.onresize = function(event){
     
     var containerWidth = event.target.innerWidth;
-    let root = document.documentElement;
-    
-    root.style.setProperty('--swipeImageHeight', ((containerWidth/100)*29)-50 + "px");
-
-    window.dispatchEvent(new Event('resize'));
-    setTimeout(function(){
-
-        window.dispatchEvent(new Event('resize'));
-    })
-
-    if(window.innerWidth<1200){
-        root.style.setProperty('--swipeImageHeight', 100+ "%");
-    }
+    resizeImages(containerWidth)
     // --swipeImageHeight
 
 

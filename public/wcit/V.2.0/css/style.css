@@ -571,6 +571,8 @@ hr {
     min-width    : 10px;
     height       : 100%;
     object-fit   : cover;
+
+    max-height: 100vh;
     /* min-height   : 250px; */
 }
 
@@ -617,7 +619,7 @@ hr {
 }
 
 .gallery-top {
-    height: auto;
+    height: auto !important;
     width : 100%;
 }
 
@@ -683,13 +685,22 @@ hr {
 .gallery-thumbs .swiper-button-next,
 .gallery-thumbs .swiper-button-prev {
     z-index        : 9999;
-    left           : 0;
+    left           : -1%;
     top            : 4%;
     height         : calc(100% - 10px);
     display        : flex;
-    width          : 10.1%;
+    width          : 11.1%;
     justify-content: center;
     outline        : none !important;
+    backface-visibility: hidden;
+    align-items: center;
+}
+.gallery-thumbs .swiper-button-next svg,
+.gallery-thumbs .swiper-button-prev svg{
+    width: 100%;
+    backface-visibility: hidden;
+    height: 30px;
+    
 }
 
 .gallery-thumbs .swiper-button-next:hover,
@@ -698,8 +709,8 @@ hr {
 }
 
 .gallery-thumbs .swiper-button-next {
-    right: 7%;
-    width: 16.1%;
+    right: 10%;
+    width: 13.1%;
     left : inherit;
 }
 
@@ -1285,7 +1296,7 @@ div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
 
     .swipers_container {
         /* overflow: hidden; */
-        max-height : 400px;
+        /* max-height : 400px; */
     }
 
     div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
@@ -1386,7 +1397,7 @@ div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
     }
 
     .swipers_container {
-        padding-right: 15px !important;
+        margin-right: 15px !important;
     }
 
     .excursion_component:not(.showAll) .gallery-thumbs {
