@@ -1,7 +1,7 @@
 var radioCount = 0;
 var rCount = 0;
 // https://www.armeniatravel.am/api/wcit/excursions
-fetch('tours.json')
+fetch('https://www.armeniatravel.am/api/wcit/excursions')
     .then(function (response) {
         return response.json();
     })
