@@ -269,7 +269,7 @@ hr {
 .custom_radio [type="radio"]:checked,
 .custom_radio [type="radio"]:not(:checked) {
     position: absolute;
-    left    : -9999px;
+    left    : -99%;
 }
 
 .custom_radio [type="radio"]:checked+label,
@@ -346,7 +346,7 @@ hr {
     color        : black;
 }
 
-.shortDescription_show_all > span , .shortDescription_show_all > p,body > div.wrapper.container-fluid > div.row.limitWidth.mt-5.bigContentRow > div.col-lg-8.excursion_block > div:nth-child(3) > div > div.excursion_description_form.col-xl-8 > div > div:nth-child(1) > div.col-xl-8.px-0.py-0 > div > div.shortDescription_show_all.Group > div > span:nth-child(1){
+.shortDescription_show_all > span {
     
     font-family:  D-DINLighter !important
 }
@@ -848,11 +848,13 @@ hr {
     font-weight  : bold;
     border       : none;
 }
-.IncludesTitle{
-    font-family: D-DINlight !important;
+.IncludesTitle:not(.x){
+    font-family: D-DINLighter !important;
     margin-bottom: 5px !important;
     font-size: 20px;
     display: inline-block;
+    font-style: italic;
+    color: #666 !important;
 }
 
 .showMore,
@@ -1212,6 +1214,9 @@ footer .footerContent h1 {
     outline      : none !important;
     border       : none;
     border-bottom: 1px solid black;
+}
+.shortDescription_show_all  .tDescription ,.allDescription  span.font-weight-bold.tDescription:not(.x):nth-child(1)   {
+    font-family: D-DIN !important;
 }
 
 .contacts_form .inputs input:last-child {

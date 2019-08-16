@@ -1,7 +1,7 @@
-var radioCount = 0
+var radioCount = 0;
 var rCount = 0;
 // https://www.armeniatravel.am/api/wcit/excursions
-fetch('https://www.armeniatravel.am/api/wcit/excursions')
+fetch('tours.json')
     .then(function (response) {
         return response.json();
     })
@@ -190,16 +190,16 @@ function tourDescription(tour) {
     var privateDescription =
         `<div class="descriptionContainer">
                         <div class="shortDescription_show_all Private hide">
-                            <span class="">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
+                            <span class="tDescription">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
                             <div class="allDescription mt-2">
-                            <span class="font-weight-bold">Description: </span> ${tour.description}
+                            <span class="font-weight-bold tDescription">Description: </span> ${tour.description}
                                 <span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
 
                         <div class="shortDescription_show_all Group">
-                            <span class="">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
-                            <div class="allDescription mt-2"><span class="font-weight-bold">Description: </span>  ${tour.description}<span class="showLess font-weight-bold">show less</span>
+                            <span class="tDescription">Description: </span><span> ${tour.short_description}</span><span>...</span><span class="showMore font-weight-bold">show more</span>
+                            <div class="allDescription mt-2"><span class="font-weight-bold tDescription">Description: </span>  ${tour.description}<span class="showLess font-weight-bold">show less</span>
                             </div>
                         </div>
                         <span class="my-1 IncludesTitle">Includes</span>
