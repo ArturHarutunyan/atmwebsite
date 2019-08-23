@@ -67,7 +67,7 @@ window.onpageshow = function () {
 	document.body.style.minHeight = 5400 + 'px';
 	// title animation traing
 	$('.ml3').each(function () {
-		$(this).html($(this).text().replace(/([^\x00-\x80]|\w|\,|\:)/g, "<span class='letter'>$&</span>"));
+		$(this).html($(this).text().replace(/([^\x00-\x80]|\w|\,|\:|\!|\?)/g, "<span class='letter'>$&</span>"));
 	});
 	if (anime) {
 		anime.timeline

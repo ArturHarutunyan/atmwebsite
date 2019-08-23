@@ -48,7 +48,7 @@
     "days" => "Days",
     "month_12" => "December",
     "design_created" => "Design created with",
-    "discover_text" => "Dream Your Most Memorable Moments: Comfortably, in any Ways",
+    "discover_text" => "World is amazing with stories!\r\nCreate Yours…",
     "email" => "Email",
     "entertainments" => "Entertainments",
     "equipment_for_conference" => "Equipment for conference",
