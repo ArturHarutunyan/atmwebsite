@@ -3100,7 +3100,7 @@ div{
     height:fit-content;
 }
 
-.slider img{
+.tours_slider_container .slider img{
     object-fit: cover !important;
 }
 .controls{

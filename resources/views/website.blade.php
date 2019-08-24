@@ -157,7 +157,7 @@
                 <div class="banner background_container " >
                     <div class="wrapper">
                         <div class="banner__row">
-                            <h2 class="banner__title ml3 hide_discover_with_armenia transition_1s position_relative">{{trans('site.discover_text')}}</h2>
+                            <h2 class="banner__title ml3 hide_discover_with_armenia transition_1s position_relative">{!! trans('site.discover_text') !!}</h2>
                             <!-- <div class="home_page_button_container higherThanSvg">
                             
                                 <a href="{{route('armenia')}}" class="homePageButton">{{trans('site.learn_more')}}</a>
