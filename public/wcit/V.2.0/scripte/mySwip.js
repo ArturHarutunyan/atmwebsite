@@ -113,6 +113,20 @@ function getScrollbarWidth(element) {
 
 
 
+document.addEventListener('keydown',function(event){
+    var container = document.querySelector('.fixedContainer');
+    if(!container) return;
+    if(event.keyCode == 39){
+        container.querySelector('.swiper-button-next').click()
+    }else if(event.keyCode == 37){
+        
+        container.querySelector('.swiper-button-prev').click()
+    }
+
+})
+
+
+
 document.addEventListener('click', function (event) {
 
     var target = event.target;
