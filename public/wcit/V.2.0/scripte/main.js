@@ -22,7 +22,12 @@ document.addEventListener('click', function (event) {
     var parent = target.closest('.excursion_component');
     // console.log(parent.classList)
     if (target.closest('.showMore')) {
-        parent.classList.add('showAll')
+        parent.classList.add('showAll');
+        parent.querySelector('.mobileShowForm').classList.add('close')
+        parent.querySelector('.mobileShowForm span').innerHTML = 'x'
+        parent.querySelector('.tourForm ').classList.add('show')
+
+
     } else if (target.closest('.showLess')) {
         parent.classList.remove('showAll')
     }
