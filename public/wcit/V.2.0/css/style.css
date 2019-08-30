@@ -91,6 +91,7 @@ hr {
     background: #fff !important;
 
     /* padding-top:1px;  */
+    z-index: 99999999999999999 !important;
 }
 
 .mobileShowForm {
@@ -1621,6 +1622,7 @@ div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
         transition    : margin-top 0.06s linear 0.5s;
         position      : relative;
         overflow      : visible !important;
+
     }
 
     .shop_list_container .position-sticky {
@@ -1662,6 +1664,12 @@ div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
         height          : 100vh;
         background      : #fff;
 
+        
+
+    }
+
+    .shopListMobileShow h4{
+        cursor: pointer;
     }
 
     .shop_list_container .shopListMobileShow h4 svg {

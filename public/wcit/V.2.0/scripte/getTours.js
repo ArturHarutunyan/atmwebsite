@@ -212,12 +212,12 @@ function tourDescription(tour) {
 
     description += `<div class="col-xl-4 px-0 py-0 text-right pr-2 pt-2 tour_price">
                         <div class="eur">
-                            <h2 class="black_color mb-0">EUR${tour.prices.eur}</h2>
+                            <h2 class="black_color mb-0">EUR ${tour.prices.eur}</h2>
                             <p class="mt-0 pt-0 exclude_VAT">exclude VAT</p>
                         </div>
                         <div class="other_valutas">
-                            <div class="usd black_color font-weight-bold">USD${tour.prices.usd} </div>
-                            <div class="amd black_color font-weight-bold">AMD${tour.prices.amd} </div>
+                            <div class="usd black_color font-weight-bold">USD ${tour.prices.usd} </div>
+                            <div class="amd black_color font-weight-bold">AMD ${tour.prices.amd} </div>
                         </div>
                     </div>
                 </div>

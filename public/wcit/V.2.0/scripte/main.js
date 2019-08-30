@@ -173,9 +173,9 @@ var tourForms = document.querySelectorAll('.tourForm');
 
 
             var descContainer = oneTourForm.previousElementSibling
-            descContainer.querySelector('.eur h2').innerHTML =  " EUR"+ prices.eur  ;
-            descContainer.querySelector('.usd').innerHTML =  "USD" + prices.usd  ;
-            descContainer.querySelector('.amd').innerHTML =  "AMD" + prices.amd  ;
+            descContainer.querySelector('.eur h2').innerHTML =  " EUR "+ prices.eur  ;
+            descContainer.querySelector('.usd').innerHTML =  "USD " + prices.usd  ;
+            descContainer.querySelector('.amd').innerHTML =  "AMD " + prices.amd  ;
              
             console.log(prices)
         }
