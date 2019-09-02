@@ -174,7 +174,7 @@
     "welcome_to_armenia" => "Welcome to Armenia",
     "why_we" => "Why we",
     "why_me" => "Why we?",
-    "discover_text" => "World is amazing with stories!<br>\r\nCreate Yours…",
+    "discover_text" => "Our Land is amazing with stories!<br>\r\nCreate Yours…",
     "yes" => "Yes",
     "dmc_text_part_one" => "Your DMC",
     "dmc_text" => "Your DMC in Armenia",
