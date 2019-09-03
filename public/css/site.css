@@ -2357,7 +2357,7 @@ a:hover, a:focus{
 .service-menu__fixed {
     width: 100%;
     position: fixed;
-    top: 78px;
+    top: 104px;
     z-index: 99; }
 
 /* ----- service packages style ----- */
@@ -5247,6 +5247,11 @@ some testing
 }
 
 @media screen and (max-width: 490px) {
+
+
+    .service-menu__fixed{
+        top:78px;
+    }
     .services_icons{
         align-items: center;
         flex-direction: column-reverse;
