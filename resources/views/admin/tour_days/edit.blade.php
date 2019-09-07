@@ -108,15 +108,19 @@
                 var c=0;
                 files.length=0;
                 for (var i = 0; i < self.files.length; i++) {
-                    self.processFile(self.files[i]);
-                    if(self.files[i].xhr.responseText){
-                        files.push(self.files[i].xhr.responseText);
-                    }
+                    let f= new FormData();
+                    f.append('file',self.files[i]);
                     c=i;
-                }
-                $('[name="images_encoded"]').val(JSON.stringify(files));
-                if(c==(self.files.length-1)){
-                    mainForm.submit();
+                    axios.post("{{route('tour_day.add_image')}}", f)
+                        .then((response) => {
+                            if(response.data){
+                                files.push(JSON.stringify(response.data));
+                                $('[name="images_encoded"]').val(JSON.stringify(files));
+                                if(files.length===self.files.length){
+                                    mainForm.submit();
+                                }
+                            }
+                        });
                 }
             });
         }
