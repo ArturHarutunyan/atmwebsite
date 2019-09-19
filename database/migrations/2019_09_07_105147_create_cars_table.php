@@ -15,6 +15,17 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('price_id');
+            $table->string('model_id');
+            $table->string('color');
+            $table->integer('year');
+            $table->integer('seat_count');
+            $table->integer('baggage_quantity');
+            $table->boolean('is_leather')->nullable();
+            $table->boolean('is_foldable')->nullable();
+            $table->integer('fuel_type_id');
+            $table->float('volume');
+            $table->boolean('has_air_conditioning')->nullable();
             $table->timestamps();
         });
     }

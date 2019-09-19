@@ -5,19 +5,20 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Fico7489\Laravel\RevisionableUpgrade\Traits\RevisionableUpgradeTrait;
-class Customer extends Model
+
+class CarMake extends Model
 {
     use RevisionableTrait;
     use RevisionableUpgradeTrait;
-
-    protected $table='customers';
+    protected $table='car_makes';
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'legal_name','phone','email','tin','notes'
+        'name','is_featured'
     ];
-    public function prices()
+
+    public function car_models()
     {
-        return $this->hasMany('App\Price');
+        return $this->hasMany('App\CarModel');
     }
 }

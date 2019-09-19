@@ -32,8 +32,22 @@ Route::group(['middleware' => 'api'], function(){
     Route::get('staff_members_full_list', function(){
         return StaffMember::all();
     })->name('staff_members_full.api');
-
-
+    Route::post('save_transportation_data', [
+        'uses'=>'CustomersController@save',
+        'as'=>'customer_data_save'
+    ]);
+    Route::get('get_routes', [
+        'uses'=>'CustomersController@get_routes',
+        'as'=>'get_makes'
+    ]);
+    Route::get('get_makes', [
+        'uses'=>'CustomersController@get_makes',
+        'as'=>'get_makes'
+    ]);
+    Route::get('get_models/{$id}', [
+        'uses'=>'CustomersController@get_models',
+        'as'=>'get_models'
+    ]);
 });
 
 Route::group(['middleware' => 'api','prefix'=>'meridian'], function(){
