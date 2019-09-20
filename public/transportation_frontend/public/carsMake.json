@@ -1,0 +1,815 @@
+[
+  {
+    "label": "A.D. TRAMONTANA"
+  },
+  {
+    "label": "AC"
+  },
+  {
+    "label": "AC PROPULSION"
+  },
+  {
+    "label": "ACURA"
+  },
+  {
+    "label": "ALFA ROMEO"
+  },
+  {
+    "label": "ALMAC"
+  },
+  {
+    "label": "ALTERNATIVE CARS"
+  },
+  {
+    "label": "AMUZA"
+  },
+  {
+    "label": "ANTEROS"
+  },
+  {
+    "label": "ARASH"
+  },
+  {
+    "label": "ARIEL"
+  },
+  {
+    "label": "ARRINERA"
+  },
+  {
+    "label": "ASL"
+  },
+  {
+    "label": "ASTERIO"
+  },
+  {
+    "label": "ASTON MARTIN"
+  },
+  {
+    "label": "AUDI"
+  },
+  {
+    "label": "BAC"
+  },
+  {
+    "label": "BAJAJ"
+  },
+  {
+    "label": "BEIJING AUTOMOBILE WORKS"
+  },
+  {
+    "label": "BENTLEY"
+  },
+  {
+    "label": "BMW"
+  },
+  {
+    "label": "BOLLORÉ"
+  },
+  {
+    "label": "BOLWELL"
+  },
+  {
+    "label": "BRILLIANCE / HUACHEN"
+  },
+  {
+    "label": "BRISTOL"
+  },
+  {
+    "label": "BRITISH LEYLAND"
+  },
+  {
+    "label": "BRM BUGGY"
+  },
+  {
+    "label": "BROOKE"
+  },
+  {
+    "label": "BUDDY"
+  },
+  {
+    "label": "BUFORI"
+  },
+  {
+    "label": "BUGATTI"
+  },
+  {
+    "label": "BUICK"
+  },
+  {
+    "label": "BYD"
+  },
+  {
+    "label": "CADILLAC"
+  },
+  {
+    "label": "CAPARO"
+  },
+  {
+    "label": "CARBONTECH"
+  },
+  {
+    "label": "CARICE"
+  },
+  {
+    "label": "CHANG'AN"
+  },
+  {
+    "label": "CHANGHE"
+  },
+  {
+    "label": "CHERY"
+  },
+  {
+    "label": "CHEVROLET"
+  },
+  {
+    "label": "CHEVRON"
+  },
+  {
+    "label": "CITROËN"
+  },
+  {
+    "label": "CHRYSLER"
+  },
+  {
+    "label": "COMMUTER CARS"
+  },
+  {
+    "label": "CONNAUGHT"
+  },
+  {
+    "label": "COVINI"
+  },
+  {
+    "label": "DACIA"
+  },
+  {
+    "label": "DAIHATSU"
+  },
+  {
+    "label": "DATSUN"
+  },
+  {
+    "label": "DE LA CHAPELLE"
+  },
+  {
+    "label": "DMC"
+  },
+  {
+    "label": "DIARDI"
+  },
+  {
+    "label": "DODGE"
+  },
+  {
+    "label": "DONKERVOORT"
+  },
+  {
+    "label": "DONGFENG"
+  },
+  {
+    "label": "DONTO"
+  },
+  {
+    "label": "DS AUTOMOBILES"
+  },
+  {
+    "label": "DYNASTI ELECTRIC CAR CORP."
+  },
+  {
+    "label": "E-VADE"
+  },
+  {
+    "label": "EFFEDI"
+  },
+  {
+    "label": "EGY-TECH ENGINEERING"
+  },
+  {
+    "label": "ELECTRIC RACEABOUT"
+  },
+  {
+    "label": "ELFIN"
+  },
+  {
+    "label": "EMGRAND"
+  },
+  {
+    "label": "ENGLON"
+  },
+  {
+    "label": "ETERNITI"
+  },
+  {
+    "label": "ETOX"
+  },
+  {
+    "label": "EQUUS"
+  },
+  {
+    "label": "EXAGON"
+  },
+  {
+    "label": "FARALLI & MAZZANTI"
+  },
+  {
+    "label": "FAW"
+  },
+  {
+    "label": "FERRARI"
+  },
+  {
+    "label": "FIAT"
+  },
+  {
+    "label": "FISKER"
+  },
+  {
+    "label": "FODAY"
+  },
+  {
+    "label": "FORCE"
+  },
+  {
+    "label": "FORD"
+  },
+  {
+    "label": "FORD AUSTRALIA"
+  },
+  {
+    "label": "FORD GERMANY"
+  },
+  {
+    "label": "FORNASARI"
+  },
+  {
+    "label": "FRASER"
+  },
+  {
+    "label": "GAC GROUP"
+  },
+  {
+    "label": "GALPIN"
+  },
+  {
+    "label": "GEELY"
+  },
+  {
+    "label": "GENESIS"
+  },
+  {
+    "label": "GIBBS"
+  },
+  {
+    "label": "GILLET"
+  },
+  {
+    "label": "GINETTA"
+  },
+  {
+    "label": "GMC"
+  },
+  {
+    "label": "GONOW"
+  },
+  {
+    "label": "GREAT WALL / CHANGCHENG"
+  },
+  {
+    "label": "GREENTECH AUTOMOTIVE"
+  },
+  {
+    "label": "GRINNALL"
+  },
+  {
+    "label": "GTA MOTOR"
+  },
+  {
+    "label": "GUMPERT"
+  },
+  {
+    "label": "GURGEL"
+  },
+  {
+    "label": "HENNESSEY"
+  },
+  {
+    "label": "HINDUSTAN"
+  },
+  {
+    "label": "HOLDEN"
+  },
+  {
+    "label": "HONDA"
+  },
+  {
+    "label": "HONGQI"
+  },
+  {
+    "label": "HRADYESH"
+  },
+  {
+    "label": "HTT TECHNOLOGIES"
+  },
+  {
+    "label": "HULME"
+  },
+  {
+    "label": "HYUNDAI"
+  },
+  {
+    "label": "ICML"
+  },
+  {
+    "label": "IFR"
+  },
+  {
+    "label": "IRAN KHODRO"
+  },
+  {
+    "label": "IKCO"
+  },
+  {
+    "label": "IMPERIA"
+  },
+  {
+    "label": "INFINITI"
+  },
+  {
+    "label": "IVM"
+  },
+  {
+    "label": "INVICTA"
+  },
+  {
+    "label": "ISDERA"
+  },
+  {
+    "label": "ISUZU"
+  },
+  {
+    "label": "JAC"
+  },
+  {
+    "label": "JAGUAR"
+  },
+  {
+    "label": "JEEP"
+  },
+  {
+    "label": "JENSEN MOTORS"
+  },
+  {
+    "label": "JETCAR"
+  },
+  {
+    "label": "JONWAY"
+  },
+  {
+    "label": "JOSS"
+  },
+  {
+    "label": "KAIPAN"
+  },
+  {
+    "label": "KANTANKA"
+  },
+  {
+    "label": "KARMA"
+  },
+  {
+    "label": "KOENIGSEGG"
+  },
+  {
+    "label": "KORRES"
+  },
+  {
+    "label": "KIA"
+  },
+  {
+    "label": "KIAT"
+  },
+  {
+    "label": "KISH KHODRO"
+  },
+  {
+    "label": "KTM"
+  },
+  {
+    "label": "LADA"
+  },
+  {
+    "label": "LAMBORGHINI"
+  },
+  {
+    "label": "LANCIA"
+  },
+  {
+    "label": "LAND ROVER"
+  },
+  {
+    "label": "LANDWIND"
+  },
+  {
+    "label": "LARAKI"
+  },
+  {
+    "label": "LEBLANC"
+  },
+  {
+    "label": "LEITCH"
+  },
+  {
+    "label": "LEOPARD"
+  },
+  {
+    "label": "LEXUS"
+  },
+  {
+    "label": "LI-ION"
+  },
+  {
+    "label": "LIFAN"
+  },
+  {
+    "label": "LIGHTNING"
+  },
+  {
+    "label": "LINCOLN"
+  },
+  {
+    "label": "LISTER"
+  },
+  {
+    "label": "LOCAL MOTORS"
+  },
+  {
+    "label": "LOBINI"
+  },
+  {
+    "label": "LOTEC"
+  },
+  {
+    "label": "LOTUS CARS"
+  },
+  {
+    "label": "LUCRA CARS"
+  },
+  {
+    "label": "LUXGEN"
+  },
+  {
+    "label": "MAHINDRA"
+  },
+  {
+    "label": "MARUSSIA"
+  },
+  {
+    "label": "MARUTI SUZUKI"
+  },
+  {
+    "label": "MASERATI"
+  },
+  {
+    "label": "MASTRETTA"
+  },
+  {
+    "label": "MAZDA"
+  },
+  {
+    "label": "MCLAREN"
+  },
+  {
+    "label": "MERCEDES-BENZ"
+  },
+  {
+    "label": "MG"
+  },
+  {
+    "label": "MICRO"
+  },
+  {
+    "label": "MINI"
+  },
+  {
+    "label": "MITSUBISHI"
+  },
+  {
+    "label": "MITSUOKA"
+  },
+  {
+    "label": "MORGAN"
+  },
+  {
+    "label": "MULLEN"
+  },
+  {
+    "label": "MYCAR"
+  },
+  {
+    "label": "MYVI-PERODUA"
+  },
+  {
+    "label": "NISSAN"
+  },
+  {
+    "label": "NOBLE"
+  },
+  {
+    "label": "NOTA"
+  },
+  {
+    "label": "OLDSMOBILE"
+  },
+  {
+    "label": "OPEL"
+  },
+  {
+    "label": "OPTIMAL ENERGY"
+  },
+  {
+    "label": "ORCA"
+  },
+  {
+    "label": "OLTCIT"
+  },
+  {
+    "label": "PAGANI"
+  },
+  {
+    "label": "PANHARD"
+  },
+  {
+    "label": "PANOZ"
+  },
+  {
+    "label": "PERANA"
+  },
+  {
+    "label": "PERODUA"
+  },
+  {
+    "label": "PEUGEOT"
+  },
+  {
+    "label": "P.G.O."
+  },
+  {
+    "label": "POLARSUN"
+  },
+  {
+    "label": "PLYMOUTH"
+  },
+  {
+    "label": "PORSCHE"
+  },
+  {
+    "label": "PROTO"
+  },
+  {
+    "label": "OULLIM"
+  },
+  {
+    "label": "PROTON"
+  },
+  {
+    "label": "PURITALIA"
+  },
+  {
+    "label": "QOROS"
+  },
+  {
+    "label": "QVALE"
+  },
+  {
+    "label": "RADICAL"
+  },
+  {
+    "label": "RELIANT"
+  },
+  {
+    "label": "RENAULT"
+  },
+  {
+    "label": "REVA"
+  },
+  {
+    "label": "RIMAC"
+  },
+  {
+    "label": "RINSPEED"
+  },
+  {
+    "label": "RODING"
+  },
+  {
+    "label": "ROEWE"
+  },
+  {
+    "label": "ROLLS-ROYCE"
+  },
+  {
+    "label": "ROSSIN-BERTIN"
+  },
+  {
+    "label": "ROSSION"
+  },
+  {
+    "label": "ROVER"
+  },
+  {
+    "label": "SAAB"
+  },
+  {
+    "label": "SALEEN"
+  },
+  {
+    "label": "SAIC-GM-WULING"
+  },
+  {
+    "label": "SAIPA"
+  },
+  {
+    "label": "SAKER"
+  },
+  {
+    "label": "SAMSUNG"
+  },
+  {
+    "label": "SAN"
+  },
+  {
+    "label": "SBARRO"
+  },
+  {
+    "label": "SCION"
+  },
+  {
+    "label": "SEAT"
+  },
+  {
+    "label": "SHANGHAI MAPLE"
+  },
+  {
+    "label": "SIN"
+  },
+  {
+    "label": "ŠKODA"
+  },
+  {
+    "label": "SMART"
+  },
+  {
+    "label": "SPADA VETTURE SPORT"
+  },
+  {
+    "label": "SPYKER"
+  },
+  {
+    "label": "SSANGYONG"
+  },
+  {
+    "label": "SSC NORTH AMERICA"
+  },
+  {
+    "label": "STREET & RACING TECHNOLOGY"
+  },
+  {
+    "label": "SUBARU"
+  },
+  {
+    "label": "SUZUKI"
+  },
+  {
+    "label": "TANOM"
+  },
+  {
+    "label": "TATA"
+  },
+  {
+    "label": "TAURO"
+  },
+  {
+    "label": "TAWON CAR"
+  },
+  {
+    "label": "TD CARS"
+  },
+  {
+    "label": "TESLA"
+  },
+  {
+    "label": "THAI RUNG"
+  },
+  {
+    "label": "TOYOTA"
+  },
+  {
+    "label": "TREKKA"
+  },
+  {
+    "label": "TRIDENT"
+  },
+  {
+    "label": "TRIUMPH"
+  },
+  {
+    "label": "TROLLER"
+  },
+  {
+    "label": "TRUMPCHI"
+  },
+  {
+    "label": "TUSHEK"
+  },
+  {
+    "label": "TVR"
+  },
+  {
+    "label": "TVS"
+  },
+  {
+    "label": "ULTIMA"
+  },
+  {
+    "label": "UMM"
+  },
+  {
+    "label": "UEV"
+  },
+  {
+    "label": "URI"
+  },
+  {
+    "label": "UAZ"
+  },
+  {
+    "label": "VAUXHALL MOTORS"
+  },
+  {
+    "label": "VECTOR"
+  },
+  {
+    "label": "VENCER"
+  },
+  {
+    "label": "VENIRAUTO"
+  },
+  {
+    "label": "VENTURI"
+  },
+  {
+    "label": "VEPR"
+  },
+  {
+    "label": "VOLKSWAGEN"
+  },
+  {
+    "label": "VOLVO"
+  },
+  {
+    "label": "VINFAST"
+  },
+  {
+    "label": "W MOTORS"
+  },
+  {
+    "label": "WALLYSCAR"
+  },
+  {
+    "label": "WESTFIELD"
+  },
+  {
+    "label": "WHEEGO"
+  },
+  {
+    "label": "WIESMANN"
+  },
+  {
+    "label": "XENIA"
+  },
+  {
+    "label": "YES!"
+  },
+  {
+    "label": "YOUABIAN PUMA"
+  },
+  {
+    "label": "ZASTAVA AUTOMOBILES"
+  },
+  {
+    "label": "ZENDER CARS"
+  },
+  {
+    "label": "ZENOS CARS"
+  },
+  {
+    "label": "ZENVO"
+  },
+  {
+    "label": "ZIL"
+  },
+  {
+    "label": "ZX AUTO"
+  }
+]

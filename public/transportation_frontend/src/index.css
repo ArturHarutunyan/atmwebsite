@@ -1,0 +1,492 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.form {
+  max-width    : 800px;
+  background   : #fafafa;
+  margin       : auto;
+  padding      : 0 10px;
+  background   : #fafafa;
+  border-radius: 8px;
+  font-family  : Georgia, "Times New Roman", Times, serif;
+  position     : relative;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin            : 0;
+}
+
+.Partner {
+  padding-bottom: 25px;
+  margin-top    : -5px;
+}
+
+legend:first-child {
+  padding-bottom: 15px !important;
+}
+
+legend {
+  font-size: 1.4em;
+  margin   : 20px 0 0;
+  cursor   : context-menu;
+}
+
+.preloaderContainer {
+  justify-content: center;
+  align-items    : center;
+  width          : 100%;
+  padding        : 10px 0 20px 0;
+}
+
+.servicesContainer {
+  width : calc(100% - 30px);
+  margin: auto;
+}
+
+.notesInputContainer {
+  padding-right: 15px !important
+}
+
+/* .MuiPaper-root {
+  max-height: 250px;
+  overflow  : auto;
+} */
+.oneServiceContainer {
+  display: flex;
+}
+
+.car-component {
+  padding-bottom: 0;
+  margin-bottom : 0;
+  margin-top    : 20px;
+  margin-top    : 20px;
+
+  position: relative;
+  z-index : 9;
+}
+
+label {
+  text-align: left !important;
+}
+
+.icon {
+  background   : #0d47a1;
+  color        : #fff;
+  height       : 50px;
+  width        : 50px;
+  display      : inline-block;
+  font-size    : 0.8em;
+  margin-right : 4px;
+  line-height  : 60px;
+  text-align   : center;
+  text-shadow  : 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.radio-container {
+  width        : 90%;
+  margin-left  : 20px;
+  margin-right : 20px;
+  padding-top  : 20px;
+  margin-bottom: 8px;
+  margin       : auto;
+  text-align   : left;
+}
+
+.radio-title {
+  height: 22px !important;
+}
+
+.MuiRadio-colorPrimary.Mui-checked {
+  color: #0d47a1 !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #0d47a1 !important;
+  font-weight     : bold;
+}
+
+.select-container {
+  margin    : auto !important;
+  max-width : 87% !important;
+  text-align: left;
+}
+
+.custom-container {
+  margin: 8px;
+  width : calc(100%);
+  margin: auto;
+}
+
+.custom-container div {
+  width: 100%;
+}
+
+.Prices label {
+  text-align    : left;
+  padding-bottom: 5px;
+  white-space   : nowrap;
+}
+
+.MuiFab-root {
+  width : 50px !important;
+  height: 50px !important;
+}
+
+.previewImagesContainer {
+  z-index   : 99999;
+  margin-top: 20px;
+}
+
+.addCarFormContainer {
+  position  : absolute !important;
+  right     : 10px;
+  text-align: right;
+  margin-top: -70px !important;
+  /* color  : #0d47a1; */
+}
+
+.removeButtonContainer {
+  position  : absolute !important;
+  right     : 10px;
+  text-align: right;
+  margin-top: -75px !important;
+}
+
+.Prices .addCarFormContainer {
+  margin-top: -56px !important;
+}
+
+.addCarFormContainer span,
+.removeButtonContainer span {
+  cursor: pointer;
+}
+
+.removeButtonContainer {
+  position  : absolute !important;
+  right     : 10px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.car-inputs:not(:first-child) {
+  margin-top: 100px;
+}
+
+.car-inputs {
+  padding: 15px;
+}
+
+.priceFormContainer:not(:first-child) {
+  margin-top: 100px;
+}
+
+.dropZone-wrapper {
+  width: 100%;
+
+  /* margin-bottom: 30px; */
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.dFlex {
+
+  display: flex;
+}
+
+.Cars>button {
+  right: 30px;
+}
+
+.MuiFormLabel-root {
+  font-size: 20px !important
+}
+
+.comboBoxContainer .MuiFormLabel-root:not(.Mui-focused) {
+  font-size     : 16px !important;
+  margin-left   : 2px;
+  margin-top    : 2px;
+  color         : #949494 !important;
+  /* opacity    : 0.2 !important; */
+  transition    : all 0.1s linear;
+}
+
+
+.comboBoxContainer .MuiFormLabel-root:not(.Mui-focused)+div p.MuiTypography-root.MuiTypography-colorTextSecondary {
+  display: none !important;
+}
+
+.comboBoxContainer .MuiFormLabel-root.Mui-focused,
+.comboBoxContainer .MuiFormLabel-root[data-shrink="true"] {
+  transform          : translate(0, 1.5px) scale(0.75);
+  transform-origin   : top left;
+  font-size          : 18px !important;
+  /* left            : -2px !important; */
+}
+
+
+
+/* 
+legend {
+  margin-left: 2px;
+} */
+
+
+textarea {
+  resize: none;
+}
+
+.Prices .addRoutePriceContainer .routesButtonsContainer button {
+  position  : relative !important;
+  margin-top: 0 !important;
+  left      : 20px;
+  top       : 3px;
+
+  zoom: 0.8;
+
+}
+
+.checkboxesContainer {
+  padding-top  : 15px;
+  margin-bottom: -15px;
+  z-index      : 999;
+  position     : relative;
+}
+
+.checkboxesContainer>div {
+  margin-left: 19px;
+}
+
+.addRoutePriceContainer {
+  margin-top: -8px;
+}
+
+.price-inputs {
+  padding-bottom: 20px;
+}
+
+.Prices .addRoutePriceContainer .routesButtonsContainer {
+  display    : flex;
+  align-items: flex-end;
+  position   : relative;
+}
+
+.MuiInputLabel-animated {
+  font-size: 13px !important;
+}
+
+
+
+.dropZone {
+  width           : 300px !important;
+  margin          : auto;
+  margin-top      : 20px;
+  /* padding      : 15px 20px; */
+  /* padding-top  : 5px; */
+  background-color: rgba(0, 66, 112, 0.1);
+  border          : 2px dashed #0d47a1;
+  color           : #0d47a1;
+  font-weight     : 500;
+  display         : flex;
+  margin-top      : 15px !important;
+  align-items     : center;
+  justify-content : space-evenly;
+}
+
+.absoluteCounter {
+  position: absolute;
+  top     : -60px;
+  left    : 0;
+  right   : 0;
+  width   : 100%;
+  height  : 100%;
+  bottom  : 0;
+
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  font-size      : 140px;
+  z-index        : 0;
+
+  color: rgba(128, 128, 128, 0.178);
+
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.carFormContainer {
+  position: relative;
+}
+
+.addCarFormContainer,
+.removeButtonContainer {
+  z-index: 9;
+}
+
+.addCarFormContainer,
+.removeButtonContainer {
+  border-radius        : 50%;
+  padding              : 5px 10px;
+  color                : white;
+  float                : right;
+  -webkit-border-radius: 50%;
+  -moz-border-radius   : 50%;
+  -ms-border-radius    : 50%;
+  -o-border-radius     : 50%;
+  font-size            : 20px;
+}
+
+.addCarFormContainer {
+  background-color: #0d47a1 !important;
+}
+
+.removeButtonContainer {
+  background-color: #f44336;
+  padding         : 5px 13px;
+}
+
+.imgContainer img {
+  object-fit: cover;
+}
+
+.imgContainer:hover .removeImage {
+  display: flex;
+}
+
+.removeImage {
+  display         : none;
+  background-color: rgba(13, 71, 161, 1);
+  width           : 100px;
+  height          : 100px;
+  justify-content : center;
+  align-items     : center;
+  position        : absolute;
+  top             : 10px;
+  left            : 0px;
+  z-index         : 999;
+  right           : 13px;
+  cursor          : pointer;
+  color           : #e1e8ec;
+}
+
+.invalid * {
+  color: red !important;
+}
+
+.w90Ma>div {
+  width : 90% !important;
+  margin: auto;
+}
+
+.selectContainer>div {
+  margin-top: -4px;
+}
+
+.send {
+  margin: 20px auto !important;
+}
+
+#pricesContainer {
+  width: 100% !important;
+}
+
+.Prices {
+  position: relative;
+}
+
+.priceCounter {
+  top      : 0px;
+  font-size: 150px;
+
+  align-items: flex-start;
+}
+
+.addServiceButton,
+.deleteServiceButton {
+  position  : relative !important;
+  top       : 0 !important;
+  margin-top: 45px !important;
+  right     : 0px;
+  zoom      : 0.8;
+  width     : 56px !important;
+}
+
+.radio-title {
+  white-space      : nowrap;
+  /* letter-spacing: -0.5px; */
+  font-size        : 14px;
+}
+
+.MuiInputLabel-shrink.MuiInputLabel-animated {
+  font-size  : 18px !important;
+  white-space: nowrap;
+}
+
+/* .car-component{
+  min-height: 500px;
+  background: #0d47a1;
+} */
+@media only screen and (max-width: 735px) {
+  .Prices label {
+    white-space: unset !important;
+  }
+
+  .imgContainer .removeImage {
+    display: flex;
+  }
+
+  .removeImage {
+    display         : flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    width           : 100px;
+    height          : 100px;
+    justify-content : center;
+    align-items     : center;
+    position        : absolute;
+    top             : 10px;
+    left            : 0px;
+    z-index         : 999;
+    right           : 13px;
+    cursor          : pointer;
+    color           : #0d47a1;
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .Prices label {
+    white-space: unset !important;
+  }
+}
+
+@media only screen and (max-width: 625px) {
+
+  .MuiInputLabel-formControl,
+  .radio-container {
+    font-size : 11px !important;
+    text-align: center;
+  }
+
+  ::placeholder {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .MuiFormControlLabel-root {
+    width: 100%;
+  }
+}

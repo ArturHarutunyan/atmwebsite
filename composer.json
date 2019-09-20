@@ -13,6 +13,7 @@
         "backpack/logmanager": "^2.3",
         "backpack/pagemanager": "^1.1",
         "backpack/permissionmanager": "^3.12",
+        "barryvdh/laravel-cors": "^0.11.4",
         "barryvdh/laravel-elfinder": "^0.3.12",
         "browner12/helpers": "^2.1",
         "components/jqueryui": "^1.12",
