@@ -11,12 +11,12 @@ class Car extends Model
     use RevisionableTrait;
     use RevisionableUpgradeTrait;
 
-    protected $table='cars';
-    public $primaryKey='id';
-    public $timestamps=true;
-    protected $fillable=[
-        'make','model','color','year','seat_count','quality','is_leather','is_foldable',
-        'fuel_type_id','volume','price_id','has_air_conditioning'
+    protected $table = 'cars';
+    public $primaryKey = 'id';
+    public $timestamps = true;
+    protected $fillable = [
+        'model_id', 'color', 'year', 'seat_count', 'baggage_quantity', 'is_leather', 'is_foldable',
+        'fuel_type_id', 'volume', 'price_id', 'has_air_conditioning'
     ];
     public function car_images()
     {
