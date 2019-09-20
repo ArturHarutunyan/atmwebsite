@@ -34,4 +34,8 @@ class Car extends Model
     {
         return $this->belongsTo('App\CarModel');
     }
+    public function additional_services()
+    {
+        return $this->belongsTo('App\AdditionalService');
+    }
 }
