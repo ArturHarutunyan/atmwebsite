@@ -11,7 +11,7 @@ class AdditionalService extends Model
     use RevisionableTrait;
     use RevisionableUpgradeTrait;
 
-    protected $table='cars';
+    protected $table='additional_services';
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
