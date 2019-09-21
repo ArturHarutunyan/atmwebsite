@@ -191,6 +191,8 @@ const MenuList = function MenuList(props) {
     return <div className="myClassListName">{children}</div>;
   }
 
+  // console.log(children);
+
   return (
     <List
       height={maxHeight}
@@ -198,7 +200,14 @@ const MenuList = function MenuList(props) {
       itemSize={height}
       initialScrollOffset={initialOffset}
     >
-      {({ index, style }) => <div style={style}>{children[index]}</div>}
+      {({ index, style }) => (
+        <div
+          style={style}
+          className={children[index].props.data.is_featured ? "popular" : ""}
+        >
+          {children[index]}
+        </div>
+      )}
     </List>
   );
 };
@@ -303,7 +312,7 @@ export default function ComboBox(props) {
       thisCar.models = null;
       const getCarModels = () => {
         let data = (async () => {
-          let res = await Axios("api/get_models/" + inputs[0].value);
+          let res = await Axios("/api/get_models/" + inputs[0].value);
           return res.data;
         })();
         return data;
@@ -316,12 +325,15 @@ export default function ComboBox(props) {
         inputs[1].value = "";
         inputs[1].checkBoxLabel = "";
         inputs[1].selected = "";
+
+        changeCars([...cars]);
+        changeInputs([...inputs]);
       });
     }
 
-    setTimeout(() => {
-      changeCars([...cars]);
-    }, 500);
+    // setTimeout(() => {
+    // }, 500);
+    changeCars([...cars]);
     changeInputs([...inputs]);
 
     changeIsUserEvent(true);
