@@ -164,7 +164,7 @@ const Cars = memo(({ index }) => {
         validators: [isRequirers]
       },
       {
-        label: "Ճամպրուկների տարողունակություն ",
+        label: "Ճամպրուկների քանակ",
         name: "baggage count",
         value: "",
         validators: [],

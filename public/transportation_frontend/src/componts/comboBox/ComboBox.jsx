@@ -181,7 +181,8 @@ function Menu(props) {
   );
 }
 
-const height = 35;
+const height = 45;
+let firstLength;
 const MenuList = function MenuList(props) {
   const { options, children, maxHeight, getValue } = props;
   const [value] = getValue();
@@ -192,7 +193,16 @@ const MenuList = function MenuList(props) {
   }
 
   // console.log(children);
+  let lastFeatured = {};
+  if (!firstLength) {
+    firstLength = children.length;
+  }
 
+  children.forEach((elem, index) => {
+    if (elem.props.data.is_featured) {
+      lastFeatured = elem.props.data;
+    }
+  });
   return (
     <List
       height={maxHeight}
@@ -200,14 +210,20 @@ const MenuList = function MenuList(props) {
       itemSize={height}
       initialScrollOffset={initialOffset}
     >
-      {({ index, style }) => (
-        <div
-          style={style}
-          className={children[index].props.data.is_featured ? "popular" : ""}
-        >
-          {children[index]}
-        </div>
-      )}
+      {({ index, style }) => {
+        return (
+          <div style={style}>
+            <span>{children[index]}</span>
+
+            {firstLength == children.length &&
+            lastFeatured.label == children[index].props.data.label ? (
+              <div className="popular" />
+            ) : (
+              ""
+            )}
+          </div>
+        );
+      }}
     </List>
   );
 };
@@ -312,7 +328,9 @@ export default function ComboBox(props) {
       thisCar.models = null;
       const getCarModels = () => {
         let data = (async () => {
-          let res = await Axios("/api/get_models/" + inputs[0].value);
+          let res = await Axios(
+            "http://127.0.0.1:8000/api/get_models/" + inputs[0].value
+          );
           return res.data;
         })();
         return data;

@@ -23,8 +23,18 @@ code {
   position     : relative;
 }
 
-.popular {
-  border-bottom: 1px solid black
+.oneServiceContainer button {
+  z-index: 0 !important;
+}
+
+
+[class~='popular'] {
+  border-bottom : 1px solid rgba(128, 128, 128, 0.345);
+  padding-bottom: 2px;
+  width         : calc(100% - 10px) !important;
+
+  margin    : auto !important;
+  margin-top: -10px !important;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
