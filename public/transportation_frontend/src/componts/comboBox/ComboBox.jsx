@@ -318,19 +318,18 @@ export default function ComboBox(props) {
   function handleChangeSingle(event) {
     setSingle(event);
 
-    input.value = event.value;
-    input.isValid = true;
-    input.checkBoxLabel = event.label;
+    console.log(event);
+    input.value = event && event.value;
+    input.isValid = event && true;
+    input.checkBoxLabel = event && event.label;
 
-    input.selected = event;
+    input.selected = event && event;
 
     if (index == 0) {
       thisCar.models = null;
       const getCarModels = () => {
         let data = (async () => {
-          let res = await Axios(
-            "http://127.0.0.1:8000/api/get_models/" + inputs[0].value
-          );
+          let res = await Axios("/api/get_models/" + inputs[0].value);
           return res.data;
         })();
         return data;
@@ -374,6 +373,7 @@ export default function ComboBox(props) {
           classes={classes}
           styles={selectStyles}
           inputId="react-select-single"
+          isClearable={true}
           TextFieldProps={{
             label: props.label,
             placeholder: props.placeholder,

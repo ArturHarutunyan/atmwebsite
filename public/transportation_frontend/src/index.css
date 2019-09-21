@@ -27,6 +27,14 @@ code {
   z-index: 0 !important;
 }
 
+.comboBoxContainer svg {
+  cursor    : pointer !important;
+  /* z-index: 9 !important; */
+}
+
+.dropZone {
+  cursor: pointer;
+}
 
 [class~='popular'] {
   border-bottom : 1px solid rgba(128, 128, 128, 0.345);
@@ -247,10 +255,13 @@ label {
 
 .comboBoxContainer .MuiFormLabel-root.Mui-focused,
 .comboBoxContainer .MuiFormLabel-root[data-shrink="true"] {
-  transform          : translate(0, 1.5px) scale(0.75);
-  transform-origin   : top left;
-  font-size          : 18px !important;
-  /* left            : -2px !important; */
+  transform            : translate(0, 1.5px) scale(0.75);
+  transform-origin     : top left;
+  left                 : 0 !important;
+  font-size            : 18px !important;
+  margin-left          : 0 !important;
+  margin-top           : 0 !important
+    /* left            : -2px !important; */
 }
 
 

@@ -58,7 +58,8 @@ const RoutePrice = props => {
     routes,
     classes,
     changeRoutesForm,
-    formObject
+    formObject,
+    changeRoutes
   } = props;
 
   route.price = route.price || "";
@@ -77,26 +78,25 @@ const RoutePrice = props => {
     changePrice(route.price);
   }, [route]);
 
-  const autoSuggest = useMemo(
-    () => (
-      <Grid style={{ width: "50%" }}>
-        {/* rout name */}
-        <IntegrationAutosuggest
-          xs={6}
-          input={route}
-          inputsArray={pricesForm}
-          index={index}
-          thisPrices={thisPrices}
-          formObject={formObject}
-          invalidItems={invalidItems}
-          changeInvalidItems={changeInvalidItems}
-          callBack={checkValidation}
-          routes={routes}
-          currentComponent={thisPrices}
-        />
-      </Grid>
-    ),
-    [route, formObject.isAdded, invalidItems]
+  const autoSuggest = (
+    <Grid style={{ width: "50%" }}>
+      {/* rout name */}
+      <IntegrationAutosuggest
+        xs={6}
+        input={route}
+        inputsArray={pricesForm}
+        index={index}
+        thisPrices={thisPrices}
+        formObject={formObject}
+        invalidItems={invalidItems}
+        changeInvalidItems={changeInvalidItems}
+        callBack={checkValidation}
+        routes={routes}
+        changeRoutes={changeRoutes}
+        currentComponent={thisPrices}
+        carsRoutes={formObject.CarsRoutes}
+      />
+    </Grid>
   );
   const routePrice = useMemo(
     () => (
@@ -105,7 +105,7 @@ const RoutePrice = props => {
           className={
             classes.textField +
             " " +
-            (formObject.isAdded && (invalidItems && invalidItems.price)
+            (formObject.isAdded && (!route.isValid && !route.price.value)
               ? "invalid"
               : "")
           }

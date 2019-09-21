@@ -80,7 +80,8 @@ const App = React.memo(() => {
     notificationType: "error",
     isSended: false,
     callBacks: [],
-    carsMake: []
+    carsMake: [],
+    CarsRoutes: []
     // count:0
   });
 
@@ -90,7 +91,7 @@ const App = React.memo(() => {
 
   useEffect(() => {
     async function getCarsMake() {
-      let res = await Axios.get("http://localhost:8000/api/get_makes");
+      let res = await Axios.get("/api/get_makes");
 
       formObject.carsMake = res.data;
       changeFormObject({ ...formObject });
@@ -98,7 +99,7 @@ const App = React.memo(() => {
     getCarsMake();
 
     async function getRoutes() {
-      let res = await Axios.get("http://localhost:8000/api/get_routes");
+      let res = await Axios.get("/api/get_routes");
 
       formObject.CarsRoutes = res.data;
 
@@ -151,7 +152,7 @@ const App = React.memo(() => {
       // formObject.isSended = true;
       changeFormObject({ ...formObject, isSended: true });
       Axios({
-        url: "http://localhost:8000/api/save_transportation_data",
+        url: "/api/save_transportation_data",
         method: "POST",
         data: fd,
         headers: {
