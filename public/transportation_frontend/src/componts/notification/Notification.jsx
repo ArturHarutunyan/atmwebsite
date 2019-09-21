@@ -155,12 +155,12 @@ export default function CustomizedSnackbars(props) {
           {isNaN(props.responseStatus) ? (
             <>
               <CircularIndeterminate />
-              ձեր հարձումը մշակվում է խնդրում ենք սպասել
+              Ձեր հարցումը մշակվում է խնդրում ենք սպասել
             </>
           ) : props.responseStatus == 1 ? (
-            "ձեր հայտն ուղղարկված է , շնորհակալություն "
+            "Ձեր հայտն ուղղարկված է , շնորհակալություն "
           ) : (
-            "համակարգում կան ղնդիրներ "
+            "Համակարգում կան ղնդիրներ "
           )}
         </div>
       )}

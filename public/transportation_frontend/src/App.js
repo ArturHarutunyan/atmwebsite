@@ -73,8 +73,8 @@ const App = React.memo(() => {
     prices: [{ uniqueId: "1_unique" }],
 
     errorTexts: "",
-    successText: "ձեր հայտն ընդունված Է շնորհակալություն",
-    infoText: "ձեր հարցումը մշակվում է խնդրում ենք սպասել ",
+    successText: "Ձեր հայտն ընդունված Է , շնորհակալություն",
+    infoText: "Ձեր հարցումը մշակվում է խնդրում ենք սպասել ",
     isFormValid: true,
     isAdded: false,
     notificationType: "error",
@@ -90,7 +90,7 @@ const App = React.memo(() => {
 
   useEffect(() => {
     async function getCarsMake() {
-      let res = await Axios.get("api/get_makes");
+      let res = await Axios.get("/api/get_makes");
 
       formObject.carsMake = res.data;
       changeFormObject({ ...formObject });
@@ -98,7 +98,7 @@ const App = React.memo(() => {
     getCarsMake();
 
     async function getRoutes() {
-      let res = await Axios.get("api/get_routes");
+      let res = await Axios.get("/api/get_routes");
 
       formObject.CarsRoutes = res.data;
 
@@ -151,7 +151,7 @@ const App = React.memo(() => {
       // formObject.isSended = true;
       changeFormObject({ ...formObject, isSended: true });
       Axios({
-        url: "api/save_transportation_data",
+        url: "/api/save_transportation_data",
         method: "POST",
         data: fd,
         headers: {
