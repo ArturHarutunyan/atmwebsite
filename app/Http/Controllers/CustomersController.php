@@ -40,8 +40,8 @@ class CustomersController extends Controller
         //var_dump($request->formObject);
         $customer_data = $formObj->partnerInfo;
         $customer = Customer::create([
-            'legal_name' => 'a', //$customer_data->legal_name,
-            'phone' => 'b', //$customer_data->phone_number,
+            'legal_name' => $customer_data->legal_name,
+            'phone' => $customer_data->phone_number,
             'email' => $customer_data->Email,
             'tin' => $customer_data->AVC,
             'notes' => $customer_data->notes
@@ -144,5 +144,9 @@ class CustomersController extends Controller
     {
         $routes = Route::all();
         return response()->json($routes);
+    }
+
+    public function show(){
+        return view('admin.transportation.cars_list')->with('cars',Car::all());
     }
 }

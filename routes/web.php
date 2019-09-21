@@ -833,6 +833,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>'admin', 'namespace'=>'App\Http\C
         'uses'=>'PhotosController@destroy',
         'as'=>'photo.delete'
     ]);
+
+
+    Route::get('/cars_list', [
+        'uses'=>'CustomersController@show',
+        'as'=>'cars_list'
+    ]);
 });
 
 Route::group(

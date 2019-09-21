@@ -18,6 +18,6 @@ class Route extends Model
     ];
     public function prices()
     {
-        return $this->belongsToMany('App\Price');
+        return $this->belongsToMany('App\Price')->withPivot('amount');
     }
 }

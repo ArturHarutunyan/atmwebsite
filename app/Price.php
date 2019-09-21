@@ -26,7 +26,7 @@ class Price extends Model
     }
     public function routes()
     {
-        return $this->belongsToMany('App\Route');
+        return $this->belongsToMany('App\Route')->withPivot('amount');
     }
     public function custom_routes()
     {

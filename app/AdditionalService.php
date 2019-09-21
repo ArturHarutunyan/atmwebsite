@@ -17,8 +17,8 @@ class AdditionalService extends Model
     protected $fillable=[
         'car_id','name'
     ];
-    public function price()
+    public function car()
     {
-        return $this->belongsTo('App\Price');
+        return $this->belongsTo('App\Car');
     }
 }
