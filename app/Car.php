@@ -32,10 +32,10 @@ class Car extends Model
     }
     public function car_model()
     {
-        return $this->belongsTo('App\CarModel');
+        return $this->belongsTo('App\CarModel', 'model_id', 'id');
     }
     public function additional_services()
     {
-        return $this->belongsTo('App\AdditionalService');
+        return $this->hasMany('App\AdditionalService');
     }
 }

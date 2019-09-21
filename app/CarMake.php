@@ -19,6 +19,6 @@ class CarMake extends Model
 
     public function car_models()
     {
-        return $this->hasMany('App\CarModel');
+        return $this->hasMany('App\CarModel', 'make_id', 'id');
     }
 }
