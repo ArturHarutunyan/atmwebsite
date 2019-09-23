@@ -49,7 +49,7 @@ const handleValueChange = (
   // console.log(event.value);
 
   input.value = (event.target && event.target.value) + "";
-  console.log(input.value);
+  // console.log(input.value);
 
   input.isValid = true;
 

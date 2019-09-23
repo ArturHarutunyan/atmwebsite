@@ -318,7 +318,7 @@ export default function ComboBox(props) {
   function handleChangeSingle(event) {
     setSingle(event);
 
-    console.log(event);
+    // console.log(event);
     input.value = event && event.value;
     input.isValid = event && true;
     input.checkBoxLabel = event && event.label;

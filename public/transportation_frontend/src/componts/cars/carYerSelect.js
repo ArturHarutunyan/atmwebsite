@@ -8,9 +8,9 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    margin: "16px  0 0 ",
+    margin: "16px  0 0 0 ",
 
-    minWidth: "100%"
+    minWidth: 230
   }
 }));
 let counter = 0;
@@ -37,9 +37,9 @@ export default function CarYearSelect(props) {
   }
 
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl className={classes.formControl + " carYearSelect"}>
       <InputLabel htmlFor="demo-controlled-open-select">
-        արտադրման տարեթիվ
+        Արտադրման տարեթիվ
       </InputLabel>
       <Select
         open={open}
@@ -47,6 +47,10 @@ export default function CarYearSelect(props) {
         onOpen={handleOpen}
         value={year}
         onChange={handleChange}
+        className={"carYearSelect"}
+        // style={{
+        //   maxHeight: "300px !important"
+        // }}
         //   inputProps={{
         //     name: "year",
         //     id: "demo-controlled-open-select"

@@ -248,6 +248,24 @@ label {
   transition    : all 0.1s linear;
 }
 
+div#downshift-options-menu>* {
+  max-height: 300px;
+  overflow  : auto;
+}
+
+#menu->div.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation8.MuiPopover-paper.MuiPaper-rounded {
+  max-height: 300px
+}
+
+.carYearSelect .MuiSelect-select {
+  text-align     : left !important;
+  /* padding-left: 10px */
+}
+
+.selectContainer #select-fuel {
+  text-align     : left;
+  /* padding-left: 10px */
+}
 
 .comboBoxContainer .MuiFormLabel-root:not(.Mui-focused)+div p.MuiTypography-root.MuiTypography-colorTextSecondary {
   display: none !important;
