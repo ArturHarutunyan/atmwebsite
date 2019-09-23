@@ -18,10 +18,10 @@ class CarModel extends Model
     ];
     public function cars()
     {
-        return $this->hasMany('App\Car');
+        return $this->hasMany('App\Car','model_id','id');
     }
     public function car_make()
     {
-        return $this->belongsTo('App\CarMake');
+        return $this->belongsTo('App\CarMake', 'make_id', 'id');
     }
 }

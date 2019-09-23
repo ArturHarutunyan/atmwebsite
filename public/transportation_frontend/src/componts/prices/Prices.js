@@ -101,6 +101,7 @@ export default memo(function({ index, thisPriceForm }) {
           thisPrices={thisPrices}
           formObject={formObject}
           routes={routes}
+          changeRoutes={changeRoutesForm}
           classes={classes}
           changeRoutesForm={changeRoutesForm}
         />

@@ -104,6 +104,9 @@ export default function CustomizedSnackbars(props) {
   const classes = useStyles2();
   const [open, setOpen] = React.useState(false);
 
+  useEffect(() => {
+    if (props.responseStatus == 1) setOpen(true);
+  }, [props.responseStatus]);
   let [errorMassage, changeErrorMassage] = React.useState(
     props.massage.errorTexts
   );
@@ -155,12 +158,12 @@ export default function CustomizedSnackbars(props) {
           {isNaN(props.responseStatus) ? (
             <>
               <CircularIndeterminate />
-              ձեր հարձումը մշակվում է խնդրում ենք սպասել
+              Ձեր հարցումը մշակվում է խնդրում ենք սպասել
             </>
           ) : props.responseStatus == 1 ? (
-            "ձեր հայտն ուղղարկված է , շնորհակալություն "
+            "Ձեր հայտն ուղղարկված է , շնորհակալություն "
           ) : (
-            "համակարգում կան ղնդիրներ "
+            "Համակարգում կան ղնդիրներ "
           )}
         </div>
       )}
@@ -169,7 +172,7 @@ export default function CustomizedSnackbars(props) {
           vertical: "top",
           horizontal: "center"
         }}
-        open={open || props.responseStatus == 1}
+        open={open}
         autoHideDuration={6000}
         onClose={handleClose}
       >

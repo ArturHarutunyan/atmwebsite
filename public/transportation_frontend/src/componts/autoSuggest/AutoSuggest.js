@@ -1,63 +1,93 @@
 import React from "react";
+import PropTypes from "prop-types";
 import deburr from "lodash/deburr";
-import Autosuggest from "react-autosuggest";
-import match from "autosuggest-highlight/match";
-import parse from "autosuggest-highlight/parse";
+import Downshift from "downshift";
+import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import Popper from "@material-ui/core/Popper";
 import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles } from "@material-ui/core/styles";
+import Chip from "@material-ui/core/Chip";
 
-function renderInputComponent(inputProps) {
-  const { classes, inputRef = () => {}, ref, ...other } = inputProps;
+let suggestions = [];
+
+function renderInput(inputProps) {
+  const { InputProps, classes, ref, ...other } = inputProps;
 
   return (
     <TextField
-      fullWidth
       InputProps={{
-        inputRef: node => {
-          ref(node);
-          inputRef(node);
-        },
+        inputRef: ref,
         classes: {
-          input: classes.input
-        }
+          root: classes.inputRoot,
+          input: classes.inputInput
+        },
+        ...InputProps
       }}
       {...other}
+      inputProps={{
+        ...other.inputProps
+      }}
     />
   );
 }
 
-function renderSuggestion(suggestion, { query, isHighlighted }) {
-  const matches = match(suggestion.label, query);
-  const parts = parse(suggestion.label, matches);
+renderInput.propTypes = {
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: PropTypes.object.isRequired,
+  InputProps: PropTypes.object
+};
+
+function renderSuggestion(suggestionProps) {
+  const {
+    suggestion,
+    index,
+    itemProps,
+    highlightedIndex,
+    selectedItem
+  } = suggestionProps;
+  const isHighlighted = highlightedIndex === index;
+  const isSelected = (selectedItem || "").indexOf(suggestion.label) > -1;
 
   return (
-    <MenuItem selected={isHighlighted} component="div">
-      <div>
-        {parts.map(part => (
-          <span
-            key={part.text}
-            style={{ fontWeight: part.highlight ? 500 : 400 }}
-          >
-            {part.text}
-          </span>
-        ))}
-      </div>
+    <MenuItem
+      {...itemProps}
+      key={suggestion.label}
+      selected={isHighlighted}
+      component="div"
+      style={{
+        fontWeight: isSelected ? 500 : 400
+      }}
+    >
+      {suggestion.label}
     </MenuItem>
   );
 }
 
-function getSuggestions(value, suggestions) {
+renderSuggestion.propTypes = {
+  highlightedIndex: PropTypes.oneOfType([
+    PropTypes.oneOf([null]),
+    PropTypes.number
+  ]).isRequired,
+  index: PropTypes.number.isRequired,
+  itemProps: PropTypes.object.isRequired,
+  selectedItem: PropTypes.string.isRequired,
+  suggestion: PropTypes.shape({
+    label: PropTypes.string.isRequired
+  }).isRequired
+};
+
+function getSuggestions(value, { showEmpty = false } = {}, sug) {
   const inputValue = deburr(value.trim()).toLowerCase();
   const inputLength = inputValue.length;
   let count = 0;
 
-  return inputLength === 0
+  return inputLength === 0 && !showEmpty
     ? []
-    : suggestions.filter(suggestion => {
+    : sug.filter(suggestion => {
         const keep =
-          count < 5 &&
           suggestion.label.slice(0, inputLength).toLowerCase() === inputValue;
 
         if (keep) {
@@ -68,43 +98,50 @@ function getSuggestions(value, suggestions) {
       });
 }
 
-const getSuggestionValue = rout => suggestion => {
-  rout.value = suggestion.id;
-  rout.suggestion = suggestion;
-  return suggestion.label;
-};
-
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "auto",
     flexGrow: 1,
-    margin: "15px"
+    height: 250
   },
   container: {
-    position: "relative"
+    flexGrow: 1,
+    position: "relative",
+    margin: 15,
+    marginLeft: 20,
+    width: "90%"
   },
-  suggestionsContainerOpen: {
+  paper: {
     position: "absolute",
     zIndex: 1,
     marginTop: theme.spacing(1),
     left: 0,
     right: 0
   },
-  suggestion: {
-    display: "block"
+  chip: {
+    margin: theme.spacing(0.5, 0.25)
   },
-  suggestionsList: {
-    margin: 0,
-    padding: 0,
-    listStyleType: "none"
+  inputRoot: {
+    flexWrap: "wrap"
+  },
+  inputInput: {
+    width: "auto",
+    flexGrow: 1
   },
   divider: {
     height: theme.spacing(2)
   }
 }));
-let suggestions = [];
-export default function IntegrationAutosuggest(props) {
+
+let popperNode;
+
+let optionsKeys = {};
+
+export default function IntegrationDownshift(props) {
   const classes = useStyles();
+  const [inputVal, changeInputValue] = React.useState("");
+
+  const [labelUp, setLabelUp] = React.useState(false);
+  const [sug, changeSug] = React.useState([]);
 
   const {
     routes,
@@ -113,48 +150,29 @@ export default function IntegrationAutosuggest(props) {
     formObject,
     thisPrices,
     changeInvalidItems,
-    invalidItems
+    invalidItems,
+    changeRoutes,
+    someLength
   } = props;
-  const [state, setState] = React.useState({
-    single: "",
-    popper: ""
-  });
-  if (formObject.CarsRoutes && !suggestions.length) {
-    suggestions = formObject.CarsRoutes.map((elem, index) => {
-      return { label: elem.name, id: elem.id };
-    });
-  }
 
   React.useEffect(() => {
-    setState({
-      ...state,
-      single: routes[index].value
-    });
-  }, [routes]);
+    // console.log(formObject);
 
-  const [stateSuggestions, setSuggestions] = React.useState([]);
+    changeSug(
+      formObject.CarsRoutes.map((elem, index) => {
+        optionsKeys[elem.name] = elem.id;
+        return { label: elem.name, id: elem.id };
+      })
+    );
 
-  const handleSuggestionsFetchRequested = ({ value }) => {
-    setSuggestions(getSuggestions(value, suggestions));
-  };
+    changeInputValue(routes[index].stringValue || "");
+    // console.log(suggestions);
+  }, [routes.length, routes, routes[index], formObject.CarsRoutes.length]);
 
-  const handleSuggestionsClearRequested = () => {
-    setSuggestions([]);
-  };
+  function handleChange(newValue) {
+    routes[index].value = optionsKeys[newValue.trim()] || newValue;
 
-  const handleChange = name => (event, { newValue }) => {
-    setState({
-      ...state,
-      [name]: newValue
-    });
-
-    let suggestedValue =
-      (routes[index].suggestion && routes[index].suggestion.label) || "";
-
-    if (suggestedValue && suggestedValue.trim() == newValue.trim())
-      routes[index].value = routes[index].suggestion.id;
-    else routes[index].value = newValue;
-
+    routes[index].stringValue = newValue;
     callBack(
       routes[index],
       changeInvalidItems,
@@ -162,83 +180,98 @@ export default function IntegrationAutosuggest(props) {
       routes,
       thisPrices
     );
-  };
 
-  const autosuggestProps = {
-    renderInputComponent,
-    suggestions: stateSuggestions,
-    onSuggestionsFetchRequested: handleSuggestionsFetchRequested,
-    onSuggestionsClearRequested: handleSuggestionsClearRequested,
-    getSuggestionValue: getSuggestionValue(routes[index]),
-    renderSuggestion
-  };
+    changeRoutes([...routes]);
+  }
 
   return (
-    <div
-      className={
-        classes.root +
-        " " +
-        (formObject.isAdded && invalidItems.value ? "invalid" : "")
-      }
-      style={{ marginLeft: "20px" }}
+    <Downshift
+      id="downshift-options"
+      onStateChange={({ inputValue }) => {
+        if (!inputValue) return;
+        handleChange(inputValue);
+
+        return inputValue && changeInputValue(inputValue);
+      }}
+      selectedItem={inputVal}
+      onChange={(selection, index) => {
+        handleChange(selection || "");
+        return changeInputValue(selection);
+      }}
     >
-      <Autosuggest
-        {...autosuggestProps}
-        inputProps={{
-          classes,
-          id: "react-autosuggest-simple",
-          label: "Երթուղի",
-          placeholder: "Երթուղի",
-          value: state.single,
-          onChange: handleChange("single")
-        }}
-        theme={{
-          container: classes.container,
-          suggestionsContainerOpen: classes.suggestionsContainerOpen,
-          suggestionsList: classes.suggestionsList,
-          suggestion: classes.suggestion
-        }}
-        renderSuggestionsContainer={options => {
-          return (
-            <Paper {...options.containerProps} square>
-              {options.children}
-            </Paper>
-          );
-        }}
-      />
-      {/* <div className={classes.divider} /> */}
-      {/* <Autosuggest
-        {...autosuggestProps}
-        inputProps={{
-          classes,
-          id: 'react-autosuggest-popper',
-          label: 'Country',
-          placeholder: 'With Popper',
-          value: state.popper,
-          onChange: handleChange('popper'),
-          inputRef: node => {
-            setAnchorEl(node);
+      {({
+        clearSelection,
+        getInputProps,
+        getItemProps,
+        getLabelProps,
+        getMenuProps,
+        highlightedIndex,
+        inputValue,
+        isOpen,
+        openMenu,
+        selectedItem
+      }) => {
+        const { onBlur, onChange, onFocus, ...inputProps } = getInputProps({
+          onChange: event => {
+            if (event.target.value === "") {
+              clearSelection();
+            }
           },
-          InputLabelProps: {
-            shrink: true,
+          onFocus: () => {
+            openMenu();
+            setLabelUp(true);
           },
-        }}
-        theme={{
-          suggestionsList: classes.suggestionsList,
-          suggestion: classes.suggestion,
-        }}
-        renderSuggestionsContainer={options => (
-          <Popper anchorEl={anchorEl} open={Boolean(options.children)}>
-            <Paper
-              square
-              {...options.containerProps}
-              style={{ width: anchorEl ? anchorEl.clientWidth : undefined }}
-            >
-              {options.children}
-            </Paper>
-          </Popper>
-        )}
-      /> */}
-    </div>
+
+          onBlur: event => {
+            inputProps.value = event.target.value;
+            setLabelUp(false);
+          },
+          placeholder: "Երթուղի"
+        });
+
+        // console.log(inputVal);
+        return (
+          <div
+            className={
+              classes.container +
+              (formObject.isAdded &&
+              !routes[index].isValid &&
+              !routes[index].value
+                ? " invalid"
+                : "")
+            }
+          >
+            {renderInput({
+              fullWidth: true,
+              classes,
+
+              label: "Երթուղի",
+              InputLabelProps: getLabelProps({
+                shrink: !!inputVal || labelUp
+              }),
+              InputProps: { onBlur, onChange, onFocus },
+              inputProps: { ...inputProps }
+            })}
+
+            <div {...getMenuProps()}>
+              {isOpen ? (
+                <Paper className={classes.paper} square>
+                  {getSuggestions(inputValue, { showEmpty: true }, sug).map(
+                    (suggestion, index) =>
+                      renderSuggestion({
+                        suggestion,
+                        index,
+                        itemProps: getItemProps({ item: suggestion.label }),
+                        highlightedIndex,
+                        selectedItem
+                      })
+                  )}
+                </Paper>
+              ) : null}
+            </div>
+          </div>
+        );
+      }}
+    </Downshift>
   );
 }

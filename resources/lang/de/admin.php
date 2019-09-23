@@ -215,4 +215,5 @@ return [
     "photos"=>"Photos",
     "unique_services_content"=>"Unique services content",
     "upload_images"=>"Upload images",
+    "cars"=>"Cars",
 ];

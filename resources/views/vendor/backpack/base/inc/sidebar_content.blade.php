@@ -83,6 +83,7 @@ $lang=App::getLocale();
 <li><a href="{{route('certificates')}}"><span>{{ trans('admin.certificates') }}</span></a></li>
 <li><a href="{{route('photos')}}"><span>{{ trans('admin.photos') }}</span></a></li>
 <li><a href="{{route('videos')}}"><span>{{ trans('admin.videos') }}</span></a></li>
+<li><a href="{{route('cars_list')}}"><span>{{ trans('admin.cars') }}</span></a></li>
 <li><a href="{{route('page_names')}}"><span>{{ trans('admin.page_names') }}</span></a></li>
 <li><a href="{{route('custom_meta_tags')}}"><span>{{ trans('admin.custom_meta_tags') }}</span></a></li>
 <li><a href="{{route('home_page_contents')}}"><span>{{ trans('site.home_page_contents') }}</span></a></li>
