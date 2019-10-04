@@ -1,6 +1,7 @@
 var radioCount = 0;
 var rCount = 0;
-// tours.json
+// https://www.armeniatravel.am/api/wcit/excursions
+
 fetch('https://www.armeniatravel.am/api/wcit/excursions')
     .then(function (response) {
         return response.json();
@@ -120,7 +121,7 @@ function swiperComponent(tour) {
 
 
     var galleryThumbs = '<div class="swiper-container gallery-thumbs">'
-    galleryThumbs+= `<div class="swiper-button-next">
+    galleryThumbs += `<div class="swiper-button-next">
     <svg class="svg-inline--fa fa-angle-right fa-w-6 fa-fw fa-2x" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 192 512">
         <path fill="currentColor" d="M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"></path>
     </svg>
@@ -129,7 +130,7 @@ function swiperComponent(tour) {
         <svg class="svg-inline--fa fa-angle-left fa-w-6 fa-fw fa-2x" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-left" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 192 512">
         <path fill="currentColor" d="M4.2 247.5L151 99.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17L69.3 256l118.5 119.7c4.7 4.7 4.7 12.3 0 17L168 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 264.5c-4.7-4.7-4.7-12.3 0-17z"></path>
         </svg>
-    </div>` 
+    </div>`
 
     tour.photos.forEach(photo => {
         var item = `
@@ -238,13 +239,13 @@ function tourDescription(tour) {
 
     var dataGroup = JSON.stringify(tour.prices);
     var dataPrivate = JSON.stringify(tour.privatePrice);
-    console.log(dataGroup, dataPrivate)
+    // console.log(dataGroup, dataPrivate)
 
     //   <div class="Moption" data-value="" selected="">Language </div>
 
     // <div class="Moption" data-value="" selected="">Persons</div>
     var tourForm = `
-        <div class="row tourForm" data-tourname="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
+        <div class="row tourForm"  data-tourId="${tour.id}" data-tourName="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
             <div class="radiosContainer custom_radio col-12 d-flex px-0" data-name="tour_type"> 
                 <p><input id="${'t' + ++radioCount}" type="radio" value="Group" name="${'r' + ++rCount}" checked=""><label class="font-weight-bold" for="${'t' + radioCount}">Joining a group</label></p>
 
@@ -267,8 +268,18 @@ function tourDescription(tour) {
                 </div>
             </div>
             <div class="addButtonContainer"><span class="btn btn-dark add_desktop"><span class='notAddedButton'>ADD</span> <span class='AddedButton'>ADDED</span> </span><span class="btn btn-dark add_mobile"><span class='notAddedButton'>ADD Excursion</span> <span class='AddedButton'>Excursion is ADDED </span></span></div>
-             </div>
+             
+            
+            </div>
+            
+            
              <div class="mobileShowForm row my-4 w-100 p-0"><span class="btn btn-dark w-100">pick tour options</span></div>
+            
+          </div>
+          <div class="formAfterIconsContainer">
+            <img src="./images/001-clock-circular-outline.svg"/> <span>9 AM </span>
+            <img src="./images/002-maps-and-flags.svg"/>         <span>Republic Square</span>
+          
           </div>
        </div>
     </div>
