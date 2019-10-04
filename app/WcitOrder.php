@@ -21,4 +21,12 @@ class WcitOrder extends Model
     {
         return $this->hasMany('App\WcitOrder');
     }
+    public function wcit_orders()
+    {
+        return $this->hasMany('App\WcitOrder');
+    }
+    public function wcit_orders()
+    {
+        return $this->hasMany('App\WcitOrder');
+    }
 }

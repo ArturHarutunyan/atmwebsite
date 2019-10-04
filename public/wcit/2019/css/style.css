@@ -43,6 +43,7 @@ p.excursionName span,
     position: absolute;
     top     : 0;
     left    : 0;
+
 }
 
 
@@ -136,6 +137,8 @@ body {
 
 html,
 body {
+
+    /* can be nedded  */
     position: relative;
     height  : 100%;
 
@@ -143,7 +146,6 @@ body {
 }
 
 body {
-
     padding-bottom: 50px;
 }
 
