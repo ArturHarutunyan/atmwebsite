@@ -256,7 +256,6 @@ function tourDescription(tour) {
                    <div class="Mselect d-inline-block">
                       <div class="Moption" data-value="1"><span style='color:black; ' class='font-weight-bold'>English</span> </div>
                       <div class="Moption" data-value="2"><span style='color:black; ' class='font-weight-bold'>Russian</span> </div>
-                      <div class="Moption" data-value="3"><span style='color:black; ' class='font-weight-bold'>French </span></div>
                    </div>
                 </div>
             </div>
