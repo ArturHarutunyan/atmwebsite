@@ -32,6 +32,13 @@ export default function Partner(props) {
   const classes = useStyles();
 
   const [inputs, changeInputs] = useState([
+
+    {
+      label: "Անվանում *",
+      name: "name",
+      validators: [isRequirers],
+      value: ""
+    },
     {
       label: "Իրավաբանական Անուն *",
       name: " legal_name",
@@ -44,13 +51,45 @@ export default function Partner(props) {
       validators: [isRequirers],
       value: ""
     },
+
+    {
+      label: "Գործունեության հասցե *",
+      name: "business_address",
+      validators: [isRequirers],
+      value: ""
+    },
+    {
+      label: "Իրավաբանական հասցե *",
+      name: "legal_address",
+      validators: [isRequirers],
+      value: ""
+    },
     {
       label: "Էլ հասցե *",
       name: "Email",
       validators: [isEmail, isRequirers],
       value: ""
     },
-    { label: "ՀՎՀՀ *", name: "AVC", validators: [isRequirers], value: "" }
+    {
+      label: "Տնօրենի անուն *",
+      name: "directors_name",
+      validators: [isRequirers],
+      value: ""
+    },
+    {
+      label: "ՀՎՀՀ *",
+      name: "AVC",
+      validators: [isRequirers],
+      value: ""
+    },
+
+
+
+
+
+
+
+
   ]);
 
   // _______________________________________________________________________________________ karoxa sxal ta
