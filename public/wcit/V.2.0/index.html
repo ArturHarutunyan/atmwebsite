@@ -1,6 +1,124 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Document</title><link rel="stylesheet" href="./css/bootstrap.min.css"><link rel="stylesheet" href="./css/pickmeup.css"><link rel="stylesheet" href="./css/swiper.css"><link rel="stylesheet" href="./css/style.css"><link rel="stylesheet" href="./css/extremal.css"><script src="./scripte/getTours.js"></script></head><body class="body"><div class="getScrollPosition"></div><div class="wrapper container-fluid"><div class="nav_bar"><img style="width:100%;" src="./images/timeHeader.jpg" alt="timeHeader"></div><!-- <div class="head_image">head image</div>--><div class="ArmeniaTravelLogo"><div class="limitWidth"><p class="mr-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium facere soluta architecto fugit neque numquam vitae eos, unde provident suscipit reprehenderit autem esse ullam quidem maiores expedita sit commodi eum?</p><div class="btn btn-light headerBtn">Send Request</div></div></div><div class="row limitWidth mt-5 bigContentRow"><div class="col-lg-8 excursion_block"><iframe class="resizeContent" name="frame" width="100%" style="position:absolute;z-index:-1;visibility:hidden"></iframe><div class="head_select_container mb-4"><h1>Excursions </h1><p class="d-inline-block"><span>Participation type</span></p><div class="select_container d-inline-block ml-2" data-placeholder="&lt;span style=&quot;color:gray; font-weight: 100;&quot;&gt;Choose your&lt;/span&gt;"><div class="Mselect d-inline-block"><div class="Moption" data-value="1">Delegation</div><div class="Moption" data-value="2">Attendee </div><div class="Moption" data-value="2">Speaker </div></div></div></div><!-- excrsion component--></div><div class="col-lg-4 shop_list_container"><div class="shopListMobileShow"><h4><span>Shopping Cart <span class="cartCount">0</span></span><svg class="svg-inline--fa fa-chevron-up fa-w-14 fa-3x" aria-hidden="true" style="width:18px; height:18px" focusable="false" data-prefix="fas" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></h4></div><div class="position-sticky" style="top: 10px;"><div class="shop_container hide"><h4 class="black_color">Shopping Cart<span class="cartCount">0</span></h4><div class="shoppingListTitles black_color font-weight-bold"><div>Excursion</div><div>Price</div><div>Qty</div><div>Amount</div><div style="min-width: 26px;"></div></div><div class="shop_items"><!--<div class="one_item">
-<div class="excursion_name">Excursion Name</div>
-<div class="excursion_price">60 EUR</div>
-<div class="excursion_type">Group</div>
-<div class="excursion_amount">70 EUR</div>
-</div>--></div><div class="total_price black_color font-weight-bold text-right mt-2"><span>Total Price: </span><span class="tPrice"> 130 EUR</span></div></div><h4 class="black_color mt-5">Contacts</h4><div class="contacts_form"><div class="inputs"><input class="contact_name" type="text" placeholder="* Name" data-name="name"><input class="contact_name" type="text" placeholder="* Surname" data-name="Surname"><input class="contact_name" type="text" placeholder="Phone" data-name="Phone"><input class="contact_name" type="email" placeholder="* Email" data-name="Email"><input class="contact_name" type="text" placeholder="* Organization" data-name="Organization"></div><div class="pay_button text-right mt-4 hide"><span class="btn btn-dark">Send Request</span></div></div></div></div></div></div><footer><div class="container-fluid"> <div class="footerContent limitWidth row px-0"><div class="col-lg-12"><h1>Official travel partner</h1><div class="travel_logo"><img src="./images/atm_logo.png" alt="logo"></div></div></div></div></footer><div class="afterFooter"><img src="./images/afterFooter.JPG" alt="logo" style="width:100%"></div></body></html><script src="./scripte/swipe.min.js"></script><script src="./scripte/pickmeup.js"></script><script src="./scripte/Mselect.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WCIT 2019 tours</title>
+    <link rel="shortcut icon" href="https://www.armeniatravel.am/uploads/images/main/favicon.ico">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/pickmeup.css">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/extremal.css">
+    <script src="./scripte/getTours.js"></script>
+</head>
+
+<body class="body">
+
+    <div class="getScrollPosition"></div>
+    <div class="nav_bar">
+
+
+        <div class="navContent">
+
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTM4cHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMCAwIDEzOCA0MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBza2V0Y2h0b29sIDU1ICg3ODA3NikgLSBodHRwczovL3NrZXRjaGFwcC5jb20gLS0+CiAgICA8dGl0bGU+NTc0RERDNTYtMkI4Ny00NjhBLUJBNjItMjcxOTU4RjBDQTM2PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBza2V0Y2h0b29sLjwvZGVzYz4KICAgIDxnIGlkPSJTcGVha2VycyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IlNwZWFrZXJzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02My4wMDAwMDAsIC0zMS4wMDAwMDApIiBmaWxsPSIjMjIxRjIwIj4KICAgICAgICAgICAgPGcgaWQ9Im5hdmlnYXRpb24iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ0LjAwMDAwMCwgMjYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTUyLjM5MzM2OSwxMS44Mzk2MDk4IEMxNTIuMzkzMzY5LDEzLjg4MDgxNTkgMTUxLjIxMTc2MSwxNS4wNjI0MjMzIDE0OS41NjQ1MzgsMTUuMDYyNDIzMyBDMTQ3Ljg0NTM0LDE1LjA2MjQyMzMgMTQ2LjczNTM2NiwxMy43NzMzNjYxIDE0Ni43MzUzNjYsMTEuODM5NjA5OCBDMTQ2LjczNTM2Niw5Ljc5ODc0NDcxIDE0Ny45MTY5NzQsOC42MTY3OTYyOSAxNDkuNTY0NTM4LDguNjE2Nzk2MjkgQzE1MS4yMTE3NjEsOC42MTY3OTYyOSAxNTIuMzkzMzY5LDkuNzk4NzQ0NzEgMTUyLjM5MzM2OSwxMS44Mzk2MDk4IEwxNTIuMzkzMzY5LDExLjgzOTYwOTggWiBNMTU2LjQwNDE0OCwxMS44MDQxMzQzIEMxNTYuNDA0MTQ4LDcuNDM0ODQ3ODYgMTUzLjQ2NzUyNiw1IDE0OS41NjQ1MzgsNSBDMTQ1LjY2MTIwOSw1IDE0Mi42ODg3NzEsNy41NDIyOTc3MiAxNDIuNjg4NzcxLDExLjg3NTQyNjQgQzE0Mi42ODg3NzEsMTUuOTU3ODM4NyAxNDUuNTUzNzU5LDE4LjM5MzAyNzcgMTQ4LjUyNTg1NiwxOC4zOTMwMjc3IEMxNDkuMDI3Mjg5LDE4LjM5MzAyNzcgMTQ5LjYzNjE3MSwxOC4zMjEzOTQ1IDE1MC4xMzcyNjMsMTguMTA2NDk0NyBMMTQ1LjU4OTU3NiwyNy4xNjY3MzQ5IEwxNDkuOTIyMzYzLDI3LjE2NjczNDkgTDE1NC41Nzc4NDEsMTcuNjc2Njk1MyBDMTU1LjU4MDM2NiwxNS42NzEzMDU4IDE1Ni40MDQxNDgsMTMuODA5MTgyNyAxNTYuNDA0MTQ4LDExLjgwNDEzNDMgTDE1Ni40MDQxNDgsMTEuODA0MTM0MyBaIE0xMzkuMTc5NDI0LDI3LjE2NjczNDkgTDEzOS4xNzk0MjQsNS4yMTQ4OTk3MSBMMTM1LjE2ODY0NSw1LjIxNDg5OTcxIEwxMzAuNjkyMjUsOS4wODI0MTIzMyBMMTMwLjY5MjI1LDEzLjQxNTE5OTkgTDEzNS4xNjg2NDUsOS41MTIyMTE3NiBMMTM1LjE2ODY0NSwyNy4xNjY3MzQ5IEwxMzkuMTc5NDI0LDI3LjE2NjczNDkgWiBNMTI0LjAzMTM4MiwyMC43OTIwNTg5IEMxMjQuMDMxMzgyLDIyLjY1NDUyMzEgMTIyLjkyMTQwOCwyMy43NjQ0OTcyIDEyMS4zNDU4MTgsMjMuNzY0NDk3MiBDMTE5Ljc3MDIyOCwyMy43NjQ0OTcyIDExOC42NTk5MTMsMjIuNjU0NTIzMSAxMTguNjU5OTEzLDIwLjc5MjA1ODkgTDExOC42NTk5MTMsMTEuNjI1MDUxMiBDMTE4LjY1OTkxMyw5Ljc2MjU4Njk4IDExOS43NzAyMjgsOC42MTY3OTYyOSAxMjEuMzQ1ODE4LDguNjE2Nzk2MjkgQzEyMi45MjE0MDgsOC42MTY3OTYyOSAxMjQuMDMxMzgyLDkuNzYyNTg2OTggMTI0LjAzMTM4MiwxMS42MjUwNTEyIEwxMjQuMDMxMzgyLDIwLjc5MjA1ODkgWiBNMTI4LjA0MjUwMiwyMC44MjgyMTY3IEwxMjguMDQyNTAyLDExLjU1MzA3NjggQzEyOC4wNDI1MDIsNy4zNjM1NTU3NCAxMjQuOTI2Nzk4LDUgMTIxLjM0NTgxOCw1IEMxMTcuNzY0ODM4LDUgMTE0LjY0OTQ3NSw3LjM2MzU1NTc0IDExNC42NDk0NzUsMTEuNTUzMDc2OCBMMTE0LjY0OTQ3NSwyMC44MjgyMTY3IEMxMTQuNjQ5NDc1LDI1LjAxODA3ODkgMTE3Ljc2NDgzOCwyNy4zODE2MzQ2IDEyMS4zNDU4MTgsMjcuMzgxNjM0NiBDMTI0LjkyNjc5OCwyNy4zODE2MzQ2IDEyOC4wNDI1MDIsMjUuMDE4MDc4OSAxMjguMDQyNTAyLDIwLjgyODIxNjcgTDEyOC4wNDI1MDIsMjAuODI4MjE2NyBaIE0xMTEuNzQ4NjcsMjcuMTY2NzM0OSBMMTExLjc0ODY3LDIzLjU4NTc1NTIgTDEwMy4yNjE0OTUsMjMuNTg1NzU1MiBMMTA5LjQyMDkzMSwxNi40MjM0NTQ4IEMxMTAuOTI0ODg3LDE0LjY2ODc4MTYgMTExLjc0ODY3LDEzLjUyMjk5MDkgMTExLjc0ODY3LDExLjQwOTgxMDMgQzExMS43NDg2Nyw3LjQzNDg0Nzg2IDEwOC45NTUzMTUsNSAxMDUuMDg3ODAyLDUgQzEwMS4zMjc3MzksNSA5OC4zOTE0NTg2LDcuNDM0ODQ3ODYgOTguMzkxNDU4NiwxMS40NDU5NjgxIEwxMDIuNDAyMjM4LDExLjQ0NTk2ODEgQzEwMi40MDIyMzgsOS4yOTczMTIwNSAxMDMuNzYyOTI4LDguNjE2Nzk2MjkgMTA1LjA4NzgwMiw4LjYxNjc5NjI5IEMxMDYuNzcwODQyLDguNjE2Nzk2MjkgMTA3LjczNzg5MSw5LjcyNzExMTQ3IDEwNy43Mzc4OTEsMTEuMzc0MzM0OCBDMTA3LjczNzg5MSwxMi4zNzY4NTkxIDEwNy4zNzk3MjQsMTMuMDU3MDMzNyAxMDYuNTkyMSwxNC4wMjQwODI0IEw5OC4zOTE0NTg2LDIzLjU4NTc1NTIgTDk4LjM5MTQ1ODYsMjcuMTY2NzM0OSBMMTExLjc0ODY3LDI3LjE2NjczNDkgWiBNOTAuNjkyMjUsOS4wMTA3NzkxIEw5MC42OTIyNSw1LjIxNDg5OTcxIEw3NC44OTk4NDk5LDUuMjE0ODk5NzEgTDc0Ljg5OTg0OTksOS4wMTA3NzkxIEw4MC42NjUzMDIyLDkuMDEwNzc5MSBMODAuNjY1MzAyMiwyNy4xNjY3MzQ5IEw4NC45MjY3OTc3LDI3LjE2NjczNDkgTDg0LjkyNjc5NzcsOS4wMTA3NzkxIEw5MC42OTIyNSw5LjAxMDc3OTEgWiBNNjcuMjAwNjQxMywyNy4xNjY3MzQ5IEw3MS40NjIxMzY3LDI3LjE2NjczNDkgTDcxLjQ2MjEzNjcsNS4yMTQ4OTk3MSBMNjcuMjAwNjQxMyw1LjIxNDg5OTcxIEw2Ny4yMDA2NDEzLDI3LjE2NjczNDkgWiBNNjMuNTQ4MDI4NCwyMC40MzM4OTI4IEw1OS4xNzkwODMxLDIwLjQzMzg5MjggQzU4LjcxMzQ2NywyMi4yOTYwMTU4IDU3LjUzMTg1OTcsMjMuNTQ5NTk3NSA1NS40OTA2NTM2LDIzLjU0OTU5NzUgQzU0LjMwOTA0NjMsMjMuNTQ5NTk3NSA1My4zNzc4MTQyLDIzLjE1NTYxNDcgNTIuNzMzMTE1LDIyLjQwMzgwNjggQzUxLjgzODA0MDcsMjEuNDM3MDk5MiA1MS42NTg5NTc2LDIwLjQzMzg5MjggNTEuNjU4OTU3NiwxNi4xNzI3Mzg0IEM1MS42NTg5NTc2LDExLjkxMTI0MyA1MS44MzgwNDA3LDEwLjk0NDUzNTQgNTIuNzMzMTE1LDkuOTc3NDg2NyBDNTMuMzc3ODE0Miw5LjIyNTY3ODgxIDU0LjMwOTA0NjMsOC44MzE2OTYgNTUuNDkwNjUzNiw4LjgzMTY5NiBDNTcuNTMxODU5Nyw4LjgzMTY5NiA1OC43MTM0NjcsMTAuMDg0OTM2NiA1OS4xNzkwODMxLDExLjk0NzA1OTYgTDYzLjU0ODAyODQsMTEuOTQ3MDU5NiBDNjIuNzk1ODc5NCw3LjQ3MDY2NDQ4IDU5LjY4MDUxNTgsNSA1NS40NTQ4MzY5LDUgQzUzLjA5MTI4MTIsNSA1MS4xMjE3MDgzLDUuODIzNDQxMTIgNDkuNTEwMzAxNSw3LjQzNDg0Nzg2IEM0OC41NDM1OTM5LDguMzY2MDc5OTYgNDcuOTcwNTI4LDkuNDQwNTc4NTIgNDcuNzE5ODExNywxMC43Mjk2MzU3IEM0Ny40NjkwOTU0LDExLjk0NzA1OTYgNDcuMzYxNjQ1NSwxMy43NzMzNjYxIDQ3LjM2MTY0NTUsMTYuMTcyNzM4NCBDNDcuMzYxNjQ1NSwxOC42MDc5Mjc0IDQ3LjQ2OTA5NTQsMjAuNDMzODkyOCA0Ny43MTk4MTE3LDIxLjY1MTk5ODkgQzQ3Ljk3MDUyOCwyMi45MDQ4OTgzIDQ4LjU0MzU5MzksMjQuMDE1MjEzNSA0OS41MTAzMDE1LDI0Ljk0NjQ0NTYgQzUxLjEyMTcwODMsMjYuNTU3NTExMyA1My4wOTEyODEyLDI3LjM4MTYzNDYgNTUuNDU0ODM2OSwyNy4zODE2MzQ2IEM1OS42NDQ2OTkxLDI3LjM4MTYzNDYgNjIuNzk1ODc5NCwyNC45MTAyODc5IDYzLjU0ODAyODQsMjAuNDMzODkyOCBMNjMuNTQ4MDI4NCwyMC40MzM4OTI4IFogTTEyOS4zMzE1Niw0NSBMMTI5LjMzMTU2LDM0LjcyMjY3NyBMMTI2Ljc4ODkyMSwzNC43MjI2NzcgTDEyNi43ODg5MjEsMzkuODc4OTA1NyBMMTIzLjQ5NDQ3NCwzNC43MjI2NzcgTDEyMS4yNzQxODUsMzQuNzIyNjc3IEwxMjEuMjc0MTg1LDQ1IEwxMjMuODE2ODI0LDQ1IEwxMjMuODE2ODI0LDM5Ljg0MzQzMDIgTDEyNy4xMTEyNyw0NSBMMTI5LjMzMTU2LDQ1IFogTTExMy4wMDIyNTEsNDEuMzQ3Mzg3MSBMMTExLjIxMTQyLDQxLjM0NzM4NzEgTDExMi4xNDI2NTIsMzguNjI1NjY1MiBMMTEzLjAwMjI1MSw0MS4zNDczODcxIFogTTExNi43OTc3OSw0NSBMMTEzLjAzNzcyNywzNC43MjI2NzcgTDExMS4xMDM5NzEsMzQuNzIyNjc3IEwxMDcuMzQzOTA4LDQ1IEwxMDkuOTkzOTk2LDQ1IEwxMTAuNDk1MDg4LDQzLjQ2MDIyNjUgTDExMy42ODI0MjYsNDMuNDYwMjI2NSBMMTE0LjE0ODA0Miw0NSBMMTE2Ljc5Nzc5LDQ1IFogTTEwNC40MDc2MjcsMzQuNzIyNjc3IEwxMDEuNzU3NTM5LDM0LjcyMjY3NyBMMTAwLjAzODY4Miw0MC40NTIzMTI3IEw5OC4zMTk4MjU0LDM0LjcyMjY3NyBMOTUuNzA1NTUzMywzNC43MjI2NzcgTDk5LjEwNzc5MSw0NSBMMTAwLjk2OTkxNCw0NSBMMTA0LjQwNzYyNywzNC43MjI2NzcgWiBNOTEuNDc5ODc0NSw0NSBMOTEuNDc5ODc0NSw0Mi43NDQyMzUyIEw4Ny4wMDM4MjA0LDQyLjc0NDIzNTIgTDg3LjAwMzgyMDQsNDAuOTUzNzQ1NCBMOTAuODM1NTE2NCw0MC45NTM3NDU0IEw5MC44MzU1MTY0LDM4LjY5NzI5ODQgTDg3LjAwMzgyMDQsMzguNjk3Mjk4NCBMODcuMDAzODIwNCwzNi45Nzg0NDE4IEw5MS40Nzk4NzQ1LDM2Ljk3ODQ0MTggTDkxLjQ3OTg3NDUsMzQuNzIyNjc3IEw4NC40OTY5OTgyLDM0LjcyMjY3NyBMODQuNDk2OTk4Miw0NSBMOTEuNDc5ODc0NSw0NSBaIE03Ni42NTQ1MjMxLDM4LjAxNjc4MjYgQzc2LjY1NDUyMzEsMzguNTU0MDMxOSA3Ni4yNjA1NDAzLDM5LjA1NTQ2NDYgNzUuNTQ0MjA3OSwzOS4wNTU0NjQ2IEw3NC4xMTE4ODQzLDM5LjA1NTQ2NDYgTDc0LjExMTg4NDMsMzYuOTc4NDQxOCBMNzUuNTQ0MjA3OSwzNi45Nzg0NDE4IEM3Ni4yNjA1NDAzLDM2Ljk3ODQ0MTggNzYuNjU0NTIzMSwzNy40Nzk4NzQ1IDc2LjY1NDUyMzEsMzguMDE2NzgyNiBMNzYuNjU0NTIzMSwzOC4wMTY3ODI2IFogTTc5LjczNDQxMTIsNDUgTDc3LjUxMzc4MDksNDAuNzAyNjg4IEM3OC4zMzc1NjMxLDQwLjMwOTA0NjMgNzkuMTk2ODIwOCwzOS40MTM2MzA4IDc5LjE5NjgyMDgsMzguMDE2NzgyNiBDNzkuMTk2ODIwOCwzNi4zMzQwODM4IDc3Ljk0MzU4MDMsMzQuNzIyNjc3IDc1LjY4NzQ3NDQsMzQuNzIyNjc3IEw3MS42MDU0MDMyLDM0LjcyMjY3NyBMNzEuNjA1NDAzMiw0NSBMNzQuMTExODg0Myw0NSBMNzQuMTExODg0Myw0MS4xNjgzMDQgTDc0Ljk3MTQ4MzEsNDEuMTY4MzA0IEw3Ni43OTc3ODk2LDQ1IEw3OS43MzQ0MTEyLDQ1IFogTTY2LjM0MTM4MzUsNDUgTDY2LjM0MTM4MzUsNDIuNzQ0MjM1MiBMNjEuODY0NjQ3Myw0Mi43NDQyMzUyIEw2MS44NjQ2NDczLDQwLjk1Mzc0NTQgTDY1LjY5NjY4NDQsNDAuOTUzNzQ1NCBMNjUuNjk2Njg0NCwzOC42OTcyOTg0IEw2MS44NjQ2NDczLDM4LjY5NzI5ODQgTDYxLjg2NDY0NzMsMzYuOTc4NDQxOCBMNjYuMzQxMzgzNSwzNi45Nzg0NDE4IEw2Ni4zNDEzODM1LDM0LjcyMjY3NyBMNTkuMzIyMzQ5NiwzNC43MjI2NzcgTDU5LjMyMjM0OTYsNDUgTDY2LjM0MTM4MzUsNDUgWiBNNTQuODQ1OTU0NCwzNC43MjI2NzcgTDUyLjA4ODc1NywzNC43MjI2NzcgTDUwLjQ3NzM1MDMsMzguNDEwNzY1NSBMNDguODMwMTI2OSwzNC43MjI2NzcgTDQ2LjA3MjU4ODMsMzQuNzIyNjc3IEw0OS4xODc5NTIsNDAuODEwNDc4OSBMNDkuMTg3OTUyLDQ1IEw1MS43MzA1OTA4LDQ1IEw1MS43MzA1OTA4LDQwLjgxMDQ3ODkgTDU0Ljg0NTk1NDQsMzQuNzIyNjc3IFogTTQ2LjAzNjc3MTcsNS4yMTQ4OTk3MSBMNDEuNTYwMzc2Niw1LjIxNDg5OTcxIEwzOC4xMjI2NjM0LDE5LjA3MzU0MzUgTDM0LjExMTg4NDMsNS4yMTQ4OTk3MSBMMzAuODg4NzI5Nyw1LjIxNDg5OTcxIEwyNi44NzgyOTE3LDE5LjA3MzU0MzUgTDIzLjQ3NjA1NCw1LjIxNDg5OTcxIEwxOSw1LjIxNDg5OTcxIEwyNC44NzI5MDIyLDI3LjE2NjczNDkgTDI4LjQ1Mzg4MTgsMjcuMTY2NzM0OSBMMzIuNTAwNDc3NiwxMy44NDQ5OTkzIEwzNi41NDcwNzMzLDI3LjE2NjczNDkgTDQwLjEyODA1MjksMjcuMTY2NzM0OSBMNDYuMDM2NzcxNyw1LjIxNDg5OTcxIFoiIGlkPSJsb2dvIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="
+                alt="">
+
+
+            <a href="https://wcit2019.org/sightseeing" class="backButton">
+                Back
+            </a>
+        </div>
+    </div>
+    <div>
+
+        <div class="wrapper container-fluid">
+
+            <!-- <div class="head_image">head image</div>-->
+
+            <div class="row limitWidth pt-5 bigContentRow">
+
+                <div class="col-lg-8 excursion_block"><iframe class="resizeContent" name="frame" width="100%"
+                        style="position:absolute;z-index:-1;visibility:hidden"></iframe>
+                    <div class="head_select_container mb-4">
+                        <h1>Excursions </h1>
+                        <p class="d-inline-block"><span>Participation type</span></p>
+                        <div class="select_container d-inline-block ml-2"
+                            data-placeholder="&lt;span style=&quot;color:gray; font-weight: 100;&quot;&gt;Choose your&lt;/span&gt;">
+                            <div class="Mselect d-inline-block">
+                                <div class="Moption displayNone" data-value="" style="display: none"></div>
+                                <div class="Moption" data-value="1">Delegation</div>
+                                <div class="Moption" data-value="2">Attendee </div>
+                                <div class="Moption" data-value="3">Speaker </div>
+                            </div>
+                        </div>
+                    </div><!-- excrsion component-->
+                </div>
+                <div class="col-lg-4 shop_list_container">
+                    <div class="shopListMobileShow">
+                        <h4><span>Shopping Cart <span class="cartCount">0</span></span><svg
+                                class="svg-inline--fa fa-chevron-up fa-w-14 fa-3x" aria-hidden="true"
+                                style="width:18px; height:18px" focusable="false" data-prefix="fas"
+                                data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewbox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
+                                </path>
+                            </svg></h4>
+                    </div>
+                    <div class="position-sticky  bigSizeShopList" style="top: 10px;">
+                        <div class="shop_container hide">
+                            <h4 class="black_color">Shopping Cart<span class="cartCount">0</span></h4>
+                            <div class="shoppingListTitles black_color font-weight-bold">
+                                <div>Excursion</div>
+                                <div>Price</div>
+                                <div>Qty</div>
+                                <div>Amount</div>
+                                <div style="min-width: 26px;"></div>
+                            </div>
+                            <div class="shop_items">
+                                <!--<div class="one_item">
+    <div class="excursion_name">Excursion Name</div>
+    <div class="excursion_price">60 EUR</div>
+    <div class="excursion_type">Group</div>
+    <div class="excursion_amount">70 EUR</div>
+    </div>-->
+                            </div>
+                            <div class="total_price black_color font-weight-bold text-right mt-2"><span>Total Price:
+                                </span><span class="tPrice"> 130 EUR</span></div>
+                        </div>
+                        <h4 class="black_color mt-5">Contacts</h4>
+                        <div class="contacts_form">
+                            <div class="inputs"><input class="contact_name" type="text" placeholder="* Name"
+                                    data-name="name"><input class="contact_name" type="text" placeholder="* Surname"
+                                    data-name="Surname"><input class="contact_name" type="text" placeholder="Phone"
+                                    data-name="Phone"><input class="contact_name" type="email" placeholder="* Email"
+                                    data-name="Email"><input class="contact_name" type="text"
+                                    placeholder="* Organization" data-name="Organization"><input class="contact_name"
+                                    type="text" placeholder="Notes" data-name="Notes"></div>
+                            <div class="pay_button text-right mt-4 hide"><span class="btn btn-dark">Send Request</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="footerContent limitWidth row px-0">
+                <div class="col-lg-12">
+                    <h1>Official travel partner</h1>
+                    <div class="travel_logo"><img src="./images/atm_logo.png" alt="logo"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="./scripte/swipe.min.js"></script>
+<script src="./scripte/pickmeup.js"></script>
+<script src="./scripte/Mselect.js"></script>

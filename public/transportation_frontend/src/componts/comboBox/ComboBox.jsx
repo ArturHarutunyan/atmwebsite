@@ -321,8 +321,9 @@ export default function ComboBox(props) {
   }, []);
 
   useEffect(() => {
-    if (index == 1 && isUserEvent) {
-      console.log(1)
+    if (index == 1 && isUserEvent && !isNaN(inputs[0].selected.value)) {
+
+      ;
       input.isValid = false;
       input.value = "";
       input.checkBoxLabel = "";
@@ -349,7 +350,7 @@ export default function ComboBox(props) {
       };
 
       getCarModels().then(res => {
-        // console.log(res);
+
         thisCar.models = res;
         inputs[1].isValid = false;
         inputs[1].value = "";
