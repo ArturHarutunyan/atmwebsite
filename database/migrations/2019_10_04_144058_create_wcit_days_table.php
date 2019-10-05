@@ -15,6 +15,7 @@ class CreateWcitDaysTable extends Migration
     {
         Schema::create('wcit_days', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('date');
             $table->timestamps();
         });
     }

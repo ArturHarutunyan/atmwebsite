@@ -8,6 +8,12 @@
     src        : url(./DINPro.woff);
 }
 
+
+@font-face {
+    font-family: D-DINLighter;
+    src        : url(./DINPro-Light.otf);
+}
+
 span,
 p {
     font-family: D-DINlight;
@@ -33,15 +39,21 @@ p.excursionName span,
     font-family: D-DIN !important;
 }
 
-.getScrollPosition{
+.getScrollPosition {
     position: absolute;
-    top: 0;
-    left: 0;
+    top     : 0;
+    left    : 0;
+
 }
 
+
+
+
 /* src: url(./DINPro-Cond.otf); */
-      :root {
+:root {
     --gFontSize: 100%;
+
+    --swipeImageHeight:100%;
 }
 
 html,
@@ -52,9 +64,81 @@ body {
     font-weight               : bold;
 }
 
+.nav_bar{
+    background: #fff;
+    border-bottom: 3px solid black;
+    padding: 20px;
+    position: fixed;
+    top:0 ;
+    width: 100%;
+    z-index: 999999999999999999999;
+    display: flex;
+    justify-content: space-between
+}
+
+.navContent{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: auto
+}
+
+
+.backButton{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    padding: 0;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none!important;
+    transition: all .5s;
+    text-decoration: none;
+    font-family: "DINPro-Bold";
+    width: 170px;
+    height: 50px;
+    border: 2px #fff solid;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    background: none;
+    color: #000;
+    border-color: #000!important;
+    margin-left: 52px;
+}
+.head_select_container .Moption:first-child {
+    display: none !important;
+}
+.backButton:hover{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    padding: 0;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none!important;
+    transition: all .5s;
+    font-family: "DINPro-Bold";
+    width: 170px;
+    height: 50px;
+    border: 2px #fff solid;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    text-decoration: none;
+    background: #000!important;
+    color: #FFF!important;
+    border-color: #000!important;
+}
 
 html,
 body {
+
+    /* can be nedded  */
     position: relative;
     height  : 100%;
 
@@ -62,7 +146,6 @@ body {
 }
 
 body {
-
     padding-bottom: 50px;
 }
 
@@ -70,10 +153,13 @@ hr {
     border-top: 2px solid black;
 }
 
-.shop_list_container>div {
-    max-height    : calc(100vh - 15px);
-    padding-bottom: 50px;
-    overflow      : auto;
+
+
+.shop_list_container {
+    background: #fff !important;
+
+    /* padding-top:1px;  */
+    z-index: 99999999999999999 !important;
 }
 
 .mobileShowForm {
@@ -92,6 +178,7 @@ hr {
 }
 
 .mobileShowForm span {
+    -webkit-transition: all 0s !important;
     transition: all 0s !important;
 }
 
@@ -106,15 +193,21 @@ hr {
 
     width          : 100%;
     height         : 100%;
+    display        : -webkit-box;
+    display        : -ms-flexbox;
     display        : flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align    : center;
+    -ms-flex-align    : center;
     align-items    : center;
     background     : #fff;
 
 
 }
 
-.preloader svg {
+.preloader img {
     width      : 100px;
     font-weight: bolder;
 }
@@ -252,7 +345,7 @@ hr {
 .custom_radio [type="radio"]:checked,
 .custom_radio [type="radio"]:not(:checked) {
     position: absolute;
-    left    : -9999px;
+    left    : -99%;
 }
 
 .custom_radio [type="radio"]:checked+label,
@@ -262,11 +355,16 @@ hr {
     cursor      : pointer;
     line-height : 20px;
     display     : inline-block;
-    color       : #666;
+    /* color       : #666; */
+    font-size   : 18px;
+
+    color: black;
+
+    font-family : D-DINLighter !important;
 }
 
-.custom_radio [type="radio"]:checked+label {
-    color: black
+.custom_radio [type="radio"]:checked+label.font-weight-bold {
+    font-family: D-DIN !important;
 }
 
 .custom_radio [type="radio"]:checked+label:before,
@@ -321,8 +419,13 @@ hr {
 
 .descriptionContainer {
     padding-right: 10px;
+    color        : black;
 }
 
+.shortDescription_show_all > span {
+
+    font-family:  D-DINLighter !important
+}
 .head_select_container h1,
 .descriptionContainer span,
 .descriptionContainer+h5 {
@@ -330,8 +433,10 @@ hr {
 }
 
 .includeContainer span {
-    color: #666 !important;
+    color    : #666 !important;
+    font-size: 14px;
 }
+
 
 
 
@@ -380,10 +485,13 @@ hr {
 
 
 /* paddings of custom select */
-
+.excursion_component.showAll .allDescription {
+    font-family:  D-DINLighter !important
+}
 .Mselect .selected_container>div,
 .Moption {
     padding: 8px;
+    height: 42px;
 
 }
 
@@ -453,6 +561,13 @@ hr {
     /* margin-right          : 0;*/
 }
 
+.headerBtn {
+    white-space  : nowrap;
+    border-radius: 0;
+    padding      : 15px 55px;
+    color        : black;
+}
+
 .triangle_container {
     display          : -webkit-box;
     display          : -ms-flexbox;
@@ -475,6 +590,8 @@ hr {
     display: -ms-flexbox;
 
     display: flex;
+
+    display: none
 }
 
 
@@ -511,7 +628,7 @@ hr {
 
 .gallery-top {
     position: relative;
-    cursor: pointer;
+    cursor  : pointer;
 }
 
 .gallery-top .swiper-wrapper>* {
@@ -530,6 +647,11 @@ hr {
     min-height   : 10px;
     min-width    : 10px;
     height       : 100%;
+    -o-object-fit   : cover;
+    object-fit   : cover;
+
+    max-height: 100vh;
+    /* min-height   : 250px; */
 }
 
 .gallery-top .swiper-wrapper {
@@ -575,7 +697,7 @@ hr {
 }
 
 .gallery-top {
-    height: auto;
+    height: auto !important;
     width : 100%;
 }
 
@@ -619,6 +741,11 @@ hr {
     padding   : 50px;
     max-height: 100vh;
     max-width : 100vw;
+    z-index   : 9999999999999999999999;
+}
+
+.fixedContainer .swiper-container{
+    height: 100% !important;
 }
 
 .fixedContainer .assessment_of_tur {
@@ -630,7 +757,55 @@ hr {
 }
 
 .excursion_component_container {
-    border: 2px solid black;
+    /* border     : 2px solid black; */
+    border-bottom : 4px solid black;
+    padding-bottom: 10px;
+    /* overflow-x : hidden;
+    overflow-y    : visible; */
+}
+
+.gallery-thumbs .swiper-button-next,
+.gallery-thumbs .swiper-button-prev {
+    z-index        : 9999;
+    left           : -1%;
+    top            : 4%;
+    height         : calc(100% - 10px);
+    display        : -webkit-box;
+    display        : -ms-flexbox;
+    display        : flex;
+    width          : 11.1%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    outline        : none !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.gallery-thumbs .swiper-button-next svg,
+.gallery-thumbs .swiper-button-prev svg{
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    height: 30px;
+
+}
+
+.gallery-thumbs .swiper-button-next:hover,
+.gallery-thumbs .swiper-button-prev:hover {
+    opacity: 1 !important;
+}
+
+.gallery-thumbs .swiper-button-next {
+    right: 10%;
+    width: 13.1%;
+    left : inherit;
+}
+
+.gallery-thumbs {
+    position: relative;
 }
 
 /* .swiper-slide .swiper-slide-active{
@@ -670,7 +845,32 @@ hr {
     padding   : 8px;
     border    : 1px solid black;
     width     : 130px;
+    height: 42px;
     background: transparent
+}
+
+.datepicker_input::-webkit-input-placeholder {
+    color      : gray;
+    font-weight: 100;
+    font-family: D-DINlight;
+}
+
+.datepicker_input:-ms-input-placeholder {
+    color      : gray;
+    font-weight: 100;
+    font-family: D-DINlight;
+}
+
+.datepicker_input::-ms-input-placeholder {
+    color      : gray;
+    font-weight: 100;
+    font-family: D-DINlight;
+}
+
+.datepicker_input::placeholder {
+    color      : gray;
+    font-weight: 100;
+    font-family: D-DINlight;
 }
 
 .datepicker_input:not(:placeholder-shown) {
@@ -757,12 +957,20 @@ hr {
     font-weight  : bold;
     border       : none;
 }
+.IncludesTitle:not(.x){
+    font-family: D-DINLighter !important;
+    margin-bottom: 5px !important;
+    font-size: 20px;
+    display: inline-block;
+    font-style: italic;
+    color: #666 !important;
+}
 
 .showMore,
 .showLess {
-    cursor     : pointer;
-    white-space: nowrap;
-    font-size  : 16px !important;
+    cursor         : pointer;
+    white-space    : nowrap;
+    font-size      : 12px !important;
     text-decoration: underline;
 }
 
@@ -804,6 +1012,8 @@ hr {
     -webkit-box-align: start;
     -ms-flex-align   : start;
     align-items      : flex-start;
+    height           : auto;
+    padding          : 20px 0;
 }
 
 .ArmeniaTravelLogo .limitWidth {
@@ -842,6 +1052,10 @@ hr {
     padding: 0 15px;
 }
 
+.ArmeniaTravelLogo .limitWidth p {
+    font-size: 20px;
+}
+
 .ArmeniaTravelLogo .limitWidth {
     padding-left: 17px;
 }
@@ -858,23 +1072,103 @@ hr {
     display: block;
 }
 
-.excursion_component.showAll .shortDescription_show_all >  span:nth-child(1),
-.excursion_component.showAll .shortDescription_show_all >  span:nth-child(2),
-.excursion_component.showAll .shortDescription_show_all >  span:nth-child(3) {
+.excursion_component.showAll .shortDescription_show_all>span:nth-child(1),
+.excursion_component.showAll .shortDescription_show_all>span:nth-child(2),
+.excursion_component.showAll .shortDescription_show_all>span:nth-child(3) {
     display: none;
+}
+.excursion_component.showAll .allDescription > span:first-child:not(.showMore){
+    font-family: D-DINLighter !important
+}
+
+.shortDescription_show_all  .showMore {
+    font-family: D-DIN !important
+}
+
+footer {
+    background     :  url(../images/backgroundF2.svg), black url(../images/footerBg1.jpg);
+    background-size:400px , cover;
+    background-position: 105% -50px ,center;
+    min-height     : 200px;
+    display        : -webkit-box;
+    display        : -ms-flexbox;
+    display        : flex;
+    background-repeat: no-repeat;
+    -webkit-box-align    : center;
+    -ms-flex-align    : center;
+    align-items    : center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+
+    max-width: 100vw;
+    overflow: hidden;
+
+}
+
+footer .footerContent>div {
+    display    : -webkit-box;
+    display    : -ms-flexbox;
+    display    : flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color      : #fff;
+    height     : 100%;
+    width      : 100%;
+
+    padding   : 0;
+    -ms-flex-wrap : wrap;
+    flex-wrap : wrap;
+    text-align: center
+}
+
+footer .footerContent h1 {
+
+    font-family   : D-DINlight !important;
+    letter-spacing: -1px;
+
+    margin-right: 80px;
+    white-space : nowrap;
+}
+
+.travel_logo img {
+    width: 300px;
 }
 
 .excursion_component.showAll {
     max-height: none;
 }
-
-.excursion_component.showAll .gallery-thumbs {
-    /* display: block !important; */
-    visibility: visible;
-    height    : auto;
-    opacity   : 1;
+.excursion_component {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
 }
 
+.excursion_component.showAll .gallery-thumbs {
+    /* display  : block !important; */
+    visibility  : visible;
+    height      : auto;
+    opacity     : 1;
+    padding-left: 13%;
+    width       : 113%
+}
+.formAfterIconsContainer{
+    padding-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.formAfterIconsContainer img{
+    width: 25px ;
+    margin-top: 5px;
+}
+.formAfterIconsContainer span{
+    padding: 10px;
+}
 .excursion_component.showAll .swipers_container {
     max-height: 100% !important;
     background: transparent;
@@ -906,14 +1200,21 @@ hr {
     position: relative;
 }
 
+.bigContentRow{
+    padding-top: 100px !important;
+}
+.bigContentRow .excursion_block{
+    /* overflow-x: hidden;
+    overflow-y: visible */
+}
 .exclude_VAT::after {
-    content   : '';
-    width     : 50px;
-    display   : inline-block;
-    border-top: 2px solid black;
-    position  : absolute;
-    top       : 130%;
-    right     : 0;
+    content      : '';
+    width        : 50px;
+    display      : inline-block;
+    /* border-top: 2px solid black; */
+    position     : absolute;
+    top          : 130%;
+    right        : 0;
 
 }
 
@@ -932,30 +1233,46 @@ hr {
     color          : black !important;
     font-size      : 22px;
     font-weight    : bold;
+    display        : -webkit-box;
+    display        : -ms-flexbox;
     display        : flex;
+    -webkit-box-align    : center;
+    -ms-flex-align    : center;
     align-items    : center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between
 }
 
 .Guaranteed_icons {
+    display        : -webkit-box;
+    display        : -ms-flexbox;
     display        : flex;
+    -ms-flex-wrap      : wrap;
     flex-wrap      : wrap;
-    justify-content: space-between;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
 }
 
 .Guaranteed_icons>* {
-    width : 17%;
-    height: auto;
+    width          : 17%;
+    height         : auto;
+    /* margin-right: 15px; */
 
 }
 
 .shop_list_container h6 span {
     padding-right: 11px;
     font-size    : 20px;
+    white-space  : nowrap;
 }
 
 .svgContainer {
+    display        : -webkit-box;
+    display        : -ms-flexbox;
     display        : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -1056,11 +1373,13 @@ hr {
     border       : none;
     border-bottom: 1px solid black;
 }
-
-.contacts_form .inputs input:last-child {
-    width: 100%;
+.shortDescription_show_all  .tDescription ,.allDescription  span.font-weight-bold.tDescription:not(.x):nth-child(1)   {
+    font-family: D-DIN !important;
 }
 
+.contacts_form .inputs input:last-child,.contacts_form .inputs input:nth-child(5) {
+    width: 100%;
+}
 
 .pay_button .btn {
     padding: 8px 35px;
@@ -1076,10 +1395,11 @@ hr {
     padding-bottom: 70px;
 }
 
+
 .cartCount {
     width : 25px;
     height: 25px;
-    ;
+;
     font-size    : 16px;
     padding      : 5px;
     background   : black;
@@ -1087,17 +1407,35 @@ hr {
     border-radius: 50%;
     /* top       : -10px; */
 
-    transform      : translateY(-5px);
+    -webkit-transform      : translateY(-4px);
+
+    transform      : translateY(-4px);
     left           : 5px;
     position       : relative;
+    display        : -webkit-inline-box;
+    display        : -ms-inline-flexbox;
     display        : inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align    : center;
+    -ms-flex-align    : center;
     align-items    : center;
 }
+
+div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
+    /* max-height: 100%; */
+    /* min-height: 400px; */
+
+
+    height: var(--swipeImageHeight,100%);
+}
+
 
 .shopListMobileShow {
     display            : none;
     background         : #fff;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border             : none !important;
 }
@@ -1122,15 +1460,19 @@ hr {
 
 }
 
+
+
+
 @media only screen and (min-width: 1200px) {
 
 
     .swipers_container {
         /* overflow: hidden; */
-        max-height : 400px;
+        /* max-height : 400px; */
     }
-    div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img{
-        height: 250px !important;
+
+    div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
+        /* height       : 250px !important; */
         /* object-fit: cover; */
     }
 
@@ -1139,7 +1481,7 @@ hr {
 
 
     .swipers_container {
-        max-width     : 500px;
+        /* max-width     : 500px; */
         /* max-height : 400px !important; */
     }
 
@@ -1152,13 +1494,30 @@ hr {
         display: none;
     }
 
-    .shop_list_container {
-        padding-left: 34px;
-    }
 
 }
 
 
+@media only screen and (min-width: 1800px) {
+    div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
+        /* height       : 100% !important; */
+        /* object-fit: cover; */
+    }
+}
+
+@media only screen and (max-width:1480px) and (min-width:1200px) {
+
+    .selected_container,
+    .absolute_container {
+        width: 136px;
+    }
+
+    div:not(.fixedContainer) .gallery-top .swiper-wrapper>* img {
+        /* height       : 225px !important;
+        min-height   : 225px !important; */
+        /* object-fit: cover; */
+    }
+}
 
 
 @media only screen and (max-width: 1360px) {
@@ -1183,6 +1542,10 @@ hr {
         margin   : auto;
     }
 
+    .shop_list_container h6 span {
+        font-size: 17px;
+    }
+
 }
 
 @media only screen and (max-width: 1199px) {
@@ -1192,13 +1555,23 @@ hr {
         max-width: 100% !important;
     }
 
+    .shop_list_container h6 span {
+        font-size: 15px;
+    }
+
+
+
+    footer{
+        background-size: 32% , cover;
+        background-position: 105% 10% ,center;
+    }
 
     .triangle_container {
         display: none !important;
     }
 
     .swipers_container {
-        padding-right: 15px !important;
+        margin-right: 15px !important;
     }
 
     .excursion_component:not(.showAll) .gallery-thumbs {
@@ -1292,9 +1665,9 @@ hr {
     }
 
     .ArmeniaTravelLogo .limitWidth {
-        -ms-flex-wrap: wrap;
-        flex-wrap    : wrap;
-        text-align   : center;
+        /* -ms-flex-wrap: wrap;
+        flex-wrap       : wrap;
+        text-align      : center; */
     }
 
     .ArmeniaTravelLogo .logo_circle,
@@ -1341,6 +1714,10 @@ hr {
         overflow  : hidden !important;
     }
 
+    .wrapper{
+        overflow: hidden;
+    }
+
     .shop_list_container h6 span {
         font-size: 5.6vw;
     }
@@ -1375,8 +1752,10 @@ hr {
         display: block !important;
     }
 
-   
 
+    .wrapper{
+        overflow: hidden !important;
+    }
     .shop_list_container {
         position  : fixed;
         bottom    : calc(-100vh + 50px);
@@ -1390,6 +1769,8 @@ hr {
         overflow                  : auto;
         -webkit-overflow-scrolling: touch;
 
+        -webkit-transition: all .5s ease, background 0s ease .5s;
+
         transition: all .5s ease, background 0s ease .5s;
 
         /* padding-bottom: 250px; */
@@ -1399,15 +1780,18 @@ hr {
 
     .shopListMobileShow {
         padding-bottom: 0 !important;
+        -webkit-transition    : margin-top 0.06s linear 0.5s;
         transition    : margin-top 0.06s linear 0.5s;
         position      : relative;
         overflow      : visible !important;
+
     }
 
     .shop_list_container .position-sticky {
         position      : initial !important;
         height        : 100vh;
         padding-bottom: 250px;
+        overflow: auto;
     }
 
     .shop_list_container.show {
@@ -1436,6 +1820,7 @@ hr {
     .shop_list_container.show {
 
         bottom          : -50px !important;
+        -webkit-transition      : all .5s ease, background 0s;
         transition      : all .5s ease, background 0s;
         top             : 0px !important;
         margin-top      : 0vh !important;
@@ -1443,13 +1828,21 @@ hr {
         height          : 100vh;
         background      : #fff;
 
+
+
+    }
+
+    .shopListMobileShow h4{
+        cursor: pointer;
     }
 
     .shop_list_container .shopListMobileShow h4 svg {
+        -webkit-transition: top .5s ease;
         transition: top .5s ease;
     }
 
     .shop_list_container.show .shopListMobileShow h4 svg {
+        -webkit-transform: rotate(180deg);
         transform: rotate(180deg);
     }
 
@@ -1468,7 +1861,13 @@ hr {
 
     .shopListMobileShow h4 {
 
+        display        : -webkit-box !important;
+
+        display        : -ms-flexbox !important;
+
         display        : flex !important;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between
     }
 
@@ -1478,6 +1877,7 @@ hr {
 
 
     .pickmeup .pmu-instance nav:first-child {
+        -ms-flex-pack: distribute;
         justify-content: space-around;
     }
 
@@ -1510,6 +1910,8 @@ hr {
 
 }
 
+
+
 @media only screen and (min-width:992px) {
 
 
@@ -1517,6 +1919,42 @@ hr {
         padding-right: 1.5rem;
     }
 
+    .bigContentRow{
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .bigContentRow.show .excursion_block{
+        -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 66.666667% !important;
+        flex: 0 0 66.666667% !important;
+        max-width: 66.666667% !important;
+    }
+    .bigContentRow:not(.show)
+    .shop_list_container{
+        display: none
+    }
+    .bigContentRow .excursion_block{
+        -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 98% !important;
+        /* transition: all .5s; */
+    }
+
+    .shop_list_container {
+        padding-left: 34px;
+        z-index: 999 !important;
+    }
+
+
+    .bigSizeShopList{
+        top: 110px !important;
+        max-height: calc(100vh - 150px) ;
+        overflow: auto;
+        padding-right: 5px;
+        overflow-x: hidden;;
+    }
 
 }
 
@@ -1524,7 +1962,7 @@ hr {
     .mobileShowForm {
         display: none;
     }
-   
+
 
 }
 
@@ -1544,6 +1982,60 @@ hr {
 
 
 }
+
+@media only screen and (max-width:800px) {
+    .ArmeniaTravelLogo .limitWidth {
+        -ms-flex-wrap   : wrap;
+        flex-wrap       : wrap;
+        /* text-align   : center; */
+    }
+
+    .ArmeniaTravelLogo .limitWidth .btn {
+        margin-top: 10px;
+        width     : 100%;
+    }
+
+    .ArmeniaTravelLogo {
+        min-height: 280px;
+    }
+
+    .ArmeniaTravelLogo p {
+        margin-right: 0 !important;
+    }
+
+    /* .ArmeniaTravelLogo .limitWidth  */
+
+
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+
+
+    .shop_list_container h6 span {
+
+        font-size: 5vw;
+    }
+
+}
+
+@media only screen and (max-width: 390px) {
+
+    footer .footerContent h1 {
+        font-size: 30px;
+    }
+
+    .travel_logo img {
+        width: 280px;
+    }
+
+}
+
 
 @media only screen and (max-width: 333px) {
 

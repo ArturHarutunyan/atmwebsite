@@ -15,6 +15,13 @@ class CreateWcitCustomersTable extends Migration
     {
         Schema::create('wcit_customers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('phone')->nullable();
+            $table->string('email');
+            $table->text('organization');
+            $table->text('notes')->nullable();
+            $table->enum('participation_type',['Delegation','Attendee','Speaker'])->nullable();
             $table->timestamps();
         });
     }

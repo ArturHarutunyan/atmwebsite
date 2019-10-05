@@ -9,7 +9,7 @@ if (!('remove' in Element.prototype)) {
     };
 }
 
-function Mseletc(options) {
+function Mselect(options) {
     this.container = options.container instanceof Element ? options.container : document.querySelector(options.container); //required 
     this.customSelectContainer;
     this.options = this.getOptionsArray(); //required
@@ -24,7 +24,7 @@ function Mseletc(options) {
 }
 
 
-Mseletc.prototype.getOptionsArray = function () {
+Mselect.prototype.getOptionsArray = function () {
     var optionsContainer = this.container.querySelector('.Mselect');
 
     var options = optionsContainer.querySelectorAll('.Moption');
@@ -45,7 +45,7 @@ Mseletc.prototype.getOptionsArray = function () {
 }
 
 
-Mseletc.prototype.createSelect = function () { // at first create once 
+Mselect.prototype.createSelect = function () { // at first create once 
 
 
 
@@ -75,7 +75,7 @@ Mseletc.prototype.createSelect = function () { // at first create once
 
 }
 
-Mseletc.prototype.createCustomSelect = function () { // at first create once 
+Mselect.prototype.createCustomSelect = function () { // at first create once 
 
     var customSelectContainer = document.createElement('div');
     customSelectContainer.classList.add('Mselect');
@@ -177,7 +177,7 @@ Mseletc.prototype.createCustomSelect = function () { // at first create once
     }
 }
 
-Mseletc.prototype.init = function () {
+Mselect.prototype.init = function () {
 
     this.createSelect();
     this.createCustomSelect();

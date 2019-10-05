@@ -15,7 +15,7 @@ class WcitDay extends Model
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'day'
+        'date'
     ];
     public function wcit_orders()
     {

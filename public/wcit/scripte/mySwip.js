@@ -17,6 +17,7 @@ function getScrollbarWidth(element) {
     var galleryTop = new Swiper(galleryTopElem, {
         // spaceBetween: 10,
         // calculateHeight:true,
+        slidesPerView: 'auto',
         navigation: {
 
             // .next_swipe , .prev_swipe
@@ -32,6 +33,12 @@ function getScrollbarWidth(element) {
         centeredSlides: true,
         slidesPerView: 'auto',
         touchRatio: 1,
+        navigation: {
+
+            // .next_swipe , .prev_swipe
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
 
         slideToClickedSlide: true,
         loop: true,
@@ -75,7 +82,7 @@ function getScrollbarWidth(element) {
             fixedContainer.classList.add('fixedContainer');
             fixedContainer.appendChild(swipeContainer);
             document.body.appendChild(fixedContainer);
-            console.log(galleryTop)
+            // console.log(galleryTop)
             var galleryTop2 = new Swiper(swipeContainer, {
                 // spaceBetween: 10,
                 initialSlide: galleryTop.activeIndex - galleryTop.loopedSlides,
@@ -96,10 +103,23 @@ function getScrollbarWidth(element) {
             var images = fixedContainer.querySelectorAll('[data-src]')
 
             Array.from(images).forEach(image => preloadImage(image));
-            // lazyLoad()
-            // lazyLoad()
+
 
         })
+    }
+
+})
+
+
+
+document.addEventListener('keydown', function (event) {
+    var container = document.querySelector('.fixedContainer');
+    if (!container) return;
+    if (event.keyCode == 39) {
+        container.querySelector('.swiper-button-next').click()
+    } else if (event.keyCode == 37) {
+
+        container.querySelector('.swiper-button-prev').click()
     }
 
 })

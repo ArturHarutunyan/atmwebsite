@@ -15,18 +15,24 @@ class WcitOrder extends Model
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'day'
+        'wcit_excursion_id','wcit_customer_id','wcit_day_id','status',
+        'guide_id','driver_id','price','tour_language_id',
+        'people_count','excursion_type_id'
     ];
-    public function wcit_orders()
+    public function wcit_excursion()
     {
-        return $this->hasMany('App\WcitOrder');
+        return $this->belongsTo('App\WcitExcursions', 'wcit_excursion_id','id');
     }
-    public function wcit_orders()
+    public function wcit_customer()
     {
-        return $this->hasMany('App\WcitOrder');
+        return $this->belongsTo('App\WcitCustomer');
     }
-    public function wcit_orders()
+    public function wcit_day()
     {
-        return $this->hasMany('App\WcitOrder');
+        return $this->belongsTo('App\WcitDay');
+    }
+    public function tour_language()
+    {
+        return $this->belongsTo('App\TourLanguage');
     }
 }

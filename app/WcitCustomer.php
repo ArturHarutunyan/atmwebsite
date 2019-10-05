@@ -15,7 +15,7 @@ class WcitCustomer extends Model
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'name','surname','phone','email','organization','notes'
+        'name','surname','phone','email','organization','notes','patricipation_type'
     ];
     public function wcit_orders()
     {

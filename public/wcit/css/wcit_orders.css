@@ -1,0 +1,212 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainContainer{
+    background: #fff;
+    min-height: 800px;
+    padding: 20px;
+}
+
+.colum{
+    background: #fff;
+    min-height: 800px;
+    min-width: 300px;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 0px #0a0a0a3b;
+    border: 1px solid #D9D9D9;
+    margin-right: 20px;
+}
+
+
+.colum .date{
+    text-align: center;
+    padding: 20px 0;
+    background: black;
+    color: #fff;
+}
+.tour{
+
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+.tours .iconsContainer{
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    z-index: 4 !important;
+}
+.tour .tourName{
+    /* background: lightcyan; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom:13px;
+    margin-bottom: -8px;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid ;
+    width: 71%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.tours .iconsContainer{
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 2px 5px 0px #0a0a0a3b;
+}
+
+.openDetails{
+    box-shadow: 0px 2px 5px 0px #0a0a0a3b;
+    background: #fff;
+
+
+}
+.openDetails img{
+    transition: 0.3s linear;
+    transform-origin: center 45%;
+}
+.tours  .icon{
+    border-right: 1px solid gray;
+    width: 50px;
+
+    padding: 10px 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.iconsWrapper{
+    display: flex;
+    align-items: flex-end;
+
+}
+.openDetails{
+    cursor: pointer;
+}
+.iconsWrapper >
+.icon{
+
+    border-color: transparent;
+    align-items: center;
+    display: flex;
+    position: relative;
+    z-index: 3;
+    height: 35px;
+    padding: 0 4px !important;
+}
+
+.iconsWrapper >
+.icon:first-child{
+    border-top-left-radius:10px ;
+    border-bottom-left-radius: 10px;
+    left: 3px;
+    background: #fff;
+
+    box-shadow: 0px 2px 5px 0px #0a0a0a3b;
+}
+.iconsWrapper >
+.icon:last-child{
+    border-top-right-radius:10px ;
+    border-bottom-right-radius: 10px;
+    left: -7px;
+
+}
+
+.iconsWrapper >
+.icon:last-child img{
+    width: 17px !important;
+    margin-left: 11px !important;
+
+}
+.iconsWrapper >
+.icon img{
+    height: 100%;
+    margin: 0 5px
+
+}
+
+.tours  .icon:nth-child(2){
+    padding-bottom: 14px;
+}
+
+
+.tours .icon{
+    color: rgb(144, 144, 144);
+}
+.tours .icon img{
+    width: 20px !important;
+    height: 20px;
+}
+
+.tours .iconsContainer .icon:last-child{
+    border-right: none;
+}
+
+.tours .tour {
+    position: relative;
+}
+
+.fullDetailsTourInfo{
+    background: #fff;
+    text-align: left;
+    padding: 30px 5px 20px 5px ;
+    position: absolute;
+    top: 60px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 88%;
+    margin-left: 8px !important;
+    box-shadow: 0px 2px 5px 0px #0a0a0a3b;
+}
+.fullDetailsTourInfo  p{
+
+    margin-bottom: 5px;
+
+}
+.fullDetailsTourInfo div p{
+    margin-bottom: 0px;
+    color: #747474
+}
+
+.fullDetailsTourInfo  > p span:first-child{
+    color: #ACACAC;
+    font-weight: bold;
+}
+
+.fullDetailsTourInfo p span:nth-child(2){
+    color: #747474
+}
+.tour.showDetails{
+    z-index: 999;
+}
+.tour.showDetails .openDetails > img{
+    transform: rotate(180deg)
+}
+.tour.showDetails .fullDetailsTourInfo {
+    display: block !important;
+}
+
+.mainContainer > div{
+    flex-wrap: nowrap;
+    display: flex;
+    overflow-x: auto;
+}
+
+.not-reviewed{
+    color: #FF8348;
+}
+
+.rejected{
+    color: #FF3737;
+}
+
+.confirmed{
+    color: #39B45A;
+}

@@ -22,7 +22,12 @@ document.addEventListener('click', function (event) {
     var parent = target.closest('.excursion_component');
     // console.log(parent.classList)
     if (target.closest('.showMore')) {
-        parent.classList.add('showAll')
+        parent.classList.add('showAll');
+        parent.querySelector('.mobileShowForm').classList.add('close')
+        parent.querySelector('.mobileShowForm span').innerHTML = 'x'
+        parent.querySelector('.tourForm ').classList.add('show')
+
+
     } else if (target.closest('.showLess')) {
         parent.classList.remove('showAll')
     }
@@ -64,8 +69,8 @@ var isScrolling;
 //     // Clear our timeout throughout the scroll
 //     // alert(1)
 //     document.querySelector('.shop_list_container').style.top = '100vh';
-    
-    
+
+
 //     document.querySelector('.shop_list_container').style.transition = 'all 0s';
 //     window.clearTimeout( isScrolling );
 // 	// Set a timeout to run after scrolling ends
@@ -129,6 +134,10 @@ var tourForms = document.querySelectorAll('.tourForm');
     })
 
     orderForm.tourName = oneTourForm.getAttribute('data-tourName');
+    orderForm.tourId = oneTourForm.getAttribute('data-tourId');
+
+
+
     orderForm.price = +oneTourForm.getAttribute('data-tourPrice');
     orderForm.privatePrice = +oneTourForm.getAttribute('data-tourPrivatePrice');
     orderForm.added = false;
@@ -156,23 +165,23 @@ var tourForms = document.querySelectorAll('.tourForm');
             contents[0].classList.add('hide')
             contents[1].classList.add('hide')
 
-           
 
-            descFormContainer.querySelector('.shortDescription_show_all.'+target.value).classList.remove('hide')
-            
+
+            descFormContainer.querySelector('.shortDescription_show_all.' + target.value).classList.remove('hide')
+
             // console.log(target.value, target.closest('.tourForm'))
 
 
-            console.log(oneTourForm.getAttribute('data-' + target.value))
+            // console.log(oneTourForm.getAttribute('data-' + target.value))
             var prices = JSON.parse(oneTourForm.getAttribute('data-' + target.value));
 
 
             var descContainer = oneTourForm.previousElementSibling
-            descContainer.querySelector('.eur h2').innerHTML =  " EUR"+ prices.eur  ;
-            descContainer.querySelector('.usd').innerHTML =  "USD" + prices.usd  ;
-            descContainer.querySelector('.amd').innerHTML =  "AMD" + prices.amd  ;
-             
-            console.log(prices)
+            descContainer.querySelector('.eur h2').innerHTML = " EUR " + prices.eur;
+            descContainer.querySelector('.usd').innerHTML = "USD " + prices.usd;
+            descContainer.querySelector('.amd').innerHTML = "AMD " + prices.amd;
+
+            // console.log(prices)
         }
         // Private
 
@@ -193,14 +202,13 @@ var tourForms = document.querySelectorAll('.tourForm');
 
 
 function init() {
-    
-// console.log(orderForms)
+
     var total = 0;
     readyOrders = [];
     var shopListContainer = document.querySelector('.shop_items');
     shopListContainer.innerHTML = '';
 
-    var countOrder = 0 
+    var countOrder = 0
 
     orderForms.forEach(function (oneOrder) {
         if (!oneOrder.added) return;
@@ -211,7 +219,7 @@ function init() {
         var invalidKeys = []
         orderKeys.forEach(function (key) {
             var invalidElement = oneOrder.html.querySelector('[data-validator="' + key + '"]');
-            
+
             if (invalidElement)
                 invalidElement.classList.remove('invalid')
             if (!oneOrder[key]) {
@@ -221,12 +229,12 @@ function init() {
         })
 
         var date = oneOrder.html.querySelector('[data-validator="date"]').value
-        
-        orderForms.forEach(order=>{
+
+        orderForms.forEach(order => {
             if (!order.added || order == oneOrder) return;
 
             otherDate = order.html.querySelector('[data-validator="date"]').value;
-            if(otherDate == date && order.html.classList.contains('added')){
+            if (otherDate == date && order.html.classList.contains('added')) {
 
                 isOrderValid = false;
                 invalidKeys.push('date');
@@ -247,16 +255,15 @@ function init() {
         var tourName = oneOrder.tourName;
         var type = oneOrder.tour_type;
 
-        // console.log(type)
+        var tourId = +oneOrder.tourId
 
-        // console.log(oneOrder.privatePrice, type)
         var price = oneOrder.price;
 
-        if(type == 'Private')
+        if (type == 'Private')
             price = oneOrder.privatePrice
         var date = oneOrder.date;
         var persons = +oneOrder.persons;
-        
+
         var date = new Date(new Date(date.split('.').reverse().join(' ')));
 
 
@@ -265,21 +272,20 @@ function init() {
 
         var amount = price * persons;
 
+        var language = oneOrder.language;
         total += amount;
         var readyOrder = {
             tourName: tourName,
-            type: type,
-            price: price,
+            type: type == "Group" ? 2 : 1,
+            language: language,
             persons: persons,
-            date: date,
-            amount: amount
+            date: (+new Date(date))+(1000*4*60*60),
+            amount: amount,
+            tourId: tourId
         }
 
-        // console.log(readyOrder)
 
         readyOrders.push(readyOrder);
-
-
 
 
         var shopListItem = '<div class="excursion_name">' + tourName + '</div><div class="excursion_price"> EUR  ' + price + '</div><div class="excursion_type">' + persons + '</div><div class="excursion_amount"> EUR  ' + amount + '</div><div class="remove_item">x</div> '
@@ -302,24 +308,34 @@ function init() {
     })
 
 
-    document.querySelector('.tPrice').innerHTML =   ' EUR ' + total ;
+    document.querySelector('.tPrice').innerHTML = ' EUR ' + total;
 
 
     if (!total) {
-        document.querySelector('.shop_container').classList.add('hide');
-        document.querySelector('.pay_button').classList.add('hide');
+        // document.querySelector('.shop_container').classList.add('hide');
+        // document.querySelector('.pay_button').classList.add('hide');
         document.querySelector('.shop_list_container').classList.remove('canShowButton')
-        document.querySelector('.shop_list_container').classList.remove('show')
+        document.querySelector('.shop_list_container').classList.remove('show');
+
+        document.querySelector('.bigContentRow').classList.remove('show');
 
     } else {
         document.querySelector('.shop_container').classList.remove('hide')
 
         document.querySelector('.pay_button').classList.remove('hide')
         document.querySelector('.shop_list_container').classList.add('canShowButton');
+        document.querySelector('.bigContentRow').classList.add('show');
     }
     var counters = document.querySelectorAll('.cartCount')
     counters[0].innerHTML = counters[1].innerHTML = readyOrders.length
 }
+
+
+
+
+
+
+
 
 
 
@@ -329,15 +345,15 @@ document.querySelector('.contacts_form .inputs').addEventListener('input', funct
     target.style.borderColor = ''
 })
 
+var isReqSend = false;
 document.querySelector('.pay_button').onclick = function (event) {
+    if (isReqSend) return;
     var contactInputs = document.querySelectorAll('.contacts_form .inputs input');
-
-
     var contacts = {};
     var invalidInputs = [];
     [].forEach.call(contactInputs, function (input) {
         var key = input.getAttribute('data-name');
-        if (key != 'Phone' && !input.value.trim()) {
+        if ((key != 'Phone' && key != 'Notes') && !input.value.trim()) {
             invalidInputs.push(input);
         }
         contacts[key] = input.value;
@@ -351,14 +367,45 @@ document.querySelector('.pay_button').onclick = function (event) {
     if (!readyOrders.length) return false;
 
 
-    var requestObject = { readyOrders: readyOrders, contacts: contacts };
-    console.log(requestObject);
+    var participation = !document.querySelector('.head_select_container select').value.trim() ? null : document.querySelector('.head_select_container select').value.trim();
+    var requestObject = { readyOrders: readyOrders, contacts: contacts, participation: participation };
 
+
+    isReqSend = true;
+
+    document.querySelector('.pay_button span').innerHTML = '... loading';
+
+    var url = '/api/wcit/save_order';
+
+    (async function () {
+        try {
+            var response = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(requestObject),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            var json = await response.json();
+            if (json != 1) throw new Error();
+            alert('success ');
+            window.location.reload();
+        } catch (error) {
+            alert('error');
+        }
+    })()
 }
 
 
+var containerWidth = document.querySelector('.resizeContent').contentWindow.innerWidth;
+resizeImages(containerWidth)
 
+document.querySelector('.resizeContent').contentWindow.onresize = function (event) {
 
+    var containerWidth = event.target.innerWidth;
+    resizeImages(containerWidth)
+    // --swipeImageHeight
+}
 
 
 var ua = window.navigator.userAgent;
@@ -366,11 +413,11 @@ var isIE = /MSIE|Trident/.test(ua);
 
 
 // window.onload = function(){
-    
+
 //     var images = document.querySelectorAll('img');
 //     images.forEach(img=>{
 //                 img.src = img.getAttribute('data-src');
-        
+
 //     })
 // }
 
@@ -387,26 +434,26 @@ if (isIE) {
 
 // on input focus secund time
 var isFocused = false
-document.addEventListener('focus',function(event){
-    
+document.addEventListener('focus', function (event) {
+
     isFocused = true
-},true)
-document.addEventListener('blur',function(event){
-    
+}, true)
+document.addEventListener('blur', function (event) {
+
     isFocused = false
-},true)
+}, true)
 
 
-var isMobileClick  = false;
-document.addEventListener('touchstart',function(){
-    isMobileClick =true
+var isMobileClick = false;
+document.addEventListener('touchstart', function () {
+    isMobileClick = true
 })
-document.addEventListener('touchmove',function(){
-    isMobileClick  = false
+document.addEventListener('touchmove', function () {
+    isMobileClick = false
 })
-document.addEventListener('touchend',function(event){
+document.addEventListener('touchend', function (event) {
     var target = event.target;
-    if(isMobileClick && isFocused  && target.closest('input')){
+    if (isMobileClick && isFocused && target.closest('input')) {
         target.closest('input').blur()
     }
 })
@@ -426,14 +473,14 @@ document.addEventListener('touchend',function(event){
 
 //                 var click = new Event('click');
 //                 Object.defineProperty(click, 'target', {
-                    
+
 //                     writable: false,
 //                     value: document.querySelector('.wrapper')
 //                 });
-              
+
 //                 // document.querySelector('.wrapper').dispatchEvent(click)
 //             }
-        
+
 
 //     }
 // })

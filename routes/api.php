@@ -68,6 +68,11 @@ Route::group(['middleware' => 'api', 'prefix' => 'wcit'], function () {
         return WcitExcursions::with('photos', 'includes')->get();
         //        return WcitExcursions::all();
     })->name('WCIT_excursionss.api');
+
+    Route::post('save_order', [
+        'uses' => 'WcitController@store',
+        'as' => 'wcit.save_orders'
+    ]);
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

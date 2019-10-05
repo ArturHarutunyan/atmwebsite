@@ -15,6 +15,7 @@ class CreateTourLanguagesTable extends Migration
     {
         Schema::create('tour_languages', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
