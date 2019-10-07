@@ -80,7 +80,7 @@
     border-radius: 12px;
     bottom: 0px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 1pt 12pt;
-    display: none;
+    display: flex;
     flex-direction: column;
     position: absolute;
     height: 140px;
