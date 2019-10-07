@@ -327,8 +327,6 @@ export default function IntegrationReactSelect(props) {
             return option.car.priceForm && option.car.priceForm == thisPrices
 
         }))
-
-
     }, [props.cars])
 
     React.useEffect(() => {
