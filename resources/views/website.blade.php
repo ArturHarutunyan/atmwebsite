@@ -89,7 +89,7 @@
                                       ">
             <p style="font-size:16px; padding:10px">We are the official travel partner of WCIT2019. Discover Armenia with our unique excursions. </p>
             <a href="/wcit" class="homePageButton" style="font-size: 16px;
-                                                        padding: 8px 27px;
+                                                        padding: 8px 19px;
                                                         font-size: 17px;
                                                         display: inline-block;
                                                         color: black;
@@ -99,9 +99,8 @@
                                                         border-radius: 2px;
                                                         text-align: center;
                                                         margin: auto;
-                                                        margin-right: 150px;
                                                         /* height: 43px; */
-                                                        margin-right: auto;">Book now</a>
+                                                        margin-right: 18px;">Book now</a>
         </div>
         <div style="
             width: 67%;
