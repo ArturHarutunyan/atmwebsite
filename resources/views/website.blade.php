@@ -27,10 +27,15 @@
     <style>
         @media screen and (max-width:768px) {
             .messageContainer {
-                top: -105px !important;
+                top: -120px !important;
                 right: 55px !important;
                 width: 220px !important;
-                height: 149px !important;
+                height: 169px !important;
+
+            }
+
+            .messageContainer p {
+                text-align: justify;
             }
 
             .wcitFicedIcon {
@@ -61,46 +66,42 @@
     ">
 
         <div class="messageContainer" style="
-                                      position: absolute;
-                                      top: -170px;
-                                      background: #fff;
-                                      /* box-shadow: 0px 0px 9px 1px black; */
-                                      /* border-radius: 7px; */
-                                      /* width: 300px; */
-                                      height: 150px;
-                                      text-align: center;
-                                      right: 0;
-                                      cursor:initial;
-                                      color: #1c1e21;
-                                      direction: ltr;
-                                      font-size: 11px;
-                                      line-height: 1.28;
-                                      -webkit-tap-highlight-color: transparent;
-                                      background-color: #fff;
-                                      border-radius: 12px;
-                                      bottom: 0;
-                                      box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
-                                      display: none;
-                                      flex-direction: column;
-                                      /* font-family: SF Pro Text, Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif; */
-                                      /* height: 100%; */
-                                      position: absolute;
-                                      width: 360px;
+                                     top: -152px;
+    background: rgb(255, 255, 255);
+    min-height: 120px;
+    text-align: center;
+    right: 0px;
+    cursor: initial;
+    color: rgb(28, 30, 33);
+    direction: ltr;
+    font-size: 11px;
+    line-height: 1.28;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 12px;
+    bottom: 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1pt 12pt;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    height: 140px;
+    width: 360px;
                                       ">
-            <p style="font-size:16px; padding:10px">We are the official travel partner of WCIT2019. Discover Armenia with our unique excursions. </p>
-            <a href="/wcit" class="homePageButton" style="font-size: 16px;
-                                                        padding: 8px 19px;
-                                                        font-size: 17px;
-                                                        display: inline-block;
-                                                        color: black;
-                                                        text-decoration: none;
-                                                        border: 1px solid;
-                                                        background-color: #fff;
-                                                        border-radius: 2px;
-                                                        text-align: center;
-                                                        margin: auto;
-                                                        /* height: 43px; */
-                                                        margin-right: 18px;">Book now</a>
+            <p style="font-size:16px;padding:10px;padding-top: 21px;">We are the official travel partner of WCIT2019. Discover Armenia with our unique excursions. </p>
+            <a href="/wcit" class="homePageButton" style="    font-size: 16px;
+    padding: 8px 19px;
+    font-size: 17px;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    border: 1px solid;
+    background-color: #fff;
+    border-radius: 2px;
+    text-align: center;
+    margin: auto;
+    /* height: 43px; */
+    margin-right: 18px;
+    margin-top: 11px;
+    margin-bottom: 0;">Book now</a>
         </div>
         <div style="
             width: 67%;
