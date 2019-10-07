@@ -65,7 +65,11 @@ const App = React.memo(() => {
       phone_number: "",
       Email: "",
       AVC: "",
-      notes: ""
+      notes: "",
+      name: "",
+      legal_address: "",
+      business_address: "",
+      directors_name: ""
     },
     partnerInfoValidArray: [],
     // todo adding cars checkboxes
@@ -162,7 +166,7 @@ const App = React.memo(() => {
               .toString()
               .substr(2)
         }
-      }).then(function(response) {
+      }).then(function (response) {
         // console.log(response);
         if (response.data == 1) {
           changeFormObject({
@@ -203,10 +207,30 @@ const App = React.memo(() => {
           }}
         >
           <form className={classes.container} autoComplete="off">
-            <SectionTitle number={<PeopleIcon />} title={"Գործընկեր"} />
-            <Paper>
-              <Partner />
+
+            <Paper style={{
+              width: "100%",
+              padding: "15px 21px",
+              textAlign: "left",
+              display: "block",
+
+              transform: " scaleX(1.03)",
+              boxShadow: "0px 1px 3px 0px rgba(0,0,0,0.0), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)",
+              borderRadius: '0',
+
+            }}>
+              <img src={'/logo.jpg'} style={{ width: "250px" }} />
             </Paper>
+
+
+            <SectionTitle number={<PeopleIcon />} title={"Գործընկերոջ մասին տեղեկություն"} />
+
+            <div style={{ marginTop: '20px' }}>
+
+              <Paper>
+                <Partner />
+              </Paper>
+            </div>
             <SectionTitle number={<DirectionsCarIcon />} title={"Ավտոմեքենա"} />
 
             {carsContainer()}
@@ -226,7 +250,7 @@ const App = React.memo(() => {
             />
             <Paper style={{ width: "100%", padding: "30px 10px" }}>
               <TextareaAutosize
-                // placeholder="v"
+
                 aria-label="minimum height"
                 rows={3}
                 style={{

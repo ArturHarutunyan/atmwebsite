@@ -1249,7 +1249,7 @@ a:hover, a:focus{
 .about-menu__fixed {
     width: 100%;
     position: fixed;
-    top: 78px;
+    /* top: 78px; */
     z-index: 99; }
 
 /* ----- about page company ----- */
@@ -2354,7 +2354,7 @@ a:hover, a:focus{
 .service-menu__active {
     background-color: #FFFFFF;
     color: #57585b; }
-.service-menu__fixed {
+.service-menu__fixed ,.armenia-tabs__fixed,.about-menu__fixed{
     width: 100%;
     position: fixed;
     top: 104px;
@@ -2888,8 +2888,13 @@ a:hover, a:focus{
 .armenia-tabs__fixed {
     width: 100%;
     position: fixed;
-    top: 78px;
+    /* top: 78px; */
     z-index: 99; }
+
+.armenia-tabs__fixed + div{
+
+    margin-top: 170px
+}
 
 .armenia-tabs__container {
     margin: 150px 0; }
@@ -5249,7 +5254,7 @@ some testing
 @media screen and (max-width: 490px) {
 
 
-    .service-menu__fixed{
+    .service-menu__fixed,.armenia-tabs__fixed,.about-menu__fixed{
         top:78px;
     }
     .services_icons{

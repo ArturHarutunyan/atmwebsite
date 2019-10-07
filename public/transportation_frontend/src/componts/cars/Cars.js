@@ -185,7 +185,7 @@ const Cars = memo(({ index }) => {
         valdators: [isRequirers]
       },
       {
-        title: "Նստատեղերը ծալվում են դեպի հետ",
+        title: "Ծալվող նստատեղեր"/*Նստատեղերը ծալվում են դեպի հետ */,
         items: [{ label: "Այո", value: 1 }, { label: "Ոչ", value: 0 }],
         name: "fold back",
         value: 0,
@@ -196,6 +196,13 @@ const Cars = memo(({ index }) => {
         title: "Առկա է օդորակիչ ",
         items: [{ label: "Այո", value: 1 }, { label: "Ոչ", value: 0 }],
         name: "ac",
+        value: 0,
+        valdators: [isRequirers]
+      },
+      {
+        title: "Առկա է մոնիտոր",
+        items: [{ label: "Այո", value: 1 }, { label: "Ոչ", value: 0 }],
+        name: "have a monitor",
         value: 0,
         valdators: [isRequirers]
       }
@@ -326,11 +333,11 @@ const Cars = memo(({ index }) => {
   let setsComponent = useMemo(() => {
     return seats.map((seat, index) => {
       return (
-        <Grid item xs={4} key={index + "_seats_" + index}>
+        <Grid item xs={3} key={index + "_seats_" + index}>
           <div className="radio-container">
             <div className="radio-title">{seat.title}</div>
             <RadioGroup
-              onChange={function(event) {
+              onChange={function (event) {
                 seat.value = +event.target.value;
 
                 changeSeats([...seats]);
@@ -423,6 +430,7 @@ const Cars = memo(({ index }) => {
               <MenuItem value={1}>Բենզին</MenuItem>
               <MenuItem value={2}>Գազ</MenuItem>
               <MenuItem value={3}>Դիզվառելիք</MenuItem>
+              <MenuItem value={4}>էլէկտրական</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -458,7 +466,7 @@ const Cars = memo(({ index }) => {
                 />
                 <div
                   className="removeImage"
-                  onClick={function(event) {
+                  onClick={function (event) {
                     files.splice(index, 1);
                     setFiles([...files]);
                     // event.target.closest('.imgContainer').remove()
@@ -498,11 +506,11 @@ const Cars = memo(({ index }) => {
                   onClick={() => removeService(services, changeServices, index)}
                 />
               ) : (
-                <Add
-                  className={"addServiceButton"}
-                  onClick={() => addService(services, changeServices)}
-                />
-              )}
+                  <Add
+                    className={"addServiceButton"}
+                    onClick={() => addService(services, changeServices)}
+                  />
+                )}
             </div>
           );
         })}
@@ -540,13 +548,13 @@ const Cars = memo(({ index }) => {
                         <>{carMake}</> <>{carModel}</>
                       </>
                     ) : (
-                      <div
-                        style={{
-                          height: "62px",
-                          width: "100%"
-                        }}
-                      ></div>
-                    )
+                        <div
+                          style={{
+                            height: "62px",
+                            width: "100%"
+                          }}
+                        ></div>
+                      )
                   }
                 </VisibilitySensor>
                 {
@@ -559,13 +567,13 @@ const Cars = memo(({ index }) => {
                           <>{selectComponent}</>
                         </>
                       ) : (
-                        <div
-                          style={{
-                            height: "142px",
-                            width: "100%"
-                          }}
-                        ></div>
-                      );
+                          <div
+                            style={{
+                              height: "142px",
+                              width: "100%"
+                            }}
+                          ></div>
+                        );
                     }}
                   </VisibilitySensor>
                 }

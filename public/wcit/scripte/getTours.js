@@ -223,7 +223,7 @@ function tourDescription(tour) {
     var tourForm = `
         <div class="row tourForm"  data-tourId="${tour.id}" data-tourName="${tour.name}" data-tourprice="${tour.prices.eur}" data-tourPrivatePrice="${tour.privatePrice.eur}" data-Group='${dataGroup}' data-Private='${dataPrivate}'>
             <div class="radiosContainer custom_radio col-12 d-flex px-0" data-name="tour_type"> 
-                <p><input id="${'t' + ++radioCount}" type="radio" value="Group" name="${'r' + ++rCount}" checked=""><label class="font-weight-bold" for="${'t' + radioCount}">Joining a group</label></p>
+                <p><input id="${'t' + ++radioCount}" type="radio" value="Group" name="${'r' + ++rCount}" checked=""><label class="font-weight-bold" style='display:grid' for="${'t' + radioCount}"><span>Joining a group</span><span style='font-size:10px;'>*starting from 6 people</span></label></p>
 
                 <p class="pl-3"><input id="${'t' + ++radioCount}" type="radio" value="Private" name="${'r' + rCount}"><label class="font-weight-bold" for="${'t' + radioCount}">Private      </label></p>  
             </div>

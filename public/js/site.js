@@ -15,12 +15,12 @@ window.onload = function () {
 }
 
 //----------------------Intersection Observer Start------------------------
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var lazyloadImages;
     if ("IntersectionObserver" in window) {
         lazyloadImages = document.querySelectorAll(".lazy-bg");
-        var imageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
+        var imageObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     var image = entry.target;
                     image.classList.remove("lazy-bg");
@@ -28,26 +28,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         });
-        lazyloadImages.forEach(function(image) {
+        lazyloadImages.forEach(function (image) {
             imageObserver.observe(image);
         });
     }
     else {
         var lazyloadThrottleTimeout;
         lazyloadImages = document.querySelectorAll(".lazy-bg");
-        function lazyload () {
-            if(lazyloadThrottleTimeout) {
+        function lazyload() {
+            if (lazyloadThrottleTimeout) {
                 clearTimeout(lazyloadThrottleTimeout);
             }
-            lazyloadThrottleTimeout = setTimeout(function() {
+            lazyloadThrottleTimeout = setTimeout(function () {
                 var scrollTop = window.pageYOffset;
-                lazyloadImages.forEach(function(img) {
-                    if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                lazyloadImages.forEach(function (img) {
+                    if (img.offsetTop < (window.innerHeight + scrollTop)) {
                         img.src = img.dataset.src;
                         img.classList.remove('lazy-bg');
                     }
                 });
-                if(lazyloadImages.length == 0) {
+                if (lazyloadImages.length == 0) {
                     document.removeEventListener("scroll", lazyload);
                     window.removeEventListener("resize", lazyload);
                     window.removeEventListener("orientationChange", lazyload);
@@ -150,8 +150,11 @@ $(document).ready(function () {
         next = $(".arrowright");
 
 
+
+
+    // loop is removing because of  owl error 
     owl.owlCarousel({
-        loop: true,
+        loop: false,
         items: 1,
         center: true,
         touchDrag: true,
@@ -191,7 +194,7 @@ $(document).ready(function () {
         needToCloseAll = !needToOpenAll;
         trigger = true;
         $('.tourInner-content__title span').trigger("click");
-        trigger  = false;
+        trigger = false;
         needToCloseAll = true;
     });
 
@@ -225,7 +228,7 @@ $(document).ready(function () {
                 NextPathElement.css('transition', '  all .3s ease')
                 NextPathElement.attr('date_open', '0')
             }
-            if ( height == 0 && !trigger ||( needToOpenAll  && !needToCloseAll)) {
+            if (height == 0 && !trigger || (needToOpenAll && !needToCloseAll)) {
                 $(this).closest('.turs_items_container').css({
                     'max-height': 460 + 'px',
                     'margin-bottom': 0,
@@ -252,15 +255,15 @@ $(document).ready(function () {
             }
 
 
-            else{
+            else {
 
                 $(this).closest('.turs_items_container').css({
-                    'max-height': 100 + 'px' , 
+                    'max-height': 100 + 'px',
                     "margin-bottom": '35px'
                 });
                 $(this).closest('.turs_items_container').find('.tours_slider_container').css('max-height', '0');
 
-                $(parentContainer).find('p , h2 , h3').css({ 'max-height': '0',  });
+                $(parentContainer).find('p , h2 , h3').css({ 'max-height': '0', });
                 // if(!$(this).hasClass('h3Text'))
                 // $(this).html('+')
                 // else
@@ -330,7 +333,7 @@ $(document).ready(function () {
             });
         }
         function preloadImage(img) {
-            img.setAttribute('src',img.getAttribute('data-src'));
+            img.setAttribute('src', img.getAttribute('data-src'));
         }
         //-------------------Intersection Observer End
 
@@ -527,7 +530,7 @@ $(document).ready(function () {
         if (sidebar.length !== 0) {
 
             var top = sidebar.offset().top - sidebar[0].getBoundingClientRect().height;
-            top = $(document).width() < 1070 ? top - 27 : top - 5;
+            top = $(document).width() < 1070 ? top - 27 : top - 30;
             $(window).scroll(function (event) {
                 onScroll();
                 var y = $(this).scrollTop();
@@ -680,7 +683,7 @@ $(document).ready(function () {
         if (sidebar1.length !== 0) {
 
             var top = sidebar1.offset().top - sidebar1[0].getBoundingClientRect().height;
-            top = $(document).width() < 1070 ? top - 27 : top - 5;
+            top = $(document).width() < 1070 ? top - 27 : top - 30;
             $(window).scroll(function (event) {
                 onScroll();
                 var y = $(this).scrollTop();
@@ -778,7 +781,7 @@ $(document).ready(function () {
         var sidebar = $('#service-menuScroll');
         if (sidebar.length !== 0) {
             var top = sidebar.offset().top - sidebar[0].getBoundingClientRect().height;
-            top = $(document).width() < 1070 ? top - 27 : top - 5;
+            top = $(document).width() < 1070 ? top - 27 : top - 30;
             $(window).scroll(function (event) {
                 onScrollService();
                 var y = $(this).scrollTop();

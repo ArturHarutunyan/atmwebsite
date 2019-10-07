@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext, memo, useMemo } from "react";
 
 import PricesInput from "./pricesInput";
 
-import PricesCheckbox from "./PricesCheckbox";
+// import PricesCheckbox from "./PricesCheckbox";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
+
+import MultiSelect from '../multiSelect/MultiSelect';
 import UserContext from "../../contextBigForm";
 import { Add, Delete } from "../addDelete/AddDelete";
 import {
@@ -44,8 +46,8 @@ const useStyles = makeStyles(theme => ({
 }));
 let keyCount = 0;
 
-export default memo(function({ index, thisPriceForm }) {
-  let { prices, changePrices, cars: carFromeOut, formObject } = useContext(
+export default memo(function ({ index, thisPriceForm }) {
+  let { prices, changePrices, changeCars: changeCarsFromOut, cars: carFromeOut, formObject } = useContext(
     UserContext
   );
 
@@ -155,27 +157,35 @@ export default memo(function({ index, thisPriceForm }) {
             ) : null}
 
             <div className={"checkboxesContainer"}>
-              {checkboxes.map((checkbox, index) => {
+              {/* {checkboxes.map((checkbox, index) => {
                 // console.log(thisPrices === cars[index].priceForm)
                 // if(!!car.inputs[0].value ) return null;
                 return (
                   <>
                     {checkbox.car.inputs[0].value ||
-                    checkbox.car.inputs[1].value ? (
-                      <PricesCheckbox
-                        index={index}
-                        car={checkbox.car}
-                        classes={classes}
-                        thisPrices={thisPrices}
-                        checkbox={checkbox}
-                        changeCars={changeCars}
-                        cars={cars}
-                        handleChange={handleChange}
-                      />
-                    ) : null}
+                      checkbox.car.inputs[1].value ? (
+                        <PricesCheckbox
+                          index={index}
+                          car={checkbox.car}
+                          classes={classes}
+                          thisPrices={thisPrices}
+                          checkbox={checkbox}
+                          changeCars={changeCars}
+                          cars={cars}
+                          handleChange={handleChange}
+                        />
+                      ) : null}
                   </>
                 );
-              })}
+              })} */}
+
+              <MultiSelect
+                options={checkboxes}
+                changeCars={changeCarsFromOut}
+                cars={carFromeOut}
+                thisPrices={thisPrices}
+              />
+
             </div>
 
             <div className={classes.container + " price-inputs"}>

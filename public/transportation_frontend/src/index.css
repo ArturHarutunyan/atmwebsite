@@ -284,10 +284,10 @@ div#downshift-options-menu>* {
 
 
 
-/* 
+
 legend {
-  margin-left: 2px;
-} */
+  padding-left: 10px;
+}
 
 
 textarea {

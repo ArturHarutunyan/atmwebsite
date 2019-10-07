@@ -216,11 +216,11 @@ const MenuList = function MenuList(props) {
             <span>{children[index]}</span>
 
             {firstLength == children.length &&
-            lastFeatured.label == children[index].props.data.label ? (
-              <div className="popular" />
-            ) : (
-              ""
-            )}
+              lastFeatured.label == children[index].props.data.label ? (
+                <div className="popular" />
+              ) : (
+                ""
+              )}
           </div>
         );
       }}
@@ -244,8 +244,8 @@ export default function ComboBox(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [single, setSingle] = React.useState(null);
-  //   const [multi, setMulti] = React.useState(null);
-  // const [suggestions, setSuggestions] = React.useState([]);
+  // const [multi, setMulti] = React.useState(null);
+  const [suggestions, setSuggestions] = React.useState([]);
 
   let {
     carType,
@@ -262,35 +262,46 @@ export default function ComboBox(props) {
   } = props;
 
   // console.log(makes, models);
-  let suggestions = [];
+  // let suggestions = [];
 
-  if (index == 0) {
-    suggestions = makes
-      .map((suggestion, index) => ({
-        value: suggestion.id || index,
-        label: suggestion.name,
-        is_featured: suggestion.is_featured
-      }))
-      .sort(function(a, b) {
-        if (a.is_featured) {
-          return -1;
-        }
-        return 1;
-      });
-  } else if (models) {
-    suggestions = models
-      .map((suggestion, index) => ({
-        value: suggestion.id || index,
-        label: suggestion.name,
-        is_featured: suggestion.is_featured
-      }))
-      .sort(function(a, b) {
-        if (a.is_featured) {
-          return -1;
-        }
-        return 1;
-      });
-  }
+
+  useEffect(() => {
+
+    if (index == 0) {
+      setSuggestions(makes
+        .map((suggestion, index) => ({
+          value: suggestion.id || index,
+          label: suggestion.name,
+          is_featured: suggestion.is_featured
+        }))
+        .sort(function (a, b) {
+          if (a.is_featured) {
+            return -1;
+          }
+          return 1;
+        }));
+    } else if (models) {
+      setSuggestions(models
+        .map((suggestion, index) => ({
+          value: suggestion.id || index,
+          label: suggestion.name,
+          is_featured: suggestion.is_featured
+        }))
+        .sort(function (a, b) {
+          if (a.is_featured) {
+            return -1;
+          }
+          return 1;
+        }));
+    }
+
+
+
+
+
+  }, [makes, models])
+
+
 
   let [isUserEvent, changeIsUserEvent] = React.useState(false);
 
@@ -298,15 +309,21 @@ export default function ComboBox(props) {
     if (input.selected) {
       input.value = input.selected.value;
       setSingle(input.selected);
+
+
       if (index == 1) setSingle(zeroSelected);
 
       changeInputs([...inputs]);
     }
     changeIsUserEvent(false);
+
+
   }, []);
 
   useEffect(() => {
-    if (index == 1 && isUserEvent) {
+    if (index == 1 && isUserEvent && !isNaN(inputs[0].selected.value)) {
+
+      ;
       input.isValid = false;
       input.value = "";
       input.checkBoxLabel = "";
@@ -317,15 +334,12 @@ export default function ComboBox(props) {
 
   function handleChangeSingle(event) {
     setSingle(event);
-
-    // console.log(event);
     input.value = event && event.value;
     input.isValid = event && true;
     input.checkBoxLabel = event && event.label;
-
     input.selected = event && event;
 
-    if (index == 0) {
+    if (index == 0 && !isNaN(inputs[0].value)) {
       thisCar.models = null;
       const getCarModels = () => {
         let data = (async () => {
@@ -336,7 +350,7 @@ export default function ComboBox(props) {
       };
 
       getCarModels().then(res => {
-        // console.log(res);
+
         thisCar.models = res;
         inputs[1].isValid = false;
         inputs[1].value = "";
@@ -348,11 +362,8 @@ export default function ComboBox(props) {
       });
     }
 
-    // setTimeout(() => {
-    // }, 500);
     changeCars([...cars]);
     changeInputs([...inputs]);
-
     changeIsUserEvent(true);
   }
 
@@ -366,6 +377,7 @@ export default function ComboBox(props) {
     })
   };
 
+
   let comboBox = (
     <div className={classes.root + " comboBoxContainer"}>
       <NoSsr>
@@ -374,6 +386,19 @@ export default function ComboBox(props) {
           styles={selectStyles}
           inputId="react-select-single"
           isClearable={true}
+
+          //  todo on blur get input value and save result 
+
+
+          onBlur={(e) => {
+
+            if (!e.target.value) return;
+            let newCar = { value: e.target.value, label: e.target.value };
+            handleChangeSingle(newCar);
+          }}
+
+
+
           TextFieldProps={{
             label: props.label,
             placeholder: props.placeholder,
