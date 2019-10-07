@@ -530,7 +530,7 @@ $(document).ready(function () {
         if (sidebar.length !== 0) {
 
             var top = sidebar.offset().top - sidebar[0].getBoundingClientRect().height;
-            top = $(document).width() < 1070 ? top - 27 : top - 5;
+            top = $(document).width() < 1070 ? top - 27 : top - 30;
             $(window).scroll(function (event) {
                 onScroll();
                 var y = $(this).scrollTop();
@@ -683,7 +683,7 @@ $(document).ready(function () {
         if (sidebar1.length !== 0) {
 
             var top = sidebar1.offset().top - sidebar1[0].getBoundingClientRect().height;
-            top = $(document).width() < 1070 ? top - 27 : top - 5;
+            top = $(document).width() < 1070 ? top - 27 : top - 30;
             $(window).scroll(function (event) {
                 onScroll();
                 var y = $(this).scrollTop();
@@ -781,7 +781,7 @@ $(document).ready(function () {
         var sidebar = $('#service-menuScroll');
         if (sidebar.length !== 0) {
             var top = sidebar.offset().top - sidebar[0].getBoundingClientRect().height;
-            top = $(document).width() < 1070 ? top - 27 : top - 5;
+            top = $(document).width() < 1070 ? top - 27 : top - 30;
             $(window).scroll(function (event) {
                 onScrollService();
                 var y = $(this).scrollTop();
