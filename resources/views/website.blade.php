@@ -66,7 +66,7 @@
     ">
 
         <div class="messageContainer" style="
-                                     top: -152px;
+                                     top: -156px;
     background: rgb(255, 255, 255);
     min-height: 120px;
     text-align: center;
@@ -91,10 +91,10 @@
     padding: 8px 19px;
     font-size: 17px;
     display: inline-block;
-    color: black;
+    color: #fff;
     text-decoration: none;
     border: 1px solid;
-    background-color: #fff;
+    background-color: #000;
     border-radius: 2px;
     text-align: center;
     margin: auto;
