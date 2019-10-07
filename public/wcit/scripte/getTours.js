@@ -3,14 +3,12 @@ var rCount = 0;
 // https://www.armeniatravel.am/api/wcit/excursions
 
 fetch('/api/wcit/excursions')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (myJson) {
-
-        createTours(myJson)
-
-    });
+.then(function (response) {
+    return response.json();
+})
+.then(function (myJson) {
+    createTours(myJson)
+});
 
 function createTours(json) {
     var excursionBlok = document.querySelector('.excursion_block')
@@ -52,7 +50,6 @@ function createTours(json) {
 
 
 }
-
 
 function createExcursionBlock(tour) {
     var excursionContainer = document.createElement('div');
@@ -136,9 +133,6 @@ function swiperComponent(tour) {
     swiperComponent += ` <div class="triangle_container"><img src="./images/Vector Smart Object.png" alt=""></div></div>`;
     return swiperComponent;
 }
-
-
-
 
 function tourDescription(tour) {
 
@@ -260,8 +254,7 @@ function tourDescription(tour) {
           </div>
           <div class="formAfterIconsContainer">
             <img src="./images/001-clock-circular-outline.svg"/> <span>9 AM </span>
-            <img src="./images/002-maps-and-flags.svg"/>         <span>Republic Square</span>
-          
+            <img src="./images/002-maps-and-flags.svg"/> <span>Republic Square</span>
           </div>
        </div>
     </div>
