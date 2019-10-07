@@ -1,7 +1,30 @@
 
+
+function resizeImages(width){
+    let root = document.documentElement;
+    
+    root.style.setProperty('--swipeImageHeight', ((width/100)*30)-50 + "px");
+    
+    window.dispatchEvent(new Event('resize'));
+    setTimeout(function(){
+    
+        window.dispatchEvent(new Event('resize'));
+    })
+    
+    if(window.innerWidth<1200){
+        root.style.setProperty('--swipeImageHeight', (width/100)*80+ "px");
+    }
+}
+
+
 function preloadImage(img) {
-    if(!img.src)
-        img.src = img.getAttribute('data-src');
+    if(!img.src){
+        var dataSrc =  img.getAttribute('data-src');
+        if(!img.closest('.fixedContainer') && (window.innerWidth>1200 || (window.innerWidth<991)) ){
+            dataSrc = dataSrc.replace('images/','images/min/')
+        }
+        img.src = dataSrc;
+    }
 }
 
 

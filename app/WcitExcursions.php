@@ -25,4 +25,12 @@ class WcitExcursions extends Model
     {
         return $this->hasMany('App\WcitExcursionsIncludes');
     }
+    public function excursion_details()
+    {
+        return $this->hasOne('App\ExcursionDetail', 'wcit_excursion_id','id');
+    }
+    public function orders()
+    {
+        return $this->hasMany('App\WcitOrder', 'wcit_excursion_id','id');
+    }
 }

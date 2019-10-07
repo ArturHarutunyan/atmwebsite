@@ -839,6 +839,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'admin', 'namespace'=>'App\Http\C
         'uses'=>'CustomersController@show',
         'as'=>'cars_list'
     ]);
+
+    Route::get('/wcit_orders_list', [
+        'uses'=>'WcitController@index',
+        'as'=>'wcit_orders_list'
+    ]);
 });
 
 Route::group(

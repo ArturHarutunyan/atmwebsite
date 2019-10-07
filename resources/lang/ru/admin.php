@@ -213,4 +213,5 @@
     "unique_services_content"=>"Содержимое уникальных сервис",
     "upload_images"=>"Загрузите изображения",
      "cars" => "Машины",
+     "wcit_orders"=>"Заказы WCIT"
  ];

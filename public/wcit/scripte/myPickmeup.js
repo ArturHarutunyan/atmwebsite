@@ -13,11 +13,12 @@
 
 var datepickerInputs = document.querySelectorAll('.datepicker_input');
 
-var startDateMin = new Date("2019-09-29");
-var startDate = new Date("2019-09-28");
-var eventStartDate = new Date("2019-10-6")
+var today = new Date();
+var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var startDate = new Date(todaysDate);
+var eventStartDate = new Date("2019-10-6");
 
-var endDate = new Date("2019-10-16");
+var endDate = new Date("2019-10-13");
 var eventEndDate = new Date('2019-10-9');
 
 
@@ -76,7 +77,7 @@ var eventEndDate = new Date('2019-10-9');
         }
     });
     elem.value = '';
-    elem.setAttribute('placeholder', 'Choose Date');
+    elem.setAttribute('placeholder', 'Date');
 
     elem.selectedInfo = { date: null, datepicker: elem }
 
