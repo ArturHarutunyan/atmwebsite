@@ -257,6 +257,8 @@ function init() {
 
         var tourId = +oneOrder.tourId
 
+        // console.log(type)
+
         var price = oneOrder.price;
 
         if (type == 'Private')
@@ -391,7 +393,8 @@ document.querySelector('.pay_button').onclick = function (event) {
             alert('success ');
             window.location.reload();
         } catch (error) {
-            alert('error');
+            console.log(error);
+            //alert('error in server side');
         }
     })()
 }
@@ -405,6 +408,9 @@ document.querySelector('.resizeContent').contentWindow.onresize = function (even
     var containerWidth = event.target.innerWidth;
     resizeImages(containerWidth)
     // --swipeImageHeight
+
+
+
 }
 
 

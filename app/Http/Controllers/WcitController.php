@@ -7,10 +7,13 @@ use App\WcitCustomer;
 use App\WcitOrder;
 use App\WcitDay;
 use App\WcitExcursions;
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 class WcitController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +44,7 @@ class WcitController extends Controller
         $orders=$request->json('readyOrders');
         $participation=$request->json('participation');
         $participation_type=null;
+        $msg='';
         switch($participation){
             case '1': $participation_type='Delegation';
                 break;
@@ -61,6 +65,12 @@ class WcitController extends Controller
             'participation_type' => $participation_type
         ]);
 
+        $msg .= ('Customer: '.$customer_data["name"].' '.$customer_data["Surname"]."</br>");
+        $msg .= ('Email: '.$customer_data["Email"]."</br>");
+        $msg .= ('Phone: '.$customer_data["Phone"]."</br>");
+        $msg .= ('Organization: '.$customer_data["Organization"]."</br>");
+        $msg .= ('Notes: '.$customer_data["Notes"]."</br>");
+
         foreach ($orders as $order){
             $day_date=$order["date"]/1000;
             $day = WcitDay::where('date',$day_date)->first();
@@ -70,10 +80,12 @@ class WcitController extends Controller
             if($order["type"]=='1'){
                 //Individual
                 $price=$order["persons"]*$excursion->private_price_amd;
+                $msg .= ("Type: Individual </br>");
             }
             elseif($order["type"]=='2'){
                 //Group Type
                 $price=$order["persons"]*$excursion->group_price_amd;
+                $msg .= ("Type: Group </br>");
             }
             WcitOrder::create([
                 'wcit_customer_id' => $customer->id,
@@ -84,6 +96,33 @@ class WcitController extends Controller
                 'people_count' => $order["persons"],
                 'price' => $price
             ]);
+            $t_language=($order['language']==1?'English':'Russian');
+            $msg .= ('Day: October'.($day->id+4)."th </br>");
+            $msg .= ('Excursion: '.$excursion->name."</br>");
+            $msg .= ('Tour Language: '.$t_language."</br>");
+            $msg .= ('People quantity: '.$order["persons"]."</br>");
+            $msg .= ('Price: AMD'.$price."</br>");
+        }
+
+        $mail = new PHPMailer(true);
+        try {
+            $mail->IsSMTP();
+            $mail->CharSet = "utf-8";
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
+            $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+            $mail->Port       = 465;   // set the SMTP port for the GMAIL server
+            $mail->Username   = "admin@epic.study";  // username
+            $mail->Password   = "dir.!!2266";            // password
+            $mail->setFrom($customer_data["Email"], "Client");
+            $mail->Subject = "WCIT Excursion";
+            $mail->IsHTML(true);
+            $mail->MsgHTML($msg);
+            $mail->AddAddress("soft@armeniatravel.am");
+            $mail->AddAddress("hotel_reservation@armeniatravel.am");
+            $mail->Send();
+        } catch (Exception $e) {
+            dd($e);
         }
 
         return response()->json('1');

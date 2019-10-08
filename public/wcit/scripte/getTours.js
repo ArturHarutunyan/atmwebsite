@@ -207,7 +207,7 @@ function tourDescription(tour) {
     //     label.font-weight-bold(for='t'+radioCount) Group
     // p.pl-3
     //     input(id='t'+ ++radioCount type='radio' value='Private' name='r'+ rCount)
-    //     label.font-weight-bold(for='t'+radioCount) Private      
+    //     label.font-weight-bold(for='t'+radioCount) Private
     var mOption = ''
     for (var i = 1; i < 50; i++) {
         mOption += `<div class="Moption" data-value="${i}"><span style='color:black; font-weight:bold;' class="font-weight-bold">${i}</span></div>`
