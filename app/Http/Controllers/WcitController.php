@@ -119,7 +119,8 @@ class WcitController extends Controller
             $mail->IsHTML(true);
             $mail->MsgHTML($msg);
             $mail->AddAddress("soft@armeniatravel.am");
-            $mail->AddAddress("hotel_reservation@armeniatravel.am");
+            $mail->AddAddress("hakob.kpryan@armeniatravel.am");
+            $mail->AddAddress("armen@armeniatravel.am");
             $mail->Send();
         } catch (Exception $e) {
             dd($e);
