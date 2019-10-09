@@ -281,7 +281,7 @@ function init() {
             type: type == "Group" ? 2 : 1,
             language: language,
             persons: persons,
-            date: (+new Date(date))+(1000*4*60*60),
+            date: (+new Date(date)) + (1000 * 4 * 60 * 60),
             amount: amount,
             tourId: tourId
         }
@@ -401,7 +401,7 @@ document.querySelector('.pay_button').onclick = function (event) {
 
 
 var containerWidth = document.querySelector('.resizeContent').contentWindow.innerWidth;
-resizeImages(containerWidth)
+resizeImages && resizeImages(containerWidth)
 
 document.querySelector('.resizeContent').contentWindow.onresize = function (event) {
 
