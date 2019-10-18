@@ -19,7 +19,6 @@ class CustomersController extends Controller
 {
     public function save(Request $request)
     {
-
         $formObj = json_decode($request->input('formObject'));
         $customer_data = $formObj->partnerInfo;
         $customer = Customer::create([
@@ -27,7 +26,11 @@ class CustomersController extends Controller
             'phone' => $customer_data->phone_number,
             'email' => $customer_data->Email,
             'tin' => $customer_data->AVC,
-            'notes' => $customer_data->notes
+            'notes' => $customer_data->notes,
+            'name' => $customer_data->name,
+            'legal_address' => $customer_data->legal_address,
+            'business_address' => $customer_data->business_address,
+            'directors_name' => $customer_data->directors_name
         ]);
         $prices_data = $formObj->prices;
         foreach ($prices_data as $price_data) {
@@ -44,7 +47,8 @@ class CustomersController extends Controller
                         'route_id' => $route->value,
                         'amount' => floatval(preg_replace("/,/", "", $route->price))
                     ]);
-                } else {
+                }
+                else {
                     CustomRoute::create([
                         'price_id' => $price->id,
                         'name' => $route->value,
@@ -54,9 +58,32 @@ class CustomersController extends Controller
             }
             foreach ($price_data->cars as $c_i => $price_car_key) {
                 $carData = $formObj->cars[$price_car_key];
+
+                $make = $carData->inputs[0]->value;
+                $make_id = $make;
+                if(!is_numeric($make)){
+                    $new_make=CarMake::create([
+                        'name' => substr($make, 1),
+                        'is_featured' => 0,
+                        'is_custom' => 1
+                    ]);
+                    $make_id = $new_make->id;
+                }
+
+                $model= $carData->inputs[1]->value;
+                $model_id = $model;
+                if(!is_numeric($model)){
+                    $new_model=CarModel::create([
+                        'make_id' => $make_id,
+                        'name' => substr($model, 1),
+                        'is_custom' => 1
+                    ]);
+                    $model_id = $new_model->id;
+                }
+
                 $car = Car::create([
                     'price_id' => $price->id,
-                    'model_id' => $carData->inputs[1]->value,
+                    'model_id' => $model_id,
                     'color' => $carData->inputs[2]->value,
                     'year' => intval($carData->inputs[3]->value),
                     'seat_count' => intval($carData->inputs[4]->value),
@@ -64,6 +91,7 @@ class CustomersController extends Controller
                     'is_leather' => $carData->seats[0]->value,
                     'is_foldable' => $carData->seats[1]->value,
                     'has_air_conditioning' => $carData->seats[2]->value,
+                    'has_monitor' => $carData->seats[3]->value,
                     'fuel_type_id' => intval($carData->fuelType->value),
                     'volume' => floatval($carData->working_volume)
                 ]);

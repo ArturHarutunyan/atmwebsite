@@ -14,7 +14,7 @@ class Customer extends Model
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'legal_name','phone','email','tin','notes'
+        'legal_name','phone','email','tin','notes','name','legal_address','business_address','directors_name'
     ];
     public function prices()
     {

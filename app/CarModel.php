@@ -14,7 +14,7 @@ class CarModel extends Model
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'make_id','name'
+        'make_id','name','is_custom'
     ];
     public function cars()
     {

@@ -14,7 +14,7 @@ class CarMake extends Model
     public $primaryKey='id';
     public $timestamps=true;
     protected $fillable=[
-        'name','is_featured'
+        'name','is_featured','is_custom'
     ];
 
     public function car_models()

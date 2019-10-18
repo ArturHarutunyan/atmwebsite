@@ -20,6 +20,10 @@ class CreateCustomersTable extends Migration
             $table->string('email');
             $table->string('tin');
             $table->text('notes')->nullable();
+            $table->string('name')->nullable();
+            $table->string('legal_address')->nullable();
+            $table->string('business_address')->nullable();
+            $table->string('directors_name')->nullable();
             $table->timestamps();
         });
     }

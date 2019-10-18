@@ -17,6 +17,7 @@ class CreateCarModelsTable extends Migration
             $table->increments('id');
             $table->integer('make_id');
             $table->string('name');
+            $table->boolean('is_custom')->default(0);
             $table->timestamps();
         });
     }

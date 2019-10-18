@@ -17,6 +17,7 @@ class CreateCarMakesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean('is_featured');
+            $table->boolean('is_custom')->default(0);
             $table->timestamps();
         });
     }

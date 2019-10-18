@@ -26,6 +26,7 @@ class CreateCarsTable extends Migration
             $table->integer('fuel_type_id');
             $table->float('volume');
             $table->boolean('has_air_conditioning')->nullable();
+            $table->boolean('has_monitor')->nullable();
             $table->timestamps();
         });
     }

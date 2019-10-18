@@ -16,7 +16,7 @@ class Car extends Model
     public $timestamps = true;
     protected $fillable = [
         'model_id', 'color', 'year', 'seat_count', 'baggage_quantity', 'is_leather', 'is_foldable',
-        'fuel_type_id', 'volume', 'price_id', 'has_air_conditioning'
+        'fuel_type_id', 'volume', 'price_id', 'has_air_conditioning', 'has_monitor'
     ];
     public function car_images()
     {
