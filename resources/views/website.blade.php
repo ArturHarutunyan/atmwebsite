@@ -18,11 +18,9 @@
 @endforeach
 @endsection
 
-
 @section('content')
 
-
-<div style='position:absolute; height:0'>
+{{--<div style='position:absolute; height:0'>
 
     <style>
         @media screen and (max-width:768px) {
@@ -147,7 +145,7 @@
         }
     </script>
 
-</div>
+</div>--}}
 
 <!-- for mozilla  -->
 <div class="getBackgroundImageReady changeBackground"></div>
