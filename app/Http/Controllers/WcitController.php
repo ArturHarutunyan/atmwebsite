@@ -118,42 +118,59 @@ class WcitController extends Controller
             $mail->Port       = 465;   // set the SMTP port for the GMAIL server
             $mail->Username   = "admin@epic.study";  // username
             $mail->Password   = "dir.!!2266";            // password
-            $mail->setFrom($customer_data["Email"], "Client");
+            //$mail->setFrom($customer_data["Email"], "Client");
+            $mail->setFrom('vardan9811@mail.ru', "Client");
             $mail->Subject = "WCIT Excursion";
             $mail->IsHTML(true);
             //$mail->MsgHTML($msg);
-            $msg = '<table style="
+            $msg = '    <table style="
+        
             max-width: 800px;
+            
             width: 100%;
             margin: auto;
             box-shadow: 2px 2px 7px 1px #80808080;
-            padding: 10px;  
+            
             color: #697384;
         ">
+
         <tbody style="width: 100%; font-family: Roboto,Helvetica,Arial,sans-serif;">
+
+
             <tr>
                 <td>
                     <div style="
                         min-width: 100%;
                         min-height: 300px;
                         background: url(./Capture2.JPG);
+                        
                         background-size:cover;
-                        background-position: center;   
+                        background-position: center;
+                        
                         "></div>
                 </td>
+
+
+
             </tr>
+
             <tr>
                 <td>
                     <div style="
                         margin-left: 21%;
                         margin-top: -46.5px;
+    
                     "><a href="#" style="
+                    
                         background-color: #F5A65B;
                         display: inline-block;
                         text-decoration: none;
                         padding: 12px 45px;
                         color: #ffffff;
+
                         font-weight: bold;
+
+    
                     ">RSVP</a></div>
                 </td>
             </tr>
@@ -166,26 +183,31 @@ class WcitController extends Controller
                     ">
                         <tbody style="width: 100%;">
                             <tr style="width: 100%;">
-                                <td colspan="100%">
+                                <td colspan="100%" style="    border-bottom: 25px solid transparent;">
+
                                     <p style="
                                         border-bottom: 1px solid gray;
                                         padding-bottom: 30px;
                                         padding-top: 30px;
                                         text-align: center;
-                                    ">LIEBE TIM &amp; ROSA! WIR HEIRATEN</p>
+                                    ">LIEBE TIM & ROSA! WIR HEIRATEN</p>
+
                                 </td>
                             </tr>
                             <tr style="
                                 vertical-align: baseline;
                             ">
                                 <td width="33%" style="text-align: center;">
+
                                     <div style="
+                                    
                                         border-radius: 50%;
                                         box-shadow: 2px 2px 7px 1px #80808080;
                                         height: 100px;
                                         width: 100px;
                                         margin: auto;
                                         display: flex;
+                                        zoom: .8;
                                         justify-content: center;
                                     ">
                                         <svg xmlns="http://www.w3.org/2000/svg" style="width: 30px; fill: #697384;"
@@ -256,19 +278,22 @@ class WcitController extends Controller
                                         </svg>
 
                                     </div>
-                                    <p>ANDREAS &amp; DARIAN</p>
+                                    <p>ANDREAS & DARIAN</p>
 
                                 </td>
                                 <td width="33%" style="text-align: center;">
+
                                     <div style="
-                                        border-radius: 50%;
-                                        box-shadow: 2px 2px 7px 1px #80808080;
-                                        height: 100px;
-                                        width: 100px;
-                                        display: flex;
+                                    
+                                    border-radius: 50%;
+                                    box-shadow: 2px 2px 7px 1px #80808080;
+                                    height: 100px;
+                                    width: 100px;
+                                    zoom: .8;
+                                    display: flex;
                                         justify-content: center;
-                                        margin: auto;
-                                    ">
+                                    margin: auto;
+                                ">
                                         <svg style="
                                             width: 30px;
                                             fill: #697384;
@@ -277,20 +302,27 @@ class WcitController extends Controller
                                             style="enable-background:new 0 0 294 294;" xml:space="preserve">
                                             <path
                                                 d="M279,132h-18.988c-6.718-50.886-47.345-91.294-98.345-98.012V15c0-8.284-6.716-15-15-15s-15,6.716-15,15v18.988  c-51,6.718-90.961,47.126-97.679,98.012H15c-8.284,0-15,6.716-15,15s6.716,15,15,15h18.988  c6.718,50.886,46.679,91.294,97.679,98.012V279c0,8.284,6.716,15,15,15s15-6.716,15-15v-18.988  c51-6.718,91.627-47.126,98.345-98.012H279c8.284,0,15-6.716,15-15S287.284,132,279,132z M161.667,229.632V213  c0-8.284-6.716-15-15-15s-15,6.716-15,15v16.632c-34-6.214-61.085-33.321-67.299-67.632H81c8.284,0,15-6.716,15-15s-6.716-15-15-15  H64.368c6.214-34.31,33.299-61.418,67.299-67.632V81c0,8.284,6.716,15,15,15s15-6.716,15-15V64.368  c35,6.214,61.751,33.322,67.965,67.632H213c-8.284,0-15,6.716-15,15s6.716,15,15,15h16.632  C223.418,196.31,196.667,223.418,161.667,229.632z" />
+                                            <g>
                                         </svg>
+
                                     </div>
                                     <p>TETTUCIO SPA MONTECATINI TERME ITALY</p>
+
                                 </td>
                                 <td width="33%" style="text-align: center;">
+
                                     <div style="
+                                    
                                         border-radius: 50%;
                                         box-shadow: 2px 2px 7px 1px #80808080;
                                         height: 100px;
                                         width: 100px;
                                         display: flex;
                                         justify-content: center;
+                                        zoom: .8;
                                         margin: auto;
                                     ">
+
                                         <svg xmlns="http://www.w3.org/2000/svg" style="width:30px;
                                             fill:#697384;
                                         " xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px"
@@ -303,14 +335,15 @@ class WcitController extends Controller
                                                     <path
                                                         d="M73.898,47.08H52.066V20.83c0-2.209-1.791-4-4-4c-2.209,0-4,1.791-4,4v30.25c0,2.209,1.791,4,4,4h25.832    c2.209,0,4-1.791,4-4S76.107,47.08,73.898,47.08z" />
                                                 </g>
-                                            </g>
                                         </svg>
                                     </div>
                                     <p>5.SEPTEMBER 2020</p>
+
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
                 </td>
             </tr>
             <tr>
@@ -335,7 +368,7 @@ class WcitController extends Controller
                                 <td style="
                                     padding: 30px;
                                     line-height: 35px;
-                                    
+
                                     vertical-align: top;
                                     ">
                                     <p style="margin: 0; padding: 0;">

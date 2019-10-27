@@ -9,8 +9,8 @@ var url = '/api/wcit/save_order';
 document.addEventListener('click',function (event) {
     event.stopImmediatePropagation() ;
     if(!event.target.closest('.notAddedButton')) return ;
-    var response = await fetch(url, {
-        method: 'GET',
+    var response = fetch(url, {
+        method: 'POST',
         body: '',
         headers: {
             'Content-Type': 'application/json'
