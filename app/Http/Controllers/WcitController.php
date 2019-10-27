@@ -142,7 +142,7 @@ class WcitController extends Controller
                     <div style="
                         min-width: 100%;
                         min-height: 300px;
-                        background: url(./Capture2.JPG);
+                        background: url(https://www.armeniatravel.am/uploads/Capture2.JPG);
                         
                         background-size:cover;
                         background-position: center;
@@ -357,7 +357,7 @@ class WcitController extends Controller
                                     vertical-align: baseline;
                                 ">
                                     <div style="
-                                            background: url(./Capture.JPG);
+                                            background: url(https://www.armeniatravel.am/uploads/Capture.JPG);
                                             background-size: cover;
                                             background-repeat: no-repeat;
                                             background-position: center;
