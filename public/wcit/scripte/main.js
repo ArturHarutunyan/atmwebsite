@@ -3,18 +3,45 @@ var orderForms = [];
 
 var readyOrders;
 
+var url = '/api/wcit/save_order';
 
 
+document.addEventListener('click',function (event) {
+    event.stopImmediatePropagation() ;
+    if(!event.target.closest('.notAddedButton')) return ;
+    var response = await fetch(url, {
+        method: 'GET',
+        body: '',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+})
 
-
+(async function () {
+    try {
+        var response = await fetch(url, {
+            method: 'POST',
+            body: '',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        var json = await response.json();
+        if (json != 1) throw new Error();
+        alert('success ');
+        window.location.reload();
+    } catch (error) {
+        console.log(error);
+        //alert('error in server side');
+    }
+})();
 // function getPastDays(dateArray) {
 //     var date2 = dateArray[0];
 //     var date1 = dateArray[1];
 //     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 //     return Math.ceil(timeDiff / (1000 * 3600 * 24));
 // }
-
-
 
 document.addEventListener('click', function (event) {
     var target = event.target;
