@@ -1497,8 +1497,8 @@ a:hover, a:focus{
 .about-project__item:before{
     content: "";
     display: block;
-    width: 8px;
-    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
     border-radius: 100%;
     background-color: #004270;
     margin-right: 10px;
