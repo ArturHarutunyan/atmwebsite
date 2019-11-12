@@ -126,10 +126,10 @@ class WcitController extends Controller
             
             $mail->MsgHTML($msg);
             $mail->AddAddress("soft@armeniatravel.am");
-            $mail->AddAddress("vardan9817@gmail.com");
-            $mail->AddAddress("mar.armenie@gmail.com");
-            //$mail->AddAddress("hakob.kpryan@armeniatravel.am");
-            //$mail->AddAddress("armen@armeniatravel.am");
+            //$mail->AddAddress("vardan9817@gmail.com");
+            //$mail->AddAddress("mar.armenie@gmail.com");
+            $mail->AddAddress("hakob.kpryan@armeniatravel.am");
+            $mail->AddAddress("armen@armeniatravel.am");
             $mail->Send();
         } catch (Exception $e) {
             dd($e);
