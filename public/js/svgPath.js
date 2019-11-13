@@ -1,17 +1,14 @@
 
 // --------------------------------------------- js svg code 
-// svg first head breackpoint
+// svg first head breakpoint
 
 var lastScrollPosition = 0
 var go_to_another_page = false;
 
-// $(document).load().scrollTop(0);
 window.onbeforeunload = function () {
-	// console.log(go_to_another_page)
 	if (!go_to_another_page) {
-		// window.scrollTo(0, 0);
 	}
-}
+};
 
 function getOffset(element) {
 	var bound = element.getBoundingClientRect();
@@ -37,7 +34,6 @@ function countEfect(needToAnimate, plasValue, speed) {
 		if (a === 0 && $(window).scrollTop() > oTop) {
 			$('.count').each(function (index) {
 
-				console.log(123)
 				var count = (!speed ? copyStart[index] : 0)
 				$(this).stop(true).prop({ 'Counter': count }).animate({
 					Counter: arrayForCountLimit[i]
@@ -265,7 +261,6 @@ function SvgLogic() {
 			// new_secend_path
 		)
 
-		// console.log($(window).width())
 	}
 	createFlexiblePath()
 	var changePath = 830
@@ -293,20 +288,12 @@ function SvgLogic() {
 
 			scrollPosition = $(document).scrollTop()
 			return true;
-			// console.log("scrolling from top")
 		}
 		else {
 			scrollPosition = $(document).scrollTop()
 			return false;
-			// console.log("scrolling From bottom")
 		}
 	}
-
-
-
-
-
-
 
 	var needToStop1 = true;
 	var needToStop2 = false;
@@ -351,8 +338,6 @@ function SvgLogic() {
 			}
 		}
 		var browserType = BrowserDetection();
-		console.log(browserType)
-
 
 		firstBreackpointPositionOnTop = ($(window).width() >= 1281) ? 625 : 576;
 		secendBreackpointPositionOnTop = $(window).width() < 1410 ? 1010 : 1050;
@@ -414,15 +399,12 @@ function SvgLogic() {
 
 		}
 
-		// console.log(14654545)
 
 		if ($(window).width() < 1536 && $(window).width() >= 1528) {
-			console.log(1)
 			if ($(".header__languagePicker__button").html() == "ru") {
 
 
 			} else {
-				console.log(2)
 				forthBreackpointPositionOnTop += 15
 			}
 		}
@@ -760,8 +742,6 @@ function SvgLogic() {
 	var canAnimate = true;
 	
 	function slowAnimate() {
-		// console.log($(window).scrollTop() > firstBreackpointPositionOnTop)
-
 		if ($(window).scrollTop() > firstBreackpointPositionOnTop+50 && canAnimate) {
 			countEfect(true, 0, 20000)
 			canAnimate = false;
@@ -772,8 +752,7 @@ function SvgLogic() {
 		slowAnimate()
 	if($(window).scrollTop() >= secendBreackpointPositionOnTop)
 		canAnimate = false;
-	// else if(){
-	// }
+
 	//_____________________________________________________________ SCROLLING !!!! __________________________________________________________ 
 
 	var globusPosition
@@ -878,12 +857,7 @@ function SvgLogic() {
 		if (event.wheelDelta) { (delta = event.wheelDelta / 120); }
 		else if (event.detail) { (delta = -event.detail / 3); }
 
-
-		// console.log($('html:animated , body:animated'))
-		// if(!$('html:animated , body:animated')){
-
 		handle(delta);
-		// }
 		if (event.preventDefault) { (event.preventDefault()); }
 		event.returnValue = false;
 	}
@@ -1071,7 +1045,6 @@ function SvgLogic() {
 
 				$(".gallery ").addClass('galleryShow')
 
-				console.log(1)
 				$(".gallery ").css({ 'opacity': '1' })
 
 				setTimeout(function () {
@@ -1170,9 +1143,7 @@ function SvgLogic() {
 
 
 	function drawLine(container, line, plasLnegth) {
-		// animateLineDrowing = animateLineDrowing || false
 
-		// console.log(plasLnegth)
 		if (plasLnegth != undefined && plasLnegth > 0) {
 			plasLnegth = plasLnegth
 		} else {
@@ -1195,7 +1166,6 @@ function SvgLogic() {
 				length = (percentDone * pathLength) / 0.45 - pathMinusPosition;
 			line.style.strokeDasharray = [length, pathLength].join(' ');
 
-			// console.log(length)
 
 			document.getElementById('first_path').style.strokeDasharray =
 				[document.getElementById('first_path').getTotalLength()
@@ -1431,18 +1401,14 @@ function mobileAnimations() {
 
 	if ($(document).scrollTop() >= oTop2) {
 		$('.tour').removeClass('mobileTopAnimation')
-		// console.log($(document).scrollTop())
 	}
 	oTop3 = $(".gallery").offset().top + $(document).scrollTop()
 	oTop3 /= 2.5
 
 	if ($(document).scrollTop() >= oTop3 && window.width < 1008) {
-		// $('.gallery').css({
-		// 	'transform': 'scale(1)'
-		// })
+
 		$(".gallery ").addClass('galleryShow')
 		$('.gallery').removeClass('mobileTopAnimation')
-		// console.log($(document).scrollTop())
 	}
 	if ($(document).scrollTop() >= oTop3 + 900) {
 		$('.unicue_services_content').css({ 'opacity': '1', 'margin-right': '0' })

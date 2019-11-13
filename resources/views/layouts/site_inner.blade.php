@@ -22,7 +22,7 @@ $types=TourType::all();
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui/jquery-ui.structure.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui/jquery-ui.theme.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     @yield('after_styles')
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/libs.min.js')}}"></script>
