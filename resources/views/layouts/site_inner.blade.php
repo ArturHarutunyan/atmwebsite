@@ -74,8 +74,7 @@ $types=TourType::all();
       </div>
 <div class="preloader_container">
     <picture>
-        <source srcset="{{asset('uploads/images/main/globus.webp')}}"/>
-        <source srcset="{{asset('uploads/images/main/globus.gif')}}"/>
+        <source type=”image/webp” srcset="{{asset('uploads/images/main/globus.webp')}}"/>
         <img class="not-intersection" src="{{asset('uploads/images/main/globus.gif')}}" alt="preloader"/>
     </picture>
 </div>
