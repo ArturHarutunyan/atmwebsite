@@ -66,14 +66,18 @@ $types=TourType::all();
 
       <!-- Your customer chat code -->
       <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="444238498961738"
-  theme_color="#0056b3"
-  logged_in_greeting="Բարի գալուստ Armenia Travel ..."
-  logged_out_greeting="Բարի գալուստ Armenia Travel ...">
+            attribution=setup_tool
+            page_id="444238498961738"
+            theme_color="#0056b3"
+            logged_in_greeting="Բարի գալուստ Armenia Travel ..."
+            logged_out_greeting="Բարի գալուստ Armenia Travel ...">
       </div>
 <div class="preloader_container">
-        <img class="not-intersection" src="{{asset('uploads/images/main/globus.gif')}}" alt="preloader">
+    <picture>
+        <source srcset="{{asset('uploads/images/main/globus.webp')}}"/>
+        <source srcset="{{asset('uploads/images/main/globus.gif')}}"/>
+        <img class="not-intersection" src="{{asset('uploads/images/main/globus.gif')}}" alt="preloader"/>
+    </picture>
 </div>
 <div id="MainBlock" style="visibility: hidden">
 <!-- header section -->
