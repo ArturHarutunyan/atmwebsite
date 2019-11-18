@@ -37,7 +37,7 @@ class MailerController extends Controller
             $mail->Username = "admin@epic.study";  // username
             $mail->Password = "dir.!!2266";            // password
 
-            $mail->setFrom($request->email, $request->subject);
+            $mail->setFrom($request->email, $request->email);
 
             $mail->Subject = "Armenia travel site contact form submited";
             $mail->IsHTML(true);
