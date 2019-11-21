@@ -457,7 +457,7 @@ return [
         // "sw" => "Swahili",
         // "sv_FI" => "Swedish (Finland)",
         // "sv_SE" => "Swedish (Sweden)",
-        // "sv" => "Swedish",
+        "sv" => "Swedish",
         // "gsw_CH" => "Swiss German (Switzerland)",
         // "gsw" => "Swiss German",
         // "shi_Latn" => "Tachelhit (Latin)",

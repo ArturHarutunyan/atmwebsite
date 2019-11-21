@@ -13,7 +13,8 @@ return [
     'locales' => [
         'en' => 'English',
         'ru' => 'Русский',
-        'de' => 'Deutsch'
+        'de' => 'Deutsch',
+        'se' => 'Swedish',
     ],
 
     /*
