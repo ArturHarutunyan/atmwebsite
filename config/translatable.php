@@ -14,7 +14,7 @@ return [
         'en' => 'English',
         'ru' => 'Русский',
         'de' => 'Deutsch',
-        'se' => 'Swedish',
+        'sv' => 'Svenska',
     ],
 
     /*
