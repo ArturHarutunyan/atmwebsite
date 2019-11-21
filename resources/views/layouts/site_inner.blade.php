@@ -102,7 +102,7 @@ $types=TourType::all();
             <ul class="header__list">
                 <li class="header__item header__mobile-languagePicker">
                     @foreach(config('translatable.locales') as $key=>$value)
-                        @if($key!==App::getLocale()&&$key!=='de')
+                        @if($key!==App::getLocale()&&($key=='en'||$key=='ru'))
                             <a href="{{route('lang.switch',['language'=>$key, 'hash'=>'#'])}}" class="header__mobile-languagePicker__link">{{$key}}</a>
                         @endif
                     @endforeach
@@ -132,7 +132,7 @@ $types=TourType::all();
                     </div>
                     <div id="header__languagePicker-dropDown" class="header__languagePicker__content show">
                         @foreach(config('translatable.locales') as $key=>$value)
-                            @if($key!==App::getLocale()&&$key!=='de')
+                            @if($key!==App::getLocale()&&($key=='en'||$key=='ru'))
                                 <a href="{{route('lang.switch',['language'=>$key, 'hash'=>'#'])}}" class="header__languagePicker__link">{{$key}}</a>
                             @endif
                         @endforeach
