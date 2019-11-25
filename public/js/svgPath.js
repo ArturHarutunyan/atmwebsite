@@ -55,7 +55,68 @@ function countEfect(needToAnimate, plasValue, speed) {
 	}
 }
 
+if ($(window).width() >= 1008) {
+	SvgLogic()
 
+	if ($(document).scrollTop() < 2) {
+		$('.mask').addClass("work_on_top")
+		$(".background_container").addClass('background_container_animation')
+		setTimeout(function () {
+			$('.banner__title').removeClass('hide_discover_with_armenia')
+			setTimeout(function () {
+				$('.svgContainer').css('opacity', '1')
+
+
+			}, 500)
+		}, 1000)
+		$('html').css({ 'margin-right': $.position.scrollbarWidth() + 'px' })
+		$('#headerBlock').css({
+			"padding-right": $.position.scrollbarWidth() + 'px',
+			'transition': 'all 0s'
+		})
+		$('.hiddenScrollbar').css({
+			'visibility': 'visible'
+
+
+		})
+	} else {
+		$('#headerBlock').css({
+			"padding-right": 0,
+			'transition': 'all 0.2s'
+		})
+		$('html,body').css({ 'margin-right': '0' })
+		$('.hiddenScrollbar').css({ 'visibility': 'hidden' })
+		$(".background_container").css({
+			"transition": 'all 0s linear',
+		})
+		$(".background_container").addClass('background_container_animation')
+
+		$("html , body").css("overflow-y", "visible")
+		$('.background_container').css('transition', 'all 0s linear')
+		$('.banner__title').removeClass('hide_discover_with_armenia')
+		$('.svgContainer').css({
+			"transition": 'all 0s linear',
+			'opacity': '1'
+		})
+		$('.banner__title').css('transition', 'all 0s linear')
+		$('.mask').addClass("work_on_top")
+		$('.mask').addClass("work_on_top_ready")
+	}
+
+
+} else {
+	$(".tour").removeClass("fullRigth")
+	$(".gallery ").removeClass("fullRigth")
+
+
+	// $(".about").css({
+	//     "transition": "all 0s linear",
+	//     'opacity' :1
+	// })
+	$('.banner__title').removeClass('hide_discover_with_armenia')
+
+	$('.animated').removeClass('testimonialsAnimation')
+}
 
 window.onpageshow = function () {
 
@@ -102,68 +163,7 @@ window.onpageshow = function () {
 	$('.preloader_container').remove();
 	document.getElementById("MainBlock").style.visibility = "visible";
 	// 
-	if ($(window).width() >= 1008) {
-		SvgLogic()
-
-		if ($(document).scrollTop() < 2) {
-			$('.mask').addClass("work_on_top")
-			$(".background_container").addClass('background_container_animation')
-			setTimeout(function () {
-				$('.banner__title').removeClass('hide_discover_with_armenia')
-				setTimeout(function () {
-					$('.svgContainer').css('opacity', '1')
-
-
-				}, 500)
-			}, 1000)
-			$('html').css({ 'margin-right': $.position.scrollbarWidth() + 'px' })
-			$('#headerBlock').css({
-				"padding-right": $.position.scrollbarWidth() + 'px',
-				'transition': 'all 0s'
-			})
-			$('.hiddenScrollbar').css({
-				'visibility': 'visible'
-
-
-			})
-		} else {
-			$('#headerBlock').css({
-				"padding-right": 0,
-				'transition': 'all 0.2s'
-			})
-			$('html,body').css({ 'margin-right': '0' })
-			$('.hiddenScrollbar').css({ 'visibility': 'hidden' })
-			$(".background_container").css({
-				"transition": 'all 0s linear',
-			})
-			$(".background_container").addClass('background_container_animation')
-
-			$("html , body").css("overflow-y", "visible")
-			$('.background_container').css('transition', 'all 0s linear')
-			$('.banner__title').removeClass('hide_discover_with_armenia')
-			$('.svgContainer').css({
-				"transition": 'all 0s linear',
-				'opacity': '1'
-			})
-			$('.banner__title').css('transition', 'all 0s linear')
-			$('.mask').addClass("work_on_top")
-			$('.mask').addClass("work_on_top_ready")
-		}
-
-
-	} else {
-		$(".tour").removeClass("fullRigth")
-		$(".gallery ").removeClass("fullRigth")
-
-
-		// $(".about").css({
-		//     "transition": "all 0s linear",
-		//     'opacity' :1
-		// })
-		$('.banner__title').removeClass('hide_discover_with_armenia')
-
-		$('.animated').removeClass('testimonialsAnimation')
-	}
+	
 
 	var animationBackgroundArmenia = document.querySelector(".background_container")
 	// Code for Chrome, Safari and Opera
@@ -869,24 +869,27 @@ function SvgLogic() {
 
 		var time = 200;
 		var distance = 350;
+		
 
-		if ($(window).scrollTop() + distance > firstBreackpointPositionOnTop && needToStop1) {
-			distance -= ($(window).scrollTop() + distance) - firstBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
-		} else if ($(window).scrollTop() + distance > secendBreackpointPositionOnTop && needToStop2) {
-			distance -= ($(window).scrollTop() + distance) - secendBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
-		} else if ($(window).scrollTop() + distance > thirdBreackpointPositionOnTop && needToStop3) {
-			distance -= ($(window).scrollTop() + distance) - thirdBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
-		} else if ($(window).scrollTop() + distance > forthBreackpointPositionOnTop && needToStop4) {
-			distance -= ($(window).scrollTop() + distance) - forthBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
 
-			freeScrolling = true;
+			if ($(window).scrollTop() + distance > firstBreackpointPositionOnTop && needToStop1) {
+				distance -= ($(window).scrollTop() + distance) - firstBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+			} else if ($(window).scrollTop() + distance > secendBreackpointPositionOnTop && needToStop2) {
+				distance -= ($(window).scrollTop() + distance) - secendBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+			} else if ($(window).scrollTop() + distance > thirdBreackpointPositionOnTop && needToStop3) {
+				distance -= ($(window).scrollTop() + distance) - thirdBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+			} else if ($(window).scrollTop() + distance > forthBreackpointPositionOnTop && needToStop4) {
+				distance -= ($(window).scrollTop() + distance) - forthBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+				freeScrolling = true;
+			}
+			if(distance < 1  )distance = 1.5;
+		
 
-		}
-
+		// console.log(distance)   
 		if (!scrollIsAnimated) {
 			scrollIsAnimated = true
 			$('html, body').stop().animate({
@@ -917,7 +920,6 @@ function SvgLogic() {
 	$(window).scroll(scrollHandling)
 
 	function scrollHandling(e) {
-
 
 
 
@@ -960,7 +962,6 @@ function SvgLogic() {
 		var scrollingFromTop = isScrollingToTop()
 		// gallery  tour  
 		if (scrollingFromTop) {
-
 			if ($(document).scrollTop() >= firstBreackpointPositionOnTop && needToStop1) {
 
 
