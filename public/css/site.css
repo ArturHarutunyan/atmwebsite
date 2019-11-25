@@ -3388,6 +3388,31 @@ svg.tursSVGLine path {
     -webkit-border-radius: 3px;
     border-radius: 3px; }
 
+
+
+/* modal positioning  */
+
+
+
+
+
+
+
+.fb_dialog.fb_dialog_advanced.fb_customer_chat_bubble_animated_no_badge.fb_customer_chat_bubble_pop_in {
+    right: initial !important;
+    left: calc(100vw - 72pt);
+}
+
+
+iframe.fb_customer_chat_bounce_in_v2 {
+    right: initial !important;
+    left: calc(100vw - 312pt);
+}
+
+
+/* modal positioning END */
+
+
 .armenia-sightseeing__article {
     width: 50%;
     padding-left: 30px; }
