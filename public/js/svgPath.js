@@ -853,6 +853,7 @@ function SvgLogic() {
 	// 	}, time);
 	// }
 	function wheel(event) {
+		event.stopImmediatePropagation()
 		var delta = 0;
 		if (event.wheelDelta) { (delta = event.wheelDelta / 120); }
 		else if (event.detail) { (delta = -event.detail / 3); }
