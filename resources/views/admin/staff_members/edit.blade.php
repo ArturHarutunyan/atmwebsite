@@ -27,20 +27,22 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="name_{{$lang}}">{{Lang::get('admin.staff_name',[],$lang)}}</label>
-                                <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$staff_member->getTranslation($lang)->name}}" class="form-control">
+                        @if($staff_member->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="name_{{$lang}}">{{Lang::get('admin.staff_name',[],$lang)}}</label>
+                                    <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$staff_member->getTranslation($lang)->name}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname_{{$lang}}">{{Lang::get('admin.surname',[],$lang)}}</label>
+                                    <input type="text" name="surname_{{$lang}}" id="surname_{{$lang}}" value="{{$staff_member->getTranslation($lang)->surname}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="position_{{$lang}}">{{Lang::get('admin.position',[],$lang)}}</label>
+                                    <input type="text" name="position_{{$lang}}" id="position_{{$lang}}" value="{{$staff_member->getTranslation($lang)->position}}" class="form-control">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="surname_{{$lang}}">{{Lang::get('admin.surname',[],$lang)}}</label>
-                                <input type="text" name="surname_{{$lang}}" id="surname_{{$lang}}" value="{{$staff_member->getTranslation($lang)->surname}}" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="position_{{$lang}}">{{Lang::get('admin.position',[],$lang)}}</label>
-                                <input type="text" name="position_{{$lang}}" id="position_{{$lang}}" value="{{$staff_member->getTranslation($lang)->position}}" class="form-control">
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

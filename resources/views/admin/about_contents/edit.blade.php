@@ -26,80 +26,82 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="company_content_{{$lang}}">{{Lang::get('admin.company_content',[],$lang)}}</label>
-                                <textarea id="company_content_{{$lang}}" class="ckeditor-content form-control" name="company_content_{{$lang}}">{{$about_content->getTranslation($lang)->company_content}}</textarea>
+                        @if($about_content->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="company_content_{{$lang}}">{{Lang::get('admin.company_content',[],$lang)}}</label>
+                                    <textarea id="company_content_{{$lang}}" class="ckeditor-content form-control" name="company_content_{{$lang}}">{{$about_content->getTranslation($lang)->company_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="our_projects_content_{{$lang}}">{{Lang::get('admin.our_projects_content',[],$lang)}}</label>
+                                    <textarea id="our_projects_content_{{$lang}}" class="ckeditor-content form-control" name="our_projects_content_{{$lang}}">{{$about_content->getTranslation($lang)->our_projects_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dmc_content_{{$lang}}">{{Lang::get('admin.dmc_content',[],$lang)}}</label>
+                                    <textarea id="dmc_content_{{$lang}}" class="ckeditor-content form-control" name="dmc_content_{{$lang}}">{{$about_content->getTranslation($lang)->dmc_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="excursion_content_{{$lang}}">{{Lang::get('admin.excursion_content',[],$lang)}}</label>
+                                    <textarea id="excursion_content_{{$lang}}" class="ckeditor-content form-control" name="excursion_content_{{$lang}}">{{$about_content->getTranslation($lang)->excursion_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="logistics_content_{{$lang}}">{{Lang::get('admin.logistics_content',[],$lang)}}</label>
+                                    <textarea id="logistics_content_{{$lang}}" class="ckeditor-content form-control" name="logistics_content_{{$lang}}">{{$about_content->getTranslation($lang)->logistics_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="special_events_content_{{$lang}}">{{Lang::get('admin.special_events_content',[],$lang)}}</label>
+                                    <textarea id="special_events_content_{{$lang}}" class="ckeditor-content form-control" name="special_events_content_{{$lang}}">{{$about_content->getTranslation($lang)->special_events_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="for_partners_content_{{$lang}}">{{Lang::get('admin.for_partners_content',[],$lang)}}</label>
+                                    <textarea id="for_partners_content_{{$lang}}" class="ckeditor-content form-control" name="for_partners_content_{{$lang}}">{{$about_content->getTranslation($lang)->for_partners_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login_password_content_{{$lang}}">{{Lang::get('admin.login_password_content',[],$lang)}}</label>
+                                    <textarea id="login_password_content_{{$lang}}" class="ckeditor-content form-control" name="login_password_content_{{$lang}}">{{$about_content->getTranslation($lang)->login_password_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="your_account_content_{{$lang}}">{{Lang::get('admin.your_account_content',[],$lang)}}</label>
+                                    <textarea id="your_account_content_{{$lang}}" class="ckeditor-content form-control" name="your_account_content_{{$lang}}">{{$about_content->getTranslation($lang)->your_account_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="special_content_{{$lang}}">{{Lang::get('admin.special_content',[],$lang)}}</label>
+                                    <textarea id="special_content_{{$lang}}" class="ckeditor-content form-control" name="special_content_{{$lang}}">{{$about_content->getTranslation($lang)->special_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_first_title_{{$lang}}">{{Lang::get('admin.why_me_first_title',[],$lang)}}</label>
+                                    <input type="text" name="why_me_first_title_{{$lang}}" id="why_me_first_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_first_title}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_first_content_{{$lang}}">{{Lang::get('admin.why_me_first_content',[],$lang)}}</label>
+                                    <textarea id="why_me_first_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_first_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_first_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_second_title_{{$lang}}">{{Lang::get('admin.why_me_second_title',[],$lang)}}</label>
+                                    <input type="text" name="why_me_second_title_{{$lang}}" id="why_me_second_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_second_title}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_second_content_{{$lang}}">{{Lang::get('admin.why_me_second_content',[],$lang)}}</label>
+                                    <textarea id="why_me_second_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_second_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_second_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_third_title_{{$lang}}">{{Lang::get('admin.why_me_third_title',[],$lang)}}</label>
+                                    <input type="text" name="why_me_third_title_{{$lang}}" id="why_me_third_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_third_title}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_third_content_{{$lang}}">{{Lang::get('admin.why_me_third_content',[],$lang)}}</label>
+                                    <textarea id="why_me_third_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_third_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_third_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_fourth_title_{{$lang}}">{{Lang::get('admin.why_me_fourth_title',[],$lang)}}</label>
+                                    <input type="text" name="why_me_fourth_title_{{$lang}}" id="why_me_fourth_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_fourth_title}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="why_me_fourth_content_{{$lang}}">{{Lang::get('admin.why_me_fourth_content',[],$lang)}}</label>
+                                    <textarea id="why_me_fourth_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_fourth_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_fourth_content}}</textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="our_projects_content_{{$lang}}">{{Lang::get('admin.our_projects_content',[],$lang)}}</label>
-                                <textarea id="our_projects_content_{{$lang}}" class="ckeditor-content form-control" name="our_projects_content_{{$lang}}">{{$about_content->getTranslation($lang)->our_projects_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="dmc_content_{{$lang}}">{{Lang::get('admin.dmc_content',[],$lang)}}</label>
-                                <textarea id="dmc_content_{{$lang}}" class="ckeditor-content form-control" name="dmc_content_{{$lang}}">{{$about_content->getTranslation($lang)->dmc_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="excursion_content_{{$lang}}">{{Lang::get('admin.excursion_content',[],$lang)}}</label>
-                                <textarea id="excursion_content_{{$lang}}" class="ckeditor-content form-control" name="excursion_content_{{$lang}}">{{$about_content->getTranslation($lang)->excursion_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="logistics_content_{{$lang}}">{{Lang::get('admin.logistics_content',[],$lang)}}</label>
-                                <textarea id="logistics_content_{{$lang}}" class="ckeditor-content form-control" name="logistics_content_{{$lang}}">{{$about_content->getTranslation($lang)->logistics_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="special_events_content_{{$lang}}">{{Lang::get('admin.special_events_content',[],$lang)}}</label>
-                                <textarea id="special_events_content_{{$lang}}" class="ckeditor-content form-control" name="special_events_content_{{$lang}}">{{$about_content->getTranslation($lang)->special_events_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="for_partners_content_{{$lang}}">{{Lang::get('admin.for_partners_content',[],$lang)}}</label>
-                                <textarea id="for_partners_content_{{$lang}}" class="ckeditor-content form-control" name="for_partners_content_{{$lang}}">{{$about_content->getTranslation($lang)->for_partners_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="login_password_content_{{$lang}}">{{Lang::get('admin.login_password_content',[],$lang)}}</label>
-                                <textarea id="login_password_content_{{$lang}}" class="ckeditor-content form-control" name="login_password_content_{{$lang}}">{{$about_content->getTranslation($lang)->login_password_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="your_account_content_{{$lang}}">{{Lang::get('admin.your_account_content',[],$lang)}}</label>
-                                <textarea id="your_account_content_{{$lang}}" class="ckeditor-content form-control" name="your_account_content_{{$lang}}">{{$about_content->getTranslation($lang)->your_account_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="special_content_{{$lang}}">{{Lang::get('admin.special_content',[],$lang)}}</label>
-                                <textarea id="special_content_{{$lang}}" class="ckeditor-content form-control" name="special_content_{{$lang}}">{{$about_content->getTranslation($lang)->special_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_first_title_{{$lang}}">{{Lang::get('admin.why_me_first_title',[],$lang)}}</label>
-                                <input type="text" name="why_me_first_title_{{$lang}}" id="why_me_first_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_first_title}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_first_content_{{$lang}}">{{Lang::get('admin.why_me_first_content',[],$lang)}}</label>
-                                <textarea id="why_me_first_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_first_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_first_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_second_title_{{$lang}}">{{Lang::get('admin.why_me_second_title',[],$lang)}}</label>
-                                <input type="text" name="why_me_second_title_{{$lang}}" id="why_me_second_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_second_title}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_second_content_{{$lang}}">{{Lang::get('admin.why_me_second_content',[],$lang)}}</label>
-                                <textarea id="why_me_second_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_second_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_second_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_third_title_{{$lang}}">{{Lang::get('admin.why_me_third_title',[],$lang)}}</label>
-                                <input type="text" name="why_me_third_title_{{$lang}}" id="why_me_third_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_third_title}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_third_content_{{$lang}}">{{Lang::get('admin.why_me_third_content',[],$lang)}}</label>
-                                <textarea id="why_me_third_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_third_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_third_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_fourth_title_{{$lang}}">{{Lang::get('admin.why_me_fourth_title',[],$lang)}}</label>
-                                <input type="text" name="why_me_fourth_title_{{$lang}}" id="why_me_fourth_title_{{$lang}}" class="form-control" value="{{$about_content->getTranslation($lang)->why_me_fourth_title}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="why_me_fourth_content_{{$lang}}">{{Lang::get('admin.why_me_fourth_content',[],$lang)}}</label>
-                                <textarea id="why_me_fourth_content_{{$lang}}" class="ckeditor-content form-control" name="why_me_fourth_content_{{$lang}}">{{$about_content->getTranslation($lang)->why_me_fourth_content}}</textarea>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

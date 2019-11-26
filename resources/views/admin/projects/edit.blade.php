@@ -27,12 +27,14 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                        @if($project->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
                             <div class="form-group">
                                 <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
                                 <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$project->getTranslation($lang)->name}}" class="form-control">
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

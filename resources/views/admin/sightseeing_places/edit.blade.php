@@ -27,16 +27,18 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
-                                <input type="text" id="name_{{$lang}}" name="name_{{$lang}}" class="form-control" value="{{$sightseeing_place->getTranslation($lang)->name}}">
+                        @if($sightseeing_place->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
+                                    <input type="text" id="name_{{$lang}}" name="name_{{$lang}}" class="form-control" value="{{$sightseeing_place->getTranslation($lang)->name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ckeditor-content_{{$lang}}">{{Lang::get('admin.description',[],$lang)}}</label>
+                                    <textarea id="ckeditor-content_{{$lang}}" class="ckeditor-content" name="description_{{$lang}}" class="form-control">{{$sightseeing_place->getTranslation($lang)->description}}</textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="ckeditor-content_{{$lang}}">{{Lang::get('admin.description',[],$lang)}}</label>
-                                <textarea id="ckeditor-content_{{$lang}}" class="ckeditor-content" name="description_{{$lang}}" class="form-control">{{$sightseeing_place->getTranslation($lang)->description}}</textarea>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

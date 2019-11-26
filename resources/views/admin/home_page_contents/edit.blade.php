@@ -27,20 +27,22 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="ckeditor-who_we_are_content_{{$lang}}">{{trans('admin.who_we_are_content')}}</label>
-                                <textarea id="ckeditor-who_we_are_content_{{$lang}}" class="ckeditor-content" name="who_we_are_content_{{$lang}}" class="form-control">{{$home_page_content->getTranslation($lang)->who_we_are_content}}</textarea>
+                        @if($home_page_content->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="ckeditor-who_we_are_content_{{$lang}}">{{trans('admin.who_we_are_content')}}</label>
+                                    <textarea id="ckeditor-who_we_are_content_{{$lang}}" class="ckeditor-content" name="who_we_are_content_{{$lang}}" class="form-control">{{$home_page_content->getTranslation($lang)->who_we_are_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ckeditor-the_best_tours_content_{{$lang}}">{{trans('admin.the_best_tours_content')}}</label>
+                                    <textarea id="ckeditor-the_best_tours_content_{{$lang}}" class="ckeditor-content" name="the_best_tours_content_{{$lang}}" class="form-control">{{$home_page_content->getTranslation($lang)->the_best_tours_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ckeditor-unique_services_content_{{$lang}}">{{trans('admin.unique_services_content')}}</label>
+                                    <textarea id="ckeditor-unique_services_content_{{$lang}}" class="ckeditor-content" name="unique_services_content_{{$lang}}" class="form-control">{{$home_page_content->getTranslation($lang)->unique_services_content}}</textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="ckeditor-the_best_tours_content_{{$lang}}">{{trans('admin.the_best_tours_content')}}</label>
-                                <textarea id="ckeditor-the_best_tours_content_{{$lang}}" class="ckeditor-content" name="the_best_tours_content_{{$lang}}" class="form-control">{{$home_page_content->getTranslation($lang)->the_best_tours_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="ckeditor-unique_services_content_{{$lang}}">{{trans('admin.unique_services_content')}}</label>
-                                <textarea id="ckeditor-unique_services_content_{{$lang}}" class="ckeditor-content" name="unique_services_content_{{$lang}}" class="form-control">{{$home_page_content->getTranslation($lang)->unique_services_content}}</textarea>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

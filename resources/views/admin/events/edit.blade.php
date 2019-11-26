@@ -29,16 +29,18 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
-                                <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$event->getTranslation($lang)->name}}" class="form-control">
+                        @if($event->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
+                                    <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$event->getTranslation($lang)->name}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description_{{$lang}}">{{Lang::get('admin.description',[],$lang)}}</label>
+                                    <textarea id="description_{{$lang}}" class="ckeditor-content" name="description_{{$lang}}" class="form-control">{{$event->getTranslation($lang)->description}}</textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="description_{{$lang}}">{{Lang::get('admin.description',[],$lang)}}</label>
-                                <textarea id="description_{{$lang}}" class="ckeditor-content" name="description_{{$lang}}" class="form-control">{{$event->getTranslation($lang)->description}}</textarea>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

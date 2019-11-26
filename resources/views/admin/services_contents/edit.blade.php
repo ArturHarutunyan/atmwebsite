@@ -26,7 +26,8 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                        @if($services_content->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
                             <div class="form-group">
                                 <label for="tour_packages_content_{{$lang}}">{{Lang::get('admin.tour_packages_content',[],$lang)}}</label>
                                 <textarea id="tour_packages_content_{{$lang}}" class="ckeditor-content form-control" name="tour_packages_content_{{$lang}}">{{$services_content->getTranslation($lang)->tour_packages_content}}</textarea>
@@ -80,6 +81,7 @@
                                 <textarea id="for_fit_content_{{$lang}}" class="ckeditor-content form-control" name="for_fit_content_{{$lang}}">{{$services_content->getTranslation($lang)->for_fit_content}}</textarea>
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

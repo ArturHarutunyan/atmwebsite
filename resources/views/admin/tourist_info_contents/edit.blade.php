@@ -26,24 +26,26 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="visa_content_{{$lang}}">{{Lang::get('admin.visa_content',[],$lang)}}</label>
-                                <textarea id="visa_content_{{$lang}}" class="ckeditor-content form-control" name="visa_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->visa_content}}</textarea>
+                        @if($tourist_info_content->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="visa_content_{{$lang}}">{{Lang::get('admin.visa_content',[],$lang)}}</label>
+                                    <textarea id="visa_content_{{$lang}}" class="ckeditor-content form-control" name="visa_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->visa_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="climate_content_{{$lang}}">{{Lang::get('admin.climate_content',[],$lang)}}</label>
+                                    <textarea id="climate_content_{{$lang}}" class="ckeditor-content form-control" name="climate_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->climate_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="currency_content_{{$lang}}">{{Lang::get('admin.currency_content',[],$lang)}}</label>
+                                    <textarea id="currency_content_{{$lang}}" class="ckeditor-content form-control" name="currency_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->currency_content}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="safety_content_{{$lang}}">{{Lang::get('admin.safety_content',[],$lang)}}</label>
+                                    <textarea id="safety_content_{{$lang}}" class="ckeditor-content form-control" name="safety_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->safety_content}}</textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="climate_content_{{$lang}}">{{Lang::get('admin.climate_content',[],$lang)}}</label>
-                                <textarea id="climate_content_{{$lang}}" class="ckeditor-content form-control" name="climate_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->climate_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="currency_content_{{$lang}}">{{Lang::get('admin.currency_content',[],$lang)}}</label>
-                                <textarea id="currency_content_{{$lang}}" class="ckeditor-content form-control" name="currency_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->currency_content}}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="safety_content_{{$lang}}">{{Lang::get('admin.safety_content',[],$lang)}}</label>
-                                <textarea id="safety_content_{{$lang}}" class="ckeditor-content form-control" name="safety_content_{{$lang}}">{{$tourist_info_content->getTranslation($lang)->safety_content}}</textarea>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">

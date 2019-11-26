@@ -27,20 +27,22 @@
                 </ul>
                 <div class="tab-content">
                     @foreach(array_keys(config('translatable.locales')) as $lang)
-                        <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
-                            <div class="form-group">
-                                <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
-                                <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$hotel->getTranslation($lang)->name}}" class="form-control">
+                        @if($hotel->hasTranslation($lang))
+                            <div id="{{$lang}}" class="tab-pane fade @if(App::isLocale($lang))in active @endif">
+                                <div class="form-group">
+                                    <label for="name_{{$lang}}">{{Lang::get('admin.name',[],$lang)}}</label>
+                                    <input type="text" name="name_{{$lang}}" id="name_{{$lang}}" value="{{$hotel->getTranslation($lang)->name}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address_{{$lang}}">{{Lang::get('admin.address',[],$lang)}}</label>
+                                    <input type="text" name="address_{{$lang}}" id="address_{{$lang}}" value="{{$hotel->getTranslation($lang)->address}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description_{{$lang}}">{{Lang::get('admin.description',[],$lang)}}</label>
+                                    <textarea id="description_{{$lang}}" class="ckeditor-content" name="description_{{$lang}}" class="form-control">{{$hotel->getTranslation($lang)->description}}</textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="address_{{$lang}}">{{Lang::get('admin.address',[],$lang)}}</label>
-                                <input type="text" name="address_{{$lang}}" id="address_{{$lang}}" value="{{$hotel->getTranslation($lang)->address}}" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="description_{{$lang}}">{{Lang::get('admin.description',[],$lang)}}</label>
-                                <textarea id="description_{{$lang}}" class="ckeditor-content" name="description_{{$lang}}" class="form-control">{{$hotel->getTranslation($lang)->description}}</textarea>
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="form-group">
