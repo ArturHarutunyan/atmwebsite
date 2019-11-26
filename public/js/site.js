@@ -1,8 +1,11 @@
+
+
 $ = jQuery.noConflict();
 hash = window.location.hash;
 $(".about-menu__link").click(function () {
     $("html , body").stop().animate(10000)
 });
+
 
 window.onload = function () {
     if (window.location.hash && (window.location.href.search('armenia#') > 0 || window.location.href.search('news#') > 0)) {

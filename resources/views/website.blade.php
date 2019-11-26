@@ -1,6 +1,9 @@
+
 @extends('layouts.site_inner', ['header_class' => ''])
+
 @section('before_styles')
 <link href="{{asset('css/svgStyle.css')}}" rel="stylesheet">
+
 @endsection
 @section('after_styles')
 <link href="{{asset('css/extra.css')}}" rel="stylesheet">
@@ -19,6 +22,7 @@
 @endsection
 
 @section('content')
+
 
 {{--<div style='position:absolute; height:0'>
 
@@ -45,6 +49,7 @@
         }
     </style>
 
+  
 
     <div class="wcitFicedIcon" style="
     width: 52px;
