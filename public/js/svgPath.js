@@ -2,13 +2,24 @@
 // --------------------------------------------- js svg code 
 // svg first head breakpoint
 
+
+
+
 var lastScrollPosition = 0
 var go_to_another_page = false;
 
-window.onbeforeunload = function () {
-	if (!go_to_another_page) {
-	}
-};
+
+
+
+
+
+// window.onbeforeunload = function () {
+	
+// 	if (!go_to_another_page) {
+// 	}
+// };
+
+
 
 function getOffset(element) {
 	var bound = element.getBoundingClientRect();
@@ -60,6 +71,72 @@ function countEfect(needToAnimate, plasValue, speed) {
 window.onpageshow = function () {
 
 
+
+	if ($(window).width() >= 1008) {
+		SvgLogic()
+	
+		if ($(document).scrollTop() < 2) {
+			$('.mask').addClass("work_on_top")
+			$(".background_container").addClass('background_container_animation')
+			setTimeout(function () {
+				$('.banner__title').removeClass('hide_discover_with_armenia')
+				setTimeout(function () {
+					$('.svgContainer').css('opacity', '1')
+	
+	
+				}, 500)
+			}, 1000)
+			$('html').css({ 'margin-right': $.position.scrollbarWidth() + 'px' })
+			$('#headerBlock').css({
+				"padding-right": $.position.scrollbarWidth() + 'px',
+				'transition': 'all 0s'
+			})
+			$('.hiddenScrollbar').css({
+				'visibility': 'visible'
+	
+	
+			})
+		} else {
+			$('#headerBlock').css({
+				"padding-right": 0,
+				'transition': 'all 0.2s'
+			})
+			$('html,body').css({ 'margin-right': '0' })
+			$('.hiddenScrollbar').css({ 'visibility': 'hidden' })
+			$(".background_container").css({
+				"transition": 'all 0s linear',
+			})
+			$(".background_container").addClass('background_container_animation')
+	
+			$("html , body").css("overflow-y", "visible")
+			$('.background_container').css('transition', 'all 0s linear')
+			$('.banner__title').removeClass('hide_discover_with_armenia')
+			$('.svgContainer').css({
+				"transition": 'all 0s linear',
+				'opacity': '1'
+			})
+			$('.banner__title').css('transition', 'all 0s linear')
+			$('.mask').addClass("work_on_top")
+			$('.mask').addClass("work_on_top_ready")
+		}
+	
+	
+	} else {
+		$(".tour").removeClass("fullRigth")
+		$(".gallery ").removeClass("fullRigth")
+	
+	
+		// $(".about").css({
+		//     "transition": "all 0s linear",
+		//     'opacity' :1
+		// })
+		$('.banner__title').removeClass('hide_discover_with_armenia')
+	
+		$('.animated').removeClass('testimonialsAnimation')
+	}
+	
+
+
 	document.body.style.minHeight = 5400 + 'px';
 	// title animation traing
 	$('.ml3').each(function () {
@@ -102,68 +179,7 @@ window.onpageshow = function () {
 	$('.preloader_container').remove();
 	document.getElementById("MainBlock").style.visibility = "visible";
 	// 
-	if ($(window).width() >= 1008) {
-		SvgLogic()
-
-		if ($(document).scrollTop() < 2) {
-			$('.mask').addClass("work_on_top")
-			$(".background_container").addClass('background_container_animation')
-			setTimeout(function () {
-				$('.banner__title').removeClass('hide_discover_with_armenia')
-				setTimeout(function () {
-					$('.svgContainer').css('opacity', '1')
-
-
-				}, 500)
-			}, 1000)
-			$('html').css({ 'margin-right': $.position.scrollbarWidth() + 'px' })
-			$('#headerBlock').css({
-				"padding-right": $.position.scrollbarWidth() + 'px',
-				'transition': 'all 0s'
-			})
-			$('.hiddenScrollbar').css({
-				'visibility': 'visible'
-
-
-			})
-		} else {
-			$('#headerBlock').css({
-				"padding-right": 0,
-				'transition': 'all 0.2s'
-			})
-			$('html,body').css({ 'margin-right': '0' })
-			$('.hiddenScrollbar').css({ 'visibility': 'hidden' })
-			$(".background_container").css({
-				"transition": 'all 0s linear',
-			})
-			$(".background_container").addClass('background_container_animation')
-
-			$("html , body").css("overflow-y", "visible")
-			$('.background_container').css('transition', 'all 0s linear')
-			$('.banner__title').removeClass('hide_discover_with_armenia')
-			$('.svgContainer').css({
-				"transition": 'all 0s linear',
-				'opacity': '1'
-			})
-			$('.banner__title').css('transition', 'all 0s linear')
-			$('.mask').addClass("work_on_top")
-			$('.mask').addClass("work_on_top_ready")
-		}
-
-
-	} else {
-		$(".tour").removeClass("fullRigth")
-		$(".gallery ").removeClass("fullRigth")
-
-
-		// $(".about").css({
-		//     "transition": "all 0s linear",
-		//     'opacity' :1
-		// })
-		$('.banner__title').removeClass('hide_discover_with_armenia')
-
-		$('.animated').removeClass('testimonialsAnimation')
-	}
+	
 
 	var animationBackgroundArmenia = document.querySelector(".background_container")
 	// Code for Chrome, Safari and Opera
@@ -280,9 +296,8 @@ function SvgLogic() {
 
 
 
-	var scrollPosition = $(document).scrollTop(),
-		scrollingFromTop,
-		scrollDistenceLimit
+	var scrollPosition = $(document).scrollTop();
+
 	function isScrollingToTop() {
 		if (scrollPosition < $(document).scrollTop()) {
 
@@ -853,13 +868,13 @@ function SvgLogic() {
 	// 	}, time);
 	// }
 	function wheel(event) {
+		if (event.preventDefault) { (event.preventDefault()); }
+		event.returnValue = false;
 		var delta = 0;
 		if (event.wheelDelta) { (delta = event.wheelDelta / 120); }
 		else if (event.detail) { (delta = -event.detail / 3); }
 
 		handle(delta);
-		if (event.preventDefault) { (event.preventDefault()); }
-		event.returnValue = false;
 	}
 
 
@@ -869,26 +884,29 @@ function SvgLogic() {
 
 		var time = 200;
 		var distance = 350;
+		
 
-		if ($(window).scrollTop() + distance > firstBreackpointPositionOnTop && needToStop1) {
-			distance -= ($(window).scrollTop() + distance) - firstBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
-		} else if ($(window).scrollTop() + distance > secendBreackpointPositionOnTop && needToStop2) {
-			distance -= ($(window).scrollTop() + distance) - secendBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
-		} else if ($(window).scrollTop() + distance > thirdBreackpointPositionOnTop && needToStop3) {
-			distance -= ($(window).scrollTop() + distance) - thirdBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
-		} else if ($(window).scrollTop() + distance > forthBreackpointPositionOnTop && needToStop4) {
-			distance -= ($(window).scrollTop() + distance) - forthBreackpointPositionOnTop;
-			distance < 0 ? distance = 0 : null;
 
-			freeScrolling = true;
+			if ($(window).scrollTop() + distance > firstBreackpointPositionOnTop && needToStop1) {
+				distance -= ($(window).scrollTop() + distance) - firstBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+			} else if ($(window).scrollTop() + distance > secendBreackpointPositionOnTop && needToStop2) {
+				distance -= ($(window).scrollTop() + distance) - secendBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+			} else if ($(window).scrollTop() + distance > thirdBreackpointPositionOnTop && needToStop3) {
+				distance -= ($(window).scrollTop() + distance) - thirdBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+			} else if ($(window).scrollTop() + distance > forthBreackpointPositionOnTop && needToStop4) {
+				distance -= ($(window).scrollTop() + distance) - forthBreackpointPositionOnTop;
+				distance < 0 ? distance = 0 : null;
+				freeScrolling = true;
+			}
+			if(distance < 1  )distance = 1.5;
+		
 
-		}
-
+		// console.log(distance)   
 		if (!scrollIsAnimated) {
-			scrollIsAnimated = true
+			scrollIsAnimated = true;
 			$('html, body').stop().animate({
 				scrollTop: canScrolling ? $(window).scrollTop() - (distance * delta) : lastScrollPosition
 			}, time, function () {
@@ -900,7 +918,6 @@ function SvgLogic() {
 
 
 		if (freeScrolling && $(window).scrollTop() >= forthBreackpointPositionOnTop) {
-
 
 			window.removeEventListener('mousewheel', wheel, false)
 			document.removeEventListener('mousewheel', wheel, false)
@@ -914,16 +931,14 @@ function SvgLogic() {
 	var isFirstStep = true;
 
 	// $(document).scrollDistenceLimit
-	$(window).scroll(scrollHandling)
-
+	// $(window).scroll(scrollHandling)
+	// is ok 
 	function scrollHandling(e) {
-
-
 
 
 		slowAnimate();
 
-
+		
 		if ($('html').css('overflow-y') == 'hidden') {
 			e.returnValue = false; /* IE */
 			e.stopImmediatePropagation();
@@ -958,9 +973,10 @@ function SvgLogic() {
 		// stop on breackpoints posiutions
 
 		var scrollingFromTop = isScrollingToTop()
-		// gallery  tour  
+		// gallery  tour 
+		
+		//is ok
 		if (scrollingFromTop) {
-
 			if ($(document).scrollTop() >= firstBreackpointPositionOnTop && needToStop1) {
 
 
@@ -1384,6 +1400,8 @@ function SvgLogic() {
 		})
 	}
 
+	
+
 
 }
 // ____________________________ animations on mibile time ______________________
@@ -1437,6 +1455,8 @@ function mobileAnimations() {
 
 }
 
+
+//is ok 
 $(document).ready(function () {
 	$(document).scroll(function () {
 		mobileAnimations()
