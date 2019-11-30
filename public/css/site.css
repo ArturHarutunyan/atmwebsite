@@ -3405,8 +3405,8 @@ svg.tursSVGLine path {
 
 
 iframe.fb_customer_chat_bounce_in_v2 {
-    right: initial !important;
-    left: calc(100vw - 312pt);
+    /* right: initial !important;
+    left: calc(100vw - 312pt); */
 }
 
 
