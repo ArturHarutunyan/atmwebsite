@@ -3404,10 +3404,7 @@ svg.tursSVGLine path {
 }
 
 
-iframe.fb_customer_chat_bounce_in_v2 {
-    /* right: initial !important;
-    left: calc(100vw - 312pt); */
-}
+
 
 
 /* modal positioning END */
@@ -4122,6 +4119,11 @@ some testing
         -webkit-box-shadow: 0px -186px 136px 40px #004270;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
         -moz-box-shadow:  0px -186px 136px 40px #004270;  /* Firefox 3.5 - 3.6 */
         position: relative;
+    }
+
+    iframe.fb_customer_chat_bounce_in_v2 {
+        right: initial !important;
+        left: calc(100vw - 312pt);
     }
 
 
