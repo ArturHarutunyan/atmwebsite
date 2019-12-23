@@ -216,5 +216,7 @@ return [
     "unique_services_content"=>"Unique services content",
     "upload_images"=>"Upload images",
     "cars"=>"Cars",
-    'wcit_orders'=>'WCIT orders'
+    'wcit_orders'=>'WCIT orders',
+    "or" => "or",
+    "video" => "Video"
 ];

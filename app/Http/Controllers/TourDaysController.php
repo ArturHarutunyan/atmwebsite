@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use App\Tour;
 use App\TourDay;
 use App\TourDayImage;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class TourDaysController extends Controller
@@ -138,10 +136,12 @@ class TourDaysController extends Controller
         $tour_day->tour_id=$request->tour_id;
         $tour_day->day_number=$request->day_number;
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $text_content='text_content_'.$locale;
-            $tour_day->getTranslation($locale)->slug = null;
-            $tour_day->getTranslation($locale)->text_content=$request->$text_content;
-            $tour_day->save();
+            if($tour_day->hasTranslation($locale)){
+                $text_content='text_content_'.$locale;
+                $tour_day->getTranslation($locale)->slug = null;
+                $tour_day->getTranslation($locale)->text_content=$request->$text_content;
+                $tour_day->save();
+            }
         }
         $tour_day->save();
         if($request->images_encoded){

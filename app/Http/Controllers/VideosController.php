@@ -47,7 +47,6 @@ class VideosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'source_code' => 'required',
             'image' => 'image',
         ]);
         $video=new Video;
@@ -59,6 +58,10 @@ class VideosController extends Controller
             unlink('uploads/videos/'.$image_new_name);
             imagepng($image,'uploads/videos/'.$imageName.".png");
             $video->image='uploads/videos/'.rawurlencode($imageName).".png";
+        }
+        if($request->video){
+            $video_new_name=time().$request->video->getClientOriginalName();
+            $request->video->move('uploads/videos',$video_new_name);
         }
         $video->source_code=$request->source_code;
         foreach (array_keys(config('translatable.locales')) as $locale) {
@@ -104,7 +107,6 @@ class VideosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'source_code' => 'required',
             'image' => 'image'
         ]);
         $video=Video::find($id);
@@ -123,6 +125,16 @@ class VideosController extends Controller
             unlink('uploads/videos/'.$image_new_name);
             imagepng($image,'uploads/videos/'.$imageName.".png");
             $video->image='uploads/videos/'.rawurlencode($imageName).".png";
+        }
+        if($request->hasFile('video'))
+        {
+            $oldVideo = public_path("uploads/videos/{$video->video}");
+            if (File::exists($oldVideo)) {
+                unlink($oldVideo);
+            }
+            $video_new_name=time().$request->video->getClientOriginalName();
+            $request->video->move('uploads/videos',$video_new_name);
+            $video->video='uploads/videos/'.rawurlencode($video_new_name);
         }
         $video->source_code=$request->source_code;
         foreach (array_keys(config('translatable.locales')) as $locale) {

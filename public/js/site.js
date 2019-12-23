@@ -1,11 +1,8 @@
-
-
 $ = jQuery.noConflict();
 hash = window.location.hash;
 $(".about-menu__link").click(function () {
     $("html , body").stop().animate(10000)
 });
-
 
 window.onload = function () {
     if (window.location.hash && (window.location.href.search('armenia#') > 0 || window.location.href.search('news#') > 0)) {
@@ -18,6 +15,7 @@ window.onload = function () {
 }
 
 //----------------------Intersection Observer Start------------------------
+
 document.addEventListener("DOMContentLoaded", function () {
     var lazyloadImages;
     if ("IntersectionObserver" in window) {
@@ -63,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("orientationChange", lazyload);
     }
 });
+
 //----------------------Intersection Observer End--------------------------
 
 $(document).ready(function () {
@@ -570,13 +569,9 @@ $(document).ready(function () {
     var pageScrollTop = $(window).scrollTop()
     $('a[href^="#"]').on('mousedown', function (e) {
         pageScrollTop = $(window).scrollTop()
-    })
+    });
     $('a[href^="#"]').on('click', function (e) {
-
         $(window).scrollTop(pageScrollTop);
-
-
-
         var scrollTop = $(window).scrollTop();
         $(document).scrollTo(scrollTop);
         e.stopPropagation();
@@ -891,6 +886,7 @@ $(document).ready(function () {
 function dropdown_function() {
     document.getElementById("header__languagePicker-dropDown").classList.toggle("header__languagePicker__show");
 }
+
 function modalOpen(id, table_name, image, locale) {
     $.ajaxSetup({
         headers: {
@@ -912,11 +908,19 @@ function modalOpen(id, table_name, image, locale) {
                 else if (table_name == 'video') {
                     $('#exampleModalCenter').find('.modal-image').hide();
                     $('#exampleModalCenter').find('.video_div').remove();
-                    $('#exampleModalCenter').find('.modal-content').children('div').eq(0).append(`
-                        <div class="video_div">`
-                        + data.source_code +
-                        `</div>
-                    `);
+                    if(data.video){
+                        $('#exampleModalCenter').find('.modal-content').children('div').eq(0).append(`
+                            <video width="400" controls>
+                                <source src="${data.video}" type="video"/>
+                                Your browser does not support HTML5 video.
+                            </video>`
+                        );
+                    }
+                    else if(data.source_code){
+                        $('#exampleModalCenter').find('.modal-content').children('div').eq(0).append(`
+                            <div class="video_div">${data.source_code}</div>
+                        `);
+                    }
                 }
                 if (table_name == 'video') {
                     $('#exampleModalCenter').find('.armenia-modal__title').html(data.title);
@@ -943,6 +947,7 @@ function modalOpen(id, table_name, image, locale) {
         }
     });
 }
+
 function send_hotel_request(request) {
     $.ajaxSetup({
         headers: {
@@ -991,7 +996,8 @@ function toggle_view_text(id) {
 function toggleStaffMembers() {
     $('.about-team__toggleable').toggleClass('about-team__hidden');
 }
-// Close the dropdown menu if the user clicks outside of it
+
+// Close the dropdown menu if the user clicks outside it
 window.onclick = function (event) {
     if (!(event.target.matches('.header__languagePicker') || event.target.matches('.header__languagePicker__button'))) {
         var dropdowns = document.getElementsByClassName("header__languagePicker__content");

@@ -113,10 +113,6 @@ class PartnersController extends Controller
             }
             $partner_image_new_name=time().$request->partner_image->getClientOriginalName();
             $request->partner_image->move('uploads/partners',$partner_image_new_name);
-            //$partner_image=resize_image('uploads/partners/'.$partner_image_new_name,500,500);
-            //$partner_imageName = substr($partner_image_new_name,0,strpos($partner_image_new_name,"."));
-            //unlink('uploads/partners/'.$partner_image_new_name);
-            //imagepng($partner_image,'uploads/partners/'.$partner_imageName.".png");
             $partner->partner_image='uploads/partners/'.rawurlencode($partner_image_new_name);
         }
         $partner->name=$request->name;

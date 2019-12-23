@@ -215,4 +215,6 @@
      "upload_images"=>"Upload images",
      "cars"=>"Cars",
      'wcit_orders'=>'WCIT Orders',
+     "or" => "or",
+     "video" => "Video"
  ];

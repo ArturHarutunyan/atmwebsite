@@ -50,6 +50,11 @@
                     @endif
                     <input type="file" name="image" id="image" class="form-control">
                 </div>
+                <p>{{trans('admin.or')}}</p>
+                <div class="form-group">
+                    <label for="video">{{trans('admin.video')}}</label>
+                    <input type="file" name="video" id="video" class="form-control">
+                </div>
                 <div class="form-group">
                     <div class="text-center">
                         <button class="btn btn-success" type="submit">{{trans('admin.update')}}</button>
