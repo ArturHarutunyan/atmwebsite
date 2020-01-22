@@ -62,9 +62,11 @@ class NewsController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $news->translateOrNew($locale)->title= $request->$title;
-            $news->translateOrNew($locale)->text_content = $request->$text_content;
+            if($request->$title) {
+                $text_content = 'text_content_' . $locale;
+                $news->translateOrNew($locale)->title = $request->$title;
+                $news->translateOrNew($locale)->text_content = $request->$text_content;
+            }
         }
         $news->save();
 
@@ -133,12 +135,14 @@ class NewsController extends Controller
             $news->image='uploads/news/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $news->getTranslation($locale)->slug = null;
-            $news->getTranslation($locale)->title=$request->$title;
-            $news->getTranslation($locale)->text_content=$request->$text_content;
-            $news->save();
+            if($news->hasTranslation($locale)) {
+                $title = 'title_' . $locale;
+                $text_content = 'text_content_' . $locale;
+                $news->getTranslation($locale)->slug = null;
+                $news->getTranslation($locale)->title = $request->$title;
+                $news->getTranslation($locale)->text_content = $request->$text_content;
+                $news->save();
+            }
         }
         $news->save();
         Session::flash('success', 'News updated successfully');

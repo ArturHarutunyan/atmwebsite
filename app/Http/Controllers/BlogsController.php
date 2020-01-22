@@ -61,10 +61,12 @@ class BlogsController extends Controller
             $blog->image='uploads/blogs/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $blog->translateOrNew($locale)->title= $request->$title;
-            $blog->translateOrNew($locale)->text_content = $request->$text_content;
+            $title = 'title_' . $locale;
+            if($request->$title) {
+                $text_content = 'text_content_' . $locale;
+                $blog->translateOrNew($locale)->title = $request->$title;
+                $blog->translateOrNew($locale)->text_content = $request->$text_content;
+            }
         }
         $blog->save();
 
@@ -132,12 +134,14 @@ class BlogsController extends Controller
             $blog->image='uploads/blogs/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $blog->getTranslation($locale)->slug = null;
-            $blog->getTranslation($locale)->title=$request->$title;
-            $blog->getTranslation($locale)->text_content=$request->$text_content;
-            $blog->save();
+            if($blog->hasTranslation($locale)) {
+                $title = 'title_' . $locale;
+                $text_content = 'text_content_' . $locale;
+                $blog->getTranslation($locale)->slug = null;
+                $blog->getTranslation($locale)->title = $request->$title;
+                $blog->getTranslation($locale)->text_content = $request->$text_content;
+                $blog->save();
+            }
         }
         $blog->save();
         Session::flash('success', 'Blog updated successfully');

@@ -96,7 +96,9 @@ class ToursController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $name='name_'.$locale;
-            $tour->translateOrNew($locale)->name = $request->$name;
+            if($request->$name) {
+                $tour->translateOrNew($locale)->name = $request->$name;
+            }
         }
         $tour->save();
         $tour->tour_types()->attach($request->types);
@@ -200,10 +202,12 @@ class ToursController extends Controller
         $tour->hotel_id=$request->hotel_id;
         $tour->save();
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $name='name_'.$locale;
-            $tour->getTranslation($locale)->slug = null;
-            $tour->getTranslation($locale)->name=$request->$name;
-            $tour->save();
+            if($tour->hasTranslation($locale)) {
+                $name = 'name_' . $locale;
+                $tour->getTranslation($locale)->slug = null;
+                $tour->getTranslation($locale)->name = $request->$name;
+                $tour->save();
+            }
         }
         Session::flash('success', 'Tour updated successfully');
         return redirect()->route('tours');

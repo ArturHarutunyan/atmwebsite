@@ -13,6 +13,7 @@ use App\Testimonial;
 use App\PageName;
 use App\Trustee;
 use App\Certificate;
+use App;
 use MetaTag;
 
 class WebsiteNewsController extends Controller
@@ -25,13 +26,13 @@ class WebsiteNewsController extends Controller
     public function index()
     {
         $page_names=PageName::all();
-        return view('news')->with('news', News::orderBy('id', 'desc')->get())
-            ->with('blogs', Blog::orderBy('id','desc')->get())
-            ->with('testimonials', Testimonial::orderBy('id','desc')->get())
-            ->with('certificates', Certificate::orderBy('id','desc')->get())
-            ->with('trustees', Trustee::orderBy('id','desc')->get())
-            ->with('photos', Photo::orderBy('id','desc')->get())
-            ->with('videos', Video::orderBy('id','desc')->get())
+        return view('news')->with('news', News::translatedIn(App::getLocale())->orderBy('id', 'desc')->get())
+            ->with('blogs', Blog::translatedIn(App::getLocale())->orderBy('id','desc')->get())
+            ->with('testimonials', Testimonial::translatedIn(App::getLocale())->orderBy('id','desc')->get())
+            ->with('certificates', Certificate::translatedIn(App::getLocale())->orderBy('id','desc')->get())
+            ->with('trustees', Trustee::translatedIn(App::getLocale())->orderBy('id','desc')->get())
+            ->with('photos', Photo::translatedIn(App::getLocale())->orderBy('id','desc')->get())
+            ->with('videos', Video::translatedIn(App::getLocale())->orderBy('id','desc')->get())
             ->with('partners', Partner::all())
             ->with('custom_meta_tags', CustomMetaTag::whereHas('page_names', function($q) use($page_names) {
                 $q->whereIn('name', ['news']);

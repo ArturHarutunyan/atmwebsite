@@ -19,7 +19,7 @@
             <h2>
                 {{trans('admin.edit_the_tour_day')}}
             </h2>
-            <form id="main-form" action="{{route('tour_day.update',['id'=>$tour_day->id])}}" method="post">
+            <form id="mainForm" action="{{route('tour_day.update',['id'=>$tour_day->id])}}" method="post">
                 {{ csrf_field() }}
                 <ul class="nav nav-tabs">
                     @foreach(config('translatable.locales') as $key=>$value)
@@ -80,7 +80,7 @@
             </div>
             <div class="form-group">
                 <div class="text-center">
-                    <button class="btn btn-success" id="main_submit" type="submit" form="main-form">{{trans('admin.update')}}</button>
+                    <button class="btn btn-success" id="main_submit" type="submit" form="mainForm">{{trans('admin.update')}}</button>
                 </div>
             </div>
         </div>
@@ -104,17 +104,20 @@
         parallelUploads: 100,
         init: function() {
             var self=this;
-            var mainForm = document.getElementById('main-form');
+            var mainForm = document.getElementById('mainForm');
             mainForm.addEventListener("submit", function (event) {
                 event.preventDefault();
                 var c=0;
                 files.length=0;
-                for (var i = 0; i < self.files.length; i++) {
-                    let f= new FormData();
-                    f.append('file',self.files[i]);
-                    c=i;
-                    axios.post("{{route('tour_day.add_image')}}", f)
-                        .then((response) => {
+                if(!self.files.length){
+                    mainForm.submit();
+                }
+                else{
+                    for (var i = 0; i < self.files.length; i++) {
+                        let f= new FormData();
+                        f.append('file',self.files[i]);
+                        c=i;
+                        axios.post("{{route('tour_day.add_image')}}", f).then((response) => {
                             if(response.data){
                                 files.push(JSON.stringify(response.data));
                                 $('[name="images_encoded"]').val(JSON.stringify(files));
@@ -123,6 +126,7 @@
                                 }
                             }
                         });
+                    }
                 }
             });
         }

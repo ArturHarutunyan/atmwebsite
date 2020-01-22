@@ -86,8 +86,10 @@ class TourDaysController extends Controller
             'day_number'=>$request->day_number,
         ]);
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $text_content='text_content_'.$locale;
-            $tour_day->translateOrNew($locale)->text_content = $request->$text_content;
+            $text_content = 'text_content_' . $locale;
+            if($request->$text_content) {
+                $tour_day->translateOrNew($locale)->text_content = $request->$text_content;
+            }
         }
         $tour_day->save();
         if($request->images_encoded){

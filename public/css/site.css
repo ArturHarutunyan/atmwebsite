@@ -3088,7 +3088,7 @@ a:hover, a:focus{
 	-webkit-animation-duration: 13.5s;
 	animation-name: fade;
 	animation-duration: 13.5s;
-} */
+}
 @-webkit-keyframes fade {
 	from {opacity: .9}
 	to {opacity: 1}
@@ -3108,7 +3108,9 @@ div{
 }
 
 .tours_slider_container .slider img{
-    object-fit: cover !important;
+    object-fit: cover;
+    object-position: bottom;
+    max-height: 500px;
 }
 .controls{
 	position: absolute;
@@ -3231,9 +3233,8 @@ svg.firstPathTur path{
 .tourInner-content__text p:first-child,
 .tourInner-content__text h2:first-child,
 .tourInner-content__text h3:first-child{
-    max-height: 30px !important;  
-    
-    
+    max-height: unset!important;
+    line-height: 18px;
 }
 .tourInner-content__aside{
     width:100% ;
@@ -3241,8 +3242,6 @@ svg.firstPathTur path{
 .turs_items_container > div{
     width: 39%;
 }
-
-
 svg.tursSVGLine{
     display: block;
     max-width: 100px;
