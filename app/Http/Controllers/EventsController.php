@@ -62,9 +62,11 @@ class EventsController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $name='name_'.$locale;
-            $description='description_'.$locale;
-            $event->translateOrNew($locale)->name = $request->$name;
-            $event->translateOrNew($locale)->description = $request->$description;
+            if($request->$name) {
+                $description = 'description_' . $locale;
+                $event->translateOrNew($locale)->name = $request->$name;
+                $event->translateOrNew($locale)->description = $request->$description;
+            }
         }
         $event->save();
 
@@ -128,11 +130,13 @@ class EventsController extends Controller
         }
         $event->date=strtotime($request->date);
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $name='name_'.$locale;
-            $description='description_'.$locale;
-            $event->getTranslation($locale)->name=$request->$name;
-            $event->getTranslation($locale)->description=$request->$description;
-            $event->save();
+            if($event->hasTranslation($locale)) {
+                $name = 'name_' . $locale;
+                $description = 'description_' . $locale;
+                $event->getTranslation($locale)->name = $request->$name;
+                $event->getTranslation($locale)->description = $request->$description;
+                $event->save();
+            }
         }
         $event->save();
         Session::flash('success', 'Event updated successfully');

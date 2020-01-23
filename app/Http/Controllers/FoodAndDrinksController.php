@@ -57,9 +57,11 @@ class FoodAndDrinksController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $name='name_'.$locale;
-            $description='description_'.$locale;
-            $food_and_drink->translateOrNew($locale)->name = $request->$name;
-            $food_and_drink->translateOrNew($locale)->description = $request->$description;
+            if($request->$name) {
+                $description = 'description_' . $locale;
+                $food_and_drink->translateOrNew($locale)->name = $request->$name;
+                $food_and_drink->translateOrNew($locale)->description = $request->$description;
+            }
         }
         $food_and_drink->save();
 
@@ -111,11 +113,13 @@ class FoodAndDrinksController extends Controller
             $food_and_drink->image='uploads/food_and_drinks/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $name='name_'.$locale;
-            $description='description_'.$locale;
-            $food_and_drink->getTranslation($locale)->name=$request->$name;
-            $food_and_drink->getTranslation($locale)->description=$request->$description;
-            $food_and_drink->save();
+            if($food_and_drink->hasTranslation($locale)) {
+                $name = 'name_' . $locale;
+                $description = 'description_' . $locale;
+                $food_and_drink->getTranslation($locale)->name = $request->$name;
+                $food_and_drink->getTranslation($locale)->description = $request->$description;
+                $food_and_drink->save();
+            }
         }
         $food_and_drink->save();
         Session::flash('success', 'Food/Drink updated successfully');

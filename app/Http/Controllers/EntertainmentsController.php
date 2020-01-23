@@ -57,9 +57,11 @@ class EntertainmentsController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $name='name_'.$locale;
-            $description='description_'.$locale;
-            $entertainment->translateOrNew($locale)->name = $request->$name;
-            $entertainment->translateOrNew($locale)->description = $request->$description;
+            if($request->$name) {
+                $description = 'description_' . $locale;
+                $entertainment->translateOrNew($locale)->name = $request->$name;
+                $entertainment->translateOrNew($locale)->description = $request->$description;
+            }
         }
         $entertainment->save();
 
@@ -107,12 +109,14 @@ class EntertainmentsController extends Controller
             $entertainment->image='uploads/entertainments/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $name='name_'.$locale;
-            $description='description_'.$locale;
-            $entertainment->getTranslation($locale)->slug = null;
-            $entertainment->getTranslation($locale)->name=$request->$name;
-            $entertainment->getTranslation($locale)->description=$request->$description;
-            $entertainment->save();
+            if($entertainment->hasTranslation($locale)) {
+                $name = 'name_' . $locale;
+                $description = 'description_' . $locale;
+                $entertainment->getTranslation($locale)->slug = null;
+                $entertainment->getTranslation($locale)->name = $request->$name;
+                $entertainment->getTranslation($locale)->description = $request->$description;
+                $entertainment->save();
+            }
         }
         $entertainment->save();
         Session::flash('success', 'Entertainment updated successfully');

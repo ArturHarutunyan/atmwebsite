@@ -66,7 +66,9 @@ class VideosController extends Controller
         $video->source_code=$request->source_code;
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $title='title_'.$locale;
-            $video->translateOrNew($locale)->title=$request->$title;
+            if($request->$title) {
+                $video->translateOrNew($locale)->title = $request->$title;
+            }
         }
         $video->save();
 
@@ -138,10 +140,12 @@ class VideosController extends Controller
         }
         $video->source_code=$request->source_code;
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $video->getTranslation($locale)->slug = null;
-            $video->getTranslation($locale)->title=$request->$title;
-            $video->save();
+            if($video->hasTranslation($locale)) {
+                $title='title_'.$locale;
+                $video->getTranslation($locale)->slug = null;
+                $video->getTranslation($locale)->title=$request->$title;
+                $video->save();
+            }
         }
         $video->save();
         Session::flash('success', 'Video updated successfully');

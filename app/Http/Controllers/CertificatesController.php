@@ -62,9 +62,11 @@ class CertificatesController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $certificate->translateOrNew($locale)->title= $request->$title;
-            $certificate->translateOrNew($locale)->text_content = $request->$text_content;
+            if($request->$title) {
+                $text_content = 'text_content_' . $locale;
+                $certificate->translateOrNew($locale)->title = $request->$title;
+                $certificate->translateOrNew($locale)->text_content = $request->$text_content;
+            }
         }
         $certificate->save();
 
@@ -125,12 +127,14 @@ class CertificatesController extends Controller
             $certificate->image='uploads/certificates/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $certificate->getTranslation($locale)->slug = null;
-            $certificate->getTranslation($locale)->title=$request->$title;
-            $certificate->getTranslation($locale)->text_content=$request->$text_content;
-            $certificate->save();
+            if($certificate->hasTranslation($locale)) {
+                $title = 'title_' . $locale;
+                $text_content = 'text_content_' . $locale;
+                $certificate->getTranslation($locale)->slug = null;
+                $certificate->getTranslation($locale)->title = $request->$title;
+                $certificate->getTranslation($locale)->text_content = $request->$text_content;
+                $certificate->save();
+            }
         }
         $certificate->save();
         Session::flash('success', 'Certificate data updated successfully');

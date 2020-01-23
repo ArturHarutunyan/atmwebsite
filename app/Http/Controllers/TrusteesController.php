@@ -62,9 +62,11 @@ class TrusteesController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $trustee->translateOrNew($locale)->title= $request->$title;
-            $trustee->translateOrNew($locale)->text_content = $request->$text_content;
+            if($request->$title) {
+                $text_content = 'text_content_' . $locale;
+                $trustee->translateOrNew($locale)->title = $request->$title;
+                $trustee->translateOrNew($locale)->text_content = $request->$text_content;
+            }
         }
         $trustee->save();
 
@@ -132,12 +134,14 @@ class TrusteesController extends Controller
             $trustee->image='uploads/trustees/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $text_content='text_content_'.$locale;
-            $trustee->getTranslation($locale)->slug = null;
-            $trustee->getTranslation($locale)->title=$request->$title;
-            $trustee->getTranslation($locale)->text_content=$request->$text_content;
-            $trustee->save();
+            if($trustee->hasTranslation($locale)) {
+                $title = 'title_' . $locale;
+                $text_content = 'text_content_' . $locale;
+                $trustee->getTranslation($locale)->slug = null;
+                $trustee->getTranslation($locale)->title = $request->$title;
+                $trustee->getTranslation($locale)->text_content = $request->$text_content;
+                $trustee->save();
+            }
         }
         $trustee->save();
         Session::flash('success', 'Trustee data updated successfully');

@@ -61,7 +61,9 @@ class PhotosController extends Controller
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
             $title='title_'.$locale;
-            $photo->translateOrNew($locale)->title=$request->$title;
+            if($request->$title) {
+                $photo->translateOrNew($locale)->title = $request->$title;
+            }
         }
         $photo->save();
 
@@ -122,10 +124,12 @@ class PhotosController extends Controller
             $photo->image='uploads/photos/'.rawurlencode($imageName).".png";
         }
         foreach (array_keys(config('translatable.locales')) as $locale) {
-            $title='title_'.$locale;
-            $photo->getTranslation($locale)->slug = null;
-            $photo->getTranslation($locale)->title=$request->$title;
-            $photo->save();
+            if($photo->hasTranslation($locale)) {
+                $title = 'title_' . $locale;
+                $photo->getTranslation($locale)->slug = null;
+                $photo->getTranslation($locale)->title = $request->$title;
+                $photo->save();
+            }
         }
         $photo->save();
         Session::flash('success', 'Photo updated successfully');
