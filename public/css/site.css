@@ -3235,6 +3235,7 @@ svg.firstPathTur path{
 .tourInner-content__text h3:first-child{
     max-height: unset!important;
     line-height: 18px;
+    font-weight: bold;
 }
 .tourInner-content__aside{
     width:100% ;
